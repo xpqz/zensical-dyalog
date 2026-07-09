@@ -91,6 +91,16 @@ before investing in feature parity. If the incremental rebuild is not materially
 MkDocs on the same flattened tree, the premise fails and we stop or reconsider before doing
 the feature work. Feature-parity phases (2, 4, 5) only proceed once this gate is passed.
 
+Result (measured, Zensical 0.0.48, 528-page subset; the full corpus OOMs in the 7.7 GB
+working sandbox): cold build 12.68s / 530 pages (~24 ms/page, extrapolating to ~73s for the
+full corpus), warm no-change rebuild ~3s, incremental rebuild after a one-page edit ~1.9s (a
+true differential rebuild). Verdict: GO. The ~2s author edit loop is within target and
+compares against MkDocs rebuilding the whole site (~60 min) on every edit. Condition: peak
+memory scales roughly linearly (~2,348 MB for 528 pages, extrapolating to ~13.5 GB for the
+full corpus) and is not reduced by RAYON_NUM_THREADS, so the full build requires a machine
+with at least 16 GB RAM. Bonus: Zensical ships built-in link/anchor checking, which may cover
+part of what the reused link-checkers do.
+
 ## Reuse existing tooling
 The repo already ships link/QA scripts under `/workspace/documentation/tools/utils/`:
 `check_links.py`, `dangling_links.py`, `find_orphans.py`, `find_ghost_pages.py`,
@@ -232,6 +242,9 @@ Goal: build the whole generated project with Zensical from `zensical.toml`.
 - Reconcile module names in `zensical.toml`: `search`, `privacy`, `macros`, `minify` map to
   committed Zensical modules; `monorepo`/`site-urls`/`caption` are already removed or deferred.
 - Resolve extension-loading errors surfaced in Phase 2 (especially `markdown_tables_extended`).
+Build environment: the full-corpus build needs at least 16 GB RAM (peak ~13.5 GB, measured by
+extrapolation in Phase 1a); the 7.7 GB working sandbox OOMs, so full builds run on CI or a
+larger machine. Size the CI runner accordingly.
 Demo/verify: `zensical build` of all ~3,050 files succeeds; run the link-checkers; spot-diff a
 sampled page per sub-project against the MkDocs output of the same tree. Record the
 differential-build time to show the win that motivated dropping the monorepo.
