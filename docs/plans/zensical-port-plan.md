@@ -114,12 +114,15 @@ flatten and the engine swap rather than writing new checkers.
 
 ## Delivery model: the out-of-place conversion script
 The flatten and config conversion are performed by a single Python script, not by hand, and
-run out-of-place: it reads the monorepo at `/workspace/documentation/` (read-only) and writes
-the flattened project into a separate output directory, `/workspace/zensical-dyalog/` (the
-repo [xpqz/zensical-dyalog](https://github.com/xpqz/zensical-dyalog), default branch `main`).
-The source repo is never mutated. The script hardcodes the
+run out-of-place: it reads the monorepo checkout (read-only, a sibling directory named
+`documentation/`) and writes the flattened project into the self-contained `zensical/`
+directory of the output repo [xpqz/zensical-dyalog](https://github.com/xpqz/zensical-dyalog)
+(default branch `main`). The script owns `zensical/` wholesale and regenerates it on every
+run; it writes nowhere else, so the output repo's own documents under `docs/` can never
+collide with generated content. The source repo is never mutated. The script hardcodes the
 Dyalog-specific assumptions (the 14 sub-project names and their config shape) to stay minimal:
-no command-line arguments or configuration. It:
+no command-line arguments or configuration. `<output>` below denotes the generated project
+directory `zensical/` inside the output repo. The script:
 - copies `<sub>/docs/*` from source into `<output>/docs/<sub>/*`,
 - consolidates the duplicated `mathjax.js` into one canonical `<output>/docs/javascripts/mathjax.js`,
 - merges the 14 sub-project configs plus the root into one merged config, and
@@ -335,18 +338,18 @@ Demo/verify: production build+deploy from Zensical only; final baseline diff.
 
 ## Critical files
 
-### Source (read-only inputs at `/workspace/documentation/`)
-- READ `/workspace/documentation/mkdocs.yml` and `/workspace/documentation/<sub>/mkdocs.yml`
+### Source (read-only inputs in the sibling `documentation/` checkout)
+- READ `documentation/mkdocs.yml` and `documentation/<sub>/mkdocs.yml`
   (14 files) - parsed and merged by the script; never modified in source.
-- READ `/workspace/documentation/<sub>/docs/` (14 sub-trees, ~3,050 files) - copied into the
+- READ `documentation/<sub>/docs/` (14 sub-trees, ~3,050 files) - copied into the
   output, never modified in source.
-- INIT `/workspace/documentation/.gitmodules` / `documentation-assets/` - submodule checked
+- INIT `documentation/.gitmodules` / `documentation-assets/` - submodule checked
   out in Phase 0 (fetched, not modified).
-- MODIFY `/workspace/documentation/tools/requirements-docs.txt` - add Zensical (Phase 0).
-- REUSE `/workspace/documentation/tools/utils/check_links.py`, `dangling_links.py`,
+- MODIFY `documentation/tools/requirements-docs.txt` - add Zensical (Phase 0).
+- REUSE `documentation/tools/utils/check_links.py`, `dangling_links.py`,
   `find_orphans.py` - regression oracle over the generated output.
 
-### Generated output (new single-stack repo `/workspace/zensical-dyalog/`, xpqz/zensical-dyalog)
+### Generated output (the self-contained `zensical/` directory in xpqz/zensical-dyalog)
 - CREATE `<output>/zensical.toml` - authoritative build config (Phase 4 onward).
 - CREATE (transient) `<output>/mkdocs.yml` - verification oracle and MkDocs fallback; removed
   at cutover (Phase 8).

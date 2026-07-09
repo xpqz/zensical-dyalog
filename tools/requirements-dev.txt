@@ -1,0 +1,5 @@
+# Tooling test dependencies. The runtime stack (mkdocs, zensical and the
+# documentation plugins) is pinned in the source monorepo's
+# tools/requirements-docs.txt; this file covers only what the conversion
+# script's tests need on top of it.
+pytest==9.1.1
