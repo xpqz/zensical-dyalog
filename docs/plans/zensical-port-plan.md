@@ -33,6 +33,10 @@ becomes the authoring home at cutover.
   mutated (no in-place `git mv`).
 - CHM and PDF outputs are being deprecated and are out of scope; the plan does not port
   `chm/mkdocs2chm.py` or `pdf/mkdocs2pdf.py`.
+- The full MkDocs baseline build is not run in the working environment (it takes on the order
+  of an hour-plus on the full corpus). Its cold-build time is taken as approximately 60
+  minutes for planning and the go/no-go comparison. The HTML diff oracle is produced
+  out-of-band (on CI, or scoped per sub-project) rather than as a single local full build.
 
 ### Key facts verified during planning
 - The monorepo mounts each sub-project at a URL path equal to its directory name
@@ -79,7 +83,8 @@ enough on the full corpus to be usable by authors?** Concretely:
   single-digit seconds. This is the number the monorepo was invented to work around, so it
   is the number that must improve.
 - Cold full build (secondary gate): a from-scratch build of all ~3,050 files completes in a
-  time acceptable for CI (minutes, not the crippling times that forced the monorepo split).
+  time acceptable for CI. The MkDocs full cold build is taken as ~60 min (the pain the
+  monorepo was invented to work around); Zensical should improve materially on this.
 
 This gate is front-loaded via a build-speed probe (Phase 1a) run on the full flattened tree
 before investing in feature parity. If the incremental rebuild is not materially faster than
@@ -131,7 +136,10 @@ Goal: make the current state reproducible and diffable, and unblock styling veri
   version) alongside, without removing the MkDocs stack.
 - Build a golden baseline: full `mkdocs build` of the current monorepo (with
   `documentation-assets` moved into `docs/` as CI does) into a reference `site/` kept out
-  of git. This is the oracle for later diffs.
+  of git. This is the oracle for later diffs. In the working environment the full build is
+  not run (it takes ~60 min on the full corpus); its cold-build time is taken as ~60 min for
+  the go/no-go comparison, and the diff oracle is produced out-of-band or scoped per
+  sub-project.
 Demo: current site builds and renders with correct branding; `zensical --version` runs in
 the same venv.
 Commit: tooling only (add Zensical to requirements, document venv setup). Source repo
