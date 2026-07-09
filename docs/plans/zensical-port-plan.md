@@ -91,15 +91,20 @@ before investing in feature parity. If the incremental rebuild is not materially
 MkDocs on the same flattened tree, the premise fails and we stop or reconsider before doing
 the feature work. Feature-parity phases (2, 4, 5) only proceed once this gate is passed.
 
-Result (measured, Zensical 0.0.48, 528-page subset; the full corpus OOMs in the 7.7 GB
-working sandbox): cold build 12.68s / 530 pages (~24 ms/page, extrapolating to ~73s for the
-full corpus), warm no-change rebuild ~3s, incremental rebuild after a one-page edit ~1.9s (a
-true differential rebuild). Verdict: GO. The ~2s author edit loop is within target and
-compares against MkDocs rebuilding the whole site (~60 min) on every edit. Condition: peak
-memory scales roughly linearly (~2,348 MB for 528 pages, extrapolating to ~13.5 GB for the
-full corpus) and is not reduced by RAYON_NUM_THREADS, so the full build requires a machine
-with at least 16 GB RAM. Bonus: Zensical ships built-in link/anchor checking, which may cover
-part of what the reused link-checkers do.
+Result (measured, Zensical 0.0.48, full 3,030-page flattened tree, 32 GB machine): cold
+build 30.6s (39.2s wall), peak 6.9 GB max RSS (macOS reports a 17.5 GB peak memory
+footprint including compressed pages); warm no-change batch rebuild 14.2s; rebuild after a
+one-page edit under `zensical serve` 8.7s with default validation (the built-in link/anchor
+checker dominates and its cost scales with corpus size) and 0.6-0.8s with
+`validation: false`. Verdict: GO. The author edit loop is sub-second with validation off
+during authoring, against MkDocs rebuilding the whole site (~60 min) on every edit.
+Consequence for Phases 4 and 7: validation off under `zensical serve`, validation on in
+batch/CI builds, where the 30s cold build absorbs it. Full builds need at least 16 GB RAM.
+Bonus: Zensical ships built-in link/anchor checking, which covers part of what the reused
+link-checkers do (28 issues on the probe tree: 8 caption anchors, 1 site-urls absolute
+link, 19 broken links pre-existing in the source). Full-corpus numbers supersede the
+528-page subset measurement taken in the 7.7 GB sandbox and its extrapolations; details on
+issue #11.
 
 ## Reuse existing tooling
 The repo already ships link/QA scripts under `/workspace/documentation/tools/utils/`:
@@ -209,6 +214,30 @@ Commit: optional notes entry recording verdicts. The `site-urls` link fix is app
 generated output (the source stays read-only), or upstreamed to source as a one-line content
 fix if preferred.
 
+**Verdicts** (evidence on the linked issues; measured with Zensical 0.0.48 against MkDocs
+1.6.1 on identical test projects):
+
+- `markdown_tables_extended`: works; emits merged colspan/rowspan cells identical to
+  MkDocs. No shim needed (#12).
+- macros variables: works; `extra:`-based substitution confirmed. The merged-config vars
+  are checked when the merged config exists (#13, #20, #21).
+- `caption`: a numbering module is required, not CSS counters, twice over: eight
+  `[Table N](#_table-N)` cross-references exist (one page), and without the plugin the
+  `Table:` line renders as a plain paragraph, so no `<caption>` element exists for CSS to
+  number. A small Python-Markdown extension reproduces the caption element, per-page
+  numbering and `_table-N` anchors in Phase 5 (#14, #27).
+- `site-urls`: exactly one absolute link confirmed corpus-wide; its target is in the same
+  sub-project, so a one-line relative rewrite retires the plugin from all 13 configs
+  (#15, #20).
+- Custom admonitions: works; identical lowercased class emission, assets CSS binds (#16).
+- APL/nonAPL/other fences: works; identical `language-*` class emission (#17).
+- Raw-HTML `<h1 class="heading">` titles: diverges. Zensical falls back to the prettified
+  filename for `<title>` and search-entry titles where MkDocs uses the explicit nav label;
+  nav labels and body indexing match. Resolution (upstream fix, front-matter injection, or
+  acceptance) tracked on #18; gates #23.
+- MathJax + `navigation.instant`: works; Zensical exposes `window.document$` and the
+  existing hook needs no change (#19; runtime re-typeset check stays in #25).
+
 ### Phase 3 - Generate the flattened project (out-of-place) and validate under MkDocs
 Goal: produce one flattened project with a unified nav from the monorepo, proving zero
 URL/link churn against the golden baseline, without changing engines.
@@ -242,9 +271,10 @@ Goal: build the whole generated project with Zensical from `zensical.toml`.
 - Reconcile module names in `zensical.toml`: `search`, `privacy`, `macros`, `minify` map to
   committed Zensical modules; `monorepo`/`site-urls`/`caption` are already removed or deferred.
 - Resolve extension-loading errors surfaced in Phase 2 (especially `markdown_tables_extended`).
-Build environment: the full-corpus build needs at least 16 GB RAM (peak ~13.5 GB, measured by
-extrapolation in Phase 1a); the 7.7 GB working sandbox OOMs, so full builds run on CI or a
-larger machine. Size the CI runner accordingly.
+Build environment: the full-corpus build needs at least 16 GB RAM (measured in Phase 1a:
+6.9 GB max RSS, 17.5 GB peak memory footprint on macOS); 7.7 GB containers OOM. Size the CI
+runner accordingly, and run CI/batch builds with validation on, `zensical serve` with
+validation off (see the go/no-go result).
 Demo/verify: `zensical build` of all ~3,050 files succeeds; run the link-checkers; spot-diff a
 sampled page per sub-project against the MkDocs output of the same tree. Record the
 differential-build time to show the win that motivated dropping the monorepo.
