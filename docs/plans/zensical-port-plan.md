@@ -126,8 +126,9 @@ directory `zensical/` inside the output repo. The script:
 - copies `<sub>/docs/*` from source into `<output>/docs/<sub>/*`,
 - consolidates the duplicated `mathjax.js` into one canonical `<output>/docs/javascripts/mathjax.js`,
 - merges the 14 sub-project configs plus the root into one merged config, and
-- serialises that merged config to `<output>/zensical.toml` (the committed build config) and,
-  on demand, to `<output>/mkdocs.yml` (the Phase 3 diff oracle and MkDocs-fallback config).
+- serialises that merged config to `<output>/zensical.toml` (the committed build config) and
+  to `<output>/mkdocs.yml` (the Phase 3 diff oracle and MkDocs-fallback config). Both are
+  written on every run; the oracle disappears at cutover along with the script itself.
 
 It is idempotent and re-runnable against a clean checkout, so regenerating the output tree from
 an updated source is deterministic. It is retained until Phase 7-8, because regenerating
@@ -255,17 +256,19 @@ sub-projects from source, it writes into the output directory:
   "files copied, never edited" invariant for content.
 - `<output>/mkdocs.yml`, the merged config: each `"!include ./<sub>/mkdocs.yml"` replaced by
   that sub-project's nav path-prefixed with `<sub>/`, preserving the 6 top-level headings and
-  titles; each sub-project's `markdown_extensions`, `extra:` and `extra_css` folded into the
-  superset (including the duplicate `pymdownx.highlight` block noted in several sub-configs);
-  the `monorepo` and `site-urls` plugins removed.
+  titles; each sub-project's `markdown_extensions` and `extra:` folded into the superset with
+  the root value winning conflicts (collapsing the duplicate `pymdownx.highlight` block noted
+  in several sub-configs); `extra_css` taken from the root alone, because the monorepo build
+  ignores sub `extra_css` and the corpus's only sub-only entries dangle in source, so folding
+  them in would change the rendered baseline; the `monorepo` and `site-urls` plugins removed.
 
 Demo/verify: `mkdocs build` the generated `<output>` tree and diff `site/` against the Phase-0
 baseline (only expected diffs from dropping monorepo/site-urls). Run
 `tools/utils/check_links.py` + `dangling_links.py` over the output: zero new broken links or
 anchors.
-Commit: initialise `<output>` as the new single-stack repo and commit the generated tree +
-merged `mkdocs.yml` there. The source monorepo is untouched. The conversion script is
-committed under the output repo's tooling (it is retained until cutover).
+Commit: the generated `zensical/` directory (tree plus both configs) in the output repo. The
+source monorepo is untouched. The conversion script is committed under the output repo's
+tooling (it is retained until cutover).
 
 ### Phase 4 - Build the flattened project with Zensical (full site)
 Goal: build the whole generated project with Zensical from `zensical.toml`.

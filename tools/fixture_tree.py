@@ -17,7 +17,9 @@ from pathlib import Path
 
 SUB_NAMES = ("release-notes", "compiler-user-guide")
 
-MATHJAX_JS = "window.MathJax = {};\ndocument$.subscribe(() => MathJax.typesetPromise())\n"
+MATHJAX_JS = (
+    "window.MathJax = {};\ndocument$.subscribe(() => MathJax.typesetPromise())\n"
+)
 
 PNG_BYTES = b"\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR fake image bytes"
 

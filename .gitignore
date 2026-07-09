@@ -1,6 +1,8 @@
 # Build output
 /site/
 /.zensical/
+/zensical/site/
+/zensical/.zensical/
 
 # Python
 .venv/

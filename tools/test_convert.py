@@ -27,8 +27,20 @@ def test_copies_each_subproject_docs_tree_to_docs_sub_preserving_bytes(
     source_tree, out_dir
 ):
     run(source_tree, out_dir)
-    copied = out_dir / "docs" / "release-notes" / "announcements" / "deprecated-functionality.md"
-    original = source_tree / "release-notes" / "docs" / "announcements" / "deprecated-functionality.md"
+    copied = (
+        out_dir
+        / "docs"
+        / "release-notes"
+        / "announcements"
+        / "deprecated-functionality.md"
+    )
+    original = (
+        source_tree
+        / "release-notes"
+        / "docs"
+        / "announcements"
+        / "deprecated-functionality.md"
+    )
     assert copied.read_bytes() == original.read_bytes()
     assert (out_dir / "docs" / "compiler-user-guide" / "basic-usage.md").is_file()
 
@@ -124,8 +136,7 @@ def test_writes_nothing_outside_the_output_directory(source_tree, out_dir, tmp_p
 def merged(source_tree):
     root = convert.load_yaml(source_tree / "mkdocs.yml")
     subs = {
-        name: convert.load_yaml(source_tree / name / "mkdocs.yml")
-        for name in SUB_NAMES
+        name: convert.load_yaml(source_tree / name / "mkdocs.yml") for name in SUB_NAMES
     }
     return convert.merge_configs(root, subs)
 
@@ -134,11 +145,22 @@ def plugin_names(plugins):
     return [p if isinstance(p, str) else next(iter(p)) for p in plugins]
 
 
+def test_raises_value_error_when_nav_includes_an_unknown_subproject(source_tree):
+    root = convert.load_yaml(source_tree / "mkdocs.yml")
+    subs = {
+        "release-notes": convert.load_yaml(source_tree / "release-notes" / "mkdocs.yml")
+    }
+    with pytest.raises(ValueError, match="compiler-user-guide"):
+        convert.merge_configs(root, subs)
+
+
 def test_replaces_include_entries_with_prefixed_subproject_nav(merged):
     release_notes_section = merged["nav"][0]["Release Notes"]
     included = release_notes_section[0]["v21.0 Release Notes"]
     assert included[0] == "release-notes/index.md"
-    assert included[2] == {"System Requirements": "release-notes/system-requirements.md"}
+    assert included[2] == {
+        "System Requirements": "release-notes/system-requirements.md"
+    }
 
 
 def test_preserves_top_level_heading_order_and_titles(merged):
@@ -177,8 +199,7 @@ def test_folds_markdown_extensions_into_a_superset_with_root_precedence(merged):
     assert "footnotes" in names
     assert "markdown_tables_extended" in names
     highlight = next(
-        e for e in extensions
-        if not isinstance(e, str) and "pymdownx.highlight" in e
+        e for e in extensions if not isinstance(e, str) and "pymdownx.highlight" in e
     )
     assert highlight["pymdownx.highlight"] == {
         "use_pygments": False,
@@ -209,7 +230,9 @@ def test_consolidates_extra_javascript_to_single_mathjax_and_external_urls(merge
 def test_takes_site_name_copyright_and_theme_from_root(merged):
     assert merged["site_name"] == "Documentation"
     assert merged["copyright"].startswith("Copyright &copy; 1982-$CURRENT_YEAR")
-    assert merged["theme"]["logo"] == "documentation-assets/images/dyalog-logo_white.svg"
+    assert (
+        merged["theme"]["logo"] == "documentation-assets/images/dyalog-logo_white.svg"
+    )
     assert merged["theme"]["font"] == {"text": "Be Vietnam Pro"}
 
 
@@ -269,12 +292,6 @@ def test_mkdocs_yml_oracle_keeps_caption_but_not_monorepo_or_site_urls(
     assert "caption" in names
     assert "monorepo" not in names
     assert "site-urls" not in names
-
-
-def test_emits_mkdocs_yml_only_on_demand(source_tree, out_dir):
-    run(source_tree, out_dir, emit_mkdocs_yml=False)
-    assert not (out_dir / "mkdocs.yml").exists()
-    assert (out_dir / "zensical.toml").is_file()
 
 
 def test_two_runs_produce_byte_identical_output(source_tree, out_dir):
