@@ -95,8 +95,9 @@ flatten and the engine swap rather than writing new checkers.
 ## Delivery model: the out-of-place conversion script
 The flatten and config conversion are performed by a single Python script, not by hand, and
 run out-of-place: it reads the monorepo at `/workspace/documentation/` (read-only) and writes
-the flattened project into a separate output directory (e.g. `/workspace/zensical-site/`; the
-exact name is a detail). The source repo is never mutated. The script hardcodes the
+the flattened project into a separate output directory, `/workspace/zensical-dyalog/` (the
+repo [xpqz/zensical-dyalog](https://github.com/xpqz/zensical-dyalog), default branch `main`).
+The source repo is never mutated. The script hardcodes the
 Dyalog-specific assumptions (the 14 sub-project names and their config shape) to stay minimal:
 no command-line arguments or configuration. It:
 - copies `<sub>/docs/*` from source into `<output>/docs/<sub>/*`,
@@ -294,7 +295,7 @@ Demo/verify: production build+deploy from Zensical only; final baseline diff.
 - REUSE `/workspace/documentation/tools/utils/check_links.py`, `dangling_links.py`,
   `find_orphans.py` - regression oracle over the generated output.
 
-### Generated output (new single-stack repo, e.g. `/workspace/zensical-site/`)
+### Generated output (new single-stack repo `/workspace/zensical-dyalog/`, xpqz/zensical-dyalog)
 - CREATE `<output>/zensical.toml` - authoritative build config (Phase 4 onward).
 - CREATE (transient) `<output>/mkdocs.yml` - verification oracle and MkDocs fallback; removed
   at cutover (Phase 8).
