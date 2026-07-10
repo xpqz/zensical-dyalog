@@ -1,8 +1,7 @@
-# Build output
-/site/
-/.zensical/
+# Zensical build output and incremental cache. The generated project lives at
+# /zensical/; its site/ and .cache/ are build artefacts, not source.
 /zensical/site/
-/zensical/.zensical/
+/zensical/.cache/
 
 # Python
 .venv/

@@ -64,6 +64,12 @@ def test_copies_documentation_assets_into_docs(source_tree, out_dir):
     ).read_text() == "body {}\n"
 
 
+def test_does_not_carry_vcs_metadata_into_the_output(source_tree, out_dir):
+    run(source_tree, out_dir)
+    assert not (out_dir / "docs" / "documentation-assets" / ".git").exists()
+    assert list(out_dir.rglob(".git")) == []
+
+
 def test_does_not_carry_subproject_mathjax_duplicates(source_tree, out_dir):
     run(source_tree, out_dir)
     assert not (

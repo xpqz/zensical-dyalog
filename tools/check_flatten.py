@@ -56,7 +56,18 @@ def parse_issues(build_output):
     "anchor does not exist @ guide/page.md:3:98". Colour escapes are
     ignored; a clean build yields the empty set.
     """
-    raise NotImplementedError
+    issues = set()
+    pending = None
+    for line in _ANSI_RE.sub("", build_output).splitlines():
+        severity = _SEVERITY_RE.match(line)
+        if severity:
+            pending = severity.group(1)
+            continue
+        location = _LOCATION_RE.search(line)
+        if location and pending:
+            issues.add(f"{pending} @ {location.group(1)}")
+            pending = None
+    return issues
 
 
 def parse_issue_count(build_output):
@@ -65,7 +76,10 @@ def parse_issue_count(build_output):
     "N issues found" yields N, "No issues found" yields 0, and output with
     no summary line at all yields None (an incomplete or crashed build).
     """
-    raise NotImplementedError
+    match = _COUNT_RE.search(_ANSI_RE.sub("", build_output))
+    if not match:
+        return None
+    return 0 if match.group(2) else int(match.group(1))
 
 
 def load_baseline(path):
@@ -73,13 +87,18 @@ def load_baseline(path):
 
     Blank lines and lines beginning with '#' are ignored.
     """
-    raise NotImplementedError
+    lines = Path(path).read_text().splitlines()
+    return {
+        stripped
+        for line in lines
+        if (stripped := line.strip()) and not stripped.startswith("#")
+    }
 
 
 def diff_issues(current, baseline):
     """Return (new, resolved): issues present only in current, and baseline
     issues no longer present."""
-    raise NotImplementedError
+    return current - baseline, baseline - current
 
 
 def assess(build_output, returncode, baseline):
@@ -90,13 +109,36 @@ def assess(build_output, returncode, baseline):
     any parsed issue is absent from the baseline. Baseline issues no longer
     reported are surfaced in resolved but never fail the gate.
     """
-    raise NotImplementedError
+    current = parse_issues(build_output)
+    new, resolved = diff_issues(current, baseline)
+    reasons = []
+
+    if returncode != 0:
+        reasons.append(f"build exited with status {returncode}")
+
+    count = parse_issue_count(build_output)
+    if count is None:
+        reasons.append("no 'N issues found' summary line; build incomplete")
+    elif count != len(current):
+        reasons.append(
+            f"summary reports {count} issue(s) but {len(current)} were parsed; "
+            "the diagnostic format may have changed"
+        )
+
+    if new:
+        reasons.append(f"{len(new)} issue(s) outside the baseline")
+
+    return Assessment(ok=not reasons, new=new, resolved=resolved, reasons=reasons)
 
 
 def run_build(project_dir):
-    """Build the project with Zensical; return (combined_output, returncode)."""
+    """Build the project with Zensical; return (combined_output, returncode).
+
+    Invoked through the running interpreter (`-m zensical`) so it resolves
+    the same environment's Zensical without depending on PATH.
+    """
     result = subprocess.run(
-        ["zensical", "build", "-c"],
+        [sys.executable, "-m", "zensical", "build", "-c"],
         cwd=project_dir,
         capture_output=True,
         text=True,

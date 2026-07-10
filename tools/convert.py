@@ -16,18 +16,19 @@ content and build config:
   extra_css taken from the root alone (the monorepo build reads only the
   root values, so root-wins preserves the rendered baseline; the corpus's
   only sub-only extra_css entries dangle),
-- serialises the merged config to zensical.toml (the committed build
-  config; monorepo, site-urls and caption removed) and to mkdocs.yml
-  (the Phase 3 diff oracle; monorepo and site-urls removed, caption
-  retained so the oracle build matches the baseline's table numbering).
-  Both are always written; the oracle disappears at cutover along with
-  the script itself.
+- serialises the merged config to zensical.toml, the sole build config.
+  The monorepo, site-urls and caption plugins are dropped: the first two
+  are retired by the flatten, and caption has no Zensical module and is
+  replaced by a Python-Markdown extension in Phase 5.
 
 The source tree is never written to. The output directory is this
 repository's zensical/ directory, a self-contained generated project
-(zensical.toml, mkdocs.yml and docs/ together) that the script owns
-wholesale: it is regenerated from source on every run, so orphaned and
-stray files do not survive. Nothing outside zensical/ is ever written.
+(zensical.toml and docs/ together) that the script owns wholesale: it is
+regenerated from source on every run, so orphaned and stray files do not
+survive. Nothing outside zensical/ is ever written.
+
+Forward-looking by design: it reads MkDocs config and writes Zensical
+config, with no MkDocs fallback or backwards-compatibility path.
 
 The sub-project list and both filesystem roots are hardcoded (no CLI
 arguments): the source monorepo is expected as a sibling checkout of this
@@ -71,12 +72,10 @@ SOURCE_ROOT = Path(__file__).resolve().parent.parent.parent / "documentation"
 ASSETS_DIR = "documentation-assets"
 MATHJAX_REL = Path("javascripts") / "mathjax.js"
 
-# Retired by the flatten: monorepo (its job is done) and site-urls (a no-op
-# for this corpus; nothing uses its site: prefix). caption is additionally
-# excluded from zensical.toml only, where a Python-Markdown extension
-# replaces it in Phase 5.
-DROPPED_PLUGINS = frozenset({"monorepo", "site-urls"})
-TOML_ONLY_DROPPED_PLUGINS = frozenset({"caption"})
+# Dropped from the merged config. monorepo has done its job; site-urls is a
+# no-op for this corpus (nothing uses its site: prefix); caption has no
+# Zensical module and is replaced by a Python-Markdown extension in Phase 5.
+DROPPED_PLUGINS = frozenset({"monorepo", "site-urls", "caption"})
 
 _INCLUDE_RE = re.compile(r"^!include \./([^/]+)/mkdocs\.yml$")
 
@@ -180,23 +179,27 @@ def copy_content(source, output, subprojects):
     root docs/* to <output>/docs/*; documentation-assets/ to
     <output>/docs/documentation-assets/. Per-sub-project
     docs/javascripts/mathjax.js duplicates are not carried over; the root
-    copy becomes the single canonical one. Content bytes are never edited.
-    The output directory is owned wholesale and regenerated from source,
-    so orphaned and stray files do not survive a re-run. The source tree
-    is never written to.
+    copy becomes the single canonical one. VCS metadata is not carried
+    over: documentation-assets is a submodule in the source, so its .git
+    gitlink is excluded rather than dragged into the content tree. Content
+    bytes are never edited. The output directory is owned wholesale and
+    regenerated from source, so orphaned and stray files do not survive a
+    re-run. The source tree is never written to.
     """
     source = Path(source)
     output = Path(output)
+
+    ignore_vcs = shutil.ignore_patterns(".git")
 
     if output.exists():
         shutil.rmtree(output)
     docs = output / "docs"
 
-    shutil.copytree(source / "docs", docs)
-    shutil.copytree(source / ASSETS_DIR, docs / ASSETS_DIR)
+    shutil.copytree(source / "docs", docs, ignore=ignore_vcs)
+    shutil.copytree(source / ASSETS_DIR, docs / ASSETS_DIR, ignore=ignore_vcs)
 
     for name in subprojects:
-        shutil.copytree(source / name / "docs", docs / name)
+        shutil.copytree(source / name / "docs", docs / name, ignore=ignore_vcs)
         duplicate = docs / name / MATHJAX_REL
         if duplicate.exists():
             duplicate.unlink()
@@ -207,28 +210,11 @@ def copy_content(source, output, subprojects):
 def write_zensical_toml(config, path):
     """Serialise the merged config as zensical.toml under [project].
 
-    The monorepo, site-urls and caption plugins are excluded: the first
-    two are retired by the flatten, and caption is replaced by a
-    Python-Markdown extension in Phase 5.
+    Plugin exclusions are already applied by merge_configs; this only wraps
+    the merged config in the [project] table Zensical expects.
     """
-    project = copy.deepcopy(config)
-    project["plugins"] = [
-        plugin
-        for plugin in project.get("plugins", [])
-        if _entry_name(plugin) not in TOML_ONLY_DROPPED_PLUGINS
-    ]
     with open(path, "wb") as f:
-        tomli_w.dump({"project": project}, f)
-
-
-def write_mkdocs_yml(config, path):
-    """Serialise the merged config as the transient mkdocs.yml oracle.
-
-    monorepo and site-urls are excluded; caption is retained so the
-    MkDocs oracle build reproduces the baseline's table numbering.
-    """
-    with open(path, "w") as f:
-        yaml.safe_dump(config, f, sort_keys=False, allow_unicode=True)
+        tomli_w.dump({"project": config}, f)
 
 
 def convert(source, output, subprojects=SUBPROJECTS):
@@ -260,7 +246,6 @@ def convert(source, output, subprojects=SUBPROJECTS):
 
     copy_content(source, output, subprojects)
     write_zensical_toml(merged, output / "zensical.toml")
-    write_mkdocs_yml(merged, output / "mkdocs.yml")
 
 
 if __name__ == "__main__":
