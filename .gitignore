@@ -1,11 +1,14 @@
 # Build output
 /site/
 /.zensical/
+/zensical/site/
+/zensical/.zensical/
 
 # Python
 .venv/
 __pycache__/
 *.pyc
+.pytest_cache/
 
 # OS
 .DS_Store

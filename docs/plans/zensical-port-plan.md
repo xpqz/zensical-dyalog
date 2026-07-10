@@ -91,15 +91,20 @@ before investing in feature parity. If the incremental rebuild is not materially
 MkDocs on the same flattened tree, the premise fails and we stop or reconsider before doing
 the feature work. Feature-parity phases (2, 4, 5) only proceed once this gate is passed.
 
-Result (measured, Zensical 0.0.48, 528-page subset; the full corpus OOMs in the 7.7 GB
-working sandbox): cold build 12.68s / 530 pages (~24 ms/page, extrapolating to ~73s for the
-full corpus), warm no-change rebuild ~3s, incremental rebuild after a one-page edit ~1.9s (a
-true differential rebuild). Verdict: GO. The ~2s author edit loop is within target and
-compares against MkDocs rebuilding the whole site (~60 min) on every edit. Condition: peak
-memory scales roughly linearly (~2,348 MB for 528 pages, extrapolating to ~13.5 GB for the
-full corpus) and is not reduced by RAYON_NUM_THREADS, so the full build requires a machine
-with at least 16 GB RAM. Bonus: Zensical ships built-in link/anchor checking, which may cover
-part of what the reused link-checkers do.
+Result (measured, Zensical 0.0.48, full 3,030-page flattened tree, 32 GB machine): cold
+build 30.6s (39.2s wall), peak 6.9 GB max RSS (macOS reports a 17.5 GB peak memory
+footprint including compressed pages); warm no-change batch rebuild 14.2s; rebuild after a
+one-page edit under `zensical serve` 8.7s with default validation (the built-in link/anchor
+checker dominates and its cost scales with corpus size) and 0.6-0.8s with
+`validation: false`. Verdict: GO. The author edit loop is sub-second with validation off
+during authoring, against MkDocs rebuilding the whole site (~60 min) on every edit.
+Consequence for Phases 4 and 7: validation off under `zensical serve`, validation on in
+batch/CI builds, where the 30s cold build absorbs it. Full builds need at least 16 GB RAM.
+Bonus: Zensical ships built-in link/anchor checking, which covers part of what the reused
+link-checkers do (28 issues on the probe tree: 8 caption anchors, 1 site-urls absolute
+link, 19 broken links pre-existing in the source). Full-corpus numbers supersede the
+528-page subset measurement taken in the 7.7 GB sandbox and its extrapolations; details on
+issue #11.
 
 ## Reuse existing tooling
 The repo already ships link/QA scripts under `/workspace/documentation/tools/utils/`:
@@ -109,17 +114,21 @@ flatten and the engine swap rather than writing new checkers.
 
 ## Delivery model: the out-of-place conversion script
 The flatten and config conversion are performed by a single Python script, not by hand, and
-run out-of-place: it reads the monorepo at `/workspace/documentation/` (read-only) and writes
-the flattened project into a separate output directory, `/workspace/zensical-dyalog/` (the
-repo [xpqz/zensical-dyalog](https://github.com/xpqz/zensical-dyalog), default branch `main`).
-The source repo is never mutated. The script hardcodes the
+run out-of-place: it reads the monorepo checkout (read-only, a sibling directory named
+`documentation/`) and writes the flattened project into the self-contained `zensical/`
+directory of the output repo [xpqz/zensical-dyalog](https://github.com/xpqz/zensical-dyalog)
+(default branch `main`). The script owns `zensical/` wholesale and regenerates it on every
+run; it writes nowhere else, so the output repo's own documents under `docs/` can never
+collide with generated content. The source repo is never mutated. The script hardcodes the
 Dyalog-specific assumptions (the 14 sub-project names and their config shape) to stay minimal:
-no command-line arguments or configuration. It:
+no command-line arguments or configuration. `<output>` below denotes the generated project
+directory `zensical/` inside the output repo. The script:
 - copies `<sub>/docs/*` from source into `<output>/docs/<sub>/*`,
 - consolidates the duplicated `mathjax.js` into one canonical `<output>/docs/javascripts/mathjax.js`,
 - merges the 14 sub-project configs plus the root into one merged config, and
-- serialises that merged config to `<output>/zensical.toml` (the committed build config) and,
-  on demand, to `<output>/mkdocs.yml` (the Phase 3 diff oracle and MkDocs-fallback config).
+- serialises that merged config to `<output>/zensical.toml` (the committed build config) and
+  to `<output>/mkdocs.yml` (the Phase 3 diff oracle and MkDocs-fallback config). Both are
+  written on every run; the oracle disappears at cutover along with the script itself.
 
 It is idempotent and re-runnable against a clean checkout, so regenerating the output tree from
 an updated source is deterministic. It is retained until Phase 7-8, because regenerating
@@ -209,6 +218,30 @@ Commit: optional notes entry recording verdicts. The `site-urls` link fix is app
 generated output (the source stays read-only), or upstreamed to source as a one-line content
 fix if preferred.
 
+**Verdicts** (evidence on the linked issues; measured with Zensical 0.0.48 against MkDocs
+1.6.1 on identical test projects):
+
+- `markdown_tables_extended`: works; emits merged colspan/rowspan cells identical to
+  MkDocs. No shim needed (#12).
+- macros variables: works; `extra:`-based substitution confirmed. The merged-config vars
+  are checked when the merged config exists (#13, #20, #21).
+- `caption`: a numbering module is required, not CSS counters, twice over: eight
+  `[Table N](#_table-N)` cross-references exist (one page), and without the plugin the
+  `Table:` line renders as a plain paragraph, so no `<caption>` element exists for CSS to
+  number. A small Python-Markdown extension reproduces the caption element, per-page
+  numbering and `_table-N` anchors in Phase 5 (#14, #27).
+- `site-urls`: exactly one absolute link confirmed corpus-wide; its target is in the same
+  sub-project, so a one-line relative rewrite retires the plugin from all 13 configs
+  (#15, #20).
+- Custom admonitions: works; identical lowercased class emission, assets CSS binds (#16).
+- APL/nonAPL/other fences: works; identical `language-*` class emission (#17).
+- Raw-HTML `<h1 class="heading">` titles: diverges. Zensical falls back to the prettified
+  filename for `<title>` and search-entry titles where MkDocs uses the explicit nav label;
+  nav labels and body indexing match. Resolution (upstream fix, front-matter injection, or
+  acceptance) tracked on #18; gates #23.
+- MathJax + `navigation.instant`: works; Zensical exposes `window.document$` and the
+  existing hook needs no change (#19; runtime re-typeset check stays in #25).
+
 ### Phase 3 - Generate the flattened project (out-of-place) and validate under MkDocs
 Goal: produce one flattened project with a unified nav from the monorepo, proving zero
 URL/link churn against the golden baseline, without changing engines.
@@ -223,17 +256,19 @@ sub-projects from source, it writes into the output directory:
   "files copied, never edited" invariant for content.
 - `<output>/mkdocs.yml`, the merged config: each `"!include ./<sub>/mkdocs.yml"` replaced by
   that sub-project's nav path-prefixed with `<sub>/`, preserving the 6 top-level headings and
-  titles; each sub-project's `markdown_extensions`, `extra:` and `extra_css` folded into the
-  superset (including the duplicate `pymdownx.highlight` block noted in several sub-configs);
-  the `monorepo` and `site-urls` plugins removed.
+  titles; each sub-project's `markdown_extensions` and `extra:` folded into the superset with
+  the root value winning conflicts (collapsing the duplicate `pymdownx.highlight` block noted
+  in several sub-configs); `extra_css` taken from the root alone, because the monorepo build
+  ignores sub `extra_css` and the corpus's only sub-only entries dangle in source, so folding
+  them in would change the rendered baseline; the `monorepo` and `site-urls` plugins removed.
 
 Demo/verify: `mkdocs build` the generated `<output>` tree and diff `site/` against the Phase-0
 baseline (only expected diffs from dropping monorepo/site-urls). Run
 `tools/utils/check_links.py` + `dangling_links.py` over the output: zero new broken links or
 anchors.
-Commit: initialise `<output>` as the new single-stack repo and commit the generated tree +
-merged `mkdocs.yml` there. The source monorepo is untouched. The conversion script is
-committed under the output repo's tooling (it is retained until cutover).
+Commit: the generated `zensical/` directory (tree plus both configs) in the output repo. The
+source monorepo is untouched. The conversion script is committed under the output repo's
+tooling (it is retained until cutover).
 
 ### Phase 4 - Build the flattened project with Zensical (full site)
 Goal: build the whole generated project with Zensical from `zensical.toml`.
@@ -242,9 +277,10 @@ Goal: build the whole generated project with Zensical from `zensical.toml`.
 - Reconcile module names in `zensical.toml`: `search`, `privacy`, `macros`, `minify` map to
   committed Zensical modules; `monorepo`/`site-urls`/`caption` are already removed or deferred.
 - Resolve extension-loading errors surfaced in Phase 2 (especially `markdown_tables_extended`).
-Build environment: the full-corpus build needs at least 16 GB RAM (peak ~13.5 GB, measured by
-extrapolation in Phase 1a); the 7.7 GB working sandbox OOMs, so full builds run on CI or a
-larger machine. Size the CI runner accordingly.
+Build environment: the full-corpus build needs at least 16 GB RAM (measured in Phase 1a:
+6.9 GB max RSS, 17.5 GB peak memory footprint on macOS); 7.7 GB containers OOM. Size the CI
+runner accordingly, and run CI/batch builds with validation on, `zensical serve` with
+validation off (see the go/no-go result).
 Demo/verify: `zensical build` of all ~3,050 files succeeds; run the link-checkers; spot-diff a
 sampled page per sub-project against the MkDocs output of the same tree. Record the
 differential-build time to show the win that motivated dropping the monorepo.
@@ -305,18 +341,18 @@ Demo/verify: production build+deploy from Zensical only; final baseline diff.
 
 ## Critical files
 
-### Source (read-only inputs at `/workspace/documentation/`)
-- READ `/workspace/documentation/mkdocs.yml` and `/workspace/documentation/<sub>/mkdocs.yml`
+### Source (read-only inputs in the sibling `documentation/` checkout)
+- READ `documentation/mkdocs.yml` and `documentation/<sub>/mkdocs.yml`
   (14 files) - parsed and merged by the script; never modified in source.
-- READ `/workspace/documentation/<sub>/docs/` (14 sub-trees, ~3,050 files) - copied into the
+- READ `documentation/<sub>/docs/` (14 sub-trees, ~3,050 files) - copied into the
   output, never modified in source.
-- INIT `/workspace/documentation/.gitmodules` / `documentation-assets/` - submodule checked
+- INIT `documentation/.gitmodules` / `documentation-assets/` - submodule checked
   out in Phase 0 (fetched, not modified).
-- MODIFY `/workspace/documentation/tools/requirements-docs.txt` - add Zensical (Phase 0).
-- REUSE `/workspace/documentation/tools/utils/check_links.py`, `dangling_links.py`,
+- MODIFY `documentation/tools/requirements-docs.txt` - add Zensical (Phase 0).
+- REUSE `documentation/tools/utils/check_links.py`, `dangling_links.py`,
   `find_orphans.py` - regression oracle over the generated output.
 
-### Generated output (new single-stack repo `/workspace/zensical-dyalog/`, xpqz/zensical-dyalog)
+### Generated output (the self-contained `zensical/` directory in xpqz/zensical-dyalog)
 - CREATE `<output>/zensical.toml` - authoritative build config (Phase 4 onward).
 - CREATE (transient) `<output>/mkdocs.yml` - verification oracle and MkDocs fallback; removed
   at cutover (Phase 8).

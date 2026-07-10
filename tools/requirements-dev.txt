@@ -1,0 +1,10 @@
+# Dependencies of the conversion script and its tests. The documentation
+# build stack (mkdocs, zensical and the plugins) is pinned in the source
+# monorepo's tools/requirements-docs.txt; this file covers only what the
+# tooling here needs on top of it.
+
+# Script runtime (TOML serialisation).
+tomli-w==1.2.0
+
+# Tests.
+pytest==9.1.1
