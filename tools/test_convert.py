@@ -9,7 +9,6 @@ against the root nav of the real corpus.
 import tomllib
 
 import pytest
-import yaml
 
 import convert
 from fixture_tree import SUB_NAMES, MATHJAX_JS, PNG_BYTES, tree_digest
@@ -185,11 +184,12 @@ def test_keeps_root_level_nav_pages_unprefixed(merged):
     assert about == [{"Conventions": "conventions.md"}]
 
 
-def test_drops_monorepo_and_site_urls_plugins_and_keeps_the_rest(merged):
+def test_drops_monorepo_site_urls_and_caption_plugins(merged):
     names = plugin_names(merged["plugins"])
     assert "monorepo" not in names
     assert "site-urls" not in names
-    assert {"privacy", "search", "macros", "caption", "minify"} <= set(names)
+    assert "caption" not in names
+    assert {"privacy", "search", "macros", "minify"} <= set(names)
 
 
 def test_folds_markdown_extensions_into_a_superset_with_root_precedence(merged):
@@ -274,7 +274,7 @@ def test_writes_zensical_toml_under_project_with_merged_values(source_tree, out_
     assert "markdown_tables_extended" in str(project["markdown_extensions"])
 
 
-def test_zensical_toml_excludes_monorepo_site_urls_and_caption(source_tree, out_dir):
+def test_zensical_toml_plugins_are_exactly_the_supported_four(source_tree, out_dir):
     run(source_tree, out_dir)
     with open(out_dir / "zensical.toml", "rb") as f:
         project = tomllib.load(f)["project"]
@@ -282,16 +282,10 @@ def test_zensical_toml_excludes_monorepo_site_urls_and_caption(source_tree, out_
     assert set(names) == {"privacy", "search", "macros", "minify"}
 
 
-def test_mkdocs_yml_oracle_keeps_caption_but_not_monorepo_or_site_urls(
-    source_tree, out_dir
-):
+def test_zensical_toml_is_the_only_config_emitted(source_tree, out_dir):
     run(source_tree, out_dir)
-    with open(out_dir / "mkdocs.yml") as f:
-        oracle = yaml.safe_load(f)
-    names = plugin_names(oracle["plugins"])
-    assert "caption" in names
-    assert "monorepo" not in names
-    assert "site-urls" not in names
+    assert (out_dir / "zensical.toml").is_file()
+    assert not (out_dir / "mkdocs.yml").exists()
 
 
 def test_two_runs_produce_byte_identical_output(source_tree, out_dir):
