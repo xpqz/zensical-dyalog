@@ -140,8 +140,9 @@ keep working.
 ## Phases
 
 Each phase ends in a demoable, committable state. Mapped to the repo's red/green workflow,
-the "test" for structural phases is a build + baseline diff + the link-checkers above
-passing; the "green" is the build succeeding with zero new broken links.
+the "test" for structural phases is a `zensical build` whose built-in checker reports no
+issue outside the committed baseline (the "Validation oracle" above); the "green" is that
+build passing with zero new broken links or anchors.
 
 ### Phase 0 - Baseline, assets, tooling
 Goal: make the current state reproducible and diffable, and unblock styling verification.
@@ -149,12 +150,10 @@ Goal: make the current state reproducible and diffable, and unblock styling veri
   APL385 font, custom-admonition styling, logos, favicon live there).
 - Create a pinned venv from `tools/requirements-docs.txt`; add Zensical (pin the exact
   version) alongside, without removing the MkDocs stack.
-- Build a golden baseline: full `mkdocs build` of the current monorepo (with
-  `documentation-assets` moved into `docs/` as CI does) into a reference `site/` kept out
-  of git. This is the oracle for later diffs. In the working environment the full build is
-  not run (it takes ~60 min on the full corpus); its cold-build time is taken as ~60 min for
-  the go/no-go comparison, and the diff oracle is produced out-of-band or scoped per
-  sub-project.
+- A full `mkdocs build` golden baseline was scoped here originally but not built: validation
+  is Zensical's own checker (the "Validation oracle" above), not a MkDocs HTML diff, so no
+  reference `site/` is needed. The MkDocs cold-build time (~60 min) was only ever used as the
+  go/no-go comparison in Phase 1a, which has passed.
 Demo: current site builds and renders with correct branding; `zensical --version` runs in
 the same venv.
 Commit: tooling only (add Zensical to requirements, document venv setup). Source repo

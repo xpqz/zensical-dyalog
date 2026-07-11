@@ -140,9 +140,10 @@ def merge_configs(root_config, sub_configs):
     extra_css comes from the root alone: the monorepo build ignores sub
     extra_css, and the corpus's only sub-only entries dangle (no such
     files in source), so folding them in would break the rendered
-    baseline. extra_javascript keeps one javascripts/mathjax.js entry
-    plus external URLs. The monorepo and site-urls plugins are removed;
-    caption is retained in the merged dict (serialisers decide its fate).
+    baseline. extra_javascript and the rest of the top-level keys are
+    inherited from the root unchanged (the root already references the
+    single javascripts/mathjax.js plus the external MathJax URL). The
+    monorepo, site-urls and caption plugins are dropped.
     """
     merged = copy.deepcopy(root_config)
 
