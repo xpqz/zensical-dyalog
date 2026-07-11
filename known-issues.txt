@@ -1,0 +1,49 @@
+# Internal-link and anchor issues that Zensical's built-in checker reports
+# for the flattened corpus and that pre-date the migration. The flatten must
+# introduce no issue outside this set (tools/check_flatten.py enforces this).
+#
+# Composition (28 entries):
+#  - The eight [Table N](#_table-N) cross-references in
+#    environment-variables.md, whose targets the caption plugin generated.
+#    They return once the caption numbering extension lands in Phase 5.
+#  - Twenty broken relative links and anchors already present in the monorepo
+#    source, unrelated to the flatten.
+#
+# Not covered here: Zensical does not validate site-root-absolute links
+# (`](/...)`), so its checker never reports them; guarding against those is a
+# separate concern, not part of this baseline.
+#
+# This baseline only shrinks. When the checker stops reporting an entry,
+# check_flatten prints it as resolved; remove it from this file so a later
+# regression is seen as new rather than silently accepted.
+#
+# Format: <type> @ <file>:<line>:<col>, one per line.
+
+anchor does not exist @ dotnet-framework-interface-guide/apl-source-files/the-dyalog-dotnet-compiler.md:3:98
+anchor does not exist @ dotnet-framework-interface-guide/dotnet-classes/advanced-techniques.md:49:213
+anchor does not exist @ dotnet-framework-interface-guide/installation.md:90:276
+anchor does not exist @ dotnet-framework-interface-guide/windows-presentation-foundation/data-binding.md:321:404
+anchor does not exist @ language-reference-guide/other-syntax/axis/axis-with-dyadic-operand.md:5:101
+anchor does not exist @ language-reference-guide/other-syntax/axis/axis-with-monadic-operand.md:5:78
+anchor does not exist @ language-reference-guide/primitive-operators/operators-summarised.md:8:32
+anchor does not exist @ language-reference-guide/primitive-operators/operators-summarised.md:8:5
+anchor does not exist @ language-reference-guide/primitive-operators/reduce/index.md:32:46
+anchor does not exist @ language-reference-guide/primitive-operators/reduce/index.md:65:8
+anchor does not exist @ language-reference-guide/system-functions/json.md:147:51
+anchor does not exist @ language-reference-guide/system-functions/json.md:263:26
+anchor does not exist @ language-reference-guide/system-functions/json.md:390:26
+anchor does not exist @ unix-installation-and-configuration-guide/configuration-parameters/environment-variables.md:16:14
+anchor does not exist @ unix-installation-and-configuration-guide/configuration-parameters/environment-variables.md:17:14
+anchor does not exist @ unix-installation-and-configuration-guide/configuration-parameters/environment-variables.md:18:14
+anchor does not exist @ unix-installation-and-configuration-guide/configuration-parameters/environment-variables.md:19:14
+anchor does not exist @ unix-installation-and-configuration-guide/configuration-parameters/environment-variables.md:20:14
+anchor does not exist @ unix-installation-and-configuration-guide/configuration-parameters/environment-variables.md:21:14
+anchor does not exist @ unix-installation-and-configuration-guide/configuration-parameters/environment-variables.md:22:14
+anchor does not exist @ unix-installation-and-configuration-guide/configuration-parameters/environment-variables.md:23:14
+page does not exist @ dotnet-interface-guide/writing-dotnet-classes/creating-dotnet-classes-with-apl-source-files.md:18:138
+page does not exist @ language-reference-guide/primitive-functions/deal.md:29:129
+page does not exist @ language-reference-guide/primitive-operators/reduce/reduce-n-wise.md:20:122
+page does not exist @ language-reference-guide/system-functions/system-functions-by-category.md:258:73
+page does not exist @ language-reference-guide/system-functions/system-functions-by-category.md:272:115
+page does not exist @ object-reference/proplists/form.md:16:13
+page does not exist @ programming-reference-guide/object-oriented-programming/class-members/properties/keyed-properties-print.md:23:197

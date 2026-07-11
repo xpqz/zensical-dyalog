@@ -156,6 +156,9 @@ def build_source_tree(root: Path) -> Path:
 
     (src / "documentation-assets" / "css").mkdir(parents=True)
     (src / "documentation-assets" / "css" / "main.css").write_text("body {}\n")
+    # documentation-assets is a submodule in the real source, so its working
+    # tree carries a .git gitlink file. The copy must not drag it into content.
+    (src / "documentation-assets" / ".git").write_text("gitdir: ../.git/modules/x\n")
 
     rn = src / "release-notes"
     (rn / "docs" / "announcements").mkdir(parents=True)
