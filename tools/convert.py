@@ -77,6 +77,10 @@ MATHJAX_REL = Path("javascripts") / "mathjax.js"
 # Zensical module and is replaced by a Python-Markdown extension in Phase 5.
 DROPPED_PLUGINS = frozenset({"monorepo", "site-urls", "caption"})
 
+# The Python-Markdown extension that replaces the dropped caption plugin. Named
+# by importable module so Zensical hands it to Python-Markdown at build time.
+CAPTION_EXTENSION = "dyalog_caption"
+
 _INCLUDE_RE = re.compile(r"^!include \./([^/]+)/mkdocs\.yml$")
 
 
@@ -156,6 +160,10 @@ def merge_configs(root_config, sub_configs):
             if _entry_name(entry) not in seen:
                 extensions.append(copy.deepcopy(entry))
                 seen.add(_entry_name(entry))
+    # Restore the caption numbering the dropped caption plugin provided, as a
+    # Python-Markdown extension Zensical can load (see tools/dyalog_caption.py).
+    if CAPTION_EXTENSION not in seen:
+        extensions.append(CAPTION_EXTENSION)
     merged["markdown_extensions"] = extensions
 
     extra = {}

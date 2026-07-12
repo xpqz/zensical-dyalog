@@ -2,12 +2,11 @@
 # for the flattened corpus and that pre-date the migration. The flatten must
 # introduce no issue outside this set (tools/check_flatten.py enforces this).
 #
-# Composition (28 entries):
-#  - The eight [Table N](#_table-N) cross-references in
-#    environment-variables.md, whose targets the caption plugin generated.
-#    They return once the caption numbering extension lands in Phase 5.
-#  - Twenty broken relative links and anchors already present in the monorepo
-#    source, unrelated to the flatten.
+# Composition (20 entries): broken relative links and anchors already present
+# in the monorepo source, unrelated to the flatten. The eight
+# [Table N](#_table-N) cross-references in environment-variables.md that were
+# here have been removed: the caption numbering extension (dyalog_caption) now
+# generates their _table-N anchors, so the checker no longer reports them.
 #
 # Not covered here: Zensical does not validate site-root-absolute links
 # (`](/...)`), so its checker never reports them; guarding against those is a
@@ -32,14 +31,6 @@ anchor does not exist @ language-reference-guide/primitive-operators/reduce/inde
 anchor does not exist @ language-reference-guide/system-functions/json.md:147:51
 anchor does not exist @ language-reference-guide/system-functions/json.md:263:26
 anchor does not exist @ language-reference-guide/system-functions/json.md:390:26
-anchor does not exist @ unix-installation-and-configuration-guide/configuration-parameters/environment-variables.md:16:14
-anchor does not exist @ unix-installation-and-configuration-guide/configuration-parameters/environment-variables.md:17:14
-anchor does not exist @ unix-installation-and-configuration-guide/configuration-parameters/environment-variables.md:18:14
-anchor does not exist @ unix-installation-and-configuration-guide/configuration-parameters/environment-variables.md:19:14
-anchor does not exist @ unix-installation-and-configuration-guide/configuration-parameters/environment-variables.md:20:14
-anchor does not exist @ unix-installation-and-configuration-guide/configuration-parameters/environment-variables.md:21:14
-anchor does not exist @ unix-installation-and-configuration-guide/configuration-parameters/environment-variables.md:22:14
-anchor does not exist @ unix-installation-and-configuration-guide/configuration-parameters/environment-variables.md:23:14
 page does not exist @ dotnet-interface-guide/writing-dotnet-classes/creating-dotnet-classes-with-apl-source-files.md:18:138
 page does not exist @ language-reference-guide/primitive-functions/deal.md:29:129
 page does not exist @ language-reference-guide/primitive-operators/reduce/reduce-n-wise.md:20:122

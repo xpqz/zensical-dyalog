@@ -20,11 +20,13 @@ as options: the extension exists only to reproduce this one behaviour.
 """
 
 import re
+import xml.etree.ElementTree as etree
 
 from markdown.extensions import Extension
 from markdown.treeprocessors import Treeprocessor
 
-# A caption paragraph is exactly "Table:" followed by the caption text.
+# A caption paragraph is "Table:" followed by the caption text. The text may
+# wrap within the one paragraph, so newlines are folded to spaces below.
 _CAPTION_RE = re.compile(r"^Table:\s*(.+)$", re.DOTALL)
 
 # Rendered numbering and anchor, matching mkdocs-caption's committed config.
@@ -34,10 +36,42 @@ _CAPTION_STYLE = "caption-side:top"
 
 
 class CaptionTreeprocessor(Treeprocessor):
-    """Attaches numbered captions to tables preceded by a Table: paragraph."""
+    """Attaches numbered captions to tables preceded by a Table: paragraph.
+
+    The numbering counter is local to each run, so it restarts at 1 for every
+    document (page) rather than leaking across pages.
+    """
 
     def run(self, root):
-        raise NotImplementedError
+        index = 0
+        # Walk each element that can hold block-level children, pairing a
+        # Table: paragraph with the table element that immediately follows it.
+        for parent in root.iter():
+            children = list(parent)
+            for position, child in enumerate(children):
+                if child.tag != "p" or not child.text:
+                    continue
+                match = _CAPTION_RE.match(child.text.strip())
+                if not match:
+                    continue
+                if position + 1 >= len(children):
+                    continue
+                table = children[position + 1]
+                if table.tag != "table":
+                    continue
+
+                index += 1
+                text = " ".join(match.group(1).split())
+                self._apply(table, text, index)
+                parent.remove(child)
+        return None
+
+    def _apply(self, table, text, index):
+        table.set("id", _ANCHOR.format(index=index))
+        caption = etree.Element("caption")
+        caption.set("style", _CAPTION_STYLE)
+        caption.text = f"{_CAPTION_PREFIX.format(index=index)} {text}"
+        table.insert(0, caption)
 
 
 class DyalogCaptionExtension(Extension):

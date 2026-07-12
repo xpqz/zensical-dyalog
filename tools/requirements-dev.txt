@@ -8,3 +8,7 @@ tomli-w==1.2.0
 
 # Tests.
 pytest==9.1.1
+
+# The caption extension is packaged in pyproject.toml here so Zensical can
+# import it by name at build time. Install it (and its markdown dependency)
+# into the build/authoring environment with:  pip install -e tools/
