@@ -181,6 +181,27 @@ def merge_configs(root_config, sub_configs):
     return merged
 
 
+def rewrite_h1(md_text):
+    """Rewrite raw-HTML page-title headings to Markdown ATX headings.
+
+    The corpus writes page titles as raw HTML (`<h1 class="heading">` with
+    inner styling spans) via md_in_html, so neither MkDocs nor Zensical sees
+    an ATX heading and both fall back for the page title: MkDocs to the nav
+    label, Zensical to the filename. Converting each raw `<h1 ...>INNER</h1>`
+    to `# INNER {: attrs}` gives Zensical a heading whose text becomes the
+    title, while attr_list carries the original attributes so the class and
+    inner spans (hence the styling) survive.
+
+    Markdown-special characters in INNER are escaped so command headings
+    containing APL (e.g. `R<-f\\[K]Y`) render verbatim rather than being
+    mangled by the inline parser. Raw `<h1>` inside fenced code blocks is
+    left alone: it is example text, not a page title.
+
+    Returns the text unchanged when it contains no raw `<h1>`.
+    """
+    raise NotImplementedError
+
+
 def copy_content(source, output, subprojects):
     """Copy content out-of-place from the source monorepo to the output.
 

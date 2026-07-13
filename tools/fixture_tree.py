@@ -179,6 +179,12 @@ def build_source_tree(root: Path) -> Path:
     (cu / "mkdocs.yml").write_text(COMPILER_MKDOCS)
     (cu / "docs" / "index.md").write_text("# Compiler User Guide\n")
     (cu / "docs" / "basic-usage.md").write_text("# Basic Usage\n")
+    # A page whose title is a raw-HTML heading (the object-reference shape),
+    # to exercise the rewrite. Body left as plain text.
+    (cu / "docs" / "raw-heading.md").write_text(
+        '<h1 class="heading"><span class="name">Widget</span>'
+        ' <span class="right">Object</span></h1>\n\nBody text.\n'
+    )
 
     return src
 
