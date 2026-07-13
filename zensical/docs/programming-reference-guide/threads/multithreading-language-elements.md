@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Multi-Threading Language Elements</span></h1>
+# <span class="name">Multi-Threading Language Elements</span> {: .heading}
 
 The following language elements are provided to support threads.
 

@@ -3,7 +3,7 @@
 
 
 
-<h1 class="heading"><span class="name">FILE SYSTEM ERROR</span> <span class="command">26</span></h1>
+# <span class="name">FILE SYSTEM ERROR</span> <span class="command">26</span> {: .heading}
 
 
 

@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Grid Children</span></h1>
+# <span class="name">Grid Children</span> {: .heading}
 
 |----------------------------------|----------------------------------------------|------------------------------|
 |[Bitmap](../objects/bitmap.md)    |[BrowseBox](../objects/browsebox.md)          |[Button](../objects/button.md)|

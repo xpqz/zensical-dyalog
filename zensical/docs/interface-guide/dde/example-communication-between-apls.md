@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Example: Communication Between APLs</span></h1>
+# <span class="name">Example: Communication Between APLs</span> {: .heading}
 
 The following instructions will allow you to explore how the DDE interface can be used to communicate between two Dyalog APL/W workspaces.
 

@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Atomic Vector</span> <span class="command">R←⎕AV</span></h1>
+# <span class="name">Atomic Vector</span> <span class="command">R←⎕AV</span> {: .heading}
 
 
 

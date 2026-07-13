@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Copy Workspace</span> <span class="command">{R}←{X}⎕CY Y</span></h1>
+# <span class="name">Copy Workspace</span> <span class="command">\{R\}←\{X\}⎕CY Y</span> {: .heading}
 
 
 

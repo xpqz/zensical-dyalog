@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Format</span> <span class="right">Event 821</span></h1>
+# <span class="name">Format</span> <span class="right">Event 821</span> {: .heading}
 
 
 

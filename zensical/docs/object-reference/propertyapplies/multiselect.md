@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">MultiSelect Property</span></h1>
+# <span class="name">MultiSelect Property</span> {: .heading}
 
 |--------------------------------------|------|------|
 |[TabControl](../objects/tabcontrol.md)|&nbsp;|&nbsp;|

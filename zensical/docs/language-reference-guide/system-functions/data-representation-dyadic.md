@@ -7,7 +7,7 @@ search:
   ⎕DR DR
 </div>
 
-<h1 class="heading"><span class="name">Data Representation (Dyadic)</span> <span class="command">R←X ⎕DR Y</span></h1>
+# <span class="name">Data Representation (Dyadic)</span> <span class="command">R←X ⎕DR Y</span> {: .heading}
 
 Dyadic `⎕DR` converts the data type of its argument `Y` according to the type specification `X`. See [Data Representation (Monadic)](data-representation-monadic.md) for a list of data types but note that 1287 is not a permitted value in `X`.
 

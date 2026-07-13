@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-<h1 class="heading"><span class="name">Left Tack</span> <span class="command">⊣</span></h1>
+# <span class="name">Left Tack</span> <span class="command">⊣</span> {: .heading}
 
 Monadic Left Tack means
 [Same](../primitive-functions/same.md)

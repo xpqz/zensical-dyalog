@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Fields</span></h1>
+# <span class="name">Fields</span> {: .heading}
 
 A Field behaves just like an APL variable.
 

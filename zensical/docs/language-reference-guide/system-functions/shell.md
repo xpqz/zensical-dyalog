@@ -7,7 +7,7 @@ search:
   ⎕SHELL SHELL
 </div>
 
-<h1 class="heading"><span class="name">Execute External Program</span> <span class="command">R←⎕SHELL Y</span></h1>
+# <span class="name">Execute External Program</span> <span class="command">R←⎕SHELL Y</span> {: .heading}
 
 `⎕SHELL` executes an external program, either directly or using the operating system's shell.
 

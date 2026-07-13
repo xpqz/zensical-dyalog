@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">DropFiles</span> <span class="right">Event 450</span></h1>
+# <span class="name">DropFiles</span> <span class="right">Event 450</span> {: .heading}
 
 [**Applies To**](../methodoreventapplies/dropfiles.md)
 

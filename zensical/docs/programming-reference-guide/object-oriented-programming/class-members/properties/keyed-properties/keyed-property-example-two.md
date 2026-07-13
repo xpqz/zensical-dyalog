@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Example 2</span></h1>
+# <span class="name">Example 2</span> {: .heading}
 
 A second example of a Keyed Property is provided by the `KeyedFile` Class which is based upon the [ComponentFile Class](../component-file-class-example.md){: .noprint } used previously.
 ```apl

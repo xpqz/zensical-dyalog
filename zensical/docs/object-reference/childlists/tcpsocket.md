@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">TCPSocket Children</span></h1>
+# <span class="name">TCPSocket Children</span> {: .heading}
 
 |--------------------------------|--------------------------------------------|------------------------------------|
 |[Bitmap](../objects/bitmap.md)  |[BrowseBox](../objects/browsebox.md)        |[Clipboard](../objects/clipboard.md)|

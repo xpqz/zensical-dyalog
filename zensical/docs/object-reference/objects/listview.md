@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">ListView</span> <span class="right">Object</span></h1>
+# <span class="name">ListView</span> <span class="right">Object</span> {: .heading}
 
 [Parents](../parentlists/listview.md), [Children](../childlists/listview.md), [Properties](../proplists/listview.md), [Methods](../methodlists/listview.md), [Events](../eventlists/listview.md)
 

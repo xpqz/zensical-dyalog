@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">ServiceNotification Event</span></h1>
+# <span class="name">ServiceNotification Event</span> {: .heading}
 
 |--------------------------|------|------|
 |[Root](../objects/root.md)|&nbsp;|&nbsp;|

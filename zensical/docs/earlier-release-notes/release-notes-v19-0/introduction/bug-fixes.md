@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Bug Fixes</span></h1>
+# <span class="name">Bug Fixes</span> {: .heading}
 
 A number of bug fixes implemented in Version {{ version_majmin }} may change the way that existing code operates and are therefore documented in this section.
 

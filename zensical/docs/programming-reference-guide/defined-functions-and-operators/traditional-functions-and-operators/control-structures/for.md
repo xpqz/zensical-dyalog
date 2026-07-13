@@ -3,7 +3,7 @@
 
 
 
-<h1 class="heading"><span class="name">For Statement</span> <span class="command">:For var :In[Each] aexp</span></h1>
+# <span class="name">For Statement</span> <span class="command">:For var :In\[Each\] aexp</span> {: .heading}
 
 
 

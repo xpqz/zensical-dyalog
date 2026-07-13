@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">SelectCertificate</span> <span class="right">Event 848</span></h1>
+# <span class="name">SelectCertificate</span> <span class="right">Event 848</span> {: .heading}
 
 
 

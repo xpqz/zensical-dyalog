@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">MultiLine Property</span></h1>
+# <span class="name">MultiLine Property</span> {: .heading}
 
 |--------------------------------------|----------------------------------------|------|
 |[TabControl](../objects/tabcontrol.md)|[ToolControl](../objects/toolcontrol.md)|&nbsp;|

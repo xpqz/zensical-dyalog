@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">File Hold</span> <span class="command">{R}←{X} ⎕FHOLD Y</span></h1>
+# <span class="name">File Hold</span> <span class="command">\{R\}←\{X\} ⎕FHOLD Y</span> {: .heading}
 
 
 ## Access code 2048
@@ -70,7 +70,7 @@ Note that a hold is not released by a request for input through `⎕` or `⍞`.
 
 If `Y` is a matrix, the shy result `R` is `Y[1;]`. Otherwise, the  shy result `R` is `Y`.
 
-<h1 class="example">Examples</h1>
+# Examples {: .example}
 ```apl
       ⎕FHOLD 1
  

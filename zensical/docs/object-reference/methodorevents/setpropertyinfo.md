@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">SetPropertyInfo</span> <span class="right">Method 554</span></h1>
+# <span class="name">SetPropertyInfo</span> <span class="right">Method 554</span> {: .heading}
 
 
 

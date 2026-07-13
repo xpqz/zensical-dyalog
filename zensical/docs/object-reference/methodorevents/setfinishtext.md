@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">SetFinishText</span> <span class="right">Method 366</span></h1>
+# <span class="name">SetFinishText</span> <span class="right">Method 366</span> {: .heading}
 
 
 

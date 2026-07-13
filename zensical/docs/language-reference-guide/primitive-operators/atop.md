@@ -7,7 +7,7 @@ search:
   atop
 </div>
 
-<h1 class="heading"><span class="name">Atop</span> <span class="command">{R}←{X}f⍤gY</span></h1>
+# <span class="name">Atop</span> <span class="command">\{R\}←\{X\}f⍤gY</span> {: .heading}
 
 !!! Info "Information"
     The `⍤` glyph is not available in Classic Edition, and the _atop_ operator is instead represented by `⎕U2364`.

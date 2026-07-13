@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Restrictions and Limitations</span></h1>
+# <span class="name">Restrictions and Limitations</span> {: .heading}
 
 Although shared variables have been implemented as closely to the APL standard as is possible, certain restrictions are imposed by the nature of DDE itself.
 

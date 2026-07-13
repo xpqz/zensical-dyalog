@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Items Property</span></h1>
+# <span class="name">Items Property</span> {: .heading}
 
 |----------------------------------|--------------------------------|----------------------------------|
 |[Combo](../objects/combo.md)      |[ComboEx](../objects/comboex.md)|[List](../objects/list.md)        |

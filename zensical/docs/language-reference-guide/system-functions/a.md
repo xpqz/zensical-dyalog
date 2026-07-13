@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Alphabetic Characters</span> <span class="command">R←⎕A</span></h1>
+# <span class="name">Alphabetic Characters</span> <span class="command">R←⎕A</span> {: .heading}
 
 
 

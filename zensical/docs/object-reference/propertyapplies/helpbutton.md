@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">HelpButton Property</span></h1>
+# <span class="name">HelpButton Property</span> {: .heading}
 
 |--------------------------|--------------------------------------------|--------------------------------|
 |[Form](../objects/form.md)|[PropertySheet](../objects/propertysheet.md)|[SubForm](../objects/subform.md)|

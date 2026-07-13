@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">TCPSocket Properties</span></h1>
+# <span class="name">TCPSocket Properties</span> {: .heading}
 
 |-------------------------------------------------|-------------------------------------------------|-----------------------------------------------|
 |[Type](../properties/type.md)                    |[LocalAddr](../properties/localaddr.md)          |[LocalPort](../properties/localport.md)        |

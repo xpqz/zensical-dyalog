@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Token Pool</span> <span class="command">R←⎕TPOOL</span></h1>
+# <span class="name">Token Pool</span> <span class="command">R←⎕TPOOL</span> {: .heading}
 
 
 

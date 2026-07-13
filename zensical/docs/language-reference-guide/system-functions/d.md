@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Digits</span> <span class="command">R←⎕D</span></h1>
+# <span class="name">Digits</span> <span class="command">R←⎕D</span> {: .heading}
 
 
 

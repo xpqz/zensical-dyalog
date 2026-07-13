@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Threads</span></h1>
+# <span class="name">Threads</span> {: .heading}
 
 Dyalog APL supports multithreading - the ability to run more than one APL expression at the same time.
 

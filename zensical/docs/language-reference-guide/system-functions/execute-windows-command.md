@@ -7,7 +7,7 @@ search:
   ⎕CMD CMD
 </div>
 
-<h1 class="heading"><span class="name">Execute Windows Command</span> <span class="command">{R}←⎕CMD Y</span></h1>
+# <span class="name">Execute Windows Command</span> <span class="command">\{R\}←⎕CMD Y</span> {: .heading}
 
 
 

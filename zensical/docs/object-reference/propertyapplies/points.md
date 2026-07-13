@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Points Property</span></h1>
+# <span class="name">Points Property</span> {: .heading}
 
 |------------------------------|--------------------------------|----------------------------|
 |[Circle](../objects/circle.md)|[Ellipse](../objects/ellipse.md)|[Image](../objects/image.md)|

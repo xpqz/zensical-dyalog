@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">SM Parents</span></h1>
+# <span class="name">SM Parents</span> {: .heading}
 
 |--------------------------------|--------------------------------|------------------------------------------|
 |[Form](../objects/form.md)      |[Group](../objects/group.md)    |[PropertyPage](../objects/propertypage.md)|

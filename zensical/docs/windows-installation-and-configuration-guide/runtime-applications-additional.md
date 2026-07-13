@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Run-Time Applications Additional Considerations</span></h1>
+# <span class="name">Run-Time Applications Additional Considerations</span> {: .heading}
 
 ## Accessing your Application using Ride
 

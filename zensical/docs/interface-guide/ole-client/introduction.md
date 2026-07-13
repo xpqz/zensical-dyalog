@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name"> Introduction</span></h1>
+# <span class="name"> Introduction</span> {: .heading}
 
 OLE Automation is an inter-process communication mechanism created by Microsoft, based on a subset of Component Object Model (COM).
 

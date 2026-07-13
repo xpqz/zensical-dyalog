@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">DiaryStuff Example Namespace</span></h1>
+# <span class="name">DiaryStuff Example Namespace</span> {: .heading}
 
 ```apl
 :Namespace DiaryStuff

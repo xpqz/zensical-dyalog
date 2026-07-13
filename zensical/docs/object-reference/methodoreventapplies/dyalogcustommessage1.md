@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">DyalogCustomMessage1 Event</span></h1>
+# <span class="name">DyalogCustomMessage1 Event</span> {: .heading}
 
 |--------------------------|------|------|
 |[Form](../objects/form.md)|&nbsp;|&nbsp;|

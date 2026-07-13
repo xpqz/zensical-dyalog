@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">InitialKeyboardLayout</span></h1>
+# <span class="name">InitialKeyboardLayout</span> {: .heading}
 
 **Unicode Edition only.**
 

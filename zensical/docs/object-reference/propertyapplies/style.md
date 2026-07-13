@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Style Property</span></h1>
+# <span class="name">Style Property</span> {: .heading}
 
 |----------------------------------------|--------------------------------------------|----------------------------------------------|
 |[Button](../objects/button.md)          |[ButtonEdit](../objects/buttonedit.md)      |[Calendar](../objects/calendar.md)            |

@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">CellDblClick</span> <span class="right">Event 163</span></h1>
+# <span class="name">CellDblClick</span> <span class="right">Event 163</span> {: .heading}
 
 
 

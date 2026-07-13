@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">ExecuteJavaScript</span> <span class="command">Method 839</span></h1>
+# <span class="name">ExecuteJavaScript</span> <span class="command">Method 839</span> {: .heading}
 
 |-----------|--------------------------------------------------------------|
 |Applies To:|[HTMLRenderer](https://help.dyalog.com/19.0/index.htm#GUI/Objects/HTMLRenderer.htm)|

@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Vector Notation</span></h1>
+# <span class="name">Vector Notation</span> {: .heading}
 
 Vector notation complements [array notation](array-notation.md) with a clean syntax for vectors.
 

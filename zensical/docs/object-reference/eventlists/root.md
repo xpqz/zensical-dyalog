@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Root Events</span></h1>
+# <span class="name">Root Events</span> {: .heading}
 
 |-------------------------------------------------|---------------------------------------------------------------|---------------------------------------------------|
 |[FontOK](../methodorevents/fontok.md)            |[FontCancel](../methodorevents/fontcancel.md)                  |[DDE](../methodorevents/dde.md)                    |

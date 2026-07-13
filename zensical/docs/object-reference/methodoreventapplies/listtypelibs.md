@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">ListTypeLibs Method</span></h1>
+# <span class="name">ListTypeLibs Method</span> {: .heading}
 
 |--------------------------|------|------|
 |[Root](../objects/root.md)|&nbsp;|&nbsp;|

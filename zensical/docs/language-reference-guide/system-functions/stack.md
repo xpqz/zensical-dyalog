@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">State Indicator Stack</span> <span class="command">R←⎕STACK</span></h1>
+# <span class="name">State Indicator Stack</span> <span class="command">R←⎕STACK</span> {: .heading}
 
 
 

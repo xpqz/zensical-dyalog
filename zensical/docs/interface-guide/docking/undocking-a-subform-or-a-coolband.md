@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Undocking a SubForm or a CoolBand</span></h1>
+# <span class="name">Undocking a SubForm or a CoolBand</span> {: .heading}
 
 When a SubForm or a CoolBand is undocked, it becomes a Form.
 

@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Splitter</span> <span class="right">Example 4</span></h1>
+# <span class="name">Splitter</span> <span class="right">Example 4</span> {: .heading}
 
 
 ```apl

@@ -11,7 +11,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Greater Than</span> <span class="command">R←X>Y</span></h1>
+# <span class="name">Greater Than</span> <span class="command">R←X&gt;Y</span> {: .heading}
 
 
 

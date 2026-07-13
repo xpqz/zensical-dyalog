@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Properties</span></h1>
+# <span class="name">Properties</span> {: .heading}
 
 By default, Properties exposed by a COM object behave in the same way as Properties exposed by Dyalog APL Classes.
 

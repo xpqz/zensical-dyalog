@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Arrays of Namespace References</span></h1>
+# <span class="name">Arrays of Namespace References</span> {: .heading}
 
 You can construct arrays of refs using strand notation, array notation, catenate (`,`), reshape (`⍴`) and other structural primitives, as well as certain system functions.
 ```apl

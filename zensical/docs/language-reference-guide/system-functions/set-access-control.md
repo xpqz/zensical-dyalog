@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Set Access Control</span> <span class="command">R←X ⎕SVC Y</span></h1>
+# <span class="name">Set Access Control</span> <span class="command">R←X ⎕SVC Y</span> {: .heading}
 
 
 

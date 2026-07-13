@@ -13,7 +13,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Compress/Decompress Vector of Short Integers</span> <span class="command">R←X(219⌶)Y</span></h1>
+# <span class="name">Compress/Decompress Vector of Short Integers</span> <span class="command">R←X(219⌶)Y</span> {: .heading}
 
 
 
@@ -80,7 +80,7 @@ The second, optional, element of `X` specifies the length of the uncompressed da
 
 `X` may not be a two item vector whose first item has the value 0.
 
-<h1 class="example">Examples</h1>
+# Examples {: .example}
 ```apl
 
       sint←{⍵-256×⍵>127}

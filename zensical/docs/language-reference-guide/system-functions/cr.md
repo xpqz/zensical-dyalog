@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Canonical Representation</span> <span class="command">R←⎕CR Y</span></h1>
+# <span class="name">Canonical Representation</span> <span class="command">R←⎕CR Y</span> {: .heading}
 
 
 

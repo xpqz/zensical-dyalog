@@ -3,7 +3,7 @@
 
 
 
-<h1 class="heading"><span class="name">List Global Namespaces</span> <span class="command">)OBJECTS {nm}</span></h1>
+# <span class="name">List Global Namespaces</span> <span class="command">)OBJECTS \{nm\}</span> {: .heading}
 
 
 

@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">ButtonEdit Parents</span></h1>
+# <span class="name">ButtonEdit Parents</span> {: .heading}
 
 |----------------------------------------------|--------------------------------|----------------------------|
 |[ActiveXControl](../objects/activexcontrol.md)|[Form](../objects/form.md)      |[Group](../objects/group.md)|

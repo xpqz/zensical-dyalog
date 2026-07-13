@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Editing Scripts and Text Files</span></h1>
+# <span class="name">Editing Scripts and Text Files</span> {: .heading}
 
 The Editor may also be used to edit Dyalog script files (`.dyalog` files) and general text files.
 

@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">File History</span> <span class="command">R←⎕FHIST Y</span></h1>
+# <span class="name">File History</span> <span class="command">R←⎕FHIST Y</span> {: .heading}
 
 
 ## Access code 16384
@@ -56,7 +56,7 @@ In the examples that follow, the `FHist` function is used below to format the re
 
 ```
 
-<h1 class="example">Examples</h1>
+# Examples {: .example}
 ```apl
      'c:\temp'⎕FCREATE 1 ⋄ FHist 1
                User  TimeStamp            

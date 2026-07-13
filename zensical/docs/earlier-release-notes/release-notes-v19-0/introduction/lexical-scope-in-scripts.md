@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Lexical Scope in Scripts</span></h1>
+# <span class="name">Lexical Scope in Scripts</span> {: .heading}
 
 ## Historical Note
 

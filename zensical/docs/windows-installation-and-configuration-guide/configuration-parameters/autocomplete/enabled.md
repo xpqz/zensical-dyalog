@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">AutoComplete/Enabled</span></h1>
+# <span class="name">AutoComplete/Enabled</span> {: .heading}
 
 This parameter specifies whether or not Auto Completion is enabled
 

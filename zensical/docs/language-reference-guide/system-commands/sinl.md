@@ -2,7 +2,7 @@
 
 
 
-<h1 class="heading"><span class="name">State Indicator & Name List</span> <span class="command">)SINL</span></h1>
+# <span class="name">State Indicator &amp; Name List</span> <span class="command">)SINL</span> {: .heading}
 
 
 

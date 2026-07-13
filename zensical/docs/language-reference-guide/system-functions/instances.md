@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Instances</span> <span class="command">R←⎕INSTANCES Y</span></h1>
+# <span class="name">Instances</span> <span class="command">R←⎕INSTANCES Y</span> {: .heading}
 
 
 

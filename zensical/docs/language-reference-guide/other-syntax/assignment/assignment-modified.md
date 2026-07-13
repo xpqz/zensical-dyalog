@@ -7,7 +7,7 @@ search:
   ← gets
 </div>
 
-<h1 class="heading"><span class="name">Assignment (Modified)</span> <span class="command">{R}←Xf←Y</span></h1>
+# <span class="name">Assignment (Modified)</span> <span class="command">\{R\}←Xf←Y</span> {: .heading}
 
 `f` may be any dyadic function which returns an explicit result.  `Y` may be any array  appropriate to function `f`.  `X` must be the *name* of an existing array appropriate to function `f`.
 

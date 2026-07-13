@@ -6,7 +6,7 @@ search:
   ~ without
 </div>
 
-<h1 class="heading"><span class="name">Without</span> <span class="command">R←X~Y</span></h1>
+# <span class="name">Without</span> <span class="command">R←X~Y</span> {: .heading}
 
 `X` must be a scalar or vector.  `R` is a vector of the elements of `X` excluding those elements which occur in `Y` taken in the order in which they occur in `X`.
 

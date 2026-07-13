@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Retracting</span> <span class="right">Event 304</span></h1>
+# <span class="name">Retracting</span> <span class="right">Event 304</span> {: .heading}
 
 
 

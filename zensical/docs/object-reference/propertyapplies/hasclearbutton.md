@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">HasClearButton Property</span></h1>
+# <span class="name">HasClearButton Property</span> {: .heading}
 
 |--------------------------------------|----------------------------|--------------------------------|
 |[ButtonEdit](../objects/buttonedit.md)|[Combo](../objects/combo.md)|[ComboEx](../objects/comboex.md)|

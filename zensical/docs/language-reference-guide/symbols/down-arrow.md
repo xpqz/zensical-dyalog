@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-<h1 class="heading"><span class="name">Down Arrow</span> <span class="command">↓</span></h1>
+# <span class="name">Down Arrow</span> <span class="command">↓</span> {: .heading}
 
 Monadic Down Arrow means
 [Split](../primitive-functions/split.md)

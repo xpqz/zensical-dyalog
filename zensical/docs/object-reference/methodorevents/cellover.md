@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">CellOver</span> <span class="right">Event 160</span></h1>
+# <span class="name">CellOver</span> <span class="right">Event 160</span> {: .heading}
 
 
 

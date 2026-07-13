@@ -11,7 +11,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Null Item</span> <span class="command">R←⎕NULL</span></h1>
+# <span class="name">Null Item</span> <span class="command">R←⎕NULL</span> {: .heading}
 
 
 

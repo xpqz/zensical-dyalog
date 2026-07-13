@@ -8,7 +8,7 @@ search:
   8667⌶
 </div>
 
-<h1 class="heading"><span class="name">Save Shared Code Files</span> <span class="command">{R}←{X} (8667⌶) Y</span></h1>
+# <span class="name">Save Shared Code Files</span> <span class="command">\{R\}←\{X\} (8667⌶) Y</span> {: .heading}
 
 **Restriction**: 64-bit Unicode only
 

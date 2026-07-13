@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Namelists</span></h1>
+# <span class="name">Namelists</span> {: .heading}
 
 The right argument and the result of a function may be specified in the function header by a single name or by a *Namelist*. In this context, a Namelist is a blank-delimited list of names surrounded by a single set of parentheses.
 

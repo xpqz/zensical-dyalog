@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Edit_Cols</span></h1>
+# <span class="name">Edit\_Cols</span> {: .heading}
 
 This parameter specifies the initial width of an edit window in character units.
 

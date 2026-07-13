@@ -8,7 +8,7 @@ search:
   8659⌶
 </div>
 
-<h1 class="heading"><span class="name">List Shared Code Files/Attached Names</span> <span class="command">{R}←{X} (8659⌶) Y</span></h1>
+# <span class="name">List Shared Code Files/Attached Names</span> <span class="command">\{R\}←\{X\} (8659⌶) Y</span> {: .heading}
 
 **Restriction**: 64-bit Unicode only
 

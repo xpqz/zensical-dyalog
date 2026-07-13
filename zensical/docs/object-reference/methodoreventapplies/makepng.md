@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">MakePNG Method</span></h1>
+# <span class="name">MakePNG Method</span> {: .heading}
 
 |------------------------------|------|------|
 |[Bitmap](../objects/bitmap.md)|&nbsp;|&nbsp;|

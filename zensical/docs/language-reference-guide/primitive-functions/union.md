@@ -6,7 +6,7 @@ search:
   ∪ union
 </div>
 
-<h1 class="heading"><span class="name">Union</span> <span class="command">R←X∪Y</span></h1>
+# <span class="name">Union</span> <span class="command">R←X∪Y</span> {: .heading}
 
 `Y` must be a vector.  `X` must be a vector.  If either argument is a scalar, it is treated as a one-element vector.  `R` is a vector of the elements of `X` catenated with the elements of `Y` which are not found in `X`.
 

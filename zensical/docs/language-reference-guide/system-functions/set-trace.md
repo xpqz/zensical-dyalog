@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Set Trace</span> <span class="command">{R}←X ⎕TRACE Y</span></h1>
+# <span class="name">Set Trace</span> <span class="command">\{R\}←X ⎕TRACE Y</span> {: .heading}
 
 
 

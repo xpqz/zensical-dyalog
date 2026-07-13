@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Shared Variable Offer</span> <span class="command">R←X ⎕SVO Y</span></h1>
+# <span class="name">Shared Variable Offer</span> <span class="command">R←X ⎕SVO Y</span> {: .heading}
 
 
 

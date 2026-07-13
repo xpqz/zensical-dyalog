@@ -13,7 +13,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Execute Expression</span> <span class="command">R←X(85⌶)Y</span></h1>
+# <span class="name">Execute Expression</span> <span class="command">R←X(85⌶)Y</span> {: .heading}
 
 
 

@@ -7,7 +7,7 @@ search:
   ⎕FCOPY FCOPY
 </div>
 
-<h1 class="heading"><span class="name">File Copy</span> <span class="command">R←X ⎕FCOPY Y</span></h1>
+# <span class="name">File Copy</span> <span class="command">R←X ⎕FCOPY Y</span> {: .heading}
 
 ## Access Code: 4609
 

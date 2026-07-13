@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">VAlign Property</span></h1>
+# <span class="name">VAlign Property</span> {: .heading}
 
 |--------------------------|------|------|
 |[Text](../objects/text.md)|&nbsp;|&nbsp;|

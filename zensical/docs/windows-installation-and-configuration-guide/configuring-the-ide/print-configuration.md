@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Print Configuration Dialog Box</span></h1>
+# <span class="name">Print Configuration Dialog Box</span> {: .heading}
 
 The Print Configuration dialog box is displayed by the system operation `[PrintSetup]` that is associated with the *File/Print Setup* menu item. It is also available from Edit windows and from the *Workspace Explorer* and *Find Objects* tools.
 

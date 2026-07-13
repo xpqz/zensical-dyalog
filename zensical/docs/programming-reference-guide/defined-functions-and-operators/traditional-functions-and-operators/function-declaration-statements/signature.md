@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Signature Statement</span> <span class="command">:Signature</span></h1>
+# <span class="name">Signature Statement</span> <span class="command">:Signature</span> {: .heading}
 
 ```apl
 :Signature <rslttype←><name><arg1type arg1name>,...

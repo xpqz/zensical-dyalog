@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">CoolBand Properties</span></h1>
+# <span class="name">CoolBand Properties</span> {: .heading}
 
 |-------------------------------------------|---------------------------------------|-----------------------------------------------|
 |[Type](../properties/type.md)              |[Caption](../properties/caption.md)    |[Posn](../properties/posn.md)                  |

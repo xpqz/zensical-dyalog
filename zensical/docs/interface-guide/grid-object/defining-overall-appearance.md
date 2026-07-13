@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Defining Overall Appearance</span></h1>
+# <span class="name">Defining Overall Appearance</span> {: .heading}
 
 By default, the Grid inherits its font from the parent Form, or ultimately, from the Root object. This defaults to your Windows System font.
 

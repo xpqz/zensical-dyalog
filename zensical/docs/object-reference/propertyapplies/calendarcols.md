@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">CalendarCols Property</span></h1>
+# <span class="name">CalendarCols Property</span> {: .heading}
 
 |----------------------------------|----------------------------------------------|------|
 |[Calendar](../objects/calendar.md)|[DateTimePicker](../objects/datetimepicker.md)|&nbsp;|

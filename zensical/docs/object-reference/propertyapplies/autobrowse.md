@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">AutoBrowse Property</span></h1>
+# <span class="name">AutoBrowse Property</span> {: .heading}
 
 |------------------------------------|------|------|
 |[OLEClient](../objects/oleclient.md)|&nbsp;|&nbsp;|

@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">:Interface Statement</span></h1>
+# <span class="name">:Interface Statement</span> {: .heading}
 
 ```apl
  :Interface <interface name>

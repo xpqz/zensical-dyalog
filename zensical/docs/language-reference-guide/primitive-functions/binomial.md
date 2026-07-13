@@ -6,7 +6,7 @@ search:
   ! binomial
 </div>
 
-<h1 class="heading"><span class="name">Binomial</span> <span class="command">R←X!Y</span></h1>
+# <span class="name">Binomial</span> <span class="command">R←X!Y</span> {: .heading}
 
 `X` and `Y` may be any numbers except that if `Y` is a negative integer then `X` must be an integer. `R` is numeric. An element of `R` is integer if corresponding elements of `X` and `Y` are integers.
 

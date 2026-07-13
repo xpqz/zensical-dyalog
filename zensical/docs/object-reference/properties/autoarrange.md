@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">AutoArrange</span> <span class="right">Property</span></h1>
+# <span class="name">AutoArrange</span> <span class="right">Property</span> {: .heading}
 
 
 

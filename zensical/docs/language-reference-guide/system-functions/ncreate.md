@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Native File Create</span> <span class="command">{R}←X ⎕NCREATE Y</span></h1>
+# <span class="name">Native File Create</span> <span class="command">\{R\}←X ⎕NCREATE Y</span> {: .heading}
 
 
 

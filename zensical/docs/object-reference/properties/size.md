@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Size</span> <span class="right">Property</span></h1>
+# <span class="name">Size</span> <span class="right">Property</span> {: .heading}
 
 [**Applies To**](../propertyapplies/size.md)
 

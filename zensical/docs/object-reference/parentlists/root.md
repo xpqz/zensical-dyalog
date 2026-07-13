@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Root Parents</span></h1>
+# <span class="name">Root Parents</span> {: .heading}
 
 |------------------------------------|--------------------------------------------|----------------------------------------|
 |[Bitmap](../objects/bitmap.md)      |[BrowseBox](../objects/browsebox.md)        |[Clipboard](../objects/clipboard.md)    |

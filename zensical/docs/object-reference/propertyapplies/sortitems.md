@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">SortItems Property</span></h1>
+# <span class="name">SortItems Property</span> {: .heading}
 
 |--------------------------|------|------|
 |[List](../objects/list.md)|&nbsp;|&nbsp;|

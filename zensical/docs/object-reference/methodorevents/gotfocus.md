@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">GotFocus</span> <span class="right">Event 40</span></h1>
+# <span class="name">GotFocus</span> <span class="right">Event 40</span> {: .heading}
 
 [**Applies To**](../methodoreventapplies/gotfocus.md)
 

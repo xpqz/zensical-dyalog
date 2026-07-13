@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Native File Append</span> <span class="command">{R}←X ⎕NAPPEND Y</span></h1>
+# <span class="name">Native File Append</span> <span class="command">\{R\}←X ⎕NAPPEND Y</span> {: .heading}
 
 
 

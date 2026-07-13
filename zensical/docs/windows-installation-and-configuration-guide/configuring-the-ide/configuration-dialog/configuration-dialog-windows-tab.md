@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Windows Tab</span></h1>
+# <span class="name">Windows Tab</span> {: .heading}
 
 ![configuration dialog windows tab](../../img/configuration-dialog-windows-tab.png)
 

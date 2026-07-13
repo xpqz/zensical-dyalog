@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">RTFText Property</span></h1>
+# <span class="name">RTFText Property</span> {: .heading}
 
 |------------------------------------|----------------------------------|------|
 |[Clipboard](../objects/clipboard.md)|[RichEdit](../objects/richedit.md)|&nbsp;|

@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Enclosed Elements</span></h1>
+# <span class="name">Enclosed Elements</span> {: .heading}
 
 An array may be enclosed to form a scalar element through any of the following means:
 

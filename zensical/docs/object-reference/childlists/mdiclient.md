@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">MDIClient Children</span></h1>
+# <span class="name">MDIClient Children</span> {: .heading}
 
 |--------------------------------|--------------------------------|----------------------------|
 |[Circle](../objects/circle.md)  |[Ellipse](../objects/ellipse.md)|[Font](../objects/font.md)  |

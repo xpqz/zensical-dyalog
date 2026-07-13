@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">:Class Statement</span></h1>
+# <span class="name">:Class Statement</span> {: .heading}
 
 `:Class <class name><:base class name> <,interface name...>`
 ```apl

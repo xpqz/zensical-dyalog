@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Namespace</span> <span class="command">{R}←{X}⎕NS Y</span></h1>
+# <span class="name">Namespace</span> <span class="command">\{R\}←\{X\}⎕NS Y</span> {: .heading}
 
 The `⎕NS` system function makes it possible to create namespaces, copy elements from one namespace to another, and clone namespaces.
 

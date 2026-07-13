@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Native File Rename</span> <span class="command">{R}←X ⎕NRENAME Y</span></h1>
+# <span class="name">Native File Rename</span> <span class="command">\{R\}←X ⎕NRENAME Y</span> {: .heading}
 
 
 

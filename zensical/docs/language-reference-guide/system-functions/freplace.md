@@ -7,7 +7,7 @@ search:
   ⎕FREPLACE FREPLACE
 </div>
 
-<h1 class="heading"><span class="name">File Replace Component</span> <span class="command">{R}←X ⎕FREPLACE Y</span></h1>
+# <span class="name">File Replace Component</span> <span class="command">\{R\}←X ⎕FREPLACE Y</span> {: .heading}
 
 ## Access code 16
 

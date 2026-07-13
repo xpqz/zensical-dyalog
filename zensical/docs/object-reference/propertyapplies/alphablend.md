@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">AlphaBlend Property</span></h1>
+# <span class="name">AlphaBlend Property</span> {: .heading}
 
 |--------------------------|------|------|
 |[Form](../objects/form.md)|&nbsp;|&nbsp;|

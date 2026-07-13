@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">DateTimePicker Parents</span></h1>
+# <span class="name">DateTimePicker Parents</span> {: .heading}
 
 |----------------------------------------------|------------------------------------------|--------------------------------|
 |[ActiveXControl](../objects/activexcontrol.md)|[Form](../objects/form.md)                |[Grid](../objects/grid.md)      |

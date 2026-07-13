@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Token Requests</span> <span class="command">R←⎕TREQ Y</span></h1>
+# <span class="name">Token Requests</span> <span class="command">R←⎕TREQ Y</span> {: .heading}
 
 
 

@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Scan</span> <span class="command">R←f\[K]Y</span></h1>
+# <span class="name">Scan</span> <span class="command">R←f\\\[K\]Y</span> {: .heading}
 
 
 

@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">GetItemPosition Method</span></h1>
+# <span class="name">GetItemPosition Method</span> {: .heading}
 
 |----------------------------------|------|------|
 |[ListView](../objects/listview.md)|&nbsp;|&nbsp;|

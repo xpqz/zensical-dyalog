@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Locals Lines</span></h1>
+# <span class="name">Locals Lines</span> {: .heading}
 
 *Locals Lines* are lines in a defined function or operator that serve only to define local names.
 

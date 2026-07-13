@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">GestureRotate</span> <span class="right">Event 495</span></h1>
+# <span class="name">GestureRotate</span> <span class="right">Event 495</span> {: .heading}
 
 [**Applies To**](../methodoreventapplies/gesturerotate.md)
 

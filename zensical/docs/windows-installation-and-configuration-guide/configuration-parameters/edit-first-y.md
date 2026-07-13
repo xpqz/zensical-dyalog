@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Edit_First_Y</span></h1>
+# <span class="name">Edit\_First\_Y</span> {: .heading}
 
 This parameters specify the initial y-position on the screen of the *first* edit window in character units. Subsequent edit windows will be staggered. This parameter only apply if **ClassicMode** is 1.
 

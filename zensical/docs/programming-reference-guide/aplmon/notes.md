@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Notes</span></h1>
+# <span class="name">Notes</span> {: .heading}
 
 ## Indexing
 

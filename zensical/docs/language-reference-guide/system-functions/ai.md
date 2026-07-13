@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Account Information</span> <span class="command">R←⎕AI</span></h1>
+# <span class="name">Account Information</span> <span class="command">R←⎕AI</span> {: .heading}
 
 
 

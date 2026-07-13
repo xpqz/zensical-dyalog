@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">ColTitleBCol Property</span></h1>
+# <span class="name">ColTitleBCol Property</span> {: .heading}
 
 |--------------------------|------|------|
 |[Grid](../objects/grid.md)|&nbsp;|&nbsp;|

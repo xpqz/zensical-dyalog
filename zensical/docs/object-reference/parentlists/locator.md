@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Locator Parents</span></h1>
+# <span class="name">Locator Parents</span> {: .heading}
 
 |----------------------------------------------|--------------------------------------------|------------------------------------|
 |[ActiveXControl](../objects/activexcontrol.md)|[Form](../objects/form.md)                  |[Group](../objects/group.md)        |

@@ -7,7 +7,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Trace Controls</span> <span class="command">⎕TRACE</span></h1>
+# <span class="name">Trace Controls</span> <span class="command">⎕TRACE</span> {: .heading}
 
 
 ## Dyadic `⎕TRACE` means

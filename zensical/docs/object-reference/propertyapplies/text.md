@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Text Property</span></h1>
+# <span class="name">Text Property</span> {: .heading}
 
 |--------------------------------------|------------------------------------|----------------------------------------|
 |[ButtonEdit](../objects/buttonedit.md)|[Clipboard](../objects/clipboard.md)|[Combo](../objects/combo.md)            |

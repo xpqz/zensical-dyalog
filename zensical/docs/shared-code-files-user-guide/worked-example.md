@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Worked Example</span></h1>
+# <span class="name">Worked Example</span> {: .heading}
 
 This annotated example demonstrates the use of some of the [I-Beam functions](../technical-details/#technical-reference.md) related to shared code files (examples of assimilate and detach are not included).
 

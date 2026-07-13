@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">DelRow</span> <span class="right">Method 154</span></h1>
+# <span class="name">DelRow</span> <span class="right">Method 154</span> {: .heading}
 
 
 

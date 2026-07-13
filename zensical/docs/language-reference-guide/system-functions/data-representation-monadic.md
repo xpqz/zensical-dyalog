@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Data Representation (Monadic)</span> <span class="command">R←⎕DR Y</span></h1>
+# <span class="name">Data Representation (Monadic)</span> <span class="command">R←⎕DR Y</span> {: .heading}
 
 
 

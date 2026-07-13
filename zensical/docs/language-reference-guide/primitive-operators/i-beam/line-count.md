@@ -13,7 +13,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Line Count</span> <span class="command">R←50100⌶Y</span></h1>
+# <span class="name">Line Count</span> <span class="command">R←50100⌶Y</span> {: .heading}
 
 
 

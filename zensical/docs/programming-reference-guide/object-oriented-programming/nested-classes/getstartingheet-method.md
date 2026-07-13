@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">GetStartingheet Method</span></h1>
+# <span class="name">GetStartingheet Method</span> {: .heading}
 
 ```apl
     ∇ R←GetStartingSheet ARGS;CODE;COURSE;DATE;COURSECODES

@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">File Rename</span> <span class="command">{R}←X ⎕FRENAME Y</span></h1>
+# <span class="name">File Rename</span> <span class="command">\{R\}←X ⎕FRENAME Y</span> {: .heading}
 
 
 ## Access code 128

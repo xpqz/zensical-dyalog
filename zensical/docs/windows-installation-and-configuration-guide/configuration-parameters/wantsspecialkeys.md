@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">WantsSpecialKeys</span></h1>
+# <span class="name">WantsSpecialKeys</span> {: .heading}
 
 **Unicode Edition only.**
 

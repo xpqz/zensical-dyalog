@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">StatusField Parents</span></h1>
+# <span class="name">StatusField Parents</span> {: .heading}
 
 |------------------------------------|------|------|
 |[StatusBar](../objects/statusbar.md)|&nbsp;|&nbsp;|

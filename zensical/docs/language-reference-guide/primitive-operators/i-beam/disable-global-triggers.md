@@ -13,7 +13,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Disable Global Triggers</span> <span class="command">R←2007⌶Y</span></h1>
+# <span class="name">Disable Global Triggers</span> <span class="command">R←2007⌶Y</span> {: .heading}
 
 
 

@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">GolfCourse Class</span></h1>
+# <span class="name">GolfCourse Class</span> {: .heading}
 
 ```apl
 

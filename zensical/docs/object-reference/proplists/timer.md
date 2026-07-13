@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Timer Properties</span></h1>
+# <span class="name">Timer Properties</span> {: .heading}
 
 |---------------------------------------|-----------------------------------------|-------------------------------------------|
 |[Type](../properties/type.md)          |[Interval](../properties/interval.md)    |[Active](../properties/active.md)          |

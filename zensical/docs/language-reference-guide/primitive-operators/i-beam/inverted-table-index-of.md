@@ -13,7 +13,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Inverted Table Index-of</span> <span class="command">R←X(8⌶)Y</span></h1>
+# <span class="name">Inverted Table Index-of</span> <span class="command">R←X(8⌶)Y</span> {: .heading}
 
 
 

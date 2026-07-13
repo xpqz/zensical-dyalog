@@ -7,7 +7,7 @@ search:
 </div>
 
 
-<h1 class="heading"><span class="name">Left</span> <span class="command">R←X⊣Y</span></h1>
+# <span class="name">Left</span> <span class="command">R←X⊣Y</span> {: .heading}
 
 
 

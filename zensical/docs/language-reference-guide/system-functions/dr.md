@@ -7,7 +7,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Data Representation</span> <span class="command">⎕DR</span></h1>
+# <span class="name">Data Representation</span> <span class="command">⎕DR</span> {: .heading}
 
 
 ## Monadic `⎕DR` means

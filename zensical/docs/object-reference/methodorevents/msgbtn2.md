@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">MsgBtn2</span> <span class="right">Event 62</span></h1>
+# <span class="name">MsgBtn2</span> <span class="right">Event 62</span> {: .heading}
 
 
 

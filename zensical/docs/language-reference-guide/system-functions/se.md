@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Session Namespace</span> <span class="command">⎕SE</span></h1>
+# <span class="name">Session Namespace</span> <span class="command">⎕SE</span> {: .heading}
 
 
 

@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Using Icons</span></h1>
+# <span class="name">Using Icons</span> {: .heading}
 
 You have seen how icons can be displayed using the Picture property. Other uses of icons are described below.
 

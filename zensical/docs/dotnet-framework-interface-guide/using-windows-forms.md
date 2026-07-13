@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Using Windows Forms</span></h1>
+# <span class="name">Using Windows Forms</span> {: .heading}
 
 <code class="language-nonAPL">System.Windows.Forms</code> is a .NET namespace that provides a set of classes for creating the GUI for Microsoft Windows applications.
 

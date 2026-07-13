@@ -8,7 +8,7 @@ search:
   4007⌶
 </div>
 
-<h1 class="heading"><span class="name">Signal Counts</span> <span class="command">R←4007⌶Y</span></h1>
+# <span class="name">Signal Counts</span> <span class="command">R←4007⌶Y</span> {: .heading}
 
 !!! note
     **UNIX, Linux and macOS only.**
