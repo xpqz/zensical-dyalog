@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">KeyPress</span> <span class="right">Event 22</span></h1>
+# <span class="name">KeyPress</span> <span class="right">Event 22</span> {: .heading}
 
 [**Applies To**](../methodoreventapplies/keypress.md)
 

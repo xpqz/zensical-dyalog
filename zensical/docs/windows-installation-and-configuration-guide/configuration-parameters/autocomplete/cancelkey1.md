@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">AutoComplete/CancelKey1</span></h1>
+# <span class="name">AutoComplete/CancelKey1</span> {: .heading}
 
 Specifies the first of two possible keys that may be used to cancel (hide) the Auto Cancel suggestion box.
 

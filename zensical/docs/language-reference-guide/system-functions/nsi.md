@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Namespace Indicator</span> <span class="command">R←⎕NSI</span></h1>
+# <span class="name">Namespace Indicator</span> <span class="command">R←⎕NSI</span> {: .heading}
 
 
 

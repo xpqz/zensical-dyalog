@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Close</span> <span class="right">Event 33</span></h1>
+# <span class="name">Close</span> <span class="right">Event 33</span> {: .heading}
 
 [**Applies To**](../methodoreventapplies/close.md)
 

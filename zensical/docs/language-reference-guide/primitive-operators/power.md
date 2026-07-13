@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Power</span> <span class="command">{R}←{X}(f⍣g)Y</span></h1>
+# <span class="name">Power</span> <span class="command">\{R\}←\{X\}(f⍣g)Y</span> {: .heading}
 
 
 

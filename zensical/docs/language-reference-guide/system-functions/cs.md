@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Change Space</span> <span class="command">{R}←{X}⎕CS Y</span></h1>
+# <span class="name">Change Space</span> <span class="command">\{R\}←\{X\}⎕CS Y</span> {: .heading}
 
 
 

@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Session Initialisation</span></h1>
+# <span class="name">Session Initialisation</span> {: .heading}
 
 ## Introduction
 

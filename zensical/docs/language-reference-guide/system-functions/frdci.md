@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">File Read Component Information</span> <span class="command">R←⎕FRDCI Y</span></h1>
+# <span class="name">File Read Component Information</span> <span class="command">R←⎕FRDCI Y</span> {: .heading}
 
 
 ## Access code 512

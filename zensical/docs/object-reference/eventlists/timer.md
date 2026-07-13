@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Timer Events</span></h1>
+# <span class="name">Timer Events</span> {: .heading}
 
 |-----------------------------------|-------------------------------------|-----------------------------------|
 |[Close](../methodorevents/close.md)|[Create](../methodorevents/create.md)|[Timer](../methodorevents/timer.md)|

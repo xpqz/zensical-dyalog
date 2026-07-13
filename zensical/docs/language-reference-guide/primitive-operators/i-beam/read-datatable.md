@@ -8,7 +8,7 @@ search:
   2011⌶
 </div>
 
-<h1 class="heading"><span class="name">Read DataTable</span> <span class="command">R←{X}2011⌶Y</span></h1>
+# <span class="name">Read DataTable</span> <span class="command">R←\{X\}2011⌶Y</span> {: .heading}
 
 !!! note
     **.NET Framework only**

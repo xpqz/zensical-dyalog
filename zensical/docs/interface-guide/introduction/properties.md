@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Properties</span></h1>
+# <span class="name">Properties</span> {: .heading}
 
 Properties may be set using the system functions `⎕WC` and `⎕WS` and their values may be retrieved using `⎕WG`.
 

@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">SetItemPosition</span> <span class="right">Event 322</span></h1>
+# <span class="name">SetItemPosition</span> <span class="right">Event 322</span> {: .heading}
 
 **Applies To:** [ListView](../objects/listview.md)
 

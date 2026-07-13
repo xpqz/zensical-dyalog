@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Metafile</span> <span class="right">Object</span></h1>
+# <span class="name">Metafile</span> <span class="right">Object</span> {: .heading}
 
 
 

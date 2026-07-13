@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Bitmap Children</span></h1>
+# <span class="name">Bitmap Children</span> {: .heading}
 
 |------------------------------|--------------------------------|----------------------------------|
 |[Circle](../objects/circle.md)|[Ellipse](../objects/ellipse.md)|[Font](../objects/font.md)        |

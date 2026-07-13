@@ -6,7 +6,7 @@ search:
   ⊂ enclose
 </div>
 
-<h1 class="heading"><span class="name">Enclose with Axes</span> <span class="command">R←⊂[K]Y</span></h1>
+# <span class="name">Enclose with Axes</span> <span class="command">R←⊂\[K\]Y</span> {: .heading}
 
 
 `Y` may be any array.  `K` is a vector of zero or more axes of `Y`.  `R` is an array of the elements of `Y` enclosed along the axes `K`.  The shape of `R` is the shape of `Y` with the `K` axes removed:

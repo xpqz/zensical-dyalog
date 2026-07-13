@@ -3,8 +3,9 @@
 # monorepo's tools/requirements-docs.txt; this file covers only what the
 # tooling here needs on top of it.
 
-# Script runtime (TOML serialisation).
+# Script runtime: TOML serialisation, and HTML parsing for the heading rewrite.
 tomli-w==1.2.0
+beautifulsoup4==4.14.3
 
 # Tests.
 pytest==9.1.1

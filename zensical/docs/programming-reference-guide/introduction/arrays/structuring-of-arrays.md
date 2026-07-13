@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Structuring of Arrays</span></h1>
+# <span class="name">Structuring of Arrays</span> {: .heading}
 
 Primitive functions that restructure arrays:
 

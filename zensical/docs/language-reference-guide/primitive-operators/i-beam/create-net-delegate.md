@@ -13,7 +13,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Create .NET Delegate</span> <span class="command">R←2016⌶Y</span></h1>
+# <span class="name">Create .NET Delegate</span> <span class="command">R←2016⌶Y</span> {: .heading}
 
 
 

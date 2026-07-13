@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Namespace Reference Evaluation</span></h1>
+# <span class="name">Namespace Reference Evaluation</span> {: .heading}
 
 When the interpreter encounters a namespace reference, it:
 

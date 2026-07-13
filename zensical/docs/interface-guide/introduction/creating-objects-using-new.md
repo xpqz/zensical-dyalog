@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Creating Objects using NEW</span></h1>
+# <span class="name">Creating Objects using NEW</span> {: .heading}
 
 With the introduction of Classes in Version 11.0, you may manipulate Dyalog GUI objects as Instances of built-in (GUI) Classes. This approach supplements (but does not replace) the use of `⎕WC`, `⎕WS` and so forth.
 

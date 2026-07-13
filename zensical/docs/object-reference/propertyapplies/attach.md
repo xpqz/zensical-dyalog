@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Attach Property</span></h1>
+# <span class="name">Attach Property</span> {: .heading}
 
 |------------------------------------------|----------------------------------------|----------------------------------------------|
 |[Animation](../objects/animation.md)      |[Button](../objects/button.md)          |[ButtonEdit](../objects/buttonedit.md)        |

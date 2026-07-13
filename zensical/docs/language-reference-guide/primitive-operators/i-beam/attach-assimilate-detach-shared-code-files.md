@@ -8,7 +8,7 @@ search:
   8666⌶
 </div>
 
-<h1 class="heading"><span class="name">Attach/Assimilate/Detach Shared Code Files</span> <span class="command">{R}←{X} (8666⌶) Y</span></h1>
+# <span class="name">Attach/Assimilate/Detach Shared Code Files</span> <span class="command">\{R\}←\{X\} (8666⌶) Y</span> {: .heading}
 
 **Restriction**: 64-bit Unicode only
 

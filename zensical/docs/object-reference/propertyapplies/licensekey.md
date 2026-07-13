@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">LicenseKey Property</span></h1>
+# <span class="name">LicenseKey Property</span> {: .heading}
 
 |----------------------------------|------|------|
 |[OCXClass](../objects/ocxclass.md)|&nbsp;|&nbsp;|

@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Name Classification</span> <span class="command">R←⎕NC Y</span></h1>
+# <span class="name">Name Classification</span> <span class="command">R←⎕NC Y</span> {: .heading}
 
 
 

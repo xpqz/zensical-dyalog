@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">ItemDown</span> <span class="right">Event 340</span></h1>
+# <span class="name">ItemDown</span> <span class="right">Event 340</span> {: .heading}
 
 
 

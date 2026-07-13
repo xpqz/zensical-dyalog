@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">PreCreate Event</span></h1>
+# <span class="name">PreCreate Event</span> {: .heading}
 
 |----------------------------------------------|------|------|
 |[ActiveXControl](../objects/activexcontrol.md)|&nbsp;|&nbsp;|

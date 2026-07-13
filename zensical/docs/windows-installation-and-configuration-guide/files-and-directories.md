@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Files and Directories</span></h1>
+# <span class="name">Files and Directories</span> {: .heading}
 
 ## Unicode and Classic Editions
 

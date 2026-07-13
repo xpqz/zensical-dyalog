@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Clover Class Example</span></h1>
+# <span class="name">Clover Class Example</span> {: .heading}
 
 ```apl
 :Class Clover ⍝ Constructor Overload Example

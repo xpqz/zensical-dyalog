@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">CMap Property</span></h1>
+# <span class="name">CMap Property</span> {: .heading}
 
 |------------------------------|------------------------------------|------------------------------|
 |[Bitmap](../objects/bitmap.md)|[Clipboard](../objects/clipboard.md)|[Cursor](../objects/cursor.md)|

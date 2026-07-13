@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">BalloonTimeout</span> <span class="right">Event 863</span></h1>
+# <span class="name">BalloonTimeout</span> <span class="right">Event 863</span> {: .heading}
 
 
 

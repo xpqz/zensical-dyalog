@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Changed Property</span></h1>
+# <span class="name">Changed Property</span> {: .heading}
 
 |--------------------------------------|--------------------------------|------------------------------------------|
 |[ButtonEdit](../objects/buttonedit.md)|[Edit](../objects/edit.md)      |[PropertyPage](../objects/propertypage.md)|

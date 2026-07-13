@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Auto Complete Tab</span></h1>
+# <span class="name">Auto Complete Tab</span> {: .heading}
 
 ![configuration dialog auto complete tab](../../img/configuration-dialog-auto-complete-tab.png)
 

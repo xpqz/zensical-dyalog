@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Group Children</span></h1>
+# <span class="name">Group Children</span> {: .heading}
 
 |----------------------------------------|----------------------------------------------|----------------------------------------|
 |[Animation](../objects/animation.md)    |[Bitmap](../objects/bitmap.md)                |[Button](../objects/button.md)          |

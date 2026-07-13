@@ -7,7 +7,7 @@ search:
   ⎕FPROPS FPROPS
 </div>
 
-<h1 class="heading"><span class="name">File Properties</span> <span class="command">R←X ⎕FPROPS Y</span></h1>
+# <span class="name">File Properties</span> <span class="command">R←X ⎕FPROPS Y</span> {: .heading}
 
 ## Access Code 1 (to read) or 8192 (to change properties)
 

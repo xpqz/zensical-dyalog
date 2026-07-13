@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">File Set Access</span> <span class="command">{R}←X ⎕FSTAC Y</span></h1>
+# <span class="name">File Set Access</span> <span class="command">\{R\}←X ⎕FSTAC Y</span> {: .heading}
 
 
 ## Access code 8192

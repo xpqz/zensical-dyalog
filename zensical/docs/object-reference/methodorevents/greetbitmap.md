@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">GreetBitmap</span> <span class="right">Method 138</span></h1>
+# <span class="name">GreetBitmap</span> <span class="right">Method 138</span> {: .heading}
 
 
 

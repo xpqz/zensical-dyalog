@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Printer Methods</span></h1>
+# <span class="name">Printer Methods</span> {: .heading}
 
 |-----------------------------------------------|-----------------------------------|---------------------------------------------------|
 |[Detach](../methodorevents/detach.md)          |[Print](../methodorevents/print.md)|[Setup](../methodorevents/setup.md)                |

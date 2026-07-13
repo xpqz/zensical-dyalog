@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Docking a Form into a CoolBar</span></h1>
+# <span class="name">Docking a Form into a CoolBar</span> {: .heading}
 
 The following example illustrates the effect of docking a Form into a CoolBar.
 ```apl

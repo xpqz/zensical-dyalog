@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">This Space</span> <span class="command">R←⎕THIS</span></h1>
+# <span class="name">This Space</span> <span class="command">R←⎕THIS</span> {: .heading}
 
 
 

@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">FishBehaviour Interface</span></h1>
+# <span class="name">FishBehaviour Interface</span> {: .heading}
 
 ```apl
 :Interface FishBehaviour

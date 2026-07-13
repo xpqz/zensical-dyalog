@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Threads & External Functions</span></h1>
+# <span class="name">Threads &amp; External Functions</span> {: .heading}
 
 External functions in dynamic link libraries (DLLs) defined using the `⎕NA` interface may be run in separate C threads. Such threads:
 

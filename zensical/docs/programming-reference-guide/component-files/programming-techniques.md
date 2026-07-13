@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Programming Techniques</span></h1>
+# <span class="name">Programming Techniques</span> {: .heading}
 
 ## Controlling Multi-User Access
 

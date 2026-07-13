@@ -70,6 +70,21 @@ def test_does_not_carry_vcs_metadata_into_the_output(source_tree, out_dir):
     assert list(out_dir.rglob(".git")) == []
 
 
+def test_rewrites_raw_html_headings_in_output_markdown(source_tree, out_dir):
+    run(source_tree, out_dir)
+    page = (out_dir / "docs" / "compiler-user-guide" / "raw-heading.md").read_text()
+    assert "<h1" not in page
+    assert any(line.startswith("# ") for line in page.splitlines())
+    assert "Widget" in page and "Object" in page
+
+
+def test_leaves_markdown_without_a_raw_heading_unchanged(source_tree, out_dir):
+    run(source_tree, out_dir)
+    original = (source_tree / "compiler-user-guide" / "docs" / "basic-usage.md").read_text()
+    copied = (out_dir / "docs" / "compiler-user-guide" / "basic-usage.md").read_text()
+    assert copied == original
+
+
 def test_does_not_carry_subproject_mathjax_duplicates(source_tree, out_dir):
     run(source_tree, out_dir)
     assert not (

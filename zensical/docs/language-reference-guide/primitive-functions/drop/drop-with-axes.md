@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Drop with Axes</span> <span class="command">R←X↓[K]Y</span></h1>
+# <span class="name">Drop with Axes</span> <span class="command">R←X↓\[K\]Y</span> {: .heading}
 
 
 

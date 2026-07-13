@@ -8,7 +8,7 @@ search:
 </div>
 
 
-<h1 class="heading"><span class="name">Screen Read</span> <span class="command">R←{X}⎕SR Y</span></h1>
+# <span class="name">Screen Read</span> <span class="command">R←\{X\}⎕SR Y</span> {: .heading}
 
 `⎕SR` is a system function that allows the user to edit or otherwise interact with the form defined by `⎕SM`.
 

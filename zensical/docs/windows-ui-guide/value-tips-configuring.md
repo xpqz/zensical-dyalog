@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Configuring Value Tips</span></h1>
+# <span class="name">Configuring Value Tips</span> {: .heading}
 
 You may enable/disable Value Tips and select other options from the *General* tab of the *Configuration* dialog box as shown below.
 

@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Windows Operating System Error Messages</span></h1>
+# <span class="name">Windows Operating System Error Messages</span> {: .heading}
 
 Table: Windows Operating System Messages {: #WindowsErrorMessages }
 

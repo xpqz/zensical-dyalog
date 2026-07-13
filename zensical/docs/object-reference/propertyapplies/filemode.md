@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">FileMode Property</span></h1>
+# <span class="name">FileMode Property</span> {: .heading}
 
 |--------------------------------|------|------|
 |[FileBox](../objects/filebox.md)|&nbsp;|&nbsp;|

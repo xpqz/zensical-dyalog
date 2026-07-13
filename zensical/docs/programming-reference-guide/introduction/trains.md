@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Function Trains</span></h1>
+# <span class="name">Function Trains</span> {: .heading}
 
 ## Introduction
 

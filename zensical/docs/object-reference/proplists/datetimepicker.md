@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">DateTimePicker Properties</span></h1>
+# <span class="name">DateTimePicker Properties</span> {: .heading}
 
 |---------------------------------------------|---------------------------------------------|-------------------------------------------|
 |[Type](../properties/type.md)                |[Posn](../properties/posn.md)                |[Size](../properties/size.md)              |

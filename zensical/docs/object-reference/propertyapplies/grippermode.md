@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">GripperMode Property</span></h1>
+# <span class="name">GripperMode Property</span> {: .heading}
 
 |----------------------------------|------|------|
 |[CoolBand](../objects/coolband.md)|&nbsp;|&nbsp;|

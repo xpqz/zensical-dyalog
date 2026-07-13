@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">PageApply</span> <span class="right">Event 350</span></h1>
+# <span class="name">PageApply</span> <span class="right">Event 350</span> {: .heading}
 
 
 

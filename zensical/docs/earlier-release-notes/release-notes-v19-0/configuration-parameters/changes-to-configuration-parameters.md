@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">New or Changed Configuration Parameters</span></h1>
+# <span class="name">New or Changed Configuration Parameters</span> {: .heading}
 
 The following table summarises  changes to configuration parameters in Version 19.0.
 

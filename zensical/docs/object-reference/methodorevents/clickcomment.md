@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">ClickComment</span> <span class="right">Method 225</span></h1>
+# <span class="name">ClickComment</span> <span class="right">Method 225</span> {: .heading}
 
 
 

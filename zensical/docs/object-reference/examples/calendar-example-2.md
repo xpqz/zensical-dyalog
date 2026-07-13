@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Calendar</span> <span class="right">Example 2</span></h1>
+# <span class="name">Calendar</span> <span class="right">Example 2</span> {: .heading}
 
 
 ```apl

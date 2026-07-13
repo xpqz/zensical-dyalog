@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">mapchars</span></h1>
+# <span class="name">mapchars</span> {: .heading}
 
 **Classic Edition only.**
 

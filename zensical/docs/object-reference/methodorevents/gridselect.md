@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">GridSelect</span> <span class="right">Event 165</span></h1>
+# <span class="name">GridSelect</span> <span class="right">Event 165</span> {: .heading}
 
 
 

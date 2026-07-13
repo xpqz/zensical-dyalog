@@ -43,6 +43,7 @@ from pathlib import Path
 
 import tomli_w
 import yaml
+from bs4 import BeautifulSoup, NavigableString
 
 # The 14 sub-projects, in root-nav order. The root nav's !include lines are
 # the canonical enumeration; a source checkout missing any of these is an
@@ -82,6 +83,12 @@ DROPPED_PLUGINS = frozenset({"monorepo", "site-urls", "caption"})
 CAPTION_EXTENSION = "dyalog_caption"
 
 _INCLUDE_RE = re.compile(r"^!include \./([^/]+)/mkdocs\.yml$")
+
+# Opening/closing fence marker (3+ backticks or tildes), optionally indented.
+_FENCE_RE = re.compile(r"^\s*(`{3,}|~{3,})")
+# Markdown-inline-special characters to escape in heading text so content such
+# as APL command signatures survives the inline parser verbatim.
+_MD_SPECIAL_RE = re.compile(r"[\\`*_\[\]{}]")
 
 
 def load_yaml(path):
@@ -181,6 +188,86 @@ def merge_configs(root_config, sub_configs):
     return merged
 
 
+def rewrite_h1(md_text):
+    """Rewrite raw-HTML page-title headings to Markdown ATX headings.
+
+    The corpus writes page titles as raw HTML (`<h1 class="heading">` with
+    inner styling spans) via md_in_html, so neither MkDocs nor Zensical sees
+    an ATX heading and both fall back for the page title: MkDocs to the nav
+    label, Zensical to the filename. Converting each raw `<h1 ...>INNER</h1>`
+    to `# INNER {: attrs}` gives Zensical a heading whose text becomes the
+    title, while attr_list carries the original attributes so the class and
+    inner spans (hence the styling) survive.
+
+    Markdown-special characters in INNER are escaped so command headings
+    containing APL (e.g. `R<-f\\[K]Y`) render verbatim rather than being
+    mangled by the inline parser. Raw `<h1>` inside fenced code blocks is
+    left alone: it is example text, not a page title.
+
+    Returns the text unchanged when it contains no raw `<h1>`.
+    """
+    if "<h1" not in md_text:
+        return md_text
+
+    lines = md_text.split("\n")
+    fence = None
+    for i, line in enumerate(lines):
+        marker = _FENCE_RE.match(line)
+        if fence is None:
+            if marker:
+                fence = marker.group(1)[0]
+            elif _is_standalone_h1(line):
+                lines[i] = _rewrite_h1_line(line)
+        elif marker and marker.group(1)[0] == fence:
+            fence = None
+    return "\n".join(lines)
+
+
+def _is_standalone_h1(line):
+    """True when the whole line is a single raw <h1>...</h1> element.
+
+    An <h1> that shares its line with other content is not a page title and is
+    left alone: the corpus has an HTML sample `<body><h1>Simple Form</h1>`
+    (ends with </h1> but does not start with <h1) and an APL string literal
+    building HTML (does neither). <h1> inside fenced code is excluded
+    separately, by the caller's fence tracking.
+    """
+    stripped = line.strip()
+    return stripped.startswith("<h1") and stripped.endswith("</h1>")
+
+
+def _rewrite_h1_line(line):
+    """Turn a standalone `<h1 ...>...</h1>` line into `# INNER {: attrs}`,
+    parsed with BeautifulSoup so the styling spans survive verbatim and the
+    attributes are read structurally, not by regex."""
+    h1 = BeautifulSoup(line, "html.parser").find("h1")
+    # Escape Markdown specials in every text node (including inside the spans),
+    # so APL command text is not consumed by the heading's inline parser.
+    for text in list(h1.find_all(string=True)):
+        text.replace_with(NavigableString(_escape_md(str(text))))
+    inner = h1.decode_contents().strip()
+    attrs = _h1_attr_list(h1.attrs)
+    suffix = f" {{: {attrs}}}" if attrs else ""
+    return f"# {inner}{suffix}"
+
+
+def _escape_md(text):
+    return _MD_SPECIAL_RE.sub(lambda m: "\\" + m.group(0), text)
+
+
+def _h1_attr_list(attrs):
+    """Render an h1's parsed attributes as an attr_list body: id as #id,
+    classes as .class, anything else as key="value"."""
+    tokens = []
+    if "id" in attrs:
+        tokens.append(f"#{attrs['id']}")
+    tokens += [f".{cls}" for cls in attrs.get("class", [])]
+    for key, value in attrs.items():
+        if key not in ("id", "class"):
+            tokens.append(f'{key}="{value}"')
+    return " ".join(tokens)
+
+
 def copy_content(source, output, subprojects):
     """Copy content out-of-place from the source monorepo to the output.
 
@@ -214,6 +301,15 @@ def copy_content(source, output, subprojects):
             duplicate.unlink()
             if not any(duplicate.parent.iterdir()):
                 duplicate.parent.rmdir()
+
+    # Convert raw-HTML page-title headings to Markdown in the copied files, so
+    # Zensical derives the title from the heading text. The source is untouched;
+    # files without a raw <h1> are left byte-for-byte as copied.
+    for md_file in docs.rglob("*.md"):
+        text = md_file.read_text(encoding="utf-8")
+        rewritten = rewrite_h1(text)
+        if rewritten != text:
+            md_file.write_text(rewritten, encoding="utf-8")
 
 
 def write_zensical_toml(config, path):

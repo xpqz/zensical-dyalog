@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Accelerator Property</span></h1>
+# <span class="name">Accelerator Property</span> {: .heading}
 
 |----------------------------------------------|----------------------------------------|----------------------------------------------|
 |[ActiveXControl](../objects/activexcontrol.md)|[Bitmap](../objects/bitmap.md)          |[Button](../objects/button.md)                |

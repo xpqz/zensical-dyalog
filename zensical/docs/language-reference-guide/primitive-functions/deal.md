@@ -6,7 +6,7 @@ search:
   ? deal
 </div>
 
-<h1 class="heading"><span class="name">Deal</span> <span class="command">R←X?Y</span></h1>
+# <span class="name">Deal</span> <span class="command">R←X?Y</span> {: .heading}
 
 
 

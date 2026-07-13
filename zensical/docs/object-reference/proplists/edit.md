@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Edit Properties</span></h1>
+# <span class="name">Edit Properties</span> {: .heading}
 
 |---------------------------------------------------------|-------------------------------------------------|---------------------------------------------|
 |[Type](../properties/type.md)                            |[Text](../properties/text.md)                    |[Posn](../properties/posn.md)                |

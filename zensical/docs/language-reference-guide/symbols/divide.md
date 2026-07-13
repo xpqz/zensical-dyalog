@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-<h1 class="heading"><span class="name">Divide</span> <span class="command">÷</span></h1>
+# <span class="name">Divide</span> <span class="command">÷</span> {: .heading}
 
 Monadic Divide means
 [Reciprocal](../primitive-functions/reciprocal.md)

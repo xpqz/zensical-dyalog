@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">GetTypeInfo</span> <span class="right">Method 553</span></h1>
+# <span class="name">GetTypeInfo</span> <span class="right">Method 553</span> {: .heading}
 
 
 

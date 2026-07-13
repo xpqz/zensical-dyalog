@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-<h1 class="heading"><span class="name">Diaeresis</span> <span class="command">¨</span></h1>
+# <span class="name">Diaeresis</span> <span class="command">¨</span> {: .heading}
 
 Diaeresis is a monadic operator with an ambivalent operand
 

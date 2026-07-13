@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">File Names</span> <span class="command">R←⎕FNAMES</span></h1>
+# <span class="name">File Names</span> <span class="command">R←⎕FNAMES</span> {: .heading}
 
 
 

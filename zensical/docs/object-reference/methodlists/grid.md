@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Grid Methods</span></h1>
+# <span class="name">Grid Methods</span> {: .heading}
 
 |---------------------------------------------------|-------------------------------------------------|-------------------------------------------------------------|
 |[Detach](../methodorevents/detach.md)              |[ChooseFont](../methodorevents/choosefont.md)    |[GetTextSize](../methodorevents/gettextsize.md)              |

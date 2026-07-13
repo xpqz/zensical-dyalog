@@ -3,6 +3,6 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">OCXClass Events</span></h1>
+# <span class="name">OCXClass Events</span> {: .heading}
 
 |

@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Program Function Key</span> <span class="command">R←{X}⎕PFKEY Y</span></h1>
+# <span class="name">Program Function Key</span> <span class="command">R←\{X\}⎕PFKEY Y</span> {: .heading}
 
 
 

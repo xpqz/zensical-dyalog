@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Delay</span> <span class="command">{R}←⎕DL Y</span></h1>
+# <span class="name">Delay</span> <span class="command">\{R\}←⎕DL Y</span> {: .heading}
 
 
 

@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">ResolveOverstrikes</span></h1>
+# <span class="name">ResolveOverstrikes</span> {: .heading}
 
 **Unicode Edition only.**
 

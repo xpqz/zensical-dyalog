@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Workspace Available</span> <span class="command">R←⎕WA</span></h1>
+# <span class="name">Workspace Available</span> <span class="command">R←⎕WA</span> {: .heading}
 
 
 

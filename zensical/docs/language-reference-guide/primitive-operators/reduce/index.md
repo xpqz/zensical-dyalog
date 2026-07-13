@@ -7,7 +7,7 @@ search:
   reduce
 </div>
 
-<h1 class="heading"><span class="name">Reduce</span> <span class="command">R←f/[K]Y</span></h1>
+# <span class="name">Reduce</span> <span class="command">R←f/\[K\]Y</span> {: .heading}
 
 `f` must be a dyadic function.  `Y` may be any array whose items in the sub-arrays along the `K`<sup>th</sup> axis are appropriate to function `f`.
 

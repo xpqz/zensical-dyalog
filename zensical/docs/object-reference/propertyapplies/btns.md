@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Btns Property</span></h1>
+# <span class="name">Btns Property</span> {: .heading}
 
 |------------------------------|------|------|
 |[MsgBox](../objects/msgbox.md)|&nbsp;|&nbsp;|

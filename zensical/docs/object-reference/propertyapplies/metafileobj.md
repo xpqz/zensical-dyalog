@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">MetafileObj Property</span></h1>
+# <span class="name">MetafileObj Property</span> {: .heading}
 
 |------------------------------------|------|------|
 |[Clipboard](../objects/clipboard.md)|&nbsp;|&nbsp;|

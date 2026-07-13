@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">IDNToDate</span> <span class="right">Method 263</span></h1>
+# <span class="name">IDNToDate</span> <span class="right">Method 263</span> {: .heading}
 
 
 

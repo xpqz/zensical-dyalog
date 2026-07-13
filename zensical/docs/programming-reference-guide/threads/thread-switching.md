@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Thread Switching</span></h1>
+# <span class="name">Thread Switching</span> {: .heading}
 
 !!! warning
     Programming with threads requires care!

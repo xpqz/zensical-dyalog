@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">MDITile</span> <span class="right">Method 111</span></h1>
+# <span class="name">MDITile</span> <span class="right">Method 111</span> {: .heading}
 
 **Applies To:** [MDIClient](../objects/mdiclient.md)
 

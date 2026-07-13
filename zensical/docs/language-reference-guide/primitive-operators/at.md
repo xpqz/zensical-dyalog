@@ -6,7 +6,7 @@ search:
   at @
 </div>
 
-<h1 class="heading"><span class="name">At</span> <span class="command">R←{X}(f@g)Y</span></h1>
+# <span class="name">At</span> <span class="command">R←\{X\}(f@g)Y</span> {: .heading}
 
 This operator substitutes selected items in `Y` with new values or applies a function to modify selected items in `Y`.
 

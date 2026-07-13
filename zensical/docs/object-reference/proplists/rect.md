@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Rect Properties</span></h1>
+# <span class="name">Rect Properties</span> {: .heading}
 
 |---------------------------------------|-------------------------------------------|-------------------------------------------|
 |[Type](../properties/type.md)          |[Points](../properties/points.md)          |[Size](../properties/size.md)              |

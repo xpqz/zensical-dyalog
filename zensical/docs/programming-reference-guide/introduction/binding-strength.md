@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name"> Binding Strength</span></h1>
+# <span class="name"> Binding Strength</span> {: .heading}
 
 For two entities `X` and `Y` that are adjacent in an expression (that is, `X Y`), the binding strength between them and
 the result of the bind is shown in this table:

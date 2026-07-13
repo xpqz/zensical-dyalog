@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">ChooseFont</span> <span class="right">Method 240</span></h1>
+# <span class="name">ChooseFont</span> <span class="right">Method 240</span> {: .heading}
 
 [**Applies To**](../methodoreventapplies/choosefont.md)
 

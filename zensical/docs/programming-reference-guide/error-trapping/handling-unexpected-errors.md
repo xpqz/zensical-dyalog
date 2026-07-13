@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Handling Unexpected Application Errors in Windows</span></h1>
+# <span class="name">Handling Unexpected Application Errors in Windows</span> {: .heading}
 
 When running an APL application, it is possible that an unexpected error will occur.
 

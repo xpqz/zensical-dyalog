@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Object Representation</span> <span class="command">R←⎕OR Y</span></h1>
+# <span class="name">Object Representation</span> <span class="command">R←⎕OR Y</span> {: .heading}
 
 
 

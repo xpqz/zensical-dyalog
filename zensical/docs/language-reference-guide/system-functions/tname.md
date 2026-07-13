@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Current Thread Name</span> <span class="command">⎕TNAME</span></h1>
+# <span class="name">Current Thread Name</span> <span class="command">⎕TNAME</span> {: .heading}
 
 
 

@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Workspace Tab</span></h1>
+# <span class="name">Workspace Tab</span> {: .heading}
 
 ![configuration dialog workspace tab](../../img/configuration-dialog-workspace-tab.png)
 

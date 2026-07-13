@@ -11,7 +11,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Verify & Fix Input</span> <span class="command">R←{X}⎕VFI Y</span></h1>
+# <span class="name">Verify &amp; Fix Input</span> <span class="command">R←\{X\}⎕VFI Y</span> {: .heading}
 
 
 

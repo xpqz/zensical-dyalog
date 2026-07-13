@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">File Erase</span> <span class="command">{R}←X ⎕FERASE Y</span></h1>
+# <span class="name">File Erase</span> <span class="command">\{R\}←X ⎕FERASE Y</span> {: .heading}
 
 
 ## Access code 4
@@ -24,7 +24,7 @@ search:
 The shy result of `⎕FERASE` is the tie number of the erased file.
 
 
-<h1 class="example">Examples</h1>
+# Examples {: .example}
 ```apl
 
       'SALES'⎕FERASE 'SALES' ⎕FTIE 0

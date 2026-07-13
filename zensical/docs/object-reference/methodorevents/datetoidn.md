@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">DateToIDN</span> <span class="right">Method 264</span></h1>
+# <span class="name">DateToIDN</span> <span class="right">Method 264</span> {: .heading}
 
 
 

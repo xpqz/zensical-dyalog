@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Confirm_Session_Delete</span></h1>
+# <span class="name">Confirm\_Session\_Delete</span> {: .heading}
 
 This parameter specifies whether or not you will be prompted for confirmation when you attempt to delete lines from the Session Log. Its value is either 1 (confirmation is required) or 0. The default is 1.
 

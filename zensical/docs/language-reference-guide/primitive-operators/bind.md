@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Bind</span> <span class="command">{R}←A∘fY<br/>{R}←(f∘B)Y</span></h1>
+# <span class="name">Bind</span> <span class="command">\{R\}←A∘fY<br/>\{R\}←(f∘B)Y</span> {: .heading}
 
 
 

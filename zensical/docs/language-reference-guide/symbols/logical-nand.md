@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-<h1 class="heading"><span class="name">Logical NAND</span> <span class="command">⍲</span></h1>
+# <span class="name">Logical NAND</span> <span class="command">⍲</span> {: .heading}
 
 Monadic Logical NAND is not defined
 

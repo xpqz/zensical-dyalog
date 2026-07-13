@@ -7,7 +7,7 @@ search:
   ⎕NA NA
 </div>
 
-<h1 class="heading"><span class="name">Name Association</span> <span class="command">{R}←{X}⎕NA Y</span></h1>
+# <span class="name">Name Association</span> <span class="command">\{R\}←\{X\}⎕NA Y</span> {: .heading}
 
 `⎕NA` provides access from APL to compiled functions within a library. A library is implemented according to the Operating System as follows:
 

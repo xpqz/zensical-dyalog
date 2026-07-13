@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Calling Web Services</span></h1>
+# <span class="name">Calling Web Services</span> {: .heading}
 
 To call a web service, you need a _proxy class_ on the client that exposes the same methods and properties as the web service. The proxy creates the illusion that the web service is present on the client. Client applications create instances of the proxy class, which then communicate with the web service through IIS, using TCP/IP and HTTP/XML protocols.
 

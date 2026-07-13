@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name"><span class="command">⎕SH</span>, exit codes and stderr</span></h1>
+# <span class="name"><span class="command">⎕SH</span>, exit codes and stderr</span> {: .heading}
 
 Note that `⎕SH` calls /bin/sh; this cannot be altered.
 

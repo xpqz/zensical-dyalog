@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Diagnostic Message</span> <span class="command">R←⎕DM</span></h1>
+# <span class="name">Diagnostic Message</span> <span class="command">R←⎕DM</span> {: .heading}
 
 
 

@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">User Commands Tab</span></h1>
+# <span class="name">User Commands Tab</span> {: .heading}
 
 ![configuration dialog user commands tab](../../img/configuration-dialog-user-commands-tab.png)
 

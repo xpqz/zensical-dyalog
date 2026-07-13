@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">ActiveXContainer</span> <span class="right">Object</span></h1>
+# <span class="name">ActiveXContainer</span> <span class="right">Object</span> {: .heading}
 
 [Parents](../parentlists/activexcontainer.md), [Properties](../proplists/activexcontainer.md), [Methods](../methodlists/activexcontainer.md), [Events](../eventlists/activexcontainer.md)
 

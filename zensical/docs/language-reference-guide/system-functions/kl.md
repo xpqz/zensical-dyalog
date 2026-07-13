@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Key Label</span> <span class="command">R←⎕KL Y</span></h1>
+# <span class="name">Key Label</span> <span class="command">R←⎕KL Y</span> {: .heading}
 
 
 

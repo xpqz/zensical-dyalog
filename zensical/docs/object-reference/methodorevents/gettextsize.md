@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">GetTextSize</span> <span class="right">Method 146</span></h1>
+# <span class="name">GetTextSize</span> <span class="right">Method 146</span> {: .heading}
 
 [**Applies To**](../methodoreventapplies/gettextsize.md)
 

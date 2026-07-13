@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Screen Dimensions</span> <span class="command">R←⎕SD</span></h1>
+# <span class="name">Screen Dimensions</span> <span class="command">R←⎕SD</span> {: .heading}
 
 
 

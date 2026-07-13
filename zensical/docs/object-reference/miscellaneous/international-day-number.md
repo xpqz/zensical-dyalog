@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">International Day Number</span></h1>
+# <span class="name">International Day Number</span> {: .heading}
 
 
 

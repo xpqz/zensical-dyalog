@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Inner Product</span> <span class="command">R←Xf.gY</span></h1>
+# <span class="name">Inner Product</span> <span class="command">R←Xf.gY</span> {: .heading}
 
 
 

@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">:Field Statement</span></h1>
+# <span class="name">:Field Statement</span> {: .heading}
 
 ```apl
  :Field <Private|Public> <Instance|Shared> <ReadOnly>...

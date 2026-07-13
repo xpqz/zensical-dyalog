@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Arbitrary Input</span> <span class="command">R←X ⎕ARBIN Y</span></h1>
+# <span class="name">Arbitrary Input</span> <span class="command">R←X ⎕ARBIN Y</span> {: .heading}
 
 
 

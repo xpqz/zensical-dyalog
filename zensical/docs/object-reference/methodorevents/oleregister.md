@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">OLERegister</span> <span class="right">Method 530</span></h1>
+# <span class="name">OLERegister</span> <span class="right">Method 530</span> {: .heading}
 
 **Applies To:** [OLEServer](../objects/oleserver.md)
 

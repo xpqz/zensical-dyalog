@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">TCPSocket Methods</span></h1>
+# <span class="name">TCPSocket Methods</span> {: .heading}
 
 |-----------------------------------------------------|---------------------------------------|-------------------------------------------------|
 |[Detach](../methodorevents/detach.md)                |[TCPSend](../methodorevents/tcpsend.md)|[TCPGetHostID](../methodorevents/tcpgethostid.md)|

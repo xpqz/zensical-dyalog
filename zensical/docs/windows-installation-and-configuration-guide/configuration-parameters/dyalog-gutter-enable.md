@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">DYALOG_GUTTER_ENABLE</span></h1>
+# <span class="name">DYALOG\_GUTTER\_ENABLE</span> {: .heading}
 
 This Boolean parameter specifies whether (1) or not (0) a Gutter is displayed in the left-most column of the Session window. This gutter is used to display:
 

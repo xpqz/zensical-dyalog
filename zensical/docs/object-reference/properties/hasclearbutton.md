@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">HasClearButton</span> <span class="right">Property</span></h1>
+# <span class="name">HasClearButton</span> <span class="right">Property</span> {: .heading}
 
 **Applies To:** [ButtonEdit](../objects/buttonedit.md), [Combo](../objects/combo.md), [ComboEx](../objects/comboex.md), [Edit](../objects/edit.md)
 

@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">GolfService Example Class</span></h1>
+# <span class="name">GolfService Example Class</span> {: .heading}
 
 ```apl
 :Class GolfService

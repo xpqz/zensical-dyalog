@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">VScroll</span> <span class="right">Event 38</span></h1>
+# <span class="name">VScroll</span> <span class="right">Event 38</span> {: .heading}
 
 
 

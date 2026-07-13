@@ -13,7 +13,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Verify .NET Interface</span> <span class="command">R←2250⌶Y</span></h1>
+# <span class="name">Verify .NET Interface</span> <span class="command">R←2250⌶Y</span> {: .heading}
 
 
 

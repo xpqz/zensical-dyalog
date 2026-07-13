@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">DockMove</span> <span class="right">Event 481</span></h1>
+# <span class="name">DockMove</span> <span class="right">Event 481</span> {: .heading}
 
 **Applies To:** [CoolBand](../objects/coolband.md), [CoolBar](../objects/coolbar.md), [Form](../objects/form.md), [SubForm](../objects/subform.md), [ToolControl](../objects/toolcontrol.md)
 

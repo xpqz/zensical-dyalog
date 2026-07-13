@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Spin Event</span></h1>
+# <span class="name">Spin Event</span> {: .heading}
 
 |--------------------------------|------------------------------|------|
 |[Spinner](../objects/spinner.md)|[UpDown](../objects/updown.md)|&nbsp;|

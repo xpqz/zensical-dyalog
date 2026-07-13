@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">GridDropSel</span> <span class="right">Event 195</span></h1>
+# <span class="name">GridDropSel</span> <span class="right">Event 195</span> {: .heading}
 
 **Applies To:** [Grid](../objects/grid.md)
 

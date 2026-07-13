@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Timestamp</span> <span class="command">R←⎕TS</span></h1>
+# <span class="name">Timestamp</span> <span class="command">R←⎕TS</span> {: .heading}
 
 
 

@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Fix Script</span> <span class="command">{R}←{X}⎕FIX Y</span></h1>
+# <span class="name">Fix Script</span> <span class="command">\{R\}←\{X\}⎕FIX Y</span> {: .heading}
 
 `⎕FIX` establishes Namespaces, Classes, Interfaces and functions from the script specified by `Y` in the workspace.
 

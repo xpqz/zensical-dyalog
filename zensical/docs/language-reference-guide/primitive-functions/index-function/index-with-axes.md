@@ -11,7 +11,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">Index with Axes</span> <span class="command">R←{X}⌷[K]Y</span></h1>
+# <span class="name">Index with Axes</span> <span class="command">R←\{X\}⌷\[K\]Y</span> {: .heading}
 
 
 

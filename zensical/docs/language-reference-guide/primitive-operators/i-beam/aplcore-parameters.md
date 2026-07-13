@@ -9,7 +9,7 @@ search:
 </div>
 
 
-<h1 class="heading"><span class="name">aplcore Parameters</span> <span class="command">R←1302⌶Y</span></h1>
+# <span class="name">aplcore Parameters</span> <span class="command">R←1302⌶Y</span> {: .heading}
 
 
 

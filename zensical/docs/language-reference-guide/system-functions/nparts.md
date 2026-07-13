@@ -12,7 +12,7 @@ search:
 
 
 
-<h1 class="heading"><span class="name">File Name Parts</span> <span class="command">R←{X} ⎕NPARTS Y</span></h1>
+# <span class="name">File Name Parts</span> <span class="command">R←\{X\} ⎕NPARTS Y</span> {: .heading}
 
 
 

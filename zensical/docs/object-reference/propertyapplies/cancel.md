@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Cancel Property</span></h1>
+# <span class="name">Cancel Property</span> {: .heading}
 
 |------------------------------|------|------|
 |[Button](../objects/button.md)|&nbsp;|&nbsp;|

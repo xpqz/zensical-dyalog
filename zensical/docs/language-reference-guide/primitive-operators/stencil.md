@@ -7,7 +7,7 @@ search:
   stencil
 </div>
 
-<h1 class="heading"><span class="name">Stencil</span> <span class="command">R←(f⌺g)Y</span></h1>
+# <span class="name">Stencil</span> <span class="command">R←(f⌺g)Y</span> {: .heading}
 
 !!! note "Classic Edition"
     The symbol `⌺` is not available in Classic Edition, and the Stencil operator is instead represented by `⎕U233A`.

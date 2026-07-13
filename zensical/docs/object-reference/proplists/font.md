@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Font Properties</span></h1>
+# <span class="name">Font Properties</span> {: .heading}
 
 |-------------------------------------------|-----------------------------------------|---------------------------------------|
 |[Type](../properties/type.md)              |[PName](../properties/pname.md)          |[Size](../properties/size.md)          |

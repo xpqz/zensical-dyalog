@@ -8,7 +8,7 @@ search:
   8415⌶
 </div>
 
-<h1 class="heading"><span class="name">Singular Value Decomposition</span> <span class="command">R←(8415⌶)Y</span></h1>
+# <span class="name">Singular Value Decomposition</span> <span class="command">R←(8415⌶)Y</span> {: .heading}
 
 `Y` is a simple numeric matrix. `⎕FR` must be 645.
 

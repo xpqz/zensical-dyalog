@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Limits Property</span></h1>
+# <span class="name">Limits Property</span> {: .heading}
 
 |----------------------------------------|------------------------------|--------------------------------|
 |[ProgressBar](../objects/progressbar.md)|[Scroll](../objects/scroll.md)|[Spinner](../objects/spinner.md)|

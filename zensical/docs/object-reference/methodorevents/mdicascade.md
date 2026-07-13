@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">MDICascade</span> <span class="right">Method 110</span></h1>
+# <span class="name">MDICascade</span> <span class="right">Method 110</span> {: .heading}
 
 
 

@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">NewLine Property</span></h1>
+# <span class="name">NewLine Property</span> {: .heading}
 
 |----------------------------------|------|------|
 |[CoolBand](../objects/coolband.md)|&nbsp;|&nbsp;|

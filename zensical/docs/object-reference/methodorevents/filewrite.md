@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">FileWrite</span> <span class="right">Method 91</span></h1>
+# <span class="name">FileWrite</span> <span class="right">Method 91</span> {: .heading}
 
 
 

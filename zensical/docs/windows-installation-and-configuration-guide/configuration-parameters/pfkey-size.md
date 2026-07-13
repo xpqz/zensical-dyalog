@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">PFKey_Size</span></h1>
+# <span class="name">PFKey\_Size</span> {: .heading}
 
 This parameter specifies the size of the buffer that is used to store programmable function key definitions. See [Program Function Key ](../../../language-reference-guide/system-functions/pfkey).
 

@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">TCPRecv</span> <span class="right">Event 373</span></h1>
+# <span class="name">TCPRecv</span> <span class="right">Event 373</span> {: .heading}
 
 
 

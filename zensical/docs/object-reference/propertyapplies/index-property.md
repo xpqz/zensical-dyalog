@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Index Property</span></h1>
+# <span class="name">Index Property</span> {: .heading}
 
 |----------------------------------|--------------------------------|----------------------------------|
 |[Combo](../objects/combo.md)      |[ComboEx](../objects/comboex.md)|[CoolBand](../objects/coolband.md)|

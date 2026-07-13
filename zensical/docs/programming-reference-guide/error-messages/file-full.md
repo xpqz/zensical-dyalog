@@ -3,7 +3,7 @@
 
 
 
-<h1 class="heading"><span class="name">FILE FULL</span> <span class="command">21</span></h1>
+# <span class="name">FILE FULL</span> <span class="command">21</span> {: .heading}
 
 
 

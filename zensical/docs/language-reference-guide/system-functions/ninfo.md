@@ -7,7 +7,7 @@ search:
   ⎕NINFO NINFO
 </div>
 
-<h1 class="heading"><span class="name">Native File Information</span> <span class="command">R←{X}⎕NINFO Y</span></h1>
+# <span class="name">Native File Information</span> <span class="command">R←\{X\}⎕NINFO Y</span> {: .heading}
 
 This function queries or sets information about one or more files or directories. `Y` may be:
 

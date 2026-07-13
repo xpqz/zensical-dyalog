@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-<h1 class="heading"><span class="name">Object Management Functions</span></h1>
+# <span class="name">Object Management Functions</span> {: .heading}
 
 
 | Symbol | Name | Description |

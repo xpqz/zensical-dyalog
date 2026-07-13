@@ -1,4 +1,4 @@
-<h1 class="heading"><span class="name">Find and Replace Dialogs</span></h1>
+# <span class="name">Find and Replace Dialogs</span> {: .heading}
 
 The *Find* and *Find/Replace* dialog boxes are used to locate and modify text in an Edit window.
 
