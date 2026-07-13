@@ -224,9 +224,14 @@ def rewrite_h1(md_text):
 
 
 def _is_standalone_h1(line):
-    """True when the whole line is a single raw <h1>...</h1> element. The two
-    corpus <h1> occurrences that sit inside code (an HTML example and an APL
-    string literal) are not standalone, so they are left alone."""
+    """True when the whole line is a single raw <h1>...</h1> element.
+
+    An <h1> that shares its line with other content is not a page title and is
+    left alone: the corpus has an HTML sample `<body><h1>Simple Form</h1>`
+    (ends with </h1> but does not start with <h1) and an APL string literal
+    building HTML (does neither). <h1> inside fenced code is excluded
+    separately, by the caller's fence tracking.
+    """
     stripped = line.strip()
     return stripped.startswith("<h1") and stripped.endswith("</h1>")
 

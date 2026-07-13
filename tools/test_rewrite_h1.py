@@ -42,6 +42,18 @@ def test_leaves_content_without_a_raw_h1_untouched():
     assert convert.rewrite_h1(text) == text
 
 
+def test_leaves_an_h1_embedded_in_a_line_untouched():
+    # httprequest.md shapes: an <h1> that ends its line but does not start it,
+    # and an <h1> inside an APL string literal. Neither is a page title, so the
+    # rewrite must leave the text exactly as-is.
+    text = (
+        "<body><h1>Simple Form</h1>\n\n"
+        "An APL line building HTML:\n\n"
+        "    response,←'<h1 align=\"center\">Hello '\n"
+    )
+    assert convert.rewrite_h1(text) == text
+
+
 # --- rendered result ---------------------------------------------------
 
 
