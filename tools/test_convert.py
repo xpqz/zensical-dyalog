@@ -218,6 +218,14 @@ def test_folds_extra_with_root_precedence(merged):
     assert merged["extra"]["version_majmin"] == "21.0"
 
 
+def test_wires_the_caption_extension_into_markdown_extensions(merged):
+    names = [
+        e if isinstance(e, str) else next(iter(e))
+        for e in merged["markdown_extensions"]
+    ]
+    assert "dyalog_caption" in names
+
+
 def test_takes_extra_css_from_the_root_alone(merged):
     assert merged["extra_css"] == [
         "documentation-assets/css/main.css",
@@ -286,6 +294,13 @@ def test_zensical_toml_plugins_are_exactly_the_supported_four(source_tree, out_d
         project = tomllib.load(f)["project"]
     names = plugin_names(project["plugins"])
     assert set(names) == {"privacy", "search", "macros", "minify"}
+
+
+def test_zensical_toml_includes_the_caption_extension(source_tree, out_dir):
+    run(source_tree, out_dir)
+    with open(out_dir / "zensical.toml", "rb") as f:
+        project = tomllib.load(f)["project"]
+    assert "dyalog_caption" in str(project["markdown_extensions"])
 
 
 def test_zensical_toml_is_the_only_config_emitted(source_tree, out_dir):
