@@ -33,6 +33,7 @@ markdown_extensions = [
     { toc = { title = "On this page" } },
     "dyalog_caption",
 ]
+site_url = "https://docs.dyalog.com/"
 
 [project.theme]
 favicon = "documentation-assets/images/favicon-32.png"

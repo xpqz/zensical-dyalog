@@ -1,0 +1,12 @@
+# Dependencies for building and version-deploying the flattened project.
+# Install into the deploy/authoring environment alongside the build stack.
+#
+# The build itself also needs Zensical (pinned in the source monorepo's
+# tools/requirements-docs.txt) and the caption extension:  pip install -e tools/
+#
+# mike: the squidfunk fork that builds with Zensical rather than MkDocs. Pinned
+# to a commit because it is distributed from GitHub only (not on PyPI) and is a
+# bridge until Zensical ships native versioning. `mike deploy <ver>` runs
+# `zensical build` (requires `zensical` on PATH) and writes the gh-pages
+# version-dir + versions.json + alias layout the theme's version selector reads.
+mike @ git+https://github.com/squidfunk/mike.git@2d4ad799442f4592db8ad53b179bfb33db8c69ac

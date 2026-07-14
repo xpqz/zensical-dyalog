@@ -82,6 +82,14 @@ DROPPED_PLUGINS = frozenset({"monorepo", "site-urls", "caption"})
 # by importable module so Zensical hands it to Python-Markdown at build time.
 CAPTION_EXTENSION = "dyalog_caption"
 
+# The production canonical site URL. The source config sets none, but versioned
+# publishing needs it: with a version set (MIKE_DOCS_VERSION), Zensical prefixes
+# site_url with the version to produce docs.dyalog.com/<ver>/. Staging deploys
+# (github.io) serve the same build via relative links, and the canonical still
+# points at production, which is correct. A build served from a different host
+# therefore needs a different site_url and must be rebuilt with it changed.
+SITE_URL = "https://docs.dyalog.com/"
+
 _INCLUDE_RE = re.compile(r"^!include \./([^/]+)/mkdocs\.yml$")
 
 # Opening/closing fence marker (3+ backticks or tildes), optionally indented.
@@ -153,10 +161,14 @@ def merge_configs(root_config, sub_configs):
     files in source), so folding them in would break the rendered
     baseline. extra_javascript and the rest of the top-level keys are
     inherited from the root unchanged (the root already references the
-    single javascripts/mathjax.js plus the external MathJax URL). The
-    monorepo, site-urls and caption plugins are dropped.
+    single javascripts/mathjax.js plus the external MathJax URL). site_url
+    is set to the production canonical (the source sets none) so versioned
+    publishing can prefix it with the version. The monorepo, site-urls and
+    caption plugins are dropped.
     """
     merged = copy.deepcopy(root_config)
+
+    merged["site_url"] = SITE_URL
 
     merged["nav"] = _replace_includes(merged.get("nav", []), sub_configs)
 
