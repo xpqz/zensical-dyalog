@@ -21,14 +21,13 @@ builds with `zensical build` instead of `mkdocs build` and produces the
 `gh-pages` layout. It is pinned in `tools/requirements-deploy.txt` (GitHub-only,
 a bridge until Zensical ships native versioning).
 
-Run from this repository, with the source monorepo checked out alongside it as
-`../documentation` (that is where the pinned Zensical build stack lives during
-the migration):
+Run from this repository, with the documentation-assets submodule checked out
+(`git submodule update --init`):
 
 ```
-pip install -r ../documentation/tools/requirements-docs.txt   # Zensical + build stack
-pip install -e tools/                                         # the caption extension (dyalog_caption)
-pip install -r tools/requirements-deploy.txt                  # the mike fork
+pip install -r tools/requirements-build.txt    # Zensical + the Markdown extensions
+pip install -e tools/                          # the caption extension (dyalog_caption)
+pip install -r tools/requirements-deploy.txt   # the mike fork
 ```
 
 ## Deploy
@@ -55,5 +54,8 @@ build also serves correctly under the staging path prefix.
 - Staging or test builds served from a different host (for example a personal
   GitHub Pages account) should override `site_url` to that host so canonicals
   match where the site is served.
-- CI automation of this deploy is issue #30; this document is the manual
-  runbook the CI encodes.
+- CI encodes this runbook in `.github/workflows/publish.yml` (a manual
+  `workflow_dispatch`): it installs the pinned build deps, substitutes the
+  copyright variables, optionally overrides `site_url` for a staging host, gates
+  on `check_flatten`, and runs the mike deploy. Production (`docs.dyalog.com`)
+  remains a separate Jenkins step that pulls from `gh-pages`.

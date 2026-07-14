@@ -1,0 +1,123 @@
+name: Publish Zensical Documentation
+
+# Builds the committed flattened project with Zensical and deploys a versioned
+# layout to gh-pages via the squidfunk/mike fork. Manual trigger only. Staging
+# is xpqz.github.io/zensical-dyalog/<ver>/; production (docs.dyalog.com) is a
+# separate Jenkins step that pulls from gh-pages.
+on:
+  workflow_dispatch:
+    inputs:
+      version_override:
+        description: 'Version (X.Y). Empty uses zensical.toml extra.version_majmin.'
+        required: false
+        default: ''
+        type: string
+      set_as_latest:
+        description: 'Tag this version latest and make it the default.'
+        required: false
+        default: false
+        type: boolean
+      site_url_override:
+        description: 'Override site_url (for staging/test hosts, e.g. https://xpqz.github.io/zensical-dyalog/). Empty keeps the committed production canonical.'
+        required: false
+        default: ''
+        type: string
+
+permissions:
+  contents: write
+
+# Serialise gh-pages pushes so concurrent version deploys do not race.
+concurrency:
+  group: docs-publish
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          # documentation-assets (the shared corporate style) is a submodule
+          # under zensical/docs/; the build reads its CSS/fonts from there.
+          submodules: recursive
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install build and deploy dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r tools/requirements-build.txt
+          pip install -e tools/
+          pip install -r tools/requirements-deploy.txt
+
+      - name: Determine version
+        id: version
+        env:
+          VERSION_OVERRIDE: ${{ inputs.version_override }}
+        run: |
+          VERSION="$VERSION_OVERRIDE"
+          if [ -z "$VERSION" ]; then
+            VERSION=$(python -c "import tomllib; print(tomllib.load(open('zensical/zensical.toml','rb'))['project']['extra']['version_majmin'])")
+          fi
+          if ! echo "$VERSION" | grep -qE '^[0-9]+\.[0-9]+$'; then
+            echo "ERROR: invalid version '$VERSION' (expected X.Y)"; exit 1
+          fi
+          echo "VERSION=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Git info
+        id: gitinfo
+        run: |
+          echo "GIT_INFO=$(git rev-parse --abbrev-ref HEAD):$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+          echo "BUILD_DATE=$(date +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
+          echo "CURRENT_YEAR=$(date +'%Y')" >> "$GITHUB_OUTPUT"
+
+      - name: Substitute copyright variables in zensical.toml
+        env:
+          GIT_INFO: ${{ steps.gitinfo.outputs.GIT_INFO }}
+          BUILD_DATE: ${{ steps.gitinfo.outputs.BUILD_DATE }}
+          CURRENT_YEAR: ${{ steps.gitinfo.outputs.CURRENT_YEAR }}
+        run: |
+          cp zensical/zensical.toml zensical/zensical.toml.bak
+          envsubst '$BUILD_DATE $GIT_INFO $CURRENT_YEAR' \
+            < zensical/zensical.toml.bak > zensical/zensical.toml
+          rm zensical/zensical.toml.bak
+
+      - name: Override site_url for staging
+        if: inputs.site_url_override != ''
+        env:
+          SITE_URL_OVERRIDE: ${{ inputs.site_url_override }}
+        run: |
+          python - <<'PY'
+          import os, re
+          url = os.environ["SITE_URL_OVERRIDE"]
+          p = "zensical/zensical.toml"
+          text = open(p).read()
+          # Replacement passed as a function so backslashes/quotes in url are
+          # never treated as regex group references.
+          text = re.sub(r'^site_url = ".*"$', lambda _: f'site_url = "{url}"', text, count=1, flags=re.M)
+          open(p, "w").write(text)
+          PY
+
+      - name: Configure Git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Gate on the built-in link/anchor checker
+        run: python tools/check_flatten.py
+
+      - name: Deploy the version
+        working-directory: zensical
+        env:
+          VERSION: ${{ steps.version.outputs.VERSION }}
+          SET_AS_LATEST: ${{ inputs.set_as_latest }}
+        run: |
+          if [ "$SET_AS_LATEST" = "true" ]; then
+            mike deploy --push --update-aliases "$VERSION" latest
+            mike set-default --push latest
+          else
+            mike deploy --push "$VERSION"
+          fi
