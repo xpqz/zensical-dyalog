@@ -265,6 +265,13 @@ def test_takes_site_name_copyright_and_theme_from_root(merged):
     assert merged["theme"]["font"] == {"text": "Be Vietnam Pro"}
 
 
+def test_sets_site_url_to_the_production_canonical(merged):
+    # Versioned deploy needs site_url: Zensical prefixes it with the version
+    # (docs.dyalog.com/21.0/) only when it is set, and the source config has
+    # none. The canonical production host is docs.dyalog.com.
+    assert merged["site_url"] == "https://docs.dyalog.com/"
+
+
 # --- helpers -----------------------------------------------------------
 
 
@@ -316,6 +323,13 @@ def test_zensical_toml_includes_the_caption_extension(source_tree, out_dir):
     with open(out_dir / "zensical.toml", "rb") as f:
         project = tomllib.load(f)["project"]
     assert "dyalog_caption" in str(project["markdown_extensions"])
+
+
+def test_zensical_toml_carries_site_url(source_tree, out_dir):
+    run(source_tree, out_dir)
+    with open(out_dir / "zensical.toml", "rb") as f:
+        project = tomllib.load(f)["project"]
+    assert project["site_url"] == "https://docs.dyalog.com/"
 
 
 def test_zensical_toml_is_the_only_config_emitted(source_tree, out_dir):
