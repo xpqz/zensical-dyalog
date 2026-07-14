@@ -21,10 +21,14 @@ builds with `zensical build` instead of `mkdocs build` and produces the
 `gh-pages` layout. It is pinned in `tools/requirements-deploy.txt` (GitHub-only,
 a bridge until Zensical ships native versioning).
 
+Run from this repository, with the source monorepo checked out alongside it as
+`../documentation` (that is where the pinned Zensical build stack lives during
+the migration):
+
 ```
-pip install -r tools/requirements-docs.txt      # Zensical + build stack (from the source monorepo)
-pip install -e tools/                            # the caption extension (dyalog_caption)
-pip install -r tools/requirements-deploy.txt     # the mike fork
+pip install -r ../documentation/tools/requirements-docs.txt   # Zensical + build stack
+pip install -e tools/                                         # the caption extension (dyalog_caption)
+pip install -r tools/requirements-deploy.txt                  # the mike fork
 ```
 
 ## Deploy

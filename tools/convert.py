@@ -85,8 +85,9 @@ CAPTION_EXTENSION = "dyalog_caption"
 # The production canonical site URL. The source config sets none, but versioned
 # publishing needs it: with a version set (MIKE_DOCS_VERSION), Zensical prefixes
 # site_url with the version to produce docs.dyalog.com/<ver>/. Staging deploys
-# (github.io) serve the same build via relative links; the canonical still
-# points at production. Staging/test builds override this at deploy time.
+# (github.io) serve the same build via relative links, and the canonical still
+# points at production, which is correct. A build served from a different host
+# therefore needs a different site_url and must be rebuilt with it changed.
 SITE_URL = "https://docs.dyalog.com/"
 
 _INCLUDE_RE = re.compile(r"^!include \./([^/]+)/mkdocs\.yml$")
