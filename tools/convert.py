@@ -6,7 +6,9 @@ content and build config:
 - copies each sub-project's docs tree to docs/<sub>/, byte-identical,
   preserving the directory-name-equals-mount-point invariant so every
   public URL and relative link survives the flatten,
-- copies the root project's docs and the documentation-assets tree,
+- copies the root project's docs (documentation-assets is not copied: it is
+  a git submodule at docs/documentation-assets tracking the shared corporate
+  style, preserved across regeneration),
 - consolidates the identical per-sub-project mathjax.js copies into the
   single canonical docs/javascripts/mathjax.js,
 - merges the root config and the 14 sub-project configs into one config:
@@ -23,9 +25,10 @@ content and build config:
 
 The source tree is never written to. The output directory is this
 repository's zensical/ directory, a self-contained generated project
-(zensical.toml and docs/ together) that the script owns wholesale: it is
-regenerated from source on every run, so orphaned and stray files do not
-survive. Nothing outside zensical/ is ever written.
+(zensical.toml and docs/ together). The script owns everything under it
+except the documentation-assets submodule: it regenerates the owned paths on
+every run, so orphaned and stray files do not survive, while leaving the
+submodule checkout intact. Nothing outside zensical/ is ever written.
 
 Forward-looking by design: it reads MkDocs config and writes Zensical
 config, with no MkDocs fallback or backwards-compatibility path.
@@ -289,35 +292,57 @@ def _h1_attr_list(attrs):
     return " ".join(tokens)
 
 
+def _remove(path):
+    if path.is_dir() and not path.is_symlink():
+        shutil.rmtree(path)
+    else:
+        path.unlink()
+
+
+def _clean_owned(output, preserve_name):
+    """Wipe convert-owned paths under the output, keeping docs/ and the
+    documentation-assets submodule (preserve_name, a docs/ child) intact, so a
+    re-run is deterministic without disturbing the submodule checkout."""
+    if not output.exists():
+        return
+    docs = output / "docs"
+    for entry in output.iterdir():
+        if entry == docs and docs.is_dir():
+            for child in docs.iterdir():
+                if child.name != preserve_name:
+                    _remove(child)
+        else:
+            _remove(entry)
+
+
 def copy_content(source, output, subprojects):
     """Copy content out-of-place from the source monorepo to the output.
 
     <sub>/docs/* copies to <output>/docs/<sub>/* for every sub-project;
-    root docs/* to <output>/docs/*; documentation-assets/ to
-    <output>/docs/documentation-assets/. Per-sub-project
-    docs/javascripts/mathjax.js duplicates are not carried over; the root
-    copy becomes the single canonical one. VCS metadata is not carried
-    over: documentation-assets is a submodule in the source, so its .git
-    gitlink is excluded rather than dragged into the content tree. Content
-    bytes are never edited. The committed theme override is placed in a
-    top-level overrides/ (theme.custom_dir). The output directory is owned
-    wholesale and regenerated from source, so orphaned and stray files do not
-    survive a re-run. The source tree is never written to.
+    root docs/* to <output>/docs/*. Per-sub-project docs/javascripts/mathjax.js
+    duplicates are not carried over; the root copy becomes the single canonical
+    one. Content bytes are never edited. The committed theme override is placed
+    in a top-level overrides/ (theme.custom_dir).
+
+    documentation-assets is NOT copied: it is a git submodule in the output
+    repo at <output>/docs/documentation-assets, tracking the shared corporate
+    style. Regeneration therefore preserves that path and wipes only the paths
+    convert owns, so orphaned and stray files do not survive a re-run while the
+    submodule checkout is left intact. The source tree is never written to.
     """
     source = Path(source)
     output = Path(output)
-
-    ignore_vcs = shutil.ignore_patterns(".git")
-
-    if output.exists():
-        shutil.rmtree(output)
     docs = output / "docs"
 
-    shutil.copytree(source / "docs", docs, ignore=ignore_vcs)
-    shutil.copytree(source / ASSETS_DIR, docs / ASSETS_DIR, ignore=ignore_vcs)
+    _clean_owned(output, ASSETS_DIR)
+
+    output.mkdir(parents=True, exist_ok=True)
+    docs.mkdir(exist_ok=True)
+    # docs persists (it holds the submodule), so merge the root docs into it.
+    shutil.copytree(source / "docs", docs, dirs_exist_ok=True)
 
     for name in subprojects:
-        shutil.copytree(source / name / "docs", docs / name, ignore=ignore_vcs)
+        shutil.copytree(source / name / "docs", docs / name)
         duplicate = docs / name / MATHJAX_REL
         if duplicate.exists():
             duplicate.unlink()
