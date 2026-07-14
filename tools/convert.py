@@ -351,8 +351,12 @@ def copy_content(source, output, subprojects):
 
     # Convert raw-HTML page-title headings to Markdown in the copied files, so
     # Zensical derives the title from the heading text. The source is untouched;
-    # files without a raw <h1> are left byte-for-byte as copied.
+    # files without a raw <h1> are left byte-for-byte as copied. The
+    # documentation-assets submodule is skipped: convert never writes into it.
+    assets = docs / ASSETS_DIR
     for md_file in docs.rglob("*.md"):
+        if assets in md_file.parents:
+            continue
         text = md_file.read_text(encoding="utf-8")
         rewritten = rewrite_h1(text)
         if rewritten != text:

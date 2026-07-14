@@ -76,6 +76,18 @@ def test_preserves_the_documentation_assets_submodule_on_regen(source_tree, out_
     assert (sub / "main.css").read_text() == "SUBMODULE SENTINEL\n"
 
 
+def test_does_not_rewrite_markdown_inside_the_submodule(source_tree, out_dir):
+    run(source_tree, out_dir)
+    # A markdown file inside the submodule with a raw <h1> must be left
+    # byte-for-byte: the heading rewrite must never write into the submodule.
+    sub = out_dir / "docs" / "documentation-assets"
+    sub.mkdir(parents=True, exist_ok=True)
+    raw = '<h1 class="heading"><span class="name">Asset</span></h1>\n\nBody.\n'
+    (sub / "README.md").write_text(raw)
+    run(source_tree, out_dir)
+    assert (sub / "README.md").read_text() == raw
+
+
 def test_places_the_version_warning_theme_override(source_tree, out_dir):
     run(source_tree, out_dir)
     override = out_dir / "overrides" / "main.html"
