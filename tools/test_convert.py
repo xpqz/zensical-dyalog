@@ -70,6 +70,20 @@ def test_does_not_carry_vcs_metadata_into_the_output(source_tree, out_dir):
     assert list(out_dir.rglob(".git")) == []
 
 
+def test_places_the_version_warning_theme_override(source_tree, out_dir):
+    run(source_tree, out_dir)
+    override = out_dir / "overrides" / "main.html"
+    assert override.is_file()
+    text = override.read_text()
+    assert 'extends "base.html"' in text
+    assert "block outdated" in text
+    # The block must carry the warning and a link to latest, not be empty (an
+    # empty outdated block renders a blank banner, the no-op this exists to
+    # prevent).
+    assert "<a " in text
+    assert "latest" in text.lower()
+
+
 def test_rewrites_raw_html_headings_in_output_markdown(source_tree, out_dir):
     run(source_tree, out_dir)
     page = (out_dir / "docs" / "compiler-user-guide" / "raw-heading.md").read_text()
@@ -272,6 +286,13 @@ def test_sets_site_url_to_the_production_canonical(merged):
     assert merged["site_url"] == "https://docs.dyalog.com/"
 
 
+def test_sets_theme_custom_dir_for_the_version_warning(merged):
+    # The outdated-version warning banner is a theme override; custom_dir points
+    # Zensical at it. A top-level overrides/ (not under docs/) keeps the template
+    # out of the published content. The selector itself is native.
+    assert merged["theme"]["custom_dir"] == "overrides"
+
+
 # --- helpers -----------------------------------------------------------
 
 
@@ -330,6 +351,13 @@ def test_zensical_toml_carries_site_url(source_tree, out_dir):
     with open(out_dir / "zensical.toml", "rb") as f:
         project = tomllib.load(f)["project"]
     assert project["site_url"] == "https://docs.dyalog.com/"
+
+
+def test_zensical_toml_sets_theme_custom_dir(source_tree, out_dir):
+    run(source_tree, out_dir)
+    with open(out_dir / "zensical.toml", "rb") as f:
+        project = tomllib.load(f)["project"]
+    assert project["theme"]["custom_dir"] == "overrides"
 
 
 def test_zensical_toml_is_the_only_config_emitted(source_tree, out_dir):

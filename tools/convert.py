@@ -73,6 +73,13 @@ SOURCE_ROOT = Path(__file__).resolve().parent.parent.parent / "documentation"
 ASSETS_DIR = "documentation-assets"
 MATHJAX_REL = Path("javascripts") / "mathjax.js"
 
+# Theme override providing the outdated-version warning banner. Kept in a
+# top-level overrides/ (not under docs/, where it would be published as a stray
+# static file) and pointed at by theme.custom_dir. The template is a committed
+# project artefact, copied into the generated project.
+OVERRIDES_DIR = "overrides"
+OVERRIDE_TEMPLATE = Path(__file__).resolve().parent / OVERRIDES_DIR / "main.html"
+
 # Dropped from the merged config. monorepo has done its job; site-urls is a
 # no-op for this corpus (nothing uses its site: prefix); caption has no
 # Zensical module and is replaced by a Python-Markdown extension in Phase 5.
@@ -163,12 +170,14 @@ def merge_configs(root_config, sub_configs):
     inherited from the root unchanged (the root already references the
     single javascripts/mathjax.js plus the external MathJax URL). site_url
     is set to the production canonical (the source sets none) so versioned
-    publishing can prefix it with the version. The monorepo, site-urls and
-    caption plugins are dropped.
+    publishing can prefix it with the version, and theme.custom_dir points at
+    the overrides/ theme override (the outdated-version warning banner). The
+    monorepo, site-urls and caption plugins are dropped.
     """
     merged = copy.deepcopy(root_config)
 
     merged["site_url"] = SITE_URL
+    merged.setdefault("theme", {})["custom_dir"] = OVERRIDES_DIR
 
     merged["nav"] = _replace_includes(merged.get("nav", []), sub_configs)
 
@@ -290,9 +299,10 @@ def copy_content(source, output, subprojects):
     copy becomes the single canonical one. VCS metadata is not carried
     over: documentation-assets is a submodule in the source, so its .git
     gitlink is excluded rather than dragged into the content tree. Content
-    bytes are never edited. The output directory is owned wholesale and
-    regenerated from source, so orphaned and stray files do not survive a
-    re-run. The source tree is never written to.
+    bytes are never edited. The committed theme override is placed in a
+    top-level overrides/ (theme.custom_dir). The output directory is owned
+    wholesale and regenerated from source, so orphaned and stray files do not
+    survive a re-run. The source tree is never written to.
     """
     source = Path(source)
     output = Path(output)
@@ -322,6 +332,12 @@ def copy_content(source, output, subprojects):
         rewritten = rewrite_h1(text)
         if rewritten != text:
             md_file.write_text(rewritten, encoding="utf-8")
+
+    # Place the theme override (the outdated-version warning banner) that
+    # theme.custom_dir points at.
+    override_dir = output / OVERRIDES_DIR
+    override_dir.mkdir(parents=True)
+    shutil.copy2(OVERRIDE_TEMPLATE, override_dir / "main.html")
 
 
 def write_zensical_toml(config, path):
