@@ -1,8 +1,6 @@
-# Dependencies for building and version-deploying the flattened project.
-# Install into the deploy/authoring environment alongside the build stack.
-#
-# The build itself also needs Zensical (pinned in the source monorepo's
-# tools/requirements-docs.txt) and the caption extension:  pip install -e tools/
+# Deploy dependency for version-publishing the flattened project.
+# Install alongside the build stack: the build itself needs
+# tools/requirements-build.txt and the caption extension (pip install -e tools/).
 #
 # mike: the squidfunk fork that builds with Zensical rather than MkDocs. Pinned
 # to a commit because it is distributed from GitHub only (not on PyPI) and is a

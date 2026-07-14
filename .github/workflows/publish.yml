@@ -1,9 +1,9 @@
 name: Publish Zensical Documentation
 
 # Builds the committed flattened project with Zensical and deploys a versioned
-# layout to gh-pages via the squidfunk/mike fork. Manual trigger only for now;
-# staging is xpqz.github.io/zensical-dyalog/<ver>/. Production (docs.dyalog.com)
-# remains a separate Jenkins step that pulls from gh-pages.
+# layout to gh-pages via the squidfunk/mike fork. Manual trigger only. Staging
+# is xpqz.github.io/zensical-dyalog/<ver>/; production (docs.dyalog.com) is a
+# separate Jenkins step that pulls from gh-pages.
 on:
   workflow_dispatch:
     inputs:
@@ -95,7 +95,9 @@ jobs:
           url = os.environ["SITE_URL_OVERRIDE"]
           p = "zensical/zensical.toml"
           text = open(p).read()
-          text = re.sub(r'^site_url = ".*"$', f'site_url = "{url}"', text, count=1, flags=re.M)
+          # Replacement passed as a function so backslashes/quotes in url are
+          # never treated as regex group references.
+          text = re.sub(r'^site_url = ".*"$', lambda _: f'site_url = "{url}"', text, count=1, flags=re.M)
           open(p, "w").write(text)
           PY
 
