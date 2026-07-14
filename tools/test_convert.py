@@ -57,17 +57,35 @@ def test_copies_root_docs_pages_to_the_docs_root(source_tree, out_dir):
     assert (out_dir / "docs" / "index.md").read_text() == "# Documentation\n"
 
 
-def test_copies_documentation_assets_into_docs(source_tree, out_dir):
+def test_does_not_copy_documentation_assets(source_tree, out_dir):
+    # documentation-assets is a git submodule in the output repo, tracking the
+    # shared corporate style. It is not convert's to manage, so convert must not
+    # copy the source checkout's copy in.
     run(source_tree, out_dir)
-    assert (
-        out_dir / "docs" / "documentation-assets" / "css" / "main.css"
-    ).read_text() == "body {}\n"
+    assert not (out_dir / "docs" / "documentation-assets").exists()
 
 
-def test_does_not_carry_vcs_metadata_into_the_output(source_tree, out_dir):
+def test_preserves_the_documentation_assets_submodule_on_regen(source_tree, out_dir):
     run(source_tree, out_dir)
-    assert not (out_dir / "docs" / "documentation-assets" / ".git").exists()
-    assert list(out_dir.rglob(".git")) == []
+    # Stand in for the submodule checkout landing at its path.
+    sub = out_dir / "docs" / "documentation-assets" / "css"
+    sub.mkdir(parents=True, exist_ok=True)
+    (sub / "main.css").write_text("SUBMODULE SENTINEL\n")
+    # Regenerating must not wipe the submodule checkout.
+    run(source_tree, out_dir)
+    assert (sub / "main.css").read_text() == "SUBMODULE SENTINEL\n"
+
+
+def test_does_not_rewrite_markdown_inside_the_submodule(source_tree, out_dir):
+    run(source_tree, out_dir)
+    # A markdown file inside the submodule with a raw <h1> must be left
+    # byte-for-byte: the heading rewrite must never write into the submodule.
+    sub = out_dir / "docs" / "documentation-assets"
+    sub.mkdir(parents=True, exist_ok=True)
+    raw = '<h1 class="heading"><span class="name">Asset</span></h1>\n\nBody.\n'
+    (sub / "README.md").write_text(raw)
+    run(source_tree, out_dir)
+    assert (sub / "README.md").read_text() == raw
 
 
 def test_places_the_version_warning_theme_override(source_tree, out_dir):
