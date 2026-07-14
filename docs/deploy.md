@@ -37,9 +37,16 @@ it as a bare command):
 
 ```
 cd zensical/
+rm -f docs/documentation-assets/.git   # see below: keep the pointer out of the site
 mike deploy --push --update-aliases 21.0 latest   # build 21.0, tag it latest
 mike set-default --push latest                     # root redirects to latest
 ```
+
+The `rm` drops the assets submodule's `.git` pointer. Zensical copies the docs
+tree into the site verbatim, and `mike deploy` fast-imports the site into
+`gh-pages`; git refuses any tree path named `.git`, so a copied
+`documentation-assets/.git` aborts the deploy. Only the pointer goes; the
+CSS/fonts stay. CI does this automatically.
 
 `mike deploy` sets `MIKE_DOCS_VERSION`, so Zensical prefixes `site_url`
 (`https://docs.dyalog.com/`, set in `zensical.toml`) with the version, giving

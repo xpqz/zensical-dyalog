@@ -42,6 +42,14 @@ jobs:
           # under zensical/docs/; the build reads its CSS/fonts from there.
           submodules: recursive
 
+      - name: Drop the assets submodule's VCS pointer
+        # Zensical copies the docs tree into the site verbatim, and mike's
+        # git fast-import refuses any tree path named .git. The submodule's
+        # working tree carries a .git pointer file after checkout; remove it so
+        # site/documentation-assets/.git never gets built or published. Only the
+        # pointer goes; the CSS/fonts stay.
+        run: rm -f zensical/docs/documentation-assets/.git
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
