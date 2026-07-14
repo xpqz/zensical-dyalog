@@ -35,7 +35,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
           # documentation-assets (the shared corporate style) is a submodule
@@ -50,7 +50,7 @@ jobs:
         # pointer goes; the CSS/fonts stay.
         run: rm -f zensical/docs/documentation-assets/.git
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
 
