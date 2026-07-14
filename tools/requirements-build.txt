@@ -1,0 +1,16 @@
+# Build dependencies for the flattened Zensical project, owned by this repo so
+# the build does not depend on the source monorepo (archived at cutover).
+# Pins match the versions the flatten was validated against.
+#
+# The build also needs the caption extension, installed separately as an
+# editable package:  pip install -e tools/
+#
+# Zensical: the static site generator.
+zensical==0.0.48
+
+# Python-Markdown extensions named in zensical.toml's markdown_extensions.
+# (admonition, attr_list, footnotes, md_in_html, toc are Python-Markdown
+# built-ins and need no pin; the macros/search/privacy/minify plugins are
+# Zensical modules.)
+pymdown-extensions==10.21.3
+markdown-tables-extended==0.1.3
