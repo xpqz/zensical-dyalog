@@ -14,5 +14,5 @@ zensical==0.0.62
 # (admonition, attr_list, footnotes, md_in_html, toc are Python-Markdown
 # built-ins and need no pin; the macros/search/privacy/minify plugins are
 # Zensical modules.)
-pymdown-extensions==10.21.3
+pymdown-extensions==12.0.1
 markdown-tables-extended==0.1.3
