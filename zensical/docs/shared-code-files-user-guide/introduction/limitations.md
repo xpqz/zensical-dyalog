@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Limitations
 
 ## Fundamental Limitations

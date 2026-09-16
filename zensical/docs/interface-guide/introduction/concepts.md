@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Concepts
 
 The Dyalog APL GUI is based upon four important concepts; **objects**, **properties**, **events** and **methods**.

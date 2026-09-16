@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Search Functions and Hash Tables
 
 Primitive dyadic *search* functions, such as `⍳` (_index of_) and `∊` (_membership_) have a *principal* argument in which items of the other *subject* argument are located.

@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Introduction
 
 When the APL interpreter executes a user-defined function, it spends most of its time performing two separate actions:

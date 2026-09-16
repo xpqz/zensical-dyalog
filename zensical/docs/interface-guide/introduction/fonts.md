@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Fonts
 
 In keeping with the manner in which fonts are managed by Microsoft Windows and other GUI environments, Dyalog APL treats fonts as objects which you create (load) using `⎕WC` and erase (unload) using `⎕EX` or localisation.

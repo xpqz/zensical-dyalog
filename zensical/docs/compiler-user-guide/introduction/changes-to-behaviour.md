@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Changes to Behaviour of Functions when Compiled
 
 The same run-time engine is used by both compiled functions and interpreted functions when executing primitive functions. However, a small number of behavioural changes occur when functions are compiled.

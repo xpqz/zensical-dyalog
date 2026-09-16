@@ -1,3 +1,8 @@
+---
+tags:
+  - Tutorial
+---
+
 # Your First APL Web Page
 
 !!! Info "Information"

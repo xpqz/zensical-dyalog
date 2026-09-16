@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Creating Objects
 
 You create objects using `⎕WC`. Its left argument is a character vector that specifies the name of the object to be created. Its right argument specifies the object's Type and various other properties. Its ([shy](../../programming-reference-guide/introduction/results.md#shy-results)) result is the full pathname of the newly created object.

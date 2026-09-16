@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Expressions
 
 An expression is a sequence of one or more syntactic tokens which may be symbols or constants or names representing arrays (variables) or functions.  An expression which produces an array is called an ARRAY EXPRESSION. An expression which produces a function is called a FUNCTION EXPRESSION. Some expressions do not produce a result.

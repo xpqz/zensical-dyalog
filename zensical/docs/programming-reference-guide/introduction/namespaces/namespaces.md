@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Namespaces
 
 Namespace is a (class 9) object in Dyalog APL. Namespaces are analogous to

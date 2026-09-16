@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # The Co-ordinate System
 
 Each object has a Coord property that determines the units in which its Posn and Size properties are expressed. For full details, see [Coord](../../object-reference/properties/coord.md).

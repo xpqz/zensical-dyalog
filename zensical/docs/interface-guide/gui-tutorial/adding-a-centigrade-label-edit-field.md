@@ -1,3 +1,8 @@
+---
+tags:
+  - Tutorial
+---
+
 # Adding a Centigrade Label & Edit Field
 
 Now we need to add a corresponding Centigrade label and edit field. We'll call these objects `LC` and `C` respectively, and place them 40% down the Form.

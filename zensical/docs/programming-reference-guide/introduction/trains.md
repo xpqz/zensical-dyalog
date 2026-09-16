@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Function Trains
 
 ## Introduction

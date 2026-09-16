@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # High-Priority Callback Functions
 
 A high-priority callback function is one that is  invoked by a high-priority

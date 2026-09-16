@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Namespaces and Localisation
 
 The rules for name resolution have been generalised for namespaces.

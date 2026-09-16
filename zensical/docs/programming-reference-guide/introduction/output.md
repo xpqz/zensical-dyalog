@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Output
 
 Dyalog produces output through several distinct mechanisms. This section defines the terminology for these mechanisms and describes where each type of output goes, both in the interactive Session and when the interpreter is attached to operating-system streams.

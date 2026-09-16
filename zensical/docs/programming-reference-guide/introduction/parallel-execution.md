@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Parallel Execution
 
 If your computer has more than one CPU or is a multi-core processor, then the scalar dyadic functions `÷`, `≥`, `=`, `≤`, `⍟`, `|`, `!`, `○`, `∨` and `∧` will, when applied to arrays with a sufficiently large number of elements,  execute in parallel in separate system threads.

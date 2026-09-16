@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Prototypes and Fill Items
 
 Every array has an associated *prototype* which is derived from the array's first item.

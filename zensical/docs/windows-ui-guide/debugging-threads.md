@@ -1,3 +1,8 @@
+---
+tags:
+  - How-to
+---
+
 # Debugging Threads
 
 The Debugger  provides a tabbed interface that allows you to easily switch between suspended threads for debugging purposes. To keep things simple for non-threaded applications, Tabs are only displayed if there is a thread suspended that is other than Thread 0. The following picture shows the Debugger open on a multi-threaded application (LIFT.DWS) when only Thread 0 is suspended. This has been achieved by setting a stop on `RUN[63]`

@@ -1,3 +1,8 @@
+---
+tags:
+  - Tutorial
+---
+
 # Tutorial
 
 !!! note "Legacy"

@@ -1,3 +1,8 @@
+---
+tags:
+  - How-to
+---
+
 # Configuring the Dyalog IME
 
 The Dyalog Unicode IME is added as an additional service to all keyboards defined to the user and the administrator at the time that the IME was installed.

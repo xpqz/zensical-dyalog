@@ -1,3 +1,8 @@
+---
+tags:
+  - Tutorial
+---
+
 # The Calculation Functions
 
 So far we have built the user-interface, and we have written one callback function `QUIT` to terminate the application. We now need to write the two functions `f2c` and `c2f` which will actually perform the conversions. First let's tackle `f2c`.

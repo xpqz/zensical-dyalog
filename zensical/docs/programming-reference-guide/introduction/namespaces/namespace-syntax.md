@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Namespaces
 
 Names within namespaces may be referenced *explicitly* or *implicitly*.  An *explicit* reference requires that you identify the object by its full or relative pathname using a `'.'` syntax; for example:

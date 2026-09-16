@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Unnamed Namespaces
 
 The monadic form of `⎕NS` makes a new (and unique) unnamed namespace and returns a ref to it.

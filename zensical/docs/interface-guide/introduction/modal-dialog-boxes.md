@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Modal Dialog Boxes
 
 Up to now, it has been assumed that your user has constant access to all of the interface features and controls that you have provided. The user is in charge; your application merely responds to his requests.

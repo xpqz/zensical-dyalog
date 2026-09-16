@@ -1,3 +1,8 @@
+---
+tags:
+  - How-to
+---
+
 # Using APLMON
 
 APLMON is enabled and disabled using the APLMON method of Root. It takes a single argument, the name of the file to which the results are to be written. If the file name is empty, APLMON is disabled.

@@ -1,3 +1,8 @@
+---
+tags:
+  - How-to
+---
+
 # Loading an ActiveX Control
 
 An ActiveX or OLE Control is in fact a type of Dynamic Link Library (DLL) which must be loaded before it can be used. This is done by creating an OCXClass object using `⎕WC` or `⎕NEW`.

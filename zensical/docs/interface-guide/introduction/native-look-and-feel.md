@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Native Look and Feel
 
 *Native Look and Feel* is a Dyalog option that affects the appearance of the controls provided by the Dyalog GUI Interface and those used by the Dyalog Session. It is implemented by the [**XPLookAndFeel**](../../windows-installation-and-configuration-guide/configuration-parameters/xplookandfeel.md) configuration parameter. Dyalog reads that parameter before it loads any configuration file, so it must be set on the command line, as an environment variable, or in the Registry.

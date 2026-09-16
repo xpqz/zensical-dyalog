@@ -1,3 +1,8 @@
+---
+tags:
+  - How-to
+---
+
 # Starting APL from scripts
 
 Dyalog APL can be run with input being directed from a script file, and output being redirected as well.

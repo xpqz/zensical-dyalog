@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Distributed Functions
 
 Namespace ref array expansion syntax applies to functions too.

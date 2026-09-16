@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Multi-Threading with Objects
 
 The following rules apply when using threads and objects together.

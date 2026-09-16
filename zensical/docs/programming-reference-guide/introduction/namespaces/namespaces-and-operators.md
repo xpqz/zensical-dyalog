@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Namespaces and Operators
 
 A function passed as operand to a primitive or defined operator, carries its namespace context with it. This means that if subsequently, the function operand is applied to an argument, it executes in its home namespace, irrespective of the namespace from which the operator was invoked or defined.

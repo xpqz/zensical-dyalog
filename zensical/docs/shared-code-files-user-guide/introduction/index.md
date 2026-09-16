@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Introduction
 
 While a standard Dyalog workspace (a **.dws** file) needs to be read by the interpreter and loaded in its entirety, a shared code file (a **.dwx** file) has a structure that allows it to be attached to the active workspace with a minimum of file operations. This significantly decreases the start time of application processes, especially when several processes run on the same machine.

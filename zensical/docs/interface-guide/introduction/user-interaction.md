@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # User Interaction & Events
 
 ## Giving Control to the User

@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Serialising Namespaces
 
 The Serialisation of an array is its conversion from its internal representation, which may contain pointers to other structures in the workspace, into a self-contained series of bytes. This allows the array to be written to a file, transmitted over a socket or used in a variety of other ways. The de-serialisation of an array is the conversion back to an internal format whose content and structure is identical to the original array.

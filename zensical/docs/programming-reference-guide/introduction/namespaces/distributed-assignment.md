@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Distributed Assignment
 
 Assignment pervades nested strands of names to the left of the arrow. The conformability rules are the same as for scalar (pervasive) dyadic primitive functions such as '`+`'. The mechanism can be viewed as a way of naming the parts of a structure.

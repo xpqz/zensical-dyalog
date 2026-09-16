@@ -7,8 +7,43 @@ Welcome to the documentation for Dyalog v21.0.
 
 This documentation site is a new project, and we are continuing to add documents from the full documentation set (which is available at the [Dyalog v21.0 Documentation Centre](https://www.dyalog.com/documentation_210.htm)).
 
-!!! tip "Hints and Recommendations"
-    New to APL? See [Getting started](https://www.dyalog.com/getting-started.htm).
+## Where to start
+
+<div class="grid cards" markdown>
+
+-   **Learn**
+
+    ---
+
+    New to APL? Start with the free resources, then follow a tutorial that builds something small and working.
+
+    [Getting started](tutorials/getting-started.md) · [Tutorials](tutorials/index.md)
+
+-   **Do**
+
+    ---
+
+    Recipes for a task you already know you need to do: prerequisites, steps, result.
+
+    [How-to guides](how-to/index.md)
+
+-   **Look up**
+
+    ---
+
+    The full reference: every primitive, system function, GUI object and configuration parameter.
+
+    [Language](language-reference-guide/index.md) · [Programming](programming-reference-guide/index.md) · [Objects](object-reference/index.md)
+
+-   **Understand**
+
+    ---
+
+    How Dyalog APL works: workspaces, arrays, namespaces, threads.
+
+    [Programming Reference: Introduction](programming-reference-guide/introduction/workspaces.md)
+
+</div>
 
 ## Help us improve this documentation
 

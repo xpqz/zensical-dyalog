@@ -1,3 +1,8 @@
+---
+tags:
+  - Tutorial
+---
+
 # Worked Example
 
 This annotated example demonstrates the use of some of the [_I-beam_ functions](technical-details.md#technical-reference) related to shared code files (examples of assimilate and detach are not included).

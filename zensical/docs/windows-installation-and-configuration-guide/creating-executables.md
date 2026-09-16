@@ -1,3 +1,8 @@
+---
+tags:
+  - How-to
+---
+
 # Creating Executables and COM Servers
 
 Dyalog APL provides the facility to package an APL workspace as a Windows executable (EXE),  an OLE Server (in-process or out-of-process), an ActiveX Control or a .NET Assembly. This may be done by selecting *Export …* from the *File* menu of the APL Session window which brings up the *Create bound file* dialog box as illustrated later in this section.

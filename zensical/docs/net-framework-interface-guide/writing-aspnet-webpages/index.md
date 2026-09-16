@@ -1,3 +1,8 @@
+---
+tags:
+  - Tutorial
+---
+
 # Writing ASP.NET Web Pages
 
 Under Microsoft IIS, a _static_ web page is defined by a simple text file with the extension **.htm** or **.html** that contains simple HTML. When a browser requests such a page, IIS reads it and sends its content back to the client. The contents of a static web page are constant and, until somebody changes it, the page appears the same to all users at all times.

@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 # Array Notation
 
 Array notation extends [vector notation](vector-notation.md) to define arrays of higher rank, and namespaces, and lets these definitions span multiple lines:

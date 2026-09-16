@@ -1,3 +1,8 @@
+---
+tags:
+  - Explanation
+---
+
 #  Binding Strength
 
 For two entities `X` and `Y` that are adjacent in an expression (that is, `X Y`), the binding strength between them and
