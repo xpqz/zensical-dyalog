@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Name Classification
+# Name Classification `R←⎕NC Y`
 
 ```apl
 R←⎕NC Y

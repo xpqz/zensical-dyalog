@@ -1,6 +1,6 @@
 
 
-# Thread Identity
+# Thread Identity `)TID {tid}`
 
 ```apl
 )TID {tid}

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# State of Object
+# State of Object `R←⎕STATE Y`
 
 ```apl
 R←⎕STATE Y

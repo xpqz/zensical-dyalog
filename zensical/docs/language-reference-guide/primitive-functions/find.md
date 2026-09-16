@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Find
+# Find `R←X⍷Y`
 
 ```apl
 R←X⍷Y

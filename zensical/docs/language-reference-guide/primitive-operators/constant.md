@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Constant
+# Constant `R←{X}(A⍨)Y`
 
 ```apl
 R←{X}(A⍨)Y

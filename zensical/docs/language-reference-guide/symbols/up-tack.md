@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Up Tack
+# Up Tack `⊥`
 
 ```apl
 ⊥

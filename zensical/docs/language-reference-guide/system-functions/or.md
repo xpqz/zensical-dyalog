@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Object Representation
+# Object Representation `R←⎕OR Y`
 
 ```apl
 R←⎕OR Y

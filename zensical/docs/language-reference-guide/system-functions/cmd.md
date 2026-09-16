@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-# Windows Command
+# Windows Command `⎕CMD`
 
 ```apl
 ⎕CMD

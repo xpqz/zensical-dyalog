@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Diagnostic Message
+# Diagnostic Message `R←⎕DM`
 
 ```apl
 R←⎕DM

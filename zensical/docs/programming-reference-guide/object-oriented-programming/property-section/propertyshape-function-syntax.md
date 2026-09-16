@@ -1,6 +1,6 @@
 
 
-# PropertyShape Function
+# PropertyShape Function `R←Shape {ipa}`
 
 ```apl
 R←Shape {ipa}

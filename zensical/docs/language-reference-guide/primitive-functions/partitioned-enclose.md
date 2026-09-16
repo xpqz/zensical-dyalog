@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Partitioned Enclose
+# Partitioned Enclose `R←X⊂[K]Y`
 
 ```apl
 R←X⊂[K]Y

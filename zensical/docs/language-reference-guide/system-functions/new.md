@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# New Instance
+# New Instance `R←⎕NEW Y`
 
 ```apl
 R←⎕NEW Y

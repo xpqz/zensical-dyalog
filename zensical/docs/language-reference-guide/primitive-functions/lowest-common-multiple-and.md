@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Lowest Common Multiple/AND
+# Lowest Common Multiple/AND `R←X∧Y`
 
 ```apl
 R←X∧Y

@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Equal Underbar
+# Equal Underbar `≡`
 
 ```apl
 ≡

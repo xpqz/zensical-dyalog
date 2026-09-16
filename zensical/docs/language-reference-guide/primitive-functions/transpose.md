@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Transpose (Monadic)
+# Transpose (Monadic) `R←⍉Y`
 
 ```apl
 R←⍉Y

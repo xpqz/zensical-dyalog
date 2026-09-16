@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Maximum
+# Maximum `R←X⌈Y`
 
 ```apl
 R←X⌈Y

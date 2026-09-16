@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Shell Process Control
+# Shell Process Control `R←{X}(8373⌶)Y`
 
 ```apl
 R←{X}(8373⌶)Y

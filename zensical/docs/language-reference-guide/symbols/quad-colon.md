@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Quad Colon
+# Quad Colon `⍠`
 
 ```apl
 ⍠

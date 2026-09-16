@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Base Class
+# Base Class `R←⎕BASE.Y`
 
 ```apl
 R←⎕BASE.Y

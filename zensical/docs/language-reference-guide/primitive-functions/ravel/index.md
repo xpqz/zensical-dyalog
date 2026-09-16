@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Ravel
+# Ravel `R←,Y`
 
 ```apl
 R←,Y

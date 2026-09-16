@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# File Rename
+# File Rename `{R}←X ⎕FRENAME Y`
 
 ```apl
 {R}←X ⎕FRENAME Y

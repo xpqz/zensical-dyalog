@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Unique Mask
+# Unique Mask `R←≠Y`
 
 ```apl
 R←≠Y

@@ -1,6 +1,6 @@
 
 
-# WS FULL
+# WS FULL `1`
 
 ```apl
 1

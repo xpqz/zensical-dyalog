@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Residue
+# Residue `R←X|Y`
 
 ```apl
 R←X|Y

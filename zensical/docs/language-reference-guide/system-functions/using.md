@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Using (Microsoft .NET Search Path)
+# Using (Microsoft .NET Search Path) `⎕USING`
 
 ```apl
 ⎕USING

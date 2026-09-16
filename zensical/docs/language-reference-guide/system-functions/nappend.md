@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Native File Append
+# Native File Append `{R}←X ⎕NAPPEND Y`
 
 ```apl
 {R}←X ⎕NAPPEND Y

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Direction (Signum)
+# Direction (Signum) `R←×Y`
 
 ```apl
 R←×Y

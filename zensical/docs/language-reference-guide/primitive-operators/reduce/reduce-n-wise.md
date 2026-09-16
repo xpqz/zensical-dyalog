@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Reduce N-Wise
+# Reduce N-Wise `R←Xf/[K]Y`
 
 ```apl
 R←Xf/[K]Y

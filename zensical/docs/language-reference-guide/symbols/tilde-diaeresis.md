@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Tilde Diaeresis
+# Tilde Diaeresis `⍨`
 
 ```apl
 ⍨

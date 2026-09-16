@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Format (Monadic)
+# Format (Monadic) `R←⎕FMT Y`
 
 ```apl
 R←⎕FMT Y

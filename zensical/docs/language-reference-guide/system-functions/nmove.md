@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Native File Move
+# Native File Move `{R}←X ⎕NMOVE Y`
 
 ```apl
 {R}←X ⎕NMOVE Y

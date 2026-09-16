@@ -1,6 +1,6 @@
 
 
-# SYNTAX ERROR
+# SYNTAX ERROR `2`
 
 ```apl
 2

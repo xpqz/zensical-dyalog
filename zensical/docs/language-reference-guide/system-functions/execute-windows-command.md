@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Execute Windows Command
+# Execute Windows Command `{R}←⎕CMD Y`
 
 ```apl
 {R}←⎕CMD Y

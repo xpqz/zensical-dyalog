@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Split
+# Split `R←↓[K]Y`
 
 ```apl
 R←↓[K]Y

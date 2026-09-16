@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Zilde
+# Zilde `⍬`
 
 ```apl
 ⍬

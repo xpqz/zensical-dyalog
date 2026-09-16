@@ -52,6 +52,10 @@ features = [
     "navigation.indexes",
     "navigation.instant",
     "navigation.path",
+    # Only the visible part of the ~2,000-item nav is rendered into each page
+    # (~130 KB instead of ~1 MB); collapsed sections become a link to their
+    # first page, expanded on arrival. Incompatible only with navigation.expand.
+    "navigation.prune",
     "navigation.sections",
     "navigation.tracking",
 ]
@@ -446,6 +450,7 @@ provider = "mike"
     { "<code>⎕CR</code>: Canonical Representation" = "language-reference-guide/system-functions/cr.md" },
     { "<code>⎕CS</code>: Change Space" = "language-reference-guide/system-functions/cs.md" },
     { "<code>⎕CSV</code>: Comma Separated Values" = "language-reference-guide/system-functions/csv.md" },
+    { "<code>⎕CSV</code>: Comma Separated Values (rewrite for comparison)" = "language-reference-guide/system-functions/csv-new.md" },
     { "<code>⎕CT</code>: Comparison Tolerance" = "language-reference-guide/system-functions/ct.md" },
     { "<code>⎕CY</code>: Copy Workspace" = "language-reference-guide/system-functions/cy.md" },
     { "<code>⎕D</code>: Digits" = "language-reference-guide/system-functions/d.md" },

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Grade Up
+# Grade Up `R←⍋Y`
 
 ```apl
 R←⍋Y

@@ -1,6 +1,6 @@
 
 
-# TRAP ERROR
+# TRAP ERROR `84`
 
 ```apl
 84

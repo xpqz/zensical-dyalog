@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Native File Lock
+# Native File Lock `{R}←X ⎕NLOCK Y`
 
 ```apl
 {R}←X ⎕NLOCK Y

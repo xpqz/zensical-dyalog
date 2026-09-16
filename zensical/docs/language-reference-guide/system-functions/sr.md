@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Screen Read
+# Screen Read `R←{X}⎕SR Y`
 
 ```apl
 R←{X}⎕SR Y

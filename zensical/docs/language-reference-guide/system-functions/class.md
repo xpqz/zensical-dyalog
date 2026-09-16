@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Class
+# Class `R←{X}⎕CLASS Y`
 
 ```apl
 R←{X}⎕CLASS Y

@@ -1,6 +1,6 @@
 
 
-# TIMEOUT
+# TIMEOUT `1006`
 
 ```apl
 1006

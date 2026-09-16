@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Account Name
+# Account Name `R←⎕AN`
 
 ```apl
 R←⎕AN

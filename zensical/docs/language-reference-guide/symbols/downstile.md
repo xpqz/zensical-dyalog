@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-# Downstile
+# Downstile `⌊`
 
 ```apl
 ⌊

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Key Label
+# Key Label `R←⎕KL Y`
 
 ```apl
 R←⎕KL Y

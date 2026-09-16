@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Instances
+# Instances `R←⎕INSTANCES Y`
 
 ```apl
 R←⎕INSTANCES Y

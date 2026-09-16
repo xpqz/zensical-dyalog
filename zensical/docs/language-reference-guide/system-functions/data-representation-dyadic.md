@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Data Representation (Dyadic)
+# Data Representation (Dyadic) `R←X ⎕DR Y`
 
 ```apl
 R←X ⎕DR Y

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Search
+# Search `R←{X}(A ⎕S B) Y`
 
 ```apl
 R←{X}(A ⎕S B) Y

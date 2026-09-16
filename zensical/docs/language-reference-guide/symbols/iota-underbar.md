@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Iota Underbar
+# Iota Underbar `⍸`
 
 ```apl
 ⍸

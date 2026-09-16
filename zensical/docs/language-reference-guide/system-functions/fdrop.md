@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# File Drop Component
+# File Drop Component `{R}←⎕FDROP Y`
 
 ```apl
 {R}←⎕FDROP Y

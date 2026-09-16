@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Kill Thread
+# Kill Thread `{R}←{X}⎕TKILL Y`
 
 ```apl
 {R}←{X}⎕TKILL Y

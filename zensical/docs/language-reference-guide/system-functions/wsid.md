@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Workspace Identification
+# Workspace Identification `⎕WSID`
 
 ```apl
 ⎕WSID

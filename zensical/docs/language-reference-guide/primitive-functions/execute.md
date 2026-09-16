@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Execute
+# Execute `R←⍎Y`
 
 ```apl
 R←⍎Y

@@ -1,6 +1,6 @@
 
 
-# Trap Statement
+# Trap Statement `:Trap ecode`
 
 ```apl
 :Trap ecode

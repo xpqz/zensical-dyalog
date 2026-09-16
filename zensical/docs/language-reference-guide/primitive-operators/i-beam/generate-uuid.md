@@ -2,7 +2,7 @@
 search:
   boost: 2
 ---
-# Generate UUID
+# Generate UUID `R←120⌶Y`
 
 ```apl
 R←120⌶Y

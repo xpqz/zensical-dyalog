@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Inverted Table Index-of
+# Inverted Table Index-of `R←X(8⌶)Y`
 
 ```apl
 R←X(8⌶)Y

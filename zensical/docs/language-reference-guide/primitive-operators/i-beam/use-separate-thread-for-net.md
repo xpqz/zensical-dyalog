@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Use Separate Thread For .NET
+# Use Separate Thread For .NET `R←2520⌶Y`
 
 ```apl
 R←2520⌶Y

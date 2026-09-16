@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Size of Object
+# Size of Object `R←⎕SIZE Y`
 
 ```apl
 R←⎕SIZE Y

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Membership
+# Membership `R←X∊Y`
 
 ```apl
 R←X∊Y

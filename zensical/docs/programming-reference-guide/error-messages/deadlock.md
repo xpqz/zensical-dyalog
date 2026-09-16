@@ -1,6 +1,6 @@
 
 
-# DEADLOCK
+# DEADLOCK `1008`
 
 ```apl
 1008

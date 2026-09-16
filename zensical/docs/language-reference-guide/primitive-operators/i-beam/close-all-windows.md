@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Close All Windows
+# Close All Windows `R←2023⌶Y`
 
 ```apl
 R←2023⌶Y

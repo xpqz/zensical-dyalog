@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Case Convert
+# Case Convert `R←{X}⎕C Y`
 
 ```apl
 R←{X}⎕C Y

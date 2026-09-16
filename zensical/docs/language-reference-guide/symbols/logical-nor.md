@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Logical NOR
+# Logical NOR `⍱`
 
 ```apl
 ⍱

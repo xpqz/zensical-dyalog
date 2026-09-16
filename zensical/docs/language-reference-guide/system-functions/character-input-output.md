@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Character Input/Output
+# Character Input/Output `⍞`
 
 ```apl
 ⍞

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Allocate Token Range
+# Allocate Token Range `{R}←{X} ⎕TALLOC Y`
 
 ```apl
 {R}←{X} ⎕TALLOC Y

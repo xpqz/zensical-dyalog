@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Canonical Representation
+# Canonical Representation `R←⎕CR Y`
 
 ```apl
 R←⎕CR Y

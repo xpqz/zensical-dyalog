@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Window Set Property
+# Window Set Property `{R}←{X}⎕WS Y`
 
 ```apl
 {R}←{X}⎕WS Y

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Event Message
+# Event Message `R←⎕EM Y`
 
 ```apl
 R←⎕EM Y

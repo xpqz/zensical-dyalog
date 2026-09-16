@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Monadic Operator Generator
+# Monadic Operator Generator `R←43⌶Y`
 
 ```apl
 R←43⌶Y

@@ -1,4 +1,4 @@
-# Lookup Table Size
+# Lookup Table Size `R←8469⌶Y`
 
 ```apl
 R←8469⌶Y

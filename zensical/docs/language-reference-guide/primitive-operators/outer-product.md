@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Outer Product
+# Outer Product `{R}←X∘.gY`
 
 ```apl
 {R}←X∘.gY

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Ravel with Axes
+# Ravel with Axes `R←,[K]Y`
 
 ```apl
 R←,[K]Y

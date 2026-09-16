@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# NAND
+# NAND `R←X⍲Y`
 
 ```apl
 R←X⍲Y

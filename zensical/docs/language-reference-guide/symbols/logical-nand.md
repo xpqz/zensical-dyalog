@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Logical NAND
+# Logical NAND `⍲`
 
 ```apl
 ⍲

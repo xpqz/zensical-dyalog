@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Underscored Alphabetic Characters
+# Underscored Alphabetic Characters `R←⎕Ⓐ`
 
 ```apl
 R←⎕Ⓐ

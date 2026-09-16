@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Ceiling
+# Ceiling `R←⌈Y`
 
 ```apl
 R←⌈Y

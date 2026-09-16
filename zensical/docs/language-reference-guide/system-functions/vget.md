@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Value Get
+# Value Get `R←{X}⎕VGET Y`
 
 ```apl
 R←{X}⎕VGET Y

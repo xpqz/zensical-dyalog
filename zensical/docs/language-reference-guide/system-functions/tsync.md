@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Wait for Threads to Terminate
+# Wait for Threads to Terminate `R←⎕TSYNC Y`
 
 ```apl
 R←⎕TSYNC Y

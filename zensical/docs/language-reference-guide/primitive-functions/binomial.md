@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Binomial
+# Binomial `R←X!Y`
 
 ```apl
 R←X!Y

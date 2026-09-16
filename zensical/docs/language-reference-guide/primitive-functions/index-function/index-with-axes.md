@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Index with Axes
+# Index with Axes `R←{X}⌷[K]Y`
 
 ```apl
 R←{X}⌷[K]Y

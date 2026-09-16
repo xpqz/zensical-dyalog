@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Comparison Tolerance
+# Comparison Tolerance `⎕CT`
 
 ```apl
 ⎕CT

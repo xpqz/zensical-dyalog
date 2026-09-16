@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Decode
+# Decode `R←X⊥Y`
 
 ```apl
 R←X⊥Y

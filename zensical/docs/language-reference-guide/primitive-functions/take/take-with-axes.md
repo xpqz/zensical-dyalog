@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Take with Axes
+# Take with Axes `R←X↑[K]Y`
 
 ```apl
 R←X↑[K]Y

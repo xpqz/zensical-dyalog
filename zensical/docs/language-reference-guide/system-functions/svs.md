@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Shared Variable State
+# Shared Variable State `R←⎕SVS Y`
 
 ```apl
 R←⎕SVS Y

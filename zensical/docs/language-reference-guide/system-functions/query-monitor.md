@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Query Monitor
+# Query Monitor `R←⎕MONITOR Y`
 
 ```apl
 R←⎕MONITOR Y

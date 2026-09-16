@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Dyadic Execute
+# Dyadic Execute `R←X⍎Y`
 
 ```apl
 R←X⍎Y

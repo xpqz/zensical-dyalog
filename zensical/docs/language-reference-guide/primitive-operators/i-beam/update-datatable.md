@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Update DataTable
+# Update DataTable `R←{X}2010⌶Y`
 
 ```apl
 R←{X}2010⌶Y

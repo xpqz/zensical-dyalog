@@ -1,4 +1,4 @@
-# Execute (UNIX) Command
+# Execute (UNIX) Command `)SH {cmd}`
 
 ```apl
 )SH {cmd}

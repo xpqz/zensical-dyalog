@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# File Name Parts
+# File Name Parts `R←{X} ⎕NPARTS Y`
 
 ```apl
 R←{X} ⎕NPARTS Y

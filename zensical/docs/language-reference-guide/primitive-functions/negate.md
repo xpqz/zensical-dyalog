@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Negate
+# Negate `R←-Y`
 
 ```apl
 R←-Y

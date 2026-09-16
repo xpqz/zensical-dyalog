@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# File Read Component Information
+# File Read Component Information `R←⎕FRDCI Y`
 
 ```apl
 R←⎕FRDCI Y

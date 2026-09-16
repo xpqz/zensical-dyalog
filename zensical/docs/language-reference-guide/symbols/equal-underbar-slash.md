@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Equal Underbar Slash
+# Equal Underbar Slash `≢`
 
 ```apl
 ≢

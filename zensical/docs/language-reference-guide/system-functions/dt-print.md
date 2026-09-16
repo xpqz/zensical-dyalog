@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-# Date-time
+# Date-time `R←X ⎕DT Y`
 
 ```apl
 R←X ⎕DT Y

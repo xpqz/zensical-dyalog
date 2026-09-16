@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Workspace Available
+# Workspace Available `R←⎕WA`
 
 ```apl
 R←⎕WA

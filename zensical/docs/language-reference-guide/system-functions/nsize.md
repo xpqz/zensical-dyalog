@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Native File Size
+# Native File Size `R←⎕NSIZE Y`
 
 ```apl
 R←⎕NSIZE Y

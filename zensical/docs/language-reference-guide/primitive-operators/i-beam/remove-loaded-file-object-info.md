@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Remove Loaded File Object Info
+# Remove Loaded File Object Info `R←5178⌶Y`
 
 ```apl
 R←5178⌶Y

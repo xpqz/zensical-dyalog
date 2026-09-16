@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Right Shoe
+# Right Shoe `⊃`
 
 ```apl
 ⊃

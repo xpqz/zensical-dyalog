@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Not Equal
+# Not Equal `≠`
 
 ```apl
 ≠

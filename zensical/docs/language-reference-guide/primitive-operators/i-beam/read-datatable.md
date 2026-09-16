@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Read DataTable
+# Read DataTable `R←{X}2011⌶Y`
 
 ```apl
 R←{X}2011⌶Y

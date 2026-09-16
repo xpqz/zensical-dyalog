@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Conjugate
+# Conjugate `R←+Y`
 
 ```apl
 R←+Y

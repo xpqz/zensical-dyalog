@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Up Arrow
+# Up Arrow `↑`
 
 ```apl
 ↑

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Query Stop
+# Query Stop `R←⎕STOP Y`
 
 ```apl
 R←⎕STOP Y

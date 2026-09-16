@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Catenate First
+# Catenate First `R←X⍪[K]Y`
 
 ```apl
 R←X⍪[K]Y

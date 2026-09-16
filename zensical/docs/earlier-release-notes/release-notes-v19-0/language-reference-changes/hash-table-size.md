@@ -1,4 +1,4 @@
-# Hash Table Size
+# Hash Table Size `{R}←8468⌶Y`
 
 ```apl
 {R}←8468⌶Y

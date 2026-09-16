@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Shared Variable Offer
+# Shared Variable Offer `R←X ⎕SVO Y`
 
 ```apl
 R←X ⎕SVO Y

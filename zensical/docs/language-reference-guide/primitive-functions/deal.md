@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Deal
+# Deal `R←X?Y`
 
 ```apl
 R←X?Y

@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Stile
+# Stile `|`
 
 ```apl
 |

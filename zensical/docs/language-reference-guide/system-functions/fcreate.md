@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# File Create
+# File Create `{R}←X ⎕FCREATE Y`
 
 ```apl
 {R}←X ⎕FCREATE Y

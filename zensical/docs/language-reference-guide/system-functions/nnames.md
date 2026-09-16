@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Native File Names
+# Native File Names `R←⎕NNAMES`
 
 ```apl
 R←⎕NNAMES

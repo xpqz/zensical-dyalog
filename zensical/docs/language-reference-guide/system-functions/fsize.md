@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# File Size
+# File Size `R←⎕FSIZE Y`
 
 ```apl
 R←⎕FSIZE Y

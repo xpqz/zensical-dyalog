@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Sign Off APL
+# Sign Off APL `⎕OFF`
 
 ```apl
 ⎕OFF

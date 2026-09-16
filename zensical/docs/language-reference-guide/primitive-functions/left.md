@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Left
+# Left `R←X⊣Y`
 
 ```apl
 R←X⊣Y

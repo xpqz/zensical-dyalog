@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-# Unix Shell
+# Unix Shell `⎕SH`
 
 ```apl
 ⎕SH

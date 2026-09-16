@@ -1,6 +1,6 @@
 
 
-# Clear State Indicator
+# Clear State Indicator `)SIC`
 
 ```apl
 )SIC

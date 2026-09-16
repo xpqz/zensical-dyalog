@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Native File Translate
+# Native File Translate `{R}←{X}⎕NXLATE Y`
 
 ```apl
 {R}←{X}⎕NXLATE Y

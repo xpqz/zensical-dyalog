@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Read Text File
+# Read Text File `R←{X} ⎕NGET Y`
 
 ```apl
 R←{X} ⎕NGET Y

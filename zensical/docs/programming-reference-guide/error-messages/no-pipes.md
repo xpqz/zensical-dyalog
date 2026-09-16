@@ -1,6 +1,6 @@
 
 
-# NO PIPES
+# NO PIPES `72`
 
 ```apl
 72

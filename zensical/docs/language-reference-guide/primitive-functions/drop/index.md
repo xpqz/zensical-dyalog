@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Drop
+# Drop `R←X↓Y`
 
 ```apl
 R←X↓Y

@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Set Shell Script Debug Options
+# Set Shell Script Debug Options `R←{X}(1010⌶)Y`
 
 ```apl
 R←{X}(1010⌶)Y

@@ -1,6 +1,6 @@
 
 
-# Create Namespace
+# Create Namespace `)NS {nm}`
 
 ```apl
 )NS {nm}

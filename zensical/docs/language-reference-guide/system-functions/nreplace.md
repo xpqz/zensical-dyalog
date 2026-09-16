@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Native File Replace
+# Native File Replace `{R}←X ⎕NREPLACE Y`
 
 ```apl
 {R}←X ⎕NREPLACE Y

@@ -1,4 +1,4 @@
-# GoTo Statement
+# GoTo Statement `:GoTo aexp`
 
 ```apl
 :GoTo aexp

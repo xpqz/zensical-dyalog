@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Signal Event
+# Signal Event `{R}←{X}⎕SIGNAL Y`
 
 ```apl
 {R}←{X}⎕SIGNAL Y

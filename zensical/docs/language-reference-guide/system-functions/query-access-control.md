@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Query Access Control
+# Query Access Control `R←⎕SVC Y`
 
 ```apl
 R←⎕SVC Y

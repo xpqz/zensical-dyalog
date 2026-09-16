@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Format (Dyadic)
+# Format (Dyadic) `R←X ⎕FMT Y`
 
 ```apl
 R←X ⎕FMT Y

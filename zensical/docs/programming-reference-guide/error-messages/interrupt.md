@@ -1,6 +1,6 @@
 
 
-# INTERRUPT
+# INTERRUPT `1003`
 
 ```apl
 1003

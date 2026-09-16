@@ -1,6 +1,6 @@
 
 
-# List Global Defined Operators
+# List Global Defined Operators `)OPS {nm}`
 
 ```apl
 )OPS {nm}

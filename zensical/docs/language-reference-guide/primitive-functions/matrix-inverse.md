@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Matrix Inverse
+# Matrix Inverse `R←⌹Y`
 
 ```apl
 R←⌹Y

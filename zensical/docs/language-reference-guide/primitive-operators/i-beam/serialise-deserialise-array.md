@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Serialise/Deserialise Array
+# Serialise/Deserialise Array `R←X(220⌶)Y`
 
 ```apl
 R←X(220⌶)Y

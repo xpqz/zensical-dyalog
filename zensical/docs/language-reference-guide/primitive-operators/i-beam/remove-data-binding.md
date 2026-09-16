@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Remove Data Binding
+# Remove Data Binding `R←2014⌶Y`
 
 ```apl
 R←2014⌶Y

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Shape
+# Shape `R←⍴Y`
 
 ```apl
 R←⍴Y

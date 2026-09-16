@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Print Precision
+# Print Precision `⎕PP`
 
 ```apl
 ⎕PP

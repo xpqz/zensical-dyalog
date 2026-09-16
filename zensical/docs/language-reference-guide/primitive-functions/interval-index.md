@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Interval Index
+# Interval Index `R←X⍸Y`
 
 ```apl
 R←X⍸Y

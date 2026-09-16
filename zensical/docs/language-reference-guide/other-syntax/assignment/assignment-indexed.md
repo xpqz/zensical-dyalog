@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Assignment (Indexed)
+# Assignment (Indexed) `{R}←X[I]←Y`
 
 ```apl
 {R}←X[I]←Y

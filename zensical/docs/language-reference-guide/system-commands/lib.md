@@ -1,6 +1,6 @@
 
 
-# List Workspace Library
+# List Workspace Library `)LIB {dir}`
 
 ```apl
 )LIB {dir}

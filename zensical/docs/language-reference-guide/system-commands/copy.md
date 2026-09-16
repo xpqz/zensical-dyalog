@@ -1,6 +1,6 @@
 
 
-# Copy Workspace
+# Copy Workspace `)COPY {ws {nms}}`
 
 ```apl
 )COPY {ws {nms}}

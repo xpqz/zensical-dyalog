@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# File Untie
+# File Untie `{R}←⎕FUNTIE Y`
 
 ```apl
 {R}←⎕FUNTIE Y

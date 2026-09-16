@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# File Properties
+# File Properties `R←X ⎕FPROPS Y`
 
 ```apl
 R←X ⎕FPROPS Y

@@ -1,6 +1,6 @@
 
 
-# Workspace Identification
+# Workspace Identification `)WSID {ws}`
 
 ```apl
 )WSID {ws}

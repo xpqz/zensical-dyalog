@@ -1,6 +1,6 @@
 
 
-# Reset State Indicator
+# Reset State Indicator `)RESET {n}`
 
 ```apl
 )RESET {n}

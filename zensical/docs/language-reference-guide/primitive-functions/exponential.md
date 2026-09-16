@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Exponential
+# Exponential `R←*Y`
 
 ```apl
 R←*Y

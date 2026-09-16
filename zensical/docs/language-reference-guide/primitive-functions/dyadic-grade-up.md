@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Dyadic Grade Up
+# Dyadic Grade Up `R←X⍋Y`
 
 ```apl
 R←X⍋Y

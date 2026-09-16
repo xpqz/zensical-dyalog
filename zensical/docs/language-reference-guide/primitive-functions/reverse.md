@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Reverse
+# Reverse `R←⌽[K]Y`
 
 ```apl
 R←⌽[K]Y

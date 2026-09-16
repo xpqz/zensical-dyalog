@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Slash Bar
+# Slash Bar `⌿`
 
 ```apl
 ⌿

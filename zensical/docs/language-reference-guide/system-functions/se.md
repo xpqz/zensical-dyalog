@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Session Namespace
+# Session Namespace `⎕SE`
 
 ```apl
 ⎕SE

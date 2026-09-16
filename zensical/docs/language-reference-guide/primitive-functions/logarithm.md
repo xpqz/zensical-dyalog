@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Logarithm
+# Logarithm `R←X⍟Y`
 
 ```apl
 R←X⍟Y

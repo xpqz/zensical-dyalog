@@ -2,7 +2,7 @@
 search:
   boost: 2
 ---
-# Log File for Deprecations
+# Log File for Deprecations `{R}←{X} 109⌶Y`
 
 ```apl
 {R}←{X} 109⌶Y

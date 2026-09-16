@@ -1,5 +1,5 @@
 
-# Axis (with Dyadic Operand)
+# Axis (with Dyadic Operand) `R←Xf[B]Y`
 
 ```apl
 R←Xf[B]Y

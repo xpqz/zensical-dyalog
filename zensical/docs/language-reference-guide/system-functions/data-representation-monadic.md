@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Data Representation (Monadic)
+# Data Representation (Monadic) `R←⎕DR Y`
 
 ```apl
 R←⎕DR Y

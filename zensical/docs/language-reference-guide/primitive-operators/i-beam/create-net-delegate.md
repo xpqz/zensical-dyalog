@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Create .NET Delegate
+# Create .NET Delegate `R←2016⌶Y`
 
 ```apl
 R←2016⌶Y

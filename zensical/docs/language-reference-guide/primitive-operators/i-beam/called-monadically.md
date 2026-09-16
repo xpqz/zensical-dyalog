@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Called Monadically?
+# Called Monadically? `R←900⌶Y`
 
 ```apl
 R←900⌶Y

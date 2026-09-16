@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Disable Component Checksum Validation
+# Disable Component Checksum Validation `{R}←3002⌶Y`
 
 ```apl
 {R}←3002⌶Y

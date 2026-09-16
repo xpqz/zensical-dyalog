@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Discard Thread on Exit
+# Discard Thread on Exit `R←2501⌶Y`
 
 ```apl
 R←2501⌶Y

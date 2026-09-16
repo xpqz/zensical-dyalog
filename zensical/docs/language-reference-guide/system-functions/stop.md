@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-# Stop Controls
+# Stop Controls `⎕STOP`
 
 ```apl
 ⎕STOP

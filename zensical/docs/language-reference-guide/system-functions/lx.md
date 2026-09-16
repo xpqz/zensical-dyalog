@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Latent Expression
+# Latent Expression `⎕LX`
 
 ```apl
 ⎕LX

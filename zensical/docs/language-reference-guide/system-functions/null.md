@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Null Item
+# Null Item `R←⎕NULL`
 
 ```apl
 R←⎕NULL

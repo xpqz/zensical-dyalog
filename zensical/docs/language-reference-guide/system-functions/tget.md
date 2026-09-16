@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Get Tokens
+# Get Tokens `{R}←{X} ⎕TGET Y`
 
 ```apl
 {R}←{X} ⎕TGET Y

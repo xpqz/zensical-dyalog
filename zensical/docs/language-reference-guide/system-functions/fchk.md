@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# File Check and Repair
+# File Check and Repair `R←{X} ⎕FCHK Y`
 
 ```apl
 R←{X} ⎕FCHK Y

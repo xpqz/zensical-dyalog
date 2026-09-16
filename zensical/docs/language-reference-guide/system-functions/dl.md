@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Delay
+# Delay `{R}←⎕DL Y`
 
 ```apl
 {R}←⎕DL Y

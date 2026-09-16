@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Sample Probability Distribution
+# Sample Probability Distribution `R←X(16808⌶)Y`
 
 ```apl
 R←X(16808⌶)Y

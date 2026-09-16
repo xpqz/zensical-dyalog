@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Log
+# Log `⍟`
 
 ```apl
 ⍟

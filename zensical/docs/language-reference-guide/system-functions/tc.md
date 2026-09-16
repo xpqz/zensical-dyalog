@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Terminal Control
+# Terminal Control `(⎕ML)`
 
 ```apl
 (⎕ML)

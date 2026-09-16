@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Type
+# Type `(⎕ML<1) R←∊Y`
 
 ```apl
 (⎕ML<1) R←∊Y

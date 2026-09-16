@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# State Indicator Stack
+# State Indicator Stack `R←⎕STACK`
 
 ```apl
 R←⎕STACK

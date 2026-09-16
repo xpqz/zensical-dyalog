@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Namespace Indicator
+# Namespace Indicator `R←⎕NSI`
 
 ```apl
 R←⎕NSI

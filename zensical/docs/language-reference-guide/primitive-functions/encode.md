@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Encode
+# Encode `R←X⊤Y`
 
 ```apl
 R←X⊤Y

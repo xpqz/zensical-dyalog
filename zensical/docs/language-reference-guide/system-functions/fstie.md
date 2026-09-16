@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# File Share Tie
+# File Share Tie `{R}←X ⎕FSTIE Y`
 
 ```apl
 {R}←X ⎕FSTIE Y

@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Less Than Or Equal To
+# Less Than Or Equal To `≤`
 
 ```apl
 ≤

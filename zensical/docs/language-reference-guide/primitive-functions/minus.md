@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Minus
+# Minus `R←X-Y`
 
 ```apl
 R←X-Y

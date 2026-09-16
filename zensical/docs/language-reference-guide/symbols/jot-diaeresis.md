@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Jot Diaeresis
+# Jot Diaeresis `⍤`
 
 ```apl
 ⍤

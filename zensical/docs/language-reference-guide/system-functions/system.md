@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# System Information
+# System Information `R←⎕SYSTEM`
 
 ```apl
 R←⎕SYSTEM

@@ -1,4 +1,4 @@
-# Clear Workspace
+# Clear Workspace `)CLEAR`
 
 ```apl
 )CLEAR

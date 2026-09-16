@@ -1,4 +1,4 @@
-# Memory Manager Statistics
+# Memory Manager Statistics `R←{X}(2000⌶)Y`
 
 ```apl
 R←{X}(2000⌶)Y

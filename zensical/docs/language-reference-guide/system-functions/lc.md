@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Line Count
+# Line Count `R←⎕LC`
 
 ```apl
 R←⎕LC

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Thread Child Numbers
+# Thread Child Numbers `R←⎕TCNUMS Y`
 
 ```apl
 R←⎕TCNUMS Y

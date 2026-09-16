@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Query Trace
+# Query Trace `R←⎕TRACE Y`
 
 ```apl
 R←⎕TRACE Y

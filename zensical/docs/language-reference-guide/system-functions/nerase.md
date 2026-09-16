@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Native File Erase
+# Native File Erase `{R}←X ⎕NERASE Y`
 
 ```apl
 {R}←X ⎕NERASE Y

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Each (with Dyadic Operand)
+# Each (with Dyadic Operand) `{R}←Xf¨Y`
 
 ```apl
 {R}←Xf¨Y

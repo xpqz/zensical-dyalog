@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Circle Stile
+# Circle Stile `⌽`
 
 ```apl
 ⌽

@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Discard Parked Threads
+# Discard Parked Threads `R←2502⌶Y`
 
 ```apl
 R←2502⌶Y

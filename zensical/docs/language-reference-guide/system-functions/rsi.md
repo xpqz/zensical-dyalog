@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Space Indicator
+# Space Indicator `R←⎕RSI`
 
 ```apl
 R←⎕RSI

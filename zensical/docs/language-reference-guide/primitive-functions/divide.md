@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Divide
+# Divide `R←X÷Y`
 
 ```apl
 R←X÷Y

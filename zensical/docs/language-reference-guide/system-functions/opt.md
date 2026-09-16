@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Variant
+# Variant `{R}←{X}(f ⎕OPT B)Y`
 
 ```apl
 {R}←{X}(f ⎕OPT B)Y

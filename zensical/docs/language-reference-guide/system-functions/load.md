@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Load Workspace
+# Load Workspace `⎕LOAD Y`
 
 ```apl
 ⎕LOAD Y

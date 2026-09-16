@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-# Thorn
+# Thorn `⍕`
 
 ```apl
 ⍕

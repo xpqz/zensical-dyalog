@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Change Space
+# Change Space `{R}←{X}⎕CS Y`
 
 ```apl
 {R}←{X}⎕CS Y

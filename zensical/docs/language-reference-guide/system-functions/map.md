@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Map File
+# Map File `R←{X}⎕MAP Y`
 
 ```apl
 R←{X}⎕MAP Y

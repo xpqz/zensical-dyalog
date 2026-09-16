@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Flush Session Caption
+# Flush Session Caption `R←2022⌶Y`
 
 ```apl
 R←2022⌶Y

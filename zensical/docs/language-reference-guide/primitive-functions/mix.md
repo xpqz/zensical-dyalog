@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Mix
+# Mix `(⎕ML) R←↑[K]Y or R←⊃[K]Y`
 
 ```apl
 (⎕ML) R←↑[K]Y or R←⊃[K]Y

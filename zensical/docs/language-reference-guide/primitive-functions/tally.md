@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Tally
+# Tally `R←≢Y`
 
 ```apl
 R←≢Y

@@ -1,6 +1,6 @@
 
 
-# RANK ERROR
+# RANK ERROR `4`
 
 ```apl
 4

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Search Path
+# Search Path `⎕PATH`
 
 ```apl
 ⎕PATH

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Not Equal To
+# Not Equal To `R←X≠Y`
 
 ```apl
 R←X≠Y

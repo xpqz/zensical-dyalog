@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Format by Specification
+# Format by Specification `R←X⍕Y`
 
 ```apl
 R←X⍕Y

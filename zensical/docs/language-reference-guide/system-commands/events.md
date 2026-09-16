@@ -1,6 +1,6 @@
 
 
-# List Events
+# List Events `)EVENTS`
 
 ```apl
 )EVENTS

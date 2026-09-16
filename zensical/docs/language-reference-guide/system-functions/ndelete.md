@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Native File Delete
+# Native File Delete `{R}←{X}⎕NDELETE Y`
 
 ```apl
 {R}←{X}⎕NDELETE Y

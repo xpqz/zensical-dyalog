@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Screen Dimensions
+# Screen Dimensions `R←⎕SD`
 
 ```apl
 R←⎕SD

@@ -1,6 +1,6 @@
 
 
-# FULL SCREEN ERROR
+# FULL SCREEN ERROR `60`
 
 ```apl
 60

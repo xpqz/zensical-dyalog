@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Where
+# Where `R←⍸Y`
 
 ```apl
 R←⍸Y

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Nest
+# Nest `R←⊆Y`
 
 ```apl
 R←⊆Y

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Transpose (Dyadic)
+# Transpose (Dyadic) `R←X⍉Y`
 
 ```apl
 R←X⍉Y

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Timestamp
+# Timestamp `R←⎕TS`
 
 ```apl
 R←⎕TS

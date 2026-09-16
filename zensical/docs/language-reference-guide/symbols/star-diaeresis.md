@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Star Diaeresis
+# Star Diaeresis `⍣`
 
 ```apl
 ⍣

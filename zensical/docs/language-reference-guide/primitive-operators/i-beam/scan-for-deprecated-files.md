@@ -2,7 +2,7 @@
 search:
   boost: 2
 ---
-# Scan For Deprecated Files
+# Scan For Deprecated Files `R←{X}(3535⌶)Y`
 
 ```apl
 R←{X}(3535⌶)Y

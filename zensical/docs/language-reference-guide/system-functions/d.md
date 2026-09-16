@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Digits
+# Digits `R←⎕D`
 
 ```apl
 R←⎕D

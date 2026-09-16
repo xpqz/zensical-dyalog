@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Specify Workspace Available
+# Specify Workspace Available `R←2002⌶Y`
 
 ```apl
 R←2002⌶Y

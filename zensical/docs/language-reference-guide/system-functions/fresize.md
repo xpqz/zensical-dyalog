@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# File Resize
+# File Resize `{R}←{X}⎕FRESIZE Y`
 
 ```apl
 {R}←{X}⎕FRESIZE Y

@@ -1,6 +1,6 @@
 
 
-# List Global Defined Functions
+# List Global Defined Functions `)FNS {nm}`
 
 ```apl
 )FNS {nm}

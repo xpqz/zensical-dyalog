@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-# Trace Controls
+# Trace Controls `⎕TRACE`
 
 ```apl
 ⎕TRACE

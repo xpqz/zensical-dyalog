@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Commute
+# Commute `{R}←{X}f⍨Y`
 
 ```apl
 {R}←{X}f⍨Y

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Exception
+# Exception `R←⎕EXCEPTION`
 
 ```apl
 R←⎕EXCEPTION

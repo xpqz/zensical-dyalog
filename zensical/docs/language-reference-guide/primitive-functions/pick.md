@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Pick
+# Pick `R←X⊃Y`
 
 ```apl
 R←X⊃Y

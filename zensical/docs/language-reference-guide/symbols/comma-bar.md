@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Comma Bar
+# Comma Bar `⍪`
 
 ```apl
 ⍪

@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Compiler Control
+# Compiler Control `R←{X}(400⌶)Y`
 
 ```apl
 R←{X}(400⌶)Y

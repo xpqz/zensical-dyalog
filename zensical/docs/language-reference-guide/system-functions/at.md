@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Attributes
+# Attributes `R←{X} ⎕AT Y`
 
 ```apl
 R←{X} ⎕AT Y

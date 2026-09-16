@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Replicate
+# Replicate `R←X/[K]Y`
 
 ```apl
 R←X/[K]Y

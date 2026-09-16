@@ -1,6 +1,6 @@
 
 
-# Continue Statement
+# Continue Statement `:Continue`
 
 ```apl
 :Continue

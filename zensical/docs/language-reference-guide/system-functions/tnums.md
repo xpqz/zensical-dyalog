@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Thread Numbers
+# Thread Numbers `R←⎕TNUMS`
 
 ```apl
 R←⎕TNUMS

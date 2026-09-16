@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Clear Workspace
+# Clear Workspace `⎕CLEAR`
 
 ```apl
 ⎕CLEAR

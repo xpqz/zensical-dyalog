@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Replicate First
+# Replicate First `R←X⌿[K]Y`
 
 ```apl
 R←X⌿[K]Y

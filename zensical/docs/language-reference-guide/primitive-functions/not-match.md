@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Not Match
+# Not Match `R←X≢Y`
 
 ```apl
 R←X≢Y

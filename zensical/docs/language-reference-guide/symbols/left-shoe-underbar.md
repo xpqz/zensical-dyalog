@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Left Shoe Underbar
+# Left Shoe Underbar `⊆`
 
 ```apl
 ⊆

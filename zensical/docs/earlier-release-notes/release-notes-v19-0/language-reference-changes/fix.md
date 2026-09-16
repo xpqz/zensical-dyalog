@@ -1,4 +1,4 @@
-# Fix Script
+# Fix Script `{R}←{X}⎕FIX Y`
 
 ```apl
 {R}←{X}⎕FIX Y

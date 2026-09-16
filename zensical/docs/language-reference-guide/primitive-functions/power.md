@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Power
+# Power `R←X*Y`
 
 ```apl
 R←X*Y

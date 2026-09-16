@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Query External Variable
+# Query External Variable `R←⎕XT Y`
 
 ```apl
 R←⎕XT Y

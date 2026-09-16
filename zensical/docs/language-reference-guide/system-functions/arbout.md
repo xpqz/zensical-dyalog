@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Arbitrary Output
+# Arbitrary Output `{R}←X ⎕ARBOUT Y`
 
 ```apl
 {R}←X ⎕ARBOUT Y

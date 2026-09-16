@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Inner Product
+# Inner Product `R←Xf.gY`
 
 ```apl
 R←Xf.gY

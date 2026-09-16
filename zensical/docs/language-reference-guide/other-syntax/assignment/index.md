@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Assignment
+# Assignment `X←Y`
 
 ```apl
 X←Y

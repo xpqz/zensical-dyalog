@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Name List
+# Name List `R←{X}⎕NL Y`
 
 ```apl
 R←{X}⎕NL Y

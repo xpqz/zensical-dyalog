@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# First
+# First `(⎕ML) R←⊃Y or R←↑Y`
 
 ```apl
 (⎕ML) R←⊃Y or R←↑Y

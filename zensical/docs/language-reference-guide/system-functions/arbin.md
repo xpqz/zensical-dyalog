@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Arbitrary Input
+# Arbitrary Input `R←X ⎕ARBIN Y`
 
 ```apl
 R←X ⎕ARBIN Y

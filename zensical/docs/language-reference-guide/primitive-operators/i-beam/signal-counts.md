@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Signal Counts
+# Signal Counts `R←4007⌶Y`
 
 ```apl
 R←4007⌶Y

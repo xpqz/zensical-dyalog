@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Times
+# Times `R←X×Y`
 
 ```apl
 R←X×Y

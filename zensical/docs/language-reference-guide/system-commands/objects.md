@@ -1,6 +1,6 @@
 
 
-# List Global Namespaces
+# List Global Namespaces `)OBJECTS {nm}`
 
 ```apl
 )OBJECTS {nm}

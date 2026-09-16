@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Scan First
+# Scan First `R←f⍀Y`
 
 ```apl
 R←f⍀Y

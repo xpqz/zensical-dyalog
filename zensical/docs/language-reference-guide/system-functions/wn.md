@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Window Child Names
+# Window Child Names `R←{X}⎕WN Y`
 
 ```apl
 R←{X}⎕WN Y

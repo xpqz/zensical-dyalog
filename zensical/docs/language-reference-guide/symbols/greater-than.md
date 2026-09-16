@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Greater Than
+# Greater Than `>`
 
 ```apl
 >

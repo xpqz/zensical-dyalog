@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Abort
+# Abort `→`
 
 ```apl
 →

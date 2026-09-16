@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Division Method
+# Division Method `⎕DIV`
 
 ```apl
 ⎕DIV

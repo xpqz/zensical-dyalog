@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Window Expose
+# Window Expose `⎕WX`
 
 ```apl
 ⎕WX

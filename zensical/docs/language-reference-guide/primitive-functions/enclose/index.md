@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Enclose
+# Enclose `R←⊂Y`
 
 ```apl
 R←⊂Y

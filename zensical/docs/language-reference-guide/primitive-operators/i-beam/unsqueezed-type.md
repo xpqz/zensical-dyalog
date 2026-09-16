@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Unsqueezed Type
+# Unsqueezed Type `R←181⌶Y`
 
 ```apl
 R←181⌶Y

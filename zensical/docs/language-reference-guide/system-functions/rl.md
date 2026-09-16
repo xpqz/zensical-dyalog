@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Random Link
+# Random Link `⎕RL`
 
 ```apl
 ⎕RL

@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-# Format
+# Format `⎕FMT`
 
 ```apl
 ⎕FMT

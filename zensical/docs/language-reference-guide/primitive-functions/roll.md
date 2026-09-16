@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Roll
+# Roll `R←?Y`
 
 ```apl
 R←?Y

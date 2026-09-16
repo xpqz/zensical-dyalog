@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Set External Variable
+# Set External Variable `{R}←X ⎕XT Y`
 
 ```apl
 {R}←X ⎕XT Y

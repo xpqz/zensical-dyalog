@@ -1,6 +1,6 @@
 
 
-# Erase Object
+# Erase Object `)ERASE nms`
 
 ```apl
 )ERASE nms

@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Override COM Default Value
+# Override COM Default Value `R←{X}(2041⌶)Y`
 
 ```apl
 R←{X}(2041⌶)Y

@@ -1,6 +1,6 @@
 
 
-# PropertySet Function
+# PropertySet Function `Set ipa`
 
 ```apl
 Set ipa

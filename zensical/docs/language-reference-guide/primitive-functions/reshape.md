@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Reshape
+# Reshape `R←X⍴Y`
 
 ```apl
 R←X⍴Y

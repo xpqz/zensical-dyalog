@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Expunge Object
+# Expunge Object `{R}←⎕EX Y`
 
 ```apl
 {R}←⎕EX Y

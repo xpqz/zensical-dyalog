@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# I-Beam
+# I-Beam `⌶`
 
 ```apl
 ⌶

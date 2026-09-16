@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Greater Than
+# Greater Than `R←X>Y`
 
 ```apl
 R←X>Y

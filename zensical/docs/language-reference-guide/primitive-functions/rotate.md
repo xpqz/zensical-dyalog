@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Rotate
+# Rotate `R←X⌽[K]Y`
 
 ```apl
 R←X⌽[K]Y

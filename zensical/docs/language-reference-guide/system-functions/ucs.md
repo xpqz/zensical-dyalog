@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Unicode Convert
+# Unicode Convert `R←{X} ⎕UCS Y`
 
 ```apl
 R←{X} ⎕UCS Y

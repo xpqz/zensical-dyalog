@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Circle Bar
+# Circle Bar `⊖`
 
 ```apl
 ⊖

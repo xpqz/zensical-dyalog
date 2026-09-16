@@ -1,6 +1,6 @@
 
 
-# Section Statement
+# Section Statement `:Section`
 
 ```apl
 :Section

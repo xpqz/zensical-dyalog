@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Connected to Ride?
+# Connected to Ride? `R←(3501⌶)Y`
 
 ```apl
 R←(3501⌶)Y

@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Disable Traps
+# Disable Traps `R←600⌶Y`
 
 ```apl
 R←600⌶Y

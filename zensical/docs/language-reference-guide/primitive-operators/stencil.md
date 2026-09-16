@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Stencil
+# Stencil `R←(f⌺g)Y`
 
 ```apl
 R←(f⌺g)Y

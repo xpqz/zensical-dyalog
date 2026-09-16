@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Jot Underbar
+# Jot Underbar `⍛`
 
 ```apl
 ⍛

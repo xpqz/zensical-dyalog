@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-# External Variables
+# External Variables `⎕XT`
 
 ```apl
 ⎕XT

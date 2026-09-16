@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Trap Event
+# Trap Event `⎕TRAP`
 
 ```apl
 ⎕TRAP

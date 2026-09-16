@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Native File Resize
+# Native File Resize `{R}←X ⎕NRESIZE Y`
 
 ```apl
 {R}←X ⎕NRESIZE Y

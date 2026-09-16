@@ -1,6 +1,6 @@
 
 
-# EXCEPTION
+# EXCEPTION `90`
 
 ```apl
 90

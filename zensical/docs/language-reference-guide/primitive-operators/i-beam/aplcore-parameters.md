@@ -4,7 +4,7 @@ search:
 ---
 
 
-# aplcore Parameters
+# aplcore Parameters `R←1302⌶Y`
 
 ```apl
 R←1302⌶Y

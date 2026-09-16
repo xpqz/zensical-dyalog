@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Iota
+# Iota `⍳`
 
 ```apl
 ⍳

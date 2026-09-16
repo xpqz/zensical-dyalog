@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Rank
+# Rank `R←{X}(f⍤B)Y`
 
 ```apl
 R←{X}(f⍤B)Y

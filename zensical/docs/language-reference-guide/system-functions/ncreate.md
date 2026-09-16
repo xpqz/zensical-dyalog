@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Native File Create
+# Native File Create `{R}←X ⎕NCREATE Y`
 
 ```apl
 {R}←X ⎕NCREATE Y

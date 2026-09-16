@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Discard Source Information
+# Discard Source Information `R←5171⌶Y`
 
 ```apl
 R←5171⌶Y

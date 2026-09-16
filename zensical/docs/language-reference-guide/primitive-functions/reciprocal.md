@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Reciprocal
+# Reciprocal `R←÷Y`
 
 ```apl
 R←÷Y

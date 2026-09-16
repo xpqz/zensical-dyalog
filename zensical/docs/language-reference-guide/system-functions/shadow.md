@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Shadow Name
+# Shadow Name `{R}←⎕SHADOW Y`
 
 ```apl
 {R}←⎕SHADOW Y

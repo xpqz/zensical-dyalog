@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Reduce
+# Reduce `R←f/[K]Y`
 
 ```apl
 R←f/[K]Y

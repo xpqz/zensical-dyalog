@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Branch
+# Branch `→Y`
 
 ```apl
 →Y

@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Set Dyalog Pixel Type
+# Set Dyalog Pixel Type `R←2035⌶Y`
 
 ```apl
 R←2035⌶Y

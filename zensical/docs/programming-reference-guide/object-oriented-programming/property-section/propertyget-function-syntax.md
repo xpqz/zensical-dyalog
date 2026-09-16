@@ -1,6 +1,6 @@
 
 
-# PropertyGet Function
+# PropertyGet Function `R←Get {ipa}`
 
 ```apl
 R←Get {ipa}

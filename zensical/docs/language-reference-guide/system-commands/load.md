@@ -1,6 +1,6 @@
 
 
-# Load Workspace
+# Load Workspace `)LOAD {ws}`
 
 ```apl
 )LOAD {ws}

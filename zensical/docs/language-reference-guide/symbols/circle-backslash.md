@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Circle Backslash
+# Circle Backslash `⍉`
 
 ```apl
 ⍉

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Print Width
+# Print Width `⎕PW`
 
 ```apl
 ⎕PW

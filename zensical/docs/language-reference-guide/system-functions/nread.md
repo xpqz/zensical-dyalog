@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Native File Read
+# Native File Read `R←⎕NREAD Y`
 
 ```apl
 R←⎕NREAD Y

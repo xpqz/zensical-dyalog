@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Export Object
+# Export Object `{R}←{X}⎕EXPORT Y`
 
 ```apl
 {R}←{X}⎕EXPORT Y

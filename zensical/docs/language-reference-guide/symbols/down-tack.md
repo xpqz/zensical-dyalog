@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Down Tack
+# Down Tack `⊤`
 
 ```apl
 ⊤

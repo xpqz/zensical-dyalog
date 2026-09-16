@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Matrix Divide
+# Matrix Divide `R←X⌹Y`
 
 ```apl
 R←X⌹Y

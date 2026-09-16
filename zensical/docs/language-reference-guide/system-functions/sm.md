@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Screen Map
+# Screen Map `⎕SM`
 
 ```apl
 ⎕SM

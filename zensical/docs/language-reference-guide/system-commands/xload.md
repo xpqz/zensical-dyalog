@@ -1,6 +1,6 @@
 
 
-# Load without Latent Expression
+# Load without Latent Expression `)XLOAD {ws}`
 
 ```apl
 )XLOAD {ws}

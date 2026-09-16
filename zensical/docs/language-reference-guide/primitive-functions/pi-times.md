@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Pi Times
+# Pi Times `R←○Y`
 
 ```apl
 R←○Y

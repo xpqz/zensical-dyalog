@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Fix Definition
+# Fix Definition `{R}←⎕FX Y`
 
 ```apl
 {R}←⎕FX Y

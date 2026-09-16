@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Enclose with Axes
+# Enclose with Axes `R←⊂[K]Y`
 
 ```apl
 R←⊂[K]Y

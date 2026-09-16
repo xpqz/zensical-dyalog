@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Grade Up
+# Grade Up `⍋`
 
 ```apl
 ⍋

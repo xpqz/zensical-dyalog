@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Copy Workspace
+# Copy Workspace `{R}←{X}⎕CY Y`
 
 ```apl
 {R}←{X}⎕CY Y

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Assignment (Indexed Modified)
+# Assignment (Indexed Modified) `{R}←X[I]f←Y`
 
 ```apl
 {R}←X[I]f←Y

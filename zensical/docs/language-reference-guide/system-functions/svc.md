@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-# Shared Variable Access Control
+# Shared Variable Access Control `⎕SVC`
 
 ```apl
 ⎕SVC

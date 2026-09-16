@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Exclusive File Tie
+# Exclusive File Tie `{R}←X ⎕FTIE Y`
 
 ```apl
 {R}←X ⎕FTIE Y

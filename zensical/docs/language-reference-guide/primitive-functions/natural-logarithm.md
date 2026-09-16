@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Natural Logarithm
+# Natural Logarithm `R←⍟Y`
 
 ```apl
 R←⍟Y

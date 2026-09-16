@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Atomic Vector
+# Atomic Vector `R←⎕AV`
 
 ```apl
 R←⎕AV

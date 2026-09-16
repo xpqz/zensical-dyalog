@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Same
+# Same `R←⊣YR←⊢Y`
 
 ```apl
 R←⊣YR←⊢Y

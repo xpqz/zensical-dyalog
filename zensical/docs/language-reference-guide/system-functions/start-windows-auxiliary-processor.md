@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Start Windows Auxiliary Processor
+# Start Windows Auxiliary Processor `{R}←X ⎕CMD Y`
 
 ```apl
 {R}←X ⎕CMD Y

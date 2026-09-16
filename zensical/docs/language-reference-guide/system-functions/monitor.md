@@ -3,7 +3,7 @@ search:
   exclude: true
 ---
 
-# Monitor Controls
+# Monitor Controls `⎕MONITOR`
 
 ```apl
 ⎕MONITOR

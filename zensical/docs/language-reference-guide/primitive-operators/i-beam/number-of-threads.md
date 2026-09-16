@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Number of Threads
+# Number of Threads `R←1111⌶Y`
 
 ```apl
 R←1111⌶Y

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Factorial
+# Factorial `R←!Y`
 
 ```apl
 R←!Y

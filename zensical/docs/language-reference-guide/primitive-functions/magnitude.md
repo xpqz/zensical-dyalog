@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Magnitude
+# Magnitude `R←|Y`
 
 ```apl
 R←|Y

@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Right Arrow
+# Right Arrow `→`
 
 ```apl
 →

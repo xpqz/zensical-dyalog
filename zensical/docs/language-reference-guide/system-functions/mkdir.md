@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Make Directory
+# Make Directory `{R}←{X}⎕MKDIR Y`
 
 ```apl
 {R}←{X}⎕MKDIR Y

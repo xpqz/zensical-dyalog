@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Ampersand
+# Ampersand `&`
 
 ```apl
 &

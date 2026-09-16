@@ -1,6 +1,6 @@
 
 
-# Repeat Statement
+# Repeat Statement `:Repeat`
 
 ```apl
 :Repeat

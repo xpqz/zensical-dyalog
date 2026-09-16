@@ -1,6 +1,6 @@
 
 
-# Protected Copy
+# Protected Copy `)PCOPY {ws {nms}}`
 
 ```apl
 )PCOPY {ws {nms}}

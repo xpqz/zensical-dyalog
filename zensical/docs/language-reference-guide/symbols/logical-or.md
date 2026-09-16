@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Logical OR
+# Logical OR `∨`
 
 ```apl
 ∨

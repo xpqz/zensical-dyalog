@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Line Count
+# Line Count `R←50100⌶Y`
 
 ```apl
 R←50100⌶Y

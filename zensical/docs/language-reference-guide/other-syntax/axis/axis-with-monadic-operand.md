@@ -1,5 +1,5 @@
 
-# Axis (with Monadic Operand)
+# Axis (with Monadic Operand) `R←f[B]Y`
 
 ```apl
 R←f[B]Y

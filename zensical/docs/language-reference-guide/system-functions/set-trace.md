@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Set Trace
+# Set Trace `{R}←X ⎕TRACE Y`
 
 ```apl
 {R}←X ⎕TRACE Y

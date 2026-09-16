@@ -1,6 +1,6 @@
 
 
-# List Global Defined Variables
+# List Global Defined Variables `)VARS {nm}`
 
 ```apl
 )VARS {nm}

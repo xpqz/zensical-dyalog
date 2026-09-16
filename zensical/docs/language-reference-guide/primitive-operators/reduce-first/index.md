@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Reduce First
+# Reduce First `R←f⌿Y`
 
 ```apl
 R←f⌿Y

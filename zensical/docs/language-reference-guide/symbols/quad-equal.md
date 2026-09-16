@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Quad Equal
+# Quad Equal `⌸`
 
 ```apl
 ⌸

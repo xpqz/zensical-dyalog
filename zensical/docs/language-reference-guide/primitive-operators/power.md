@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Power
+# Power `{R}←{X}(f⍣g)Y`
 
 ```apl
 {R}←{X}(f⍣g)Y

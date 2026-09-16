@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Partition
+# Partition `R←X⊆[K]Y`
 
 ```apl
 R←X⊆[K]Y

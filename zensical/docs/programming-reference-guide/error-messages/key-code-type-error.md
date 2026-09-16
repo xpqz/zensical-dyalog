@@ -1,6 +1,6 @@
 
 
-# KEY CODE TYPE ERROR
+# KEY CODE TYPE ERROR `63`
 
 ```apl
 63

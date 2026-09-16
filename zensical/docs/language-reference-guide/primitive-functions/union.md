@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Union
+# Union `R←X∪Y`
 
 ```apl
 R←X∪Y

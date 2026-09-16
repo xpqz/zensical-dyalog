@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Start Unix Auxiliary Processor
+# Start Unix Auxiliary Processor `{R}←X ⎕SH Y`
 
 ```apl
 {R}←X ⎕SH Y

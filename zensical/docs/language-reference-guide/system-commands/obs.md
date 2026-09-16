@@ -1,4 +1,4 @@
-# List Global Namespaces
+# List Global Namespaces `)OBS {nm}`
 
 ```apl
 )OBS {nm}

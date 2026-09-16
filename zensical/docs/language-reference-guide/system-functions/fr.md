@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Floating-Point Representation
+# Floating-Point Representation `⎕FR`
 
 ```apl
 ⎕FR

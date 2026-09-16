@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Intersection
+# Intersection `R←X∩Y`
 
 ```apl
 R←X∩Y

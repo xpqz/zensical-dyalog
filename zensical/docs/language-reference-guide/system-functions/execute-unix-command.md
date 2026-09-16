@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Execute Unix Command
+# Execute Unix Command `{R}←⎕SH Y`
 
 ```apl
 {R}←⎕SH Y

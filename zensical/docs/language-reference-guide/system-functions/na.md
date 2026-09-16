@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Name Association
+# Name Association `{R}←{X}⎕NA Y`
 
 ```apl
 {R}←{X}⎕NA Y

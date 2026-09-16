@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Star
+# Star `*`
 
 ```apl
 *

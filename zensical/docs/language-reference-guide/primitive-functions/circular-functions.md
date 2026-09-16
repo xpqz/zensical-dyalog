@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Circular Functions
+# Circular Functions `R←X○Y`
 
 ```apl
 R←X○Y

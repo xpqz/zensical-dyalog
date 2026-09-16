@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Save Workspace
+# Save Workspace `{R}←{X}⎕SAVE Y`
 
 ```apl
 {R}←{X}⎕SAVE Y

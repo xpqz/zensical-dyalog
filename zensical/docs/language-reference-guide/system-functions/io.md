@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Index Origin
+# Index Origin `⎕IO`
 
 ```apl
 ⎕IO

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Namespace
+# Namespace `{R}←{X}⎕NS Y`
 
 ```apl
 {R}←{X}⎕NS Y

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Assignment (Selective Modified)
+# Assignment (Selective Modified) `{R}←(EXP X)f←Y`
 
 ```apl
 {R}←(EXP X)f←Y

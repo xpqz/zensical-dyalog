@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Profile Application
+# Profile Application `{R}←{X}⎕PROFILE Y`
 
 ```apl
 {R}←{X}⎕PROFILE Y

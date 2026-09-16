@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Current Thread Identity
+# Current Thread Identity `R←⎕TID`
 
 ```apl
 R←⎕TID

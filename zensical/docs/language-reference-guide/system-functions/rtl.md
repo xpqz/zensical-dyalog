@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Response Time Limit
+# Response Time Limit `⎕RTL`
 
 ```apl
 ⎕RTL

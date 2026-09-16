@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Expand First
+# Expand First `R←X⍀Y`
 
 ```apl
 R←X⍀Y

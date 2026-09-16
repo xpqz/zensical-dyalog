@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Slash
+# Slash `/`
 
 ```apl
 /

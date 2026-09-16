@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Spawn
+# Spawn `{R}←{X}f&Y`
 
 ```apl
 {R}←{X}f&Y

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Equal To
+# Equal To `R←X=Y`
 
 ```apl
 R←X=Y

@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Upstile
+# Upstile `⌈`
 
 ```apl
 ⌈

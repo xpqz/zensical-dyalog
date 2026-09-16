@@ -1,6 +1,6 @@
 
 
-# Leave Statement
+# Leave Statement `:Leave`
 
 ```apl
 :Leave

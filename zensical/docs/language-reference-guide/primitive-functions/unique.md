@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Unique
+# Unique `R←∪Y`
 
 ```apl
 R←∪Y

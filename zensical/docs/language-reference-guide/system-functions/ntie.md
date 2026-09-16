@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Native File Tie
+# Native File Tie `{R}←X ⎕NTIE Y`
 
 ```apl
 {R}←X ⎕NTIE Y

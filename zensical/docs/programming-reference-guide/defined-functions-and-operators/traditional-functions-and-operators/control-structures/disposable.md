@@ -1,6 +1,6 @@
 
 
-# Disposable Statement
+# Disposable Statement `:Disposable`
 
 ```apl
 :Disposable

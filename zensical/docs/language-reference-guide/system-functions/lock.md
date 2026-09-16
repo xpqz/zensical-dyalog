@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Lock Definition
+# Lock Definition `{R}←{X}⎕LOCK Y`
 
 ```apl
 {R}←{X}⎕LOCK Y

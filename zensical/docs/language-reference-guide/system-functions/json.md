@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# JSON Convert
+# JSON Convert `R←{X}⎕JSON Y`
 
 ```apl
 R←{X}⎕JSON Y

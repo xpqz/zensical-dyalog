@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Indexing
+# Indexing `R←X[Y]`
 
 ```apl
 R←X[Y]

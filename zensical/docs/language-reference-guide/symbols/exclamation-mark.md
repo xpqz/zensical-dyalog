@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Exclamation Mark
+# Exclamation Mark `!`
 
 ```apl
 !

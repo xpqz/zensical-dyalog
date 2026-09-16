@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Floor
+# Floor `R←⌊Y`
 
 ```apl
 R←⌊Y

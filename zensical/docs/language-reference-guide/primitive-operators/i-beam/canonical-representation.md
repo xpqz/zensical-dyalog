@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Canonical Representation
+# Canonical Representation `R←180⌶Y`
 
 ```apl
 R←180⌶Y

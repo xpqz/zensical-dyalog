@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Parallel Execution Threshold
+# Parallel Execution Threshold `R←1112⌶Y`
 
 ```apl
 R←1112⌶Y

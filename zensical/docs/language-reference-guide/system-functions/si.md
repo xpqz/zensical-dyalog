@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# State Indicator
+# State Indicator `R←⎕SI`
 
 ```apl
 R←⎕SI

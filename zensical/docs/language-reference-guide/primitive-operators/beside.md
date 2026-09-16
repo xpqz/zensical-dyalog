@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Beside
+# Beside `{R}←{X}f∘gY`
 
 ```apl
 {R}←{X}f∘gY

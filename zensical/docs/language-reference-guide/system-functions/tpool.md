@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Token Pool
+# Token Pool `R←⎕TPOOL`
 
 ```apl
 R←⎕TPOOL

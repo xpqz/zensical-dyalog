@@ -2,7 +2,7 @@
 search:
   exclude: true
 ---
-# Up Shoe
+# Up Shoe `∩`
 
 ```apl
 ∩

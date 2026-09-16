@@ -1,6 +1,6 @@
 
 
-# Drop Workspace
+# Drop Workspace `)DROP {ws}`
 
 ```apl
 )DROP {ws}

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Set Stop
+# Set Stop `{R}←X ⎕STOP Y`
 
 ```apl
 {R}←X ⎕STOP Y

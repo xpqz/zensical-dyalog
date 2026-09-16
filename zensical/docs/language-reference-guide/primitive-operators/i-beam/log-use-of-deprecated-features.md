@@ -2,7 +2,7 @@
 search:
   boost: 2
 ---
-# Log Use of Deprecated Features
+# Log Use of Deprecated Features `{R}←(13⌶)Y`
 
 ```apl
 {R}←(13⌶)Y

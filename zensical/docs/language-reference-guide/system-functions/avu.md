@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Atomic Vector - Unicode
+# Atomic Vector - Unicode `⎕AVU`
 
 ```apl
 ⎕AVU

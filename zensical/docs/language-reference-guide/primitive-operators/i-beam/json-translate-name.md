@@ -4,7 +4,7 @@ search:
 ---
 
 
-# JSON Translate Name
+# JSON Translate Name `R←X(7162⌶)Y`
 
 ```apl
 R←X(7162⌶)Y

@@ -3,7 +3,7 @@ search:
   boost: 2
 ---
 
-# Event Number
+# Event Number `R←⎕EN`
 
 ```apl
 R←⎕EN
