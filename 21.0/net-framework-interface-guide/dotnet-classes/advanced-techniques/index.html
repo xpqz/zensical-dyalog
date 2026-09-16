@@ -1,0 +1,3886 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/dotnet-classes/advanced-techniques/">
+      
+      
+        <link rel="prev" href="../browsing-dotnet-classes/">
+      
+      
+        <link rel="next" href="../example-usage/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../documentation-assetsz/images/dyalog-ide-cube-2025.2.svg">
+      <meta name="generator" content="zensical-0.0.62">
+    
+    
+      
+        <title>Advanced Techniques - Documentation</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../assets/stylesheets/classic/main.e0592429.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/classic/palette.c7ab7c71.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../documentation-assetsz/css/dyalog.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#advanced-techniques" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  You're not viewing the latest version.
+  <a href="../../../..">
+    <strong>Click here to go to latest.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../../../documentation-assetsz/images/dyalog-logo_orange.svg" alt="Documentation">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Advanced Techniques
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/dyalog/documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../../../documentation-assetsz/images/dyalog-logo_orange.svg" alt="Documentation">
+
+    </a>
+    Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dyalog/documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Release Notes
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Release Notes
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../release-notes/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v21.0 Release Notes
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    
+  
+  
+  
+  
+    <a href="../../../earlier-release-notes/release-notes-v20-0/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Earlier Release Notes
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Core Reference
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Core Reference
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../language-reference-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dyalog APL Language
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../programming-reference-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Programming
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Code Tooling
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Code Tooling
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../net-interface-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  .NET Interface
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../compiler-user-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Compiler
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../shared-code-files-user-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Shared Code Files
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dyalog for Microsoft Windows
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Dyalog for Microsoft Windows
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../windows-installation-and-configuration-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installation/Configuration
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../windows-ui-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  User Interface
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../object-reference/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Object Reference
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../interface-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interfaces
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  .NET Framework Interface
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  .NET Framework Interface
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introduction
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  .NET Classes
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5_4" id="__nav_4_5_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_5_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  .NET Classes
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../locating-dotnet-classes-and-assemblies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Locating .NET Classes and Assemblies
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-dotnet-classes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Using .NET Classes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../browsing-dotnet-classes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Browsing .NET Classes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+        <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Advanced Techniques
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Advanced Techniques
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#shared-members" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Shared Members
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shared Members">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Example
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apl-language-extensions-for-net-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        APL Language Extensions for .NET Projects
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Exceptions
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specifying-overloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Specifying Overloads
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Specifying Overloads">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-using-overloadtypes-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Example (using OverloadTypes option)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-using-casttotypes-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Example (using CastToTypes option)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overloaded-constructors" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Overloaded Constructors
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generics" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Generics
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Syntax
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-concrete-version-of-a-generic-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Creating a Concrete Version of a Generic Class
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-concrete-version-of-a-generic-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Creating a Concrete Version of a Generic Interface
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-overloads-of-net-classes-and-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Multiple Overloads of .NET Classes and Interfaces
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calling-a-generic-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Calling a Generic Method
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Calling a Generic Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Type Inference
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../example-usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Example Usage
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enumerations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Enumerations
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../handling-pointers-with-dyalogbyref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Handling Pointers with Dyalog.ByRef
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../decf-conversion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  DECF Conversion
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../using-windows-forms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Using Windows Forms
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../windows-presentation-foundation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Windows Presentation Foundation
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../apl-source-files/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  APL Source Files
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../writing-dotnet-classes/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Writing .NET Classes
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dyalog-and-iis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dyalog and IIS
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../writing-web-services/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Writing Web Services
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../calling-web-services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Calling Web Services
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../writing-aspnet-webpages/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Writing ASP.NET Web Pages
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../writing-custom-aspnet-controls/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Writing Custom Controls for ASP.NET
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../implementation-details/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Implementation Details
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dyalog for UNIX
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Dyalog for UNIX
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../unix-installation-and-configuration-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installation/Configuration
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../unix-user-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  User Interface
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  About
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  About
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../conventions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Conventions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../licences-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Third-party Licences
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../trademarks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Trademarks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#shared-members" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Shared Members
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shared Members">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Example
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apl-language-extensions-for-net-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        APL Language Extensions for .NET Projects
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Exceptions
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specifying-overloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Specifying Overloads
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Specifying Overloads">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-using-overloadtypes-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Example (using OverloadTypes option)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-using-casttotypes-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Example (using CastToTypes option)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overloaded-constructors" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Overloaded Constructors
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generics" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Generics
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Syntax
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-concrete-version-of-a-generic-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Creating a Concrete Version of a Generic Class
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-concrete-version-of-a-generic-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Creating a Concrete Version of a Generic Interface
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-overloads-of-net-classes-and-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Multiple Overloads of .NET Classes and Interfaces
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calling-a-generic-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Calling a Generic Method
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Calling a Generic Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Type Inference
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Dyalog v21.0
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../../../windows-installation-and-configuration-guide/" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Dyalog for Microsoft Windows
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    .NET Framework Interface
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    .NET Classes
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="advanced-techniques">Advanced Techniques</h1>
+<h2 id="shared-members">Shared Members</h2>
+<p>Certain .NET classes provide methods, fields, and properties that can be called directly without the need to create an instance of the class first. These <em>members</em> are known as <em>shared</em>, because they have the same definition for the class and for any instance of the class.</p>
+<p>The methods <code class="language-nonAPL">Now</code> and <code class="language-nonAPL">IsLeapYear</code> exported by <code class="language-nonAPL">System.DateTime</code> fall into this category.</p>
+<h4 id="example">Example</h4>
+<pre class="highlight"><code class="language-apl">     ⎕USING←,⊂'System'
+
+     DateTime.Now
+18/03/2020 11:14:05
+
+     DateTime.IsLeapYear 2000
+1</code></pre>
+<h2 id="apl-language-extensions-for-net-projects">APL Language Extensions for .NET Projects</h2>
+<p>The .NET Framework provides a set of standard operators (methods) that are supported by certain classes. These operators include methods to compare two .NET objects and methods to add and subtract objects. In the case of the <code class="language-nonAPL">DateTime</code> class, there are operators to compare two <code class="language-nonAPL">DateTime objects</code>. For example:
+<pre class="highlight"><code class="language-apl">      DT1←⎕NEW DateTime (2008 4 30)
+      DT2←⎕NEW DateTime (2008 1 1)
+
+      ⍝ Is DT1 equal to DT2 ?
+      DateTime.op_Equality DT1 DT2
+0</code></pre></p>
+<p>The <code class="language-nonAPL">op_Addition</code> and <code class="language-nonAPL">op_Subtraction</code> operators add and subtract <code class="language-nonAPL">TimeSpan</code> objects to <code class="language-nonAPL">DateTime</code> objects. For example:
+<pre class="highlight"><code class="language-apl">      DT3←DateTime.Now
+      DT3
+18/03/2020 11:15:10
+
+      TS←⎕NEW TimeSpan (1 1 1)
+      TS
+01:01:01
+
+      DateTime.op_Addition DT3 TS
+07/11/2008 12:34:46
+
+      DateTime.op_Subtraction DT3 TS
+07/11/2008 10:32:44</code></pre></p>
+<p>The corresponding APL primitive functions have been extended to accept .NET objects as arguments and call these standard .NET methods internally. The methods and the corresponding APL primitives are shown in <a href="#method-equivalents">Table 1</a>.</p>
+<div class="admonition info">
+<p class="admonition-title">Information</p>
+<p>Calculations and comparisons performed by .NET methods are performed independently from the values of APL system variables (such as <code>⎕FR</code> and <code>⎕CT</code>).</p>
+</div>
+<table id="method-equivalents">
+<caption style="caption-side:top">Table 1: .NET methods and their APL primitive function equivalents</caption><thead>
+<tr>
+<th>.NET Method</th>
+<th>APL Primitive Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="language-nonAPL">op_Addition</code></td>
+<td><code>+</code></td>
+</tr>
+<tr>
+<td><code class="language-nonAPL">op_Subtraction</code></td>
+<td><code>-</code></td>
+</tr>
+<tr>
+<td><code class="language-nonAPL">op_Multiply</code></td>
+<td><code>×</code></td>
+</tr>
+<tr>
+<td><code class="language-nonAPL">op_Division</code></td>
+<td><code>÷</code></td>
+</tr>
+<tr>
+<td><code class="language-nonAPL">op_Equality</code></td>
+<td><code>=</code></td>
+</tr>
+<tr>
+<td><code class="language-nonAPL">op_Inequality</code></td>
+<td><code>≠</code></td>
+</tr>
+<tr>
+<td><code class="language-nonAPL">op_LessThan</code></td>
+<td><code>&lt;</code></td>
+</tr>
+<tr>
+<td><code class="language-nonAPL">op_LessThanOrEqual</code></td>
+<td><code>≤</code></td>
+</tr>
+<tr>
+<td><code class="language-nonAPL">op_GreaterThan</code></td>
+<td><code>&gt;</code></td>
+</tr>
+<tr>
+<td><code class="language-nonAPL">op_GreaterThanOrEqual</code></td>
+<td><code>≥</code></td>
+</tr>
+</tbody>
+</table>
+<p>So instead of calling the appropriate .NET method to compare two objects, APL primitives can be used instead. For example:
+<pre class="highlight"><code class="language-apl">      DT1=DT2
+0</code></pre>
+<pre class="highlight"><code class="language-apl">
+      DT1&gt;DT2
+1</code></pre>
+<pre class="highlight"><code class="language-apl">
+      DT3+TS
+07/11/2008 12:34:46</code></pre>
+<pre class="highlight"><code class="language-apl">
+      DT3-TS
+07/11/2008 10:32:44</code></pre></p>
+<p>In addition to being easier to use, the primitive functions automatically handle arrays and support scalar extension. For example:
+<pre class="highlight"><code class="language-apl">      DT1&gt;DT2 DT3
+1 0</code></pre></p>
+<p>The monadic forms of the <em>grade up</em> (<code>⍋</code>), <em>grade down</em> (<code>⍒</code>), <em>minimum</em> (<code>⌊</code>), and <em>maximum</em> (<code>⌈</code>) primitive functions have been extended to work on arrays of references to .NET objects. For example:
+<pre class="highlight"><code class="language-apl">      ⍋DT1 DT2 DT3
+2 1 3</code></pre>
+<pre class="highlight"><code class="language-apl">
+      ⌊/DT1 DT2 DT3
+01/01/2008 00:00:00</code></pre></p>
+<div class="admonition info">
+<p class="admonition-title">Information</p>
+<p>The argument(s) must be a homogeneous set of references to objects of the same .NET class and, for <em>grade up</em> and <em>grade down</em>, the argument must be a vector.</p>
+</div>
+<h2 id="exceptions">Exceptions</h2>
+<p>When a .NET object generates an error, it does so by throwing an <em>exception</em>. An exception is a .NET class whose ultimate base class is <code class="language-nonAPL">System.Exception</code>.</p>
+<p>The system constant <code>⎕EXCEPTION</code> returns a reference to the most recently generated exception object.</p>
+<p>For example, if you attempt to create an instance of a <code class="language-nonAPL">DateTime</code> object with a year that is outside its range, the constructor throws an exception. This causes APL to report a (trappable) <code>EXCEPTION</code> error (error number <code>90</code>) and access to the exception object is provided by <code>⎕EXCEPTION</code>.
+<pre class="highlight"><code class="language-apl">      ⎕USING←'System'
+      DT←⎕NEW DateTime (100000 0 0)
+EXCEPTION
+      DT←⎕NEW DateTime (100000 0 0)
+         ^
+
+      ⎕EN
+90
+      ⎕EXCEPTION.Message
+Year, Month, and Day parameters describe an un-representable DateTime.
+
+      ⎕EXCEPTION.Source
+mscorlib
+
+      ⎕EXCEPTION.StackTrace
+at System.DateTime.DateToTicks(Int32 year, Int32 month, Int32 day)
+at System.DateTime..ctor(Int32 year, Int32 month, Int32 day)</code></pre></p>
+<h2 id="specifying-overloads">Specifying Overloads</h2>
+<p>If a .NET function is overloaded in terms of the types of arguments that it accepts, then Dyalog chooses which overload to call depending on the data types of the arguments passed to it. For example, if a .NET function <code class="language-nonAPL">foo()</code> is declared to take a single argument either of type <code class="language-nonAPL">int</code> or of type <code class="language-nonAPL">double</code>, Dyalog would call the first version if you called it with an integer value and the second version if you called it with a non-integer value.</p>
+<p>Occasionally it might be desirable to override this mechanism and explicitly specify which overload to use or  the.NET types that APL should map arrays to before calling a .NET function. For example, if a parameter to a .NET function is declared as type <code class="language-nonAPL">System.Object</code>, it might be necessary to force the APL argument to be cast to a particular type of <code class="language-nonAPL">Object</code> before the function is called.</p>
+<p>These requirements can be met by calling the function and specifying the <em>variant</em> operator (<code>⍠</code>) with the <code>OverloadTypes</code> or the <code>CastToTypes</code> option respectively. Each option takes an array of references to .NET types, of the same length as the number of parameters to the function.</p>
+<h4 id="example-using-overloadtypes-option">Example (using OverloadTypes option)</h4>
+<p>To force APL to call the double version of function <code>foo()</code> irrespective of the type of the argument <code>val</code>, enter:
+<pre class="highlight"><code class="language-apl">      (foo ⍠('OverloadTypes'Double))val</code></pre></p>
+<p>or (more simply):
+<pre class="highlight"><code class="language-apl">      (foo ⍠Double)val</code></pre></p>
+<p>where <code>Double</code> is a reference to the .NET type <code class="language-nonAPL">System.Double</code>.
+<pre class="highlight"><code class="language-apl">      ⎕USING←'System'
+      Double
+(System.Double)     </code></pre></p>
+<p>Taking this a stage further, suppose that <code>foo()</code> is defined with 5 overloads, specifically:
+<pre class="highlight"><code class="language-apl">foo()
+foo(int i)
+foo(double d)
+foo(double d, int i)
+foo(double[] d)
+</code></pre></p>
+<p>The following statements will call the <code>niladic</code>, <code>double</code>, <code>double,int</code>, and <code>double[]</code> overloads respectively:
+<pre class="highlight"><code class="language-apl">(foo ⍠ (⊂⍬)) ⍬                               ⍝ niladic
+(foo ⍠ Double) 1                             ⍝ double
+(foo ⍠(⊂Double Int32))1 1                    ⍝ double,int
+(foo ⍠(Type.GetType ⊂'System.Double[]'))⊂1 1 ⍝ double[]</code></pre></p>
+<div class="admonition info">
+<p class="admonition-title">Information</p>
+<p>In the niladic case, an enclosed empty vector is used to represent a null reference to a .NET type.</p>
+</div>
+<h4 id="example-using-casttotypes-option">Example (using CastToTypes option)</h4>
+<p>The .NET function <code class="language-nonAPL">Array.SetValue()</code> sets the value of a specified element (or elements) of an array. The first argument, the new value, is declared as <code class="language-nonAPL">System.Object</code>, but the value supplied must correspond to the type of the array. APL cannot determine what this is and passes the value unchanged, that is, in whatever internal format it happens to be. For example:
+<pre class="highlight"><code class="language-apl">      ⎕USING←'System'
+
+      ⍝ create a Boolean array with 2 elements
+      BA←Array.CreateInstance Boolean 2
+      BA.GetValue 0 ⍝ get the 0th element
+0
+
+      ⍝ attempt to set the 0th element to 1 (AKA true)
+      BA.SetValue 1 0
+EXCEPTION: Cannot widen from source type to target type
+either because the source type is a not a primitive type or the conversion cannot be accomplished.
+test[5] BA.SetValue 1 0
+       ∧ </code></pre></p>
+<p>The expression failed because APL passed the first argument <code>1</code>, unchanged from its internal representation, as a 1-byte integer – this does not fit into a Boolean element.</p>
+<p>To rectify the situation, APL must be told to cast the argument to a Boolean:
+<pre class="highlight"><code class="language-apl">      (BA.SetValue ⍠ ('CastToTypes'(Boolean Int32)))1 0
+      BA.GetValue 0      ⍝ get the 0th element
+1</code></pre></p>
+<h3 id="overloaded-constructors">Overloaded Constructors</h3>
+<p>If a class provides constructor overloads, then a similar mechanism is used to specify which of the constructors is to be used when an instance of the class is created using <code>⎕NEW</code>.</p>
+<p>For example, if <code class="language-nonAPL">MyClass</code> is a .NET class with an overloaded constructor, and one of its constructors is defined to take two parameters; a <code class="language-nonAPL">double</code> and an <code class="language-nonAPL">int</code>, then the following statement would create an instance of the class by calling that specific constructor overload:
+<pre class="highlight"><code class="language-apl">      (⎕NEW ⍠ (⊂Double Int32)) MyClass (1 1)</code></pre></p>
+<h2 id="generics">Generics</h2>
+<p>In .NET, a method, interface, or class can be <em>generic</em>, which means that it is a template or recipe for a <em>concrete</em> method, interface, or class. What makes them generic is that they have a list of <em>type parameters</em>; the user must apply a matching number of <em>type arguments</em> to create a concrete version. In the case of methods, it is not always necessary to apply type arguments, as the .NET interface can sometimes perform <a href="#type-inference">type inference</a> to deduce the type arguments from the types of the method arguments.</p>
+<h3 id="syntax">Syntax</h3>
+<p>The syntax used to apply type arguments to methods, classes, and interfaces is square brackets, for example, <code>G[T]</code>, where <code>G</code> is the generic entity and <code>T</code> is a .NET type or a vector of .NET types. The types could be the result of applying types to a generic .NET class.</p>
+<p>The square bracket syntax means that working with generics in Dyalog APL and C# looks visually similar, except that C# uses angle brackets, as illustrated by the example below:</p>
+<pre class="highlight"><code class="language-C#">// Instantiate a concrete version of a generic class in C#
+new System.Collections.Generic.List&lt;System.Int32&gt;();
+
+// Call a concrete version of a generic method in C#
+System.Tuple.Create&lt;System.Int32&gt;(5);</code></pre>
+<p>The corresponding APL is:
+<pre class="highlight"><code class="language-apl">⍝ Instantiate a concrete version of a generic class in APL
+⎕NEW System.Collections.Generic.List[System.Int32]
+
+⍝ Call a concrete version of a generic method in APL
+System.Tuple.Create[System.Int32] 5</code></pre></p>
+<h3 id="creating-a-concrete-version-of-a-generic-class">Creating a Concrete Version of a Generic Class</h3>
+<p>The class <code class="language-nonAPL">System.Collections.Generic.List</code> is a generic class with one type parameter, which is the type of the elements of the list. The display form of the type indicates that it is generic:</p>
+<pre class="highlight"><code class="language-apl">      ⎕USING←''
+      System.Collections.Generic.List
+(System.Collections.Generic.List[T])</code></pre>
+<p>A concrete version of the <code class="language-nonAPL">List</code> class can be created using square brackets. For example, a list class that contains integers can be created as follows:
+<pre class="highlight"><code class="language-apl">      ⎕USING←''
+      IntList←System.Collections.Generic.List[System.Int32]
+      IntList
+(System.Collections.Generic.List[System.Int32])</code></pre></p>
+<p>The shared members of the <code>IntList</code> class can then be accessed, and the class instantiated using <code>⎕NEW</code>.</p>
+<p>It is not necessary to give the constructed class a name before creating instances of it. Multiple type arguments can also be specified. For example:
+<pre class="highlight"><code class="language-apl">      ⎕USING←''
+      types←System.Char System.Int32
+      ⎕NEW System.Collections.Generic.Dictionary[types]
+System.Collections.Generic.Dictionary`2[System.Char,System.Int32]</code></pre></p>
+<p>Attempting to instantiate a generic class without the expected number of type arguments generates an error. For example:
+<pre class="highlight"><code class="language-apl">      ⎕USING←''
+      ⎕NEW System.Collections.Generic.List
+LENGTH ERROR: No overload of the type expects the given number (0) of generic type arguments
+      ⎕NEW System.Collections.Generic.List
+      ∧</code></pre></p>
+<p>Similarly, applying too many type arguments also results in an error:</p>
+<pre class="highlight"><code class="language-apl">      ⎕USING←''
+      System.Collections.Generic.List[3⍴System.Int32]
+LENGTH ERROR: No overload of the type expects the given number (3) of generic type arguments
+      System.Collections.Generic.List[3⍴System.Int32]</code></pre>
+<h3 id="creating-a-concrete-version-of-a-generic-interface">Creating a Concrete Version of a Generic Interface</h3>
+<p>Applying type arguments to generic interfaces closely resembles applying type arguments to generic classes. The example below defines a function <code>IsBoolCollection</code>. This checks whether a given .NET type implements the concrete version <code>ICollection[Boolean]</code> of the generic <code class="language-nonAPL">ICollection</code> interface, which is often implemented by data structures that act as collections of elements of a specific type.</p>
+<pre class="highlight"><code class="language-apl">      ⎕USING←'System' 'System.Collections.Generic' 'System.Collections.Generic,System.Core.dll'
+
+      IsBoolCollection←{ICollection[Boolean]∊∊⎕CLASS ⍵}
+
+      a←⎕NEW HashSet[Int32]
+      b←⎕NEW List[Boolean]
+      c←⎕NEW Dictionary[Int32 Boolean]
+
+      IsBoolCollection¨a b c
+0 1 0</code></pre>
+<h3 id="multiple-overloads-of-net-classes-and-interfaces">Multiple Overloads of .NET Classes and Interfaces</h3>
+<p>Some .NET classes and interfaces have multiple overloads, varying in the number of generic type parameters. The display form of the type makes this clear, and the .NET interface will automatically use the appropriate overload based on context.</p>
+<pre class="highlight"><code class="language-apl">      ⎕USING←'System'
+      ValueTuple
+(System.ValueTuple)
+(System.ValueTuple[T1])
+(System.ValueTuple[T1,T2])
+(System.ValueTuple[T1,T2,T3])
+(System.ValueTuple[T1,T2,T3,T4])
+(System.ValueTuple[T1,T2,T3,T4,T5])
+(System.ValueTuple[T1,T2,T3,T4,T5,T6])
+(System.ValueTuple[T1,T2,T3,T4,T5,T6,T7])
+(System.ValueTuple[T1,T2,T3,T4,T5,T6,T7,TRest])</code></pre>
+<p>The <code class="language-nonAPL">ValueTuple</code> class has one non-generic overload and eight generic overloads.</p>
+<pre class="highlight"><code class="language-apl">      ⎕USING←'System'
+      ValueTuple[Int32]         ⍝ Create concrete version of overload with 1 generic parameter
+(System.ValueTuple[System.Int32])
+
+      ValueTuple[Int32 Boolean] ⍝ Create concrete version of overload with 2 generic parameters
+(System.ValueTuple[System.Int32,System.Boolean])</code></pre>
+<h3 id="calling-a-generic-method">Calling a Generic Method</h3>
+<p>Generic methods have a display form with a generic type parameter list shown in square brackets. For example:
+<pre class="highlight"><code class="language-apl">      ⎕USING←''
+      System.Tuple.Create
+...
+System.Tuple`1[T1] Create[T1](T1)
+...</code></pre></p>
+<p>The <code class="language-nonAPL">Create</code> function has one type parameter, shown in square brackets, and one regular parameter, shown in parentheses.</p>
+<p>The generic type argument can be applied using square brackets, and the result is a concrete version of the generic method. The method can either be given a name or evaluated directly. The display form indicates that the type parameters have been replaced to form a concrete function.</p>
+<pre class="highlight"><code class="language-apl">      ⎕USING←'System'
+      fn←Tuple.Create[Int32]
+      fn
+System.Tuple`1[System.Int32] Create[Int32](Int32)
+
+      fn 10
+(10)
+
+      Tuple.Create[Int32] 50
+(50)</code></pre>
+<p>If a generic method has overloads with different numbers of type parameters, applying type arguments will narrow down the list of overloads that are applicable. For example, when having only one overload means that a single type argument is expected:</p>
+<pre class="highlight"><code class="language-apl">      ⎕USING←'System'
+      ValueTuple.Create
+System.ValueTuple Create()
+System.ValueTuple`1[T1] Create[T1](T1)
+System.ValueTuple`2[T1,T2] Create[T1,T2](T1, T2)
+System.ValueTuple`3[T1,T2,T3] Create[T1,T2,T3](T1, T2, T3)
+...
+
+      ValueTuple.Create[Boolean]
+System.ValueTuple`1[System.Boolean] Create[Boolean](Boolean)</code></pre>
+<p>.NET methods with only a single overload that expects no arguments are usually imported into APL as niladic functions. However, when they are generic, they are imported as monadic functions so that the type arguments can be applied. For example:</p>
+<pre class="highlight"><code class="language-apl">      ⎕USING←'System'
+      Array.Empty
+T[] Empty[T]()
+
+      Array.Empty[Int32]
+Int32[] Empty[Int32]()
+
+      r←Array.Empty[Int32] ⍬
+      r≡⍬
+1</code></pre>
+<p>Applying an incorrect number of type arguments to a method will generate an error:</p>
+<pre class="highlight"><code class="language-apl">      ⎕USING←'System'
+      Tuple.Create 50
+LENGTH ERROR: No overload of the method expects the given number (0) of generic type arguments
+      Tuple.Create 50
+      ∧
+
+      ValueTuple.Create[10⍴Int32]
+LENGTH ERROR: No overload of the method expects the given number (10) of generic type arguments
+      ValueTuple.Create[10⍴Int32]
+                                ∧</code></pre>
+<h4 id="type-inference">Type Inference</h4>
+<p>If the arguments to a generic method have a concrete .NET type, then their type information might be sufficient for the .NET bridge to unambiguously select a method overload and to automatically apply the needed type arguments. If there is any ambiguity about the type, such as when the arguments are regular APL arrays (for example the scalar <code>0</code>, which can be converted into a number of different .NET types), type inference will not take place. For example:</p>
+<pre class="highlight"><code class="language-apl">      ⎕USING←'System' 'System.Threading.Tasks'
+      Task.FromResult
+System.Threading.Tasks.Task`1[TResult] FromResult[TResult](TResult)
+
+      Task.FromResult 123
+LENGTH ERROR: No overload of the method expects the given number (0) of generic type arguments
+      Task.FromResult 123
+      ∧
+
+      ⍝ Explicitly apply type arguments
+      Task.FromResult[Int32] 123
+System.Threading.Tasks.Task`1[System.Int32]
+
+      ⍝ Explicitly apply type arguments, and pass in a .NET object of that type
+      i64←Int64.Parse ⊂'123'
+      Task.FromResult[Int64] i64
+System.Threading.Tasks.Task`1[System.Int64]
+
+      ⍝ Let the bridge infer the type argument from argument's .NET type
+      Task.FromResult i64
+System.Threading.Tasks.Task`1[System.Int64]</code></pre>
+<p>Type inference can remove the need for additional code (as shown in the last lines of the example above), but manually applying type arguments is also permitted.</p>
+<p>If the user has <a href="#specifying-overloads">specified an overload</a>, then the type information is taken into account. This means that an alternative way of coding the above would be:</p>
+<pre class="highlight"><code class="language-apl">      ⎕USING←'System' 'System.Threading.Tasks'
+      Task.FromResult
+System.Threading.Tasks.Task`1[TResult] FromResult[TResult](TResult)
+
+      Task.FromResult⍠Int32⊢123
+System.Threading.Tasks.Task`1[System.Int32]</code></pre>
+<p>This works because we tell the .NET bridge that we want the overload that takes an <code class="language-nonAPL">Int32</code> as its argument, which means the type parameter <code>TResult</code> <em>must</em> be <code class="language-nonAPL">Int32</code>; it is, therefore, not necessary to explicitly apply the type arguments using square brackets.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Made with <a href="https://zensical.org/" target="_blank" rel="noopener"><strong>Zensical</strong></a><br/>Copyright &copy; 1982-2026 <strong><a href="https://dyalog.com" target="_blank" rel="noopener">Dyalog Limited</a></strong> (<button type="button" class="copy" title="Copy build info to the clipboard" data-done="copied" data-fail="copy failed" onclick="var b=this,s=b.nextElementSibling;navigator.clipboard?navigator.clipboard.writeText(b.textContent.trim()).then(function(){s.textContent=b.dataset.done},function(){s.textContent=b.dataset.fail}):s.textContent=b.dataset.fail">2026-09-16 main:1a0009b8</button><span class="copy-status" role="status"></span>).<br/>Except where otherwise noted, content on this site is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener"><strong>Creative Commons Attribution 4.0 International</strong></a> licence.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../..","features":["content.code.copy","navigation.indexes","navigation.instant","navigation.path","navigation.prune","navigation.sections","navigation.tracking"],"redirect":null,"search":"../../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"provider":"mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.8dcc8e9c.min.js"></script>
+      
+    
+  </body>
+</html>

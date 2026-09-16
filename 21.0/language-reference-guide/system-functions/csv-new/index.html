@@ -1,0 +1,9630 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://xpqz.github.io/zensical-dyalog/21.0/language-reference-guide/system-functions/csv-new/">
+      
+      
+        <link rel="prev" href="../csv/">
+      
+      
+        <link rel="next" href="../ct/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../documentation-assetsz/images/dyalog-ide-cube-2025.2.svg">
+      <meta name="generator" content="zensical-0.0.62">
+    
+    
+      
+        <title>⎕CSV: Comma Separated Values (rewrite for comparison) - Documentation</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../assets/stylesheets/classic/main.e0592429.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/classic/palette.c7ab7c71.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../documentation-assetsz/css/dyalog.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#comma-separated-values-rx-csv-y" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  You're not viewing the latest version.
+  <a href="../../../..">
+    <strong>Click here to go to latest.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../../../documentation-assetsz/images/dyalog-logo_orange.svg" alt="Documentation">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              <code>⎕CSV</code>: Comma Separated Values (rewrite for comparison)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/dyalog/documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../../../documentation-assetsz/images/dyalog-logo_orange.svg" alt="Documentation">
+
+    </a>
+    Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dyalog/documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Release Notes
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Release Notes
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../release-notes/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v21.0 Release Notes
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    
+  
+  
+  
+  
+    <a href="../../../earlier-release-notes/release-notes-v20-0/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Earlier Release Notes
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Core Reference
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Core Reference
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dyalog APL Language
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Dyalog APL Language
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-to-notation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Key to Notation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glyphs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Glyphs
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../primitive-functions/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Primitive Functions
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../primitive-operators/primitive-operators-table/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Primitive Operators
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../other-syntax/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Other Syntax
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_7" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  System Functions
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_1_7" id="__nav_2_1_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  System Functions
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system-functions-by-category/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  System Functions (by Category)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_7_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../system-functions-a-z/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  System Functions (A-Z)
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_1_7_3" id="__nav_2_1_7_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_7_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  System Functions (A-Z)
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../character-input-output/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Character Input Output
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evaluated-input-output/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Evaluated Input Output
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../underscored-alphabetic-characters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Underscored Alphabetic Characters
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕A</code>: Alphabetic Characters
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕AI</code>: Account Information
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../an/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕AN</code>: Account Name
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arbin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕ARBIN</code>: Arbitrary Input
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arbout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕ARBOUT</code>: Arbitrary Output
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../at/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕AT</code>: Attributes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../atx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕ATX</code>: Extended Attributes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../av/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕AV</code>: Atomic Vector
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../avu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕AVU</code>: Atomic Vector Unicode
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕BASE</code>: Base Class
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕C</code>: Case Convert
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕CLASS</code>: Class
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../clear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕CLEAR</code>: Clear Workspace
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../execute-windows-command/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕CMD</code>: Execute Windows Command
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../start-windows-auxiliary-processor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕CMD</code>: Start Windows Auxiliary Processor
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕CR</code>: Canonical Representation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕CS</code>: Change Space
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕CSV</code>: Comma Separated Values
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+        <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕CSV</code>: Comma Separated Values (rewrite for comparison)
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕CSV</code>: Comma Separated Values (rewrite for comparison)
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Examples
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#read-a-csv-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Read a CSV file
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write-a-csv-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Write a CSV file
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convert-text-without-a-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Convert text without a file
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numeric-columns-and-bad-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Numeric columns and bad data
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#columns-instead-of-rows" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Columns instead of rows
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-separators-and-decimal-marks" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Other separators and decimal marks
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quoted-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Quoted fields
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#large-files-a-chunk-at-a-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Large files, a chunk at a time
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ragged-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ragged records
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed-width-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed-width fields
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internal-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Internal format
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metacharacters" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Metacharacters
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-monadic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Import (monadic)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Import (monadic)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variant-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Variant options
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quotechar-escapechar-and-doublequote" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>QuoteChar</code>, <code>EscapeChar</code>, and <code>DoubleQuote</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#result" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Result
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Notes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        File handling
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export-dyadic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Export (dyadic)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Export (dyadic)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variant-options_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Variant options
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quotechar-escapechar-and-doublequote_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>QuoteChar</code>, <code>EscapeChar</code>, and <code>DoubleQuote</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#result_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Result
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Notes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ct/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕CT</code>: Comparison Tolerance
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕CY</code>: Copy Workspace
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕D</code>: Digits
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dct/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕DCT</code>: Decimal Comparison Tolerance
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../df/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕DF</code>: Display Form
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../div/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕DIV</code>: Division Method
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕DL</code>: Delay
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕DM</code>: Diagnostic Message
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dmx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕DMX</code>: Extended Diagnostic Message
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕DQ</code>: Dequeue Events
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-representation-monadic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕DR</code>: Data Representation Monadic
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-representation-dyadic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕DR</code>: Data Representation Dyadic
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕DT</code>: Datetime
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕ED</code>: Edit Object
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../em/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕EM</code>: Event Message
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../en/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕EN</code>: Event Number
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕EX</code>: Expunge Object
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exception/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕EXCEPTION</code>: Exception
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../export/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕EXPORT</code>: Export Object
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fappend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FAPPEND</code>: File Append Component
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../favail/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FAVAIL</code>: File System Available
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fchk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FCHK</code>: File Check and Repair
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fcopy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FCOPY</code>: File Copy
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fcreate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FCREATE</code>: File Create
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fdrop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FDROP</code>: File Drop Component
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ferase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FERASE</code>: File Erase
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fhist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FHIST</code>: File History
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fhold/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FHOLD</code>: File Hold
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FIX</code>: Fix Script
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FLIB</code>: Component File Library
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../format-monadic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FMT</code>: Format Monadic
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../format-dyadic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FMT</code>: Format Dyadic
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fnames/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FNAMES</code>: File Names
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fnums/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FNUMS</code>: File Numbers
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fprops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FPROPS</code>: File Properties
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FR</code>: Floating Point Representation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frdac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FRDAC</code>: File Read Access
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frdci/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FRDCI</code>: File Read Component Information
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fread/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FREAD</code>: File Read Component
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frename/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FRENAME</code>: File Rename
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../freplace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FREPLACE</code>: File Replace Component
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fresize/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FRESIZE</code>: File Resize
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fsize/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FSIZE</code>: File Size
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fstac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FSTAC</code>: File Set Access
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fstie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FSTIE</code>: File Share Tie
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ftie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FTIE</code>: Exclusive File Tie
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../funtie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FUNTIE</code>: File Untie
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕FX</code>: Fix Definition
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕INSTANCES</code>: Instances
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕IO</code>: Index Origin
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕JSON</code>: JSON Convert
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕KL</code>: Key Label
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕LC</code>: Line Count
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../load/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕LOAD</code>: Load Workspace
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕LOCK</code>: Lock Definition
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕LX</code>: Latent Expression
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕MAP</code>: Map File
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕MKDIR</code>: Make Directory
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕ML</code>: Migration Level
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../set-monitor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕MONITOR</code>: Set Monitor
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../query-monitor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕MONITOR</code>: Query Monitor
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../na/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NA</code>: Name Association
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nappend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NAPPEND</code>: Native File Append
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NC</code>: Name Classification
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ncopy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NCOPY</code>: Native File Copy
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ncreate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NCREATE</code>: Native File Create
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ndelete/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NDELETE</code>: Native File Delete
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nerase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NERASE</code>: Native File Erase
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../new/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NEW</code>: New Instance
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nexists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NEXISTS</code>: Native File Exists
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NGET</code>: Read Text File
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ninfo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NINFO</code>: Native File Information
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NL</code>: Name List
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nlock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NLOCK</code>: Native File Lock
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nmove/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NMOVE</code>: Native File Move
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nnames/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NNAMES</code>: Native File Names
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nnums/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NNUMS</code>: Native File Numbers
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nparts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NPARTS</code>: File Name Parts
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nput/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NPUT</code>: Write Text File
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NQ</code>: Enqueue Event
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NR</code>: Nested Representation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nread/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NREAD</code>: Native File Read
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nrename/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NRENAME</code>: Native File Rename
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nreplace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NREPLACE</code>: Native File Replace
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nresize/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NRESIZE</code>: Native File Resize
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NS</code>: Namespace
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nsi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NSI</code>: Namespace Indicator
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nsize/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NSIZE</code>: Native File Size
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ntie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NTIE</code>: Native File Tie
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../null/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NULL</code>: Null Item
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nuntie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NUNTIE</code>: Native File Untie
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nxlate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕NXLATE</code>: Native File Translate
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../off/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕OFF</code>: Sign Off APL
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../opt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕OPT</code>: Variant
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../or/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕OR</code>: Object Representation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../path/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕PATH</code>: Search Path
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pfkey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕PFKEY</code>: Program Function Key
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕PP</code>: Print Precision
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../profile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕PROFILE</code>: Profile Application
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕PW</code>: Print Width
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../r/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕R</code>: Replace
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../refs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕REFS</code>: Cross References
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕RL</code>: Random Link
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rsi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕RSI</code>: Space Indicator
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rtl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕RTL</code>: Response Time Limit
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕S</code>: Search
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../save/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕SAVE</code>: Save Workspace
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕SD</code>: Screen Dimensions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../se/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕SE</code>: Session Namespace
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../execute-unix-command/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕SH</code>: Execute Unix Command
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../start-unix-auxiliary-processor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕SH</code>: Start Unix Auxiliary Processor
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shadow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕SHADOW</code>: Shadow Name
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕SHELL</code>: Execute external program
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../si/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕SI</code>: State Indicator
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../signal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕SIGNAL</code>: Signal Event
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../size/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕SIZE</code>: Size of Object
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕SM</code>: Screen Map
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕SR</code>: Screen Read
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../src/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕SRC</code>: Source
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕STACK</code>: State Indicator Stack
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕STATE</code>: State of Object
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../set-stop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕STOP</code>: Set Stop
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../query-stop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕STOP</code>: Query Stop
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../set-access-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕SVC</code>: Set Access Control
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../query-access-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕SVC</code>: Query Access Control
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shared-variable-offer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕SVO</code>: Shared Variable Offer
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../query-degree-of-coupling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕SVO</code>: Query Degree of Coupling
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../svq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕SVQ</code>: Shared Variable Query
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../svr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕SVR</code>: Shared Variable Retract Offer
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../svs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕SVS</code>: Shared Variable State
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕SYSTEM</code>: System Information
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../talloc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕TALLOC</code>: Allocate Token Range
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕TC</code>: Terminal Control
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tcnums/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕TCNUMS</code>: Thread Child Numbers
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕TGET</code>: Get Tokens
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../this/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕THIS</code>: This Space
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕TID</code>: Current Thread Identity
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tkill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕TKILL</code>: Kill Thread
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tname/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕TNAME</code>: Current Thread Name
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tnums/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕TNUMS</code>: Thread Numbers
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tpool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕TPOOL</code>: Token Pool
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tput/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕TPUT</code>: Put Tokens
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../set-trace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕TRACE</code>: Set Trace
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../query-trace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕TRACE</code>: Query Trace
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕TRAP</code>: Trap Event
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../treq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕TREQ</code>: Token Requests
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕TS</code>: Timestamp
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tsync/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕TSYNC</code>: Wait for Threads to Terminate
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ucs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕UCS</code>: Unicode Convert
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕USING</code>: Using Microsoft Net Search Path
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vfi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕VFI</code>: Verify Fix Input
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕VGET</code>: Value Get
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕VR</code>: Vector Representation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕VSET</code>: Value Set
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕WA</code>: Workspace Available
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕WC</code>: Windows Create Object
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕WG</code>: Windows Get Property
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕WN</code>: Windows Child Names
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ws/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕WS</code>: Windows Set Property
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wsid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕WSID</code>: Workspace Identification
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕WX</code>: Window Expose
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕XML</code>: XML Convert
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xsi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕XSI</code>: Extended State Indicator
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../set-external-variable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕XT</code>: Set External Variable
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../query-external-variable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>⎕XT</code>: Query External Variable
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../system-commands/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  System Commands
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pcre-specifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  PCRE Specifications
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../programming-reference-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Programming
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Code Tooling
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Code Tooling
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../net-interface-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  .NET Interface
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../compiler-user-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Compiler
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../shared-code-files-user-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Shared Code Files
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dyalog for Microsoft Windows
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Dyalog for Microsoft Windows
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../windows-installation-and-configuration-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installation/Configuration
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../windows-ui-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  User Interface
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../object-reference/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Object Reference
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../interface-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interfaces
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../net-framework-interface-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  .NET Framework Interface
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dyalog for UNIX
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Dyalog for UNIX
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../unix-installation-and-configuration-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installation/Configuration
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../unix-user-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  User Interface
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  About
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  About
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../conventions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Conventions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../licences-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Third-party Licences
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../trademarks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Trademarks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Examples
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#read-a-csv-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Read a CSV file
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write-a-csv-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Write a CSV file
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convert-text-without-a-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Convert text without a file
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numeric-columns-and-bad-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Numeric columns and bad data
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#columns-instead-of-rows" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Columns instead of rows
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-separators-and-decimal-marks" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Other separators and decimal marks
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quoted-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Quoted fields
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#large-files-a-chunk-at-a-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Large files, a chunk at a time
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ragged-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ragged records
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed-width-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed-width fields
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internal-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Internal format
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metacharacters" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Metacharacters
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-monadic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Import (monadic)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Import (monadic)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variant-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Variant options
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quotechar-escapechar-and-doublequote" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>QuoteChar</code>, <code>EscapeChar</code>, and <code>DoubleQuote</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#result" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Result
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Notes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        File handling
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export-dyadic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Export (dyadic)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Export (dyadic)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variant-options_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Variant options
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quotechar-escapechar-and-doublequote_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>QuoteChar</code>, <code>EscapeChar</code>, and <code>DoubleQuote</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#result_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Result
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Notes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Dyalog v21.0
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Core Reference
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Dyalog APL Language
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    System Functions
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../system-functions-a-z/" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    System Functions (A-Z)
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="comma-separated-values-rx-csv-y">Comma Separated Values <code>{R}←{X} ⎕CSV Y</code></h1>
+<p><pre class="highlight"><code class="language-apl">{R}←{X} ⎕CSV Y</code></pre>
+<a href="../../key-to-notation/">Key to notation</a></p>
+<p>This function imports and exports Comma Separated Value (CSV) data. Monadic <code>⎕CSV</code> imports data from a CSV file or converts CSV text into an APL array; dyadic <code>⎕CSV</code> exports an APL array to a CSV file or converts it into CSV text. Separators, quoting, numeric formats and fixed-width layouts are controlled through the <a href="../../primitive-operators/variant/">variant operator</a> <code>⍠</code>.</p>
+<p>The examples on this page use a file <code>sales.csv</code> containing:</p>
+<pre class="highlight"><code class="language-text">Product,Sales
+Widgets,1912
+Gimlets,205
+Dingbats,189</code></pre>
+<h2 id="examples">Examples</h2>
+<h3 id="read-a-csv-file">Read a CSV file</h3>
+<p>Name the file, say which columns are numeric, and say that the first record is a header:</p>
+<pre class="highlight"><code class="language-apl">      data hdr←⎕CSV 'sales.csv' '' (1 2) 1
+      data
+┌────────┬────┐
+│Widgets │1912│
+├────────┼────┤
+│Gimlets │205 │
+├────────┼────┤
+│Dingbats│189 │
+└────────┴────┘
+      hdr
+┌───────┬─────┐
+│Product│Sales│
+└───────┴─────┘
+      +/data[;2]
+2306</code></pre>
+<p>The four elements of the right argument are the source (<code>'sales.csv'</code>), the file encoding (<code>''</code>: deduce it), the column types (<code>1 2</code>: character, numeric) and the header-row indicator (<code>1</code>: the first record is a header, returned separately). With the source alone, every field is returned as text and the header is just another row:</p>
+<pre class="highlight"><code class="language-apl">      ⎕CSV 'sales.csv'
+┌────────┬─────┐
+│Product │Sales│
+├────────┼─────┤
+│Widgets │1912 │
+├────────┼─────┤
+│Gimlets │205  │
+├────────┼─────┤
+│Dingbats│189  │
+└────────┴─────┘</code></pre>
+<h3 id="write-a-csv-file">Write a CSV file</h3>
+<p>Give the data (and optionally the header) on the left and the file name on the right. The result, the number of bytes written, is <a href="../../../programming-reference-guide/introduction/results/#shy-results">shy</a>:</p>
+<pre class="highlight"><code class="language-apl">      ⎕←data hdr ⎕CSV 'sales-copy.csv'
+52</code></pre>
+<p>An existing file is not overwritten unless you ask:</p>
+<pre class="highlight"><code class="language-apl">      data hdr ⎕CSV 'sales-copy.csv'
+FILE NAME ERROR: sales-copy.csv: Unable to create file ("File exists")
+      data hdr ⎕CSV'sales-copy.csv'
+               ∧
+      ⎕←data hdr (⎕CSV⍠'IfExists' 'Replace') 'sales-copy.csv'
+52</code></pre>
+<h3 id="convert-text-without-a-file">Convert text without a file</h3>
+<p>CSV data already in the workspace can be converted directly. A vector of lines must be marked as nested data with <code>'N'</code> (or enclosed), otherwise its items are taken to be the source, encoding and column types:</p>
+<pre class="highlight"><code class="language-apl">      lines←'Product,Sales' 'Widgets,1912' 'Gimlets,205'
+      ⎕CSV lines 'N'
+┌───────┬─────┐
+│Product│Sales│
+├───────┼─────┤
+│Widgets│1912 │
+├───────┼─────┤
+│Gimlets│205  │
+└───────┴─────┘</code></pre>
+<p>A single character vector with embedded line endings must be marked as simple data with <code>'S'</code>, otherwise it is taken to be a file name:</p>
+<pre class="highlight"><code class="language-apl">      ⎕CSV ('Product,Sales',(⎕UCS 10),'Widgets,1912') 'S'
+┌───────┬─────┐
+│Product│Sales│
+├───────┼─────┤
+│Widgets│1912 │
+└───────┴─────┘</code></pre>
+<p>For export, an empty destination returns the CSV text as the result, as one character vector or, with <code>'N'</code>, as a vector of lines:</p>
+<pre class="highlight"><code class="language-apl">      data hdr ⎕CSV ''
+Product,Sales
+Widgets,1912
+Gimlets,205
+Dingbats,189
+      data hdr ⎕CSV '' 'N'
+┌─────────────┬────────────┬───────────┬────────────┐
+│Product,Sales│Widgets,1912│Gimlets,205│Dingbats,189│
+└─────────────┴────────────┴───────────┴────────────┘</code></pre>
+<h3 id="numeric-columns-and-bad-data">Numeric columns and bad data</h3>
+<p>Fields are text unless a column type says otherwise. The type also decides what happens to empty or non-numeric fields. Consider <code>stock.csv</code>:</p>
+<pre class="highlight"><code class="language-text">Item,Qty,Price
+Bolt,10,0.25
+Nut,,0.10
+Washer,n/a,0.05</code></pre>
+<p>Type <code>2</code> is strict:</p>
+<pre class="highlight"><code class="language-apl">      ⎕CSV 'stock.csv' '' (1 2 2) 1
+DOMAIN ERROR: Non-numeric data in record 3, field 2 (⎕IO=1)
+      ⎕CSV'stock.csv' ''(1 2 2)1
+      ∧</code></pre>
+<p>Type <code>3</code> replaces anything that is not a number with the <code>Fill</code> value, <code>0</code> by default:</p>
+<pre class="highlight"><code class="language-apl">      (⎕CSV⍠'Fill' ¯1) 'stock.csv' '' (1 3 3) 1
+┌────────────────┬────────────────┐
+│┌──────┬──┬────┐│┌────┬───┬─────┐│
+││Bolt  │10│0.25│││Item│Qty│Price││
+│├──────┼──┼────┤│└────┴───┴─────┘│
+││Nut   │¯1│0.1 ││                │
+│├──────┼──┼────┤│                │
+││Washer│¯1│0.05││                │
+│└──────┴──┴────┘│                │
+└────────────────┴────────────────┘</code></pre>
+<p>Type <code>4</code> converts what it can and keeps the rest as text. As a scalar it applies to every column, which is the quickest way to load a file whose layout you do not know yet:</p>
+<pre class="highlight"><code class="language-apl">      ⎕CSV 'stock.csv' '' 4 1
+┌─────────────────┬────────────────┐
+│┌──────┬───┬────┐│┌────┬───┬─────┐│
+││Bolt  │10 │0.25│││Item│Qty│Price││
+│├──────┼───┼────┤│└────┴───┴─────┘│
+││Nut   │   │0.1 ││                │
+│├──────┼───┼────┤│                │
+││Washer│n/a│0.05││                │
+│└──────┴───┴────┘│                │
+└─────────────────┴────────────────┘</code></pre>
+<p>Type <code>5</code> tolerates empty fields (replaced by <code>Fill</code>) but not non-numeric text, and <code>0</code> skips a column altogether. The full list is under <a href="#columntypes">Column Types</a> below.</p>
+<h3 id="columns-instead-of-rows">Columns instead of rows</h3>
+<p><code>Invert</code> returns the data one column at a time: <code>2</code> gives each character column as a vector of vectors and each numeric column as a numeric vector, ready to assign to separate names:</p>
+<pre class="highlight"><code class="language-apl">      (product sales) hdr←(⎕CSV⍠'Invert' 2) 'sales.csv' '' (1 2) 1
+      sales
+1912 205 189
+      product
+┌───────┬───────┬────────┐
+│Widgets│Gimlets│Dingbats│
+└───────┴───────┴────────┘</code></pre>
+<p><code>Invert</code> <code>1</code> differs only in returning character columns as character matrices.</p>
+<h3 id="other-separators-and-decimal-marks">Other separators and decimal marks</h3>
+<p>Tab-separated files:</p>
+<pre class="highlight"><code class="language-apl">      (⎕CSV⍠'Separator' (⎕UCS 9)) 'sales.tsv' '' (1 2) 1
+┌──────────────┬───────────────┐
+│┌───────┬────┐│┌───────┬─────┐│
+││Widgets│1912│││Product│Sales││
+│├───────┼────┤│└───────┴─────┘│
+││Gimlets│205 ││               │
+│└───────┴────┘│               │
+└──────────────┴───────────────┘</code></pre>
+<p>Files written with a decimal comma use a different field separator too. Several options are given as a vector of name-value pairs:</p>
+<pre class="highlight"><code class="language-text">Produkt;Umsatz
+Widgets;1912,50
+Gimlets;205,00</code></pre>
+<pre class="highlight"><code class="language-apl">      (⎕CSV⍠('Separator' ';')('Decimal' ',')) 'umsatz.csv' '' (1 2) 1
+┌────────────────┬────────────────┐
+│┌───────┬──────┐│┌───────┬──────┐│
+││Widgets│1912.5│││Produkt│Umsatz││
+│├───────┼──────┤│└───────┴──────┘│
+││Gimlets│205   ││                │
+│└───────┴──────┘│                │
+└────────────────┴────────────────┘</code></pre>
+<p>The same options apply on export. <code>Thousands</code> names a thousands separator, <code>''</code> by default.</p>
+<h3 id="quoted-fields">Quoted fields</h3>
+<p>A field containing the separator, a quote or a line ending is quoted, and a quote inside a quoted field is doubled. <code>⎕CSV</code> reads such files without further options:</p>
+<pre class="highlight"><code class="language-text">Name,Note
+"Smith, John","She said ""hello"""
+"Jones, Ann","Two
+lines"</code></pre>
+<pre class="highlight"><code class="language-apl">      ⊃⎕CSV 'quoted.csv' '' ⍬ 1
+┌───────────┬────────────────┐
+│Smith, John│She said "hello"│
+├───────────┼────────────────┤
+│Jones, Ann │Two             │
+│           │lines           │
+└───────────┴────────────────┘</code></pre>
+<p>On export, quotes are added only where needed unless <code>ForceQuotes</code> says otherwise:</p>
+<pre class="highlight"><code class="language-apl">      X←2 2⍴'Smith, John' 'She said "hello"' 'Ann' ('Two',(⎕UCS 10),'lines')
+      X ⎕CSV ''
+"Smith, John","She said ""hello"""
+Ann,"Two
+lines"
+      X (⎕CSV⍠'ForceQuotes' 2) ''
+"Smith, John","She said ""hello"""
+"Ann","Two
+lines"</code></pre>
+<p><code>QuoteChar</code>, <code>EscapeChar</code> and <code>DoubleQuote</code> change the quoting rules themselves; see <a href="#metacharacters">Metacharacters</a>.</p>
+<h3 id="large-files-a-chunk-at-a-time">Large files, a chunk at a time</h3>
+<p>A tied native file is read from its current position, so with the <code>Records</code> option a file of any size can be processed a chunk at a time. Reading stops returning records at the end of the file:</p>
+<pre class="highlight"><code class="language-apl"> total←CsvTotal file;tn;chunk
+ tn←file ⎕NTIE 0
+ total←0
+ :While 0&lt;≢chunk←(⎕CSV⍠'Records' 1000) tn '' (1 2)
+     total+←+/chunk[;2]
+ :EndWhile
+ ⎕NUNTIE tn</code></pre>
+<p>A header row, if present, is only in the first chunk, so give the header-row indicator on the first call only. A Byte Order Mark is likewise only seen on the first call; give the encoding explicitly if the file is not UTF-8.</p>
+<h3 id="ragged-records">Ragged records</h3>
+<p>By default every record must have the same number of fields. With <code>Ragged</code>, short records are extended with empty fields and long ones truncated, to the number of columns implied by the column types (or by <code>Widths</code>):</p>
+<pre class="highlight"><code class="language-apl">      (⎕CSV⍠'Ragged' 1) ('a,1' 'b' 'c,3,x') 'N' (1 3)
+┌─┬─┐
+│a│1│
+├─┼─┤
+│b│0│
+├─┼─┤
+│c│3│
+└─┴─┘</code></pre>
+<h3 id="fixed-width-fields">Fixed-width fields</h3>
+<p><code>Widths</code> gives the width in characters of each column; the separator is then ignored:</p>
+<pre class="highlight"><code class="language-text">Product Sales
+Widgets  1912
+Gimlets   205</code></pre>
+<pre class="highlight"><code class="language-apl">      (⎕CSV⍠'Widths' (8 5)) 'fixed.txt' '' (1 2) 1
+┌──────────────┬───────────────┐
+│┌───────┬────┐│┌───────┬─────┐│
+││Widgets│1912│││Product│Sales││
+│├───────┼────┤│└───────┴─────┘│
+││Gimlets│205 ││               │
+│└───────┴────┘│               │
+└──────────────┴───────────────┘</code></pre>
+<h2 id="internal-format">Internal format</h2>
+<p>Arrays that result from importing CSV data or arrays that are suitable for exporting as CSV data are represented by 3 possible structures:</p>
+<ul>
+<li>A table (a matrix whose elements are character vectors or scalars, or numbers).</li>
+<li>A vector, each of whose items contain field (column) values. Character field values are character matrices; numeric field values are numeric vectors.</li>
+<li>A vector, each of whose items contain field (column) values. Character field values are vectors of character vectors; numeric field values are numeric vectors.</li>
+</ul>
+<p>When importing CSV data, all fields are assumed to be character fields unless otherwise specified (see <a href="#columntypes">Column Types</a>). A field that contains only "numbers" will not be converted to numeric data unless specified as being numeric.</p>
+<h2 id="metacharacters">Metacharacters</h2>
+<p>Some characters in a CSV file are metacharacters that define the structure of the data; for example, the field separator character between fields. Characters that are not metacharacters are literal characters. The variant options <code>QuoteChar</code>, <code>EscapeChar</code>, and <code>DoubleQuote</code> make it possible to interpret metacharacters as literal characters, and thus permit fields to contain field separator characters, leading and trailing spaces, and line-endings.</p>
+<p>Fixed-width fields do not require these options and they are ignored if fixed-width fields are being processed.</p>
+<h2 id="import-monadic">Import (monadic)</h2>
+<pre class="highlight"><code class="language-apl">R←⎕CSV Y</code></pre>
+<p><code>Y</code> is an array that specifies just the source of the CSV data (see below) or a 1,2,3 or 4-element vector containing:</p>
+<table>
+<tbody>
+<tr>
+<td><code>[1]</code></td>
+<td>Source of CSV Data</td>
+</tr>
+<tr>
+<td><code>[2]</code></td>
+<td>Description of the CSV data</td>
+</tr>
+<tr>
+<td><code>[3]</code></td>
+<td>Column Types</td>
+</tr>
+<tr>
+<td><code>[4]</code></td>
+<td>Header Row Indicator</td>
+</tr>
+</tbody>
+</table>
+<p><em>Source</em> can be one of:</p>
+<ul>
+<li>a character vector or scalar containing a file name</li>
+<li>a native tie number</li>
+<li>a character vector or scalar containing CSV data with embedded newline characters. To avoid this source being interpreted as a file name, <code>Y[2]</code> must be specified as <code>'S'</code>.</li>
+<li>a vector of character vectors and/or scalars containing CSV data with implicit newlines after each character vector or scalar</li>
+</ul>
+<p><em>Description</em></p>
+<p>If <code>Y[1]</code> is a file name or tie number <em>Description</em> can be one of:</p>
+<ul>
+<li>a character vector specifying the file encoding such as <code>'UTF-8'</code> (see <a href="../nget/">File Encodings</a>).</li>
+<li>a 256-element numeric vector that maps each possible byte value (0-255) to a Unicode code point (1st element = Unicode code point corresponding to byte value 0, and so on). ¯1 indicates that the corresponding byte value is not mapped to any character. Apart from ¯1, no value can appear in the table more than once.</li>
+</ul>
+<p>If omitted or empty, the file encoding is deduced (see <a href="#file-handling">File handling</a>).</p>
+<p>If <code>Y[1]</code> is a character array containing CSV data <em>Description</em> is a character scalar <code>'S'</code> (simple) or <code>'N'</code> (nested). The default is <code>'N'</code></p>
+<p><em id="columntypes">Column Types</em></p>
+<p>This is a scalar numeric code or vector of numeric codes that specifies the field types from the list below. If <em>Column Types</em> is zilde or omitted, the default is 1 (all fields are character).</p>
+<table>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td>The field is ignored.</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>The field contains character data.</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>The field is to be interpreted as being numeric. Empty cells and cells which cannot be converted to numeric values are not tolerated and cause an error to be signalled.</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>The field is to be interpreted as being numeric but invalid numeric values are tolerated. Empty fields and fields which cannot be converted to numeric values are replaced with the <code>Fill</code> variant option (default <code>0</code>).</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>The field is to be interpreted numeric data but invalid numeric data is tolerated. Empty fields and fields which cannot be converted to numeric values are returned instead as character data; this type is disallowed when variant option <code>Invert</code> is set to <code>1</code>.</td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td>The field is to be interpreted as being numeric but empty fields are tolerated and are replaced with the <code>Fill</code> variant option (default <code>0</code>). Non-empty cells which cannot be converted to numeric values are not tolerated and cause an error to be signalled.</td>
+</tr>
+</tbody>
+</table>
+<p>If <em>Column Types</em> is specified by a scalar <code>4</code>, all numeric data in all fields are converted to numbers.</p>
+<p><em>Header Row Indicator</em></p>
+<p>This is a Boolean value (default 0) to specify whether or not the first record in a CSV file is a list of column labels. If <em>Header Row Indicator</em> is 1, the first record (the <em>header row</em>) is treated differently from other records. It is assumed to contain character data (labels) regardless of <code>Y[3]</code> and is returned separately in the result.</p>
+<h3 id="variant-options">Variant options</h3>
+<p>Monadic <code>⎕CSV</code> can be applied using the <em>variant</em> operator with the options shown in <a href="#variantoptionsforcsv">Table 1</a>. The principal option is <code>Invert</code>.</p>
+<table id="variantoptionsforcsv">
+<caption style="caption-side:top">Table 1: Variant options for <code>⎕CSV</code></caption><thead>
+<tr>
+<th>Name</th>
+<th>Meaning</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Decimal</code></td>
+<td>The decimal mark in numeric fields - one of <code>'.'</code> or <code>','</code></td>
+<td><code>'.'</code></td>
+</tr>
+<tr>
+<td><code>DoubleQuote</code></td>
+<td>A Boolean that indicates whether (<code>1</code>) or not (<code>0</code>) a quote character within a quoted field is represented by two consecutive quote characters</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><code>EscapeChar</code></td>
+<td>The escape character, which can be specified as an empty character vector (meaning none is defined) or a character scalar</td>
+<td><code>''</code></td>
+</tr>
+<tr>
+<td><code>Fill</code></td>
+<td>The numeric value substituted for invalid numeric data in  columns of type 3</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>Invert</code><br><small>principal</small></td>
+<td>A number specifying how the CSV data should be returned. Possible values are:<ul><li><code>0</code> – A table (a matrix whose elements are character vectors or scalars or numbers).</li><li><code>1</code> – A vector, each of whose items contain field (column) values. Character field values are character matrices; numeric field values are numeric vectors.</li><li><code>2</code> – A vector, each of whose items contain field (column) values. Character field values are vectors of character vectors; numeric field values are numeric vectors.</li></ul></td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>QuoteChar</code></td>
+<td>The field quote character (delimiter), which can be specified as an empty character vector (meaning none is defined) or a character scalar</td>
+<td><code>"</code></td>
+</tr>
+<tr>
+<td><code>Ragged</code></td>
+<td>A Boolean specifying whether records with varying numbers  of fields are allowed; see notes below</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>Records</code></td>
+<td>The maximum number of records to process or 0 for no limit.</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>Separator</code></td>
+<td>The field separator, any single character. If <code>Widths</code> is other than <code>⍬</code>, <code>Separator</code> is ignored.</td>
+<td><code>','</code></td>
+</tr>
+<tr>
+<td><code>Thousands</code></td>
+<td>The thousands separator in numeric fields, which can be specified as an empty character vector (meaning no separator is defined) or a character scalar</td>
+<td><code>''</code></td>
+</tr>
+<tr>
+<td><code>Trim</code></td>
+<td>A Boolean specifying whether undelimited/unescaped whitespace is trimmed at the beginning and end of fields</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><code>Widths</code></td>
+<td>A vector of numeric values describing the width (in characters) of the corresponding columns in the CSV source, or <code>⍬</code> for variable width delimited fields</td>
+<td><code>⍬</code></td>
+</tr>
+</tbody>
+</table>
+<p>The <code>Separator</code>, <code>QuoteChar</code>, and <code>EscapeChar</code> characters, when defined, must be different.</p>
+<p>Other <a href="#variantoptionsforcsv2">variant options defined for export</a> are also accepted but ignored.</p>
+<h3 id="quotechar-escapechar-and-doublequote"><code>QuoteChar</code>, <code>EscapeChar</code>, and <code>DoubleQuote</code></h3>
+<p>If <code>EscapeChar</code> is set, then any character can be prefixed by the escape character. The escape character is typically defined as <code>'\'</code>. The escape character immediately followed by the character <code>c</code> is the literal character <code>c</code>, even if <code>c</code> alone would have been a metacharacter.</p>
+<p>If <code>QuoteChar</code> is set, then fields can be delimited by the specified quote character. Within quoted fields all characters except the quote character, and the escape character if defined, are literal characters.</p>
+<p>If <code>DoubleQuote</code> is set to <code>1</code>, then two consecutive quote characters within a quoted field are interpreted as the single literal quote character.</p>
+<h3 id="result">Result</h3>
+<p>The result <code>R</code> contains the imported data.</p>
+<p>If <code>Y[4]</code> does not specify that the data contains a header, then <code>R</code> contains the entire data in the form specified by the <code>Invert</code> variant option.</p>
+<p>If <code>Y[4]</code> does specify that the data contains a header, then <code>R</code> is a 2-element vector where:</p>
+<ul>
+<li><code>R[1]</code> is the imported data excluding the header.</li>
+<li><code>R[2]</code> is a vector of character vectors containing the header record.</li>
+</ul>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>When <code>Y</code> specifies just the source of the CSV data, it does not need to be enclosed or ravelled to create a 1-element vector.</li>
+<li><code>Y[2]</code>, the description of the source, distinguishes an otherwise ambiguous character vector source (which could contain either CSV data or a file name). The other source forms are unambiguous but the description, when given, must still match the given source type.</li>
+<li>Tab-separated fields can be imported by specifying <code>'Separator' (⎕UCS 9)</code>.</li>
+<li>Fields containing embedded new lines are supported (they must, of course, appear in quotes or be prefixed by the escape character). On import, line endings are always converted to a single line feed character.</li>
+<li>If <code>Ragged</code> is not set, then all records must have the same number of fields (character delimited format) or same number of characters (fixed width field format).</li>
+<li>If <code>Ragged</code> is set:<ul>
+<li>The expected number of columns must be specified using the <code>Widths</code> variant option and/or the column types in <code>Y[3]</code>.</li>
+<li>In character delimited format, all processed records are implicitly extended or truncated as required so that they contain the expected number of fields; implicitly added fields will be empty.</li>
+<li>In fixed width format, all processed records are implicitly extended with spaces or truncated as required so that they contain as many characters as are specified in the <code>Widths</code> option declaration.</li>
+</ul>
+</li>
+</ul>
+<h3 id="file-handling">File handling</h3>
+<p>Data can be read from a named file or a tied native file. A tied native file can be read in sections by repeatedly invoking <code>⎕CSV</code> for a specified maximum number of records (specified by the <code>Records</code> variant option) until no more data is read.</p>
+<p>In all cases the files must contain text using one of the supported encodings (see <a href="../nget/">File Encodings</a>). The method used to determine the file encoding is as follows:</p>
+<ul>
+<li>If a Byte Order Mark (BOM) is encountered at the start of the file, it is used regardless of <code>Y[2]</code> (if specified). However, the BOM can only be encountered if the file is read from the start - specifically, if a native file is read in sections, any BOM present will only be encountered when the first section is read.</li>
+<li>Otherwise, the file will be read and decoded according to the file encoding in <code>Y[2]</code> if specified.</li>
+<li>Otherwise:<ul>
+<li>Native files will be decoded as if <code>'UTF-8'</code> had been specified.</li>
+<li>Files specified by name will be examined and the likely file encoding will be deduced using the same heuristics performed by <code>⎕NGET</code>.</li>
+</ul>
+</li>
+</ul>
+<p>In addition:</p>
+<ul>
+<li>native files are read from the current file position. On successful completion, the file position will be at the first unprocessed character (end of file if the <code>Records</code> variant option is not specified). If an error is signalled the file position is undefined.</li>
+<li>the result does not report the file encoding or line ending type as it does with <code>⎕NGET</code>. If this information is required, then it must be obtained by other means.</li>
+</ul>
+<h2 id="export-dyadic">Export (dyadic)</h2>
+<pre class="highlight"><code class="language-apl">{R}←X ⎕CSV Y</code></pre>
+<p>The left argument <code>X</code> is either:</p>
+<ul>
+<li>a matrix or a vector of vectors/matrices containing the data to be converted to CSV format.</li>
+<li>or a 2-element vector containing a matrix or vector of vectors/matrices containing the data to be converted to CSV format, and a vector of character vectors containing the header record.</li>
+</ul>
+<p><code>Y</code> is a 1 or 2-element vector containing:</p>
+<table>
+<tbody>
+<tr>
+<td><code>[1]</code></td>
+<td>Destination of CSV Data (see below)</td>
+</tr>
+<tr>
+<td><code>[2]</code></td>
+<td>Description of the CSV data (see below)</td>
+</tr>
+</tbody>
+</table>
+<p><em>Destination</em> - can be one of:</p>
+<ul>
+<li>a character vector or scalar containing a file name</li>
+<li>a native tie number</li>
+<li>an empty character vector, indicating that the CSV data is to be returned in the result <code>R</code></li>
+</ul>
+<p><em>Description</em></p>
+<p>If <code>Y[1]</code> is a file name or tie number, <em>Description</em> can be:</p>
+<ul>
+<li>a character vector specifying the file encoding such as <code>'UTF-8'</code> (see <a href="../nget/">File Encodings</a>).</li>
+<li>a 256-element numeric vector that maps each possible byte value (0-255) to a Unicode code point (1st element = Unicode code point corresponding to byte value 0, and so on). ¯1 indicates that the corresponding byte value is not mapped to any character. Apart from ¯1, no value can appear in the table more than once.</li>
+</ul>
+<p>If <code>Y[1]</code> is empty, <em>Description</em> can be a character scalar <code>'S'</code> (simple) or <code>'N'</code> (nested). If omitted, the default is <code>'S'</code>.</p>
+<h3 id="variant-options_1">Variant options</h3>
+<p>Dyadic <code>⎕CSV</code> can be applied using the <em>variant</em> operator with the options shown in <a href="#variantoptionsforcsv2">Table 2</a>.</p>
+<table id="variantoptionsforcsv2">
+<caption style="caption-side:top">Table 2: Variant options for dyadic <code>⎕CSV</code></caption><thead>
+<tr>
+<th>Name</th>
+<th>Meaning</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Decimal</code></td>
+<td>the decimal mark in numeric fields - one of <code>'.'</code> or <code>','</code></td>
+<td><code>'.'</code></td>
+</tr>
+<tr>
+<td><code>DoubleQuote</code></td>
+<td>A Boolean which indicates whether (<code>1</code>) or not (<code>0</code>) a quote character within a quoted field is represented by two consecutive quote characters</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><code>EscapeChar</code></td>
+<td>The escape character, which can be specified as an empty character vector (meaning none is defined) or a character scalar</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>ForceQuotes</code></td>
+<td>A number specifying the degree to which quotes are applied around fields, even if not strictly required. Possible values are:<ul><li><code>0</code> – add only if required</li><li><code>1</code> – add to all fields containing character data and to fields containing numeric data if required</li><li><code>2</code> – add to all fields, even if not required</li></ul>If <code>ForceQuotes</code> is a scalar, the value applies to all columns; if it is a vector of values, then each value applies to the corresponding column.</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>IfExists</code></td>
+<td>a character vector <code>'Error'</code> or <code>'Replace'</code> which specifies, when creating a named file which already exists, whether to overwrite it ( <code>'Replace'</code> ) or signal an error ( <code>'Error'</code> )</td>
+<td><code>'Error'</code></td>
+</tr>
+<tr>
+<td><code>LineEnding</code></td>
+<td>the line ending sequence - see <a href="../nget/">Line separators:</a></td>
+<td>(13 10) on Windows; 10 on other platforms</td>
+</tr>
+<tr>
+<td><code>QuoteChar</code></td>
+<td>The field quote character (delimiter), which can be specified as an empty character vector (meaning none is defined) or a character scalar</td>
+<td><code>"</code></td>
+</tr>
+<tr>
+<td><code>Separator</code></td>
+<td>the field separator, any single character. If <code>Widths</code> is other than <code>⍬</code> , <code>Separator</code> is ignored.</td>
+<td><code>','</code></td>
+</tr>
+<tr>
+<td><code>Thousands</code></td>
+<td>the thousands separator in numeric fields, which can be specified as an empty character vector (meaning no separator is defined) or a character scalar</td>
+<td><code>''</code></td>
+</tr>
+<tr>
+<td><code>Trim</code></td>
+<td>a Boolean specifying whether whitespace is trimmed at the beginning and end of character fields</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><code>Widths</code></td>
+<td>a vector of numeric values describing the width (in characters) of the corresponding columns in the CSV source, or <code>⍬</code> for variable width delimited fields</td>
+<td><code>⍬</code></td>
+</tr>
+</tbody>
+</table>
+<p>The <code>Separator</code>, <code>QuoteChar</code>, and <code>EscapeChar</code> characters, when defined, must be different.</p>
+<p>Other <a href="#variantoptionsforcsv">variant options defined for import</a> are also accepted but ignored.</p>
+<p>The <code>Overwrite</code> variant option (a Boolean) remains supported but is deprecated in favour of <code>IfExists</code>.</p>
+<h3 id="quotechar-escapechar-and-doublequote_1"><code>QuoteChar</code>, <code>EscapeChar</code>, and <code>DoubleQuote</code></h3>
+<ul>
+<li>The CSV text will be generated such that it can be read back according to the corresponding rules for import.</li>
+<li>If these options do not permit this (for example, a field contains the quote character and neither <code>DoubleQuote</code> or <code>EscapeChar</code> are set) an error is signalled.</li>
+<li>Quoting and Escaping is used as conservatively as possible.</li>
+<li>If both <code>QuoteChar</code> and <code>EscapeChar</code> are set, quoting is favoured.</li>
+</ul>
+<h3 id="result_1">Result</h3>
+<p>If <code>Y</code> specifies that the CSV data is written to a file, then <code>R</code> is the number of bytes (not characters) written, and is <a href="../../../programming-reference-guide/introduction/results/#shy-results">shy</a>.</p>
+<p>Otherwise, <code>R</code> is the CSV data in the format specified in Y, and is not shy.</p>
+<p><code>⎕CSV</code> output is not affected by <a href="../pp/"><code>⎕PP</code></a>; numeric values are always represented with full precision.</p>
+<h3 id="notes_1">Notes</h3>
+<ul>
+<li>When <code>Y</code> contains only the destination of the CSV data (that is, omits the description in its second element) it does not have to be enclosed to form a single element vector.</li>
+<li>Native files are written from the current file position. On successful completion, the file position will be at the end of the written data. If an error is signalled the amount of data written is undefined.</li>
+<li>If the file encoding specifies that a BOM is required and output is to a native file, it will only be written if the file position is initially at 0 - that is, the start of the file is being written.</li>
+<li>When fixed width fields are written, character data shorter than the specified width is padded with spaces to the right and character data longer than the specified width signals an error. Numeric data is converted to character data as far as possible so that it fits into the specified width. If this is not possible, an error is signalled.</li>
+<li>Tab-separated fields can be exported by specifying <code>'Separator' (⎕UCS 9)</code>.</li>
+<li>Fields containing a single embedded new line are supported. On export, line feed characters are mapped back to the defined line ending sequence.</li>
+</ul>
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕CSV CSV
+</div>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Made with <a href="https://zensical.org/" target="_blank" rel="noopener"><strong>Zensical</strong></a><br/>Copyright &copy; 1982-2026 <strong><a href="https://dyalog.com" target="_blank" rel="noopener">Dyalog Limited</a></strong> (<button type="button" class="copy" title="Copy build info to the clipboard" data-done="copied" data-fail="copy failed" onclick="var b=this,s=b.nextElementSibling;navigator.clipboard?navigator.clipboard.writeText(b.textContent.trim()).then(function(){s.textContent=b.dataset.done},function(){s.textContent=b.dataset.fail}):s.textContent=b.dataset.fail">2026-09-16 main:1a0009b8</button><span class="copy-status" role="status"></span>).<br/>Except where otherwise noted, content on this site is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener"><strong>Creative Commons Attribution 4.0 International</strong></a> licence.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../..","features":["content.code.copy","navigation.indexes","navigation.instant","navigation.path","navigation.prune","navigation.sections","navigation.tracking"],"redirect":null,"search":"../../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"provider":"mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.8dcc8e9c.min.js"></script>
+      
+    
+  </body>
+</html>

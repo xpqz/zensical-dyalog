@@ -1,0 +1,3469 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-aspnet-webpages/converting-an-existing-workspace/">
+      
+      
+        <link rel="prev" href="../workspace-behind/">
+      
+      
+        <link rel="next" href="../../writing-custom-aspnet-controls/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../documentation-assetsz/images/dyalog-ide-cube-2025.2.svg">
+      <meta name="generator" content="zensical-0.0.62">
+    
+    
+      
+        <title>Converting an Existing Workspace - Documentation</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../assets/stylesheets/classic/main.e0592429.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/classic/palette.c7ab7c71.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../documentation-assetsz/css/dyalog.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#converting-an-existing-workspace" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  You're not viewing the latest version.
+  <a href="../../../..">
+    <strong>Click here to go to latest.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../../../documentation-assetsz/images/dyalog-logo_orange.svg" alt="Documentation">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Converting an Existing Workspace
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/dyalog/documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../../../documentation-assetsz/images/dyalog-logo_orange.svg" alt="Documentation">
+
+    </a>
+    Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dyalog/documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Release Notes
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Release Notes
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../release-notes/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v21.0 Release Notes
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    
+  
+  
+  
+  
+    <a href="../../../earlier-release-notes/release-notes-v20-0/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Earlier Release Notes
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Core Reference
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Core Reference
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../language-reference-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dyalog APL Language
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../programming-reference-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Programming
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Code Tooling
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Code Tooling
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../net-interface-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  .NET Interface
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../compiler-user-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Compiler
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../shared-code-files-user-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Shared Code Files
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dyalog for Microsoft Windows
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Dyalog for Microsoft Windows
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../windows-installation-and-configuration-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installation/Configuration
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../windows-ui-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  User Interface
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../object-reference/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Object Reference
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../interface-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interfaces
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  .NET Framework Interface
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  .NET Framework Interface
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introduction
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../dotnet-classes/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  .NET Classes
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../using-windows-forms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Using Windows Forms
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../windows-presentation-foundation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Windows Presentation Foundation
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../apl-source-files/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  APL Source Files
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../writing-dotnet-classes/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Writing .NET Classes
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dyalog-and-iis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dyalog and IIS
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../writing-web-services/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Writing Web Services
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../calling-web-services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Calling Web Services
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_12" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Writing ASP.NET Web Pages
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5_12" id="__nav_4_5_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_5_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_5_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Writing ASP.NET Web Pages
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../your-first-apl-web-page/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Your First APL Web Page
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../the-page-load-event/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  The Page_Load Event
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-behind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Code-Behind
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workspace-behind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Workspace Behind
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+        <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Converting an Existing Workspace
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Converting an Existing Workspace
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-page_load-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        The Page_Load Function
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#callback-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Callback Functions
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validation Functions
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forcing-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Forcing Validation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculating-and-displaying-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Calculating and Displaying Results
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../writing-custom-aspnet-controls/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Writing Custom Controls for ASP.NET
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../implementation-details/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Implementation Details
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dyalog for UNIX
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Dyalog for UNIX
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../unix-installation-and-configuration-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installation/Configuration
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../unix-user-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  User Interface
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  About
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  About
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../conventions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Conventions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../licences-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Third-party Licences
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../trademarks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Trademarks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-page_load-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        The Page_Load Function
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#callback-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Callback Functions
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validation Functions
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forcing-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Forcing Validation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculating-and-displaying-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Calculating and Displaying Results
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Dyalog v21.0
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../../../windows-installation-and-configuration-guide/" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Dyalog for Microsoft Windows
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    .NET Framework Interface
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Writing ASP.NET Web Pages
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="converting-an-existing-workspace">Converting an Existing Workspace</h1>
+<p>The <strong>actfns.dws</strong> workspace used in this example is supplied in the <strong>[DYALOG]\Samples\asp.net\actfns</strong> directory.</p>
+<p><strong>To convert an existing workspace</strong></p>
+<ol>
+<li>Replace the Dyalog GUI with the equivalent HTML Forms, as defined in one or more separate <strong>.aspx</strong> web pages.<br />For consistency, Dyalog Ltd recommends giving the ASP controls the same names as the GUI controls that they are replacing.</li>
+<li>Attach the names of APL callback functions to the appropriate ASP controls.This applies to any controls that will be involved in a postback operation, such as the <strong>Submit</strong> button. </li>
+<li>
+<p>Starting with a <code>CLEAR WS</code>, create a <code>Class</code> that represents a .NET class based upon <code class="language-nonAPL">System.Web.UI.Page</code>. For example, when converting <strong>actfns.dws</strong>, start by creating the class:
+    <pre class="highlight"><code class="language-apl">)EDIT ○actuarial</code></pre></p>
+<p>then define <code>⎕USING</code> as follows:
+<pre class="highlight"><code class="language-apl">:Using System
+:Using System.Web.UI,system.web.dll
+:Using System.Web.UI.WebControls 
+:Using System.Web.UI.HtmlControls 
+:Using System.Data,system.data.dll</code></pre></p>
+<p>The name you choose for this class will replace <code class="language-nonAPL">classname</code> in the <code class="language-nonAPL">Inherits="classname"</code> declaration in the <strong>.aspx</strong> web page(s) that call it.</p>
+</li>
+<li>
+<p>Create a namespace, navigate into it, and copy the workspace to be converted. In this example, the starting point was a workspace called <code>DH_ACTFNS</code>:</p>
+<pre class="highlight"><code class="language-apl">
+      )NS actuarial_utils
+      )CS actuarial_utils
+#.actuarial_utils
+      )COPY DH_ACTFNS
+DH_ACTFNS saved ...</code></pre>
+</li>
+<li>
+<p>Modify the code as appropriate, inserting a <code>Page_Load</code> function and whatever callback functions are required.</p>
+</li>
+<li>Make sure the <code>actuarial</code> class has an <code>:Include actuarial_utils</code> statement.</li>
+</ol>
+<h2 id="the-page_load-function">The Page_Load Function</h2>
+<p>The <code>Page_Load</code> function must be declared as <code>:Access Public</code>. <code>Page_Load</code> must be spelt exactly as shown as it is this name that causes the function to supersede the base class <code class="language-nonAPL">Page_Load</code> method of the same name.</p>
+<p>For example, the <code>Page_Load</code> function of the actuarial class in <strong>actfns.dws</strong> is:
+<pre class="highlight"><code class="language-apl">    ∇ Page_Load;INT;AGE;DUR;TERM;TAB_DURS;MPC1;INT1;INT2;INTY;RUN_OPTION;OPT
+      :Access public
+      :Signature Page_Load
+     ⍝ Overrides Page_Load method of Page class
+     ⍝ Called when Page is loaded or re-loaded after postback
+     ⍝ Initialise fields and calculate on initial load only
+      :If 0=IsPostBack
+          RUN_OPTION←GET_RUN_OPTION
+          :Select RUN_OPTION
+          :Case 1
+              EINT.Text←⍕INT←3.25
+              EAGE.Text←⍕AGE←30
+              EDUR.Text←⍕DUR←0
+              ETRM.Text←⍕TERM←10
+              TA.Checked←TAB_DURS←1
+              CHANGE_TABLES ⍬
+          :Case 2
+              CPLAN.Items.Clear
+              :For OPT :In ↓⊃OPTSPLAN
+              CPLAN.Items.Add{82∊⎕DR 1⍴⍵:⊂⍵ ⋄ ⍵}DETRAIL OPT
+              :EndFor
+              EMPC1.Text←⍕MPC1←100
+              EINT1.Text←⍕INT1←3.25
+              EINT2.Text←⍕INT2←3.25
+              EINTY.Text←⍕INTY←99
+              EAGE.Text←⍕AGE←30
+              EDUR.Text←⍕DUR←0
+              ETRM.Text←'N/A'
+              CHANGE_TABLES ⍬
+          :EndSelect
+      :EndIf
+    ∇</code></pre></p>
+<p>If exported correctly, <code>Page_Load</code> will be called every time the calling web page is loaded. This occurs when the page is loaded for the first time, and whenever the page is submitted back to the web server by the browser (postback). A postback will occur whenever a callback function is involved, and potentially at other times.</p>
+<p>The <code>Page_Load</code> function can determine whether it is being invoked by a first time load or by a postback from the value of the <code class="language-nonAPL">IsPostBack</code> property. This is a property that it inherits from its base class <code class="language-nonAPL">System.Web.UI.Page</code>.</p>
+<p>The <code>Page_Load</code> function example shown here uses this property to control the initialisation of the controls in the calling web page. The names <code>EINT</code>, <code>EAGE</code>, <code>EDUR</code>, and so on, refer to names of controls in the calling web page. When <code>Page_Load</code> is executed, the <code>actuarial</code> object is associated with the web page, and so the names of all its controls are visible as sub-objects within it.</p>
+<div class="admonition info">
+<p class="admonition-title">Information</p>
+<p>The <code class="language-nonAPL">actuarial</code> class is used by two different web pages, and the function <code>GET_RUN_OPTION</code> function determines which of these are involved by detecting the presence (or otherwise) of a particular control on the page.</p>
+</div>
+<h2 id="callback-functions">Callback Functions</h2>
+<p>The actuarial class in <strong>actfns.dws</strong> provides four callback functions named <code>CALC_FSLTAB_RESULTS</code>, <code>CALC_FSL_RESULTS</code>, <code>CHANGE_TABLES</code>, and <code>CHANGE_TABLE_FORMAT</code>. The first two of these functions are attached as callbacks to the <strong>Calculate</strong> button in each of two separate web pages <strong>sla_tab.aspx</strong> and <strong>sla_disp.aspx</strong>. For example, the statement that defines the button in <strong>sla_tab.aspx</strong> is:
+<pre class="highlight"><code class="language-nonAPL">&lt;asp:Button id=Button1 runat="server" Text="Calculate" onClick="CALC_FSLTAB_RESULTS"&gt;&lt;/asp:Button&gt;</code></pre></p>
+<p>The third callback, <code class="language-nonAPL">CHANGE_TABLES</code>, is called by <strong>sla_tab.aspx</strong> when the user selects a different set of Mortality Tables from the three provided. <code class="language-nonAPL">CHANGE_TABLE_FORMAT</code> is called when the user clicks either of the two radio buttons that select how the output is to be displayed.</p>
+<p>Like the <code>Page_Load</code> function, callback functions must be declared as being public methods. This is done using the <code>:Access</code> statement.</p>
+<p>APL callback functions must be declared to have the correct signature expected of .NET callback functions. This means that they must be monadic, and their argument must be declared to be a 2-element nested array containing two .NET objects – the object that generated the event, and an object that represents the arguments to the event.</p>
+<p>Specifically, these parameters must be of type <code class="language-nonAPL">System.Object</code> and <code class="language-nonAPL">System.EventArgs</code> respectively. However, as <code>⎕USING</code> contains <code>System</code>, it is not necessary to include the <code class="language-nonAPL">System</code> prefix.</p>
+<p>For example, the statements for the function <code>CALC_FSLTAB_RESULTS</code> are:
+<pre class="highlight"><code class="language-apl">:Access Public
+:Signature CALC_FSLTAB_RESULTS Object obj, EventArgs ev</code></pre></p>
+<h2 id="validation-functions">Validation Functions</h2>
+<p>In a Dyalog web page application, there are basically two approaches to validation – you can handle it entirely yourself, or you can exploit the various validation controls that come with ASP.NET. The actuarial sample application exploits the various validation controls. For example (from <strong>[DYALOG]\Samples\asp.net\actfns\sla_tab.aspx</strong>):
+<pre class="highlight"><code class="language-nonAPL">&lt;asp:TextBox id=EINT runat="server"&gt;&lt;/asp:TextBox&gt;
+&lt;asp:RequiredFieldValidator id="RFVINT"
+     ControlToValidate="EINT"
+     ErrorMessage="Interest Rate must be a number between 0 and 20"
+     Text="*"
+     runat="server"/&gt;&lt;/td&gt;
+
+&lt;asp:TextBox id=EINT runat="server"&gt;&lt;/asp:TextBox&gt;
+&lt;asp:RequiredFieldValidator id="RFVINT"
+ControlToValidate="EINT"
+ErrorMessage="Interest Rate must be a number between 0 and 20"
+Text="*"
+runat="server"/&gt;&lt;/td&gt;</code></pre></p>
+<p>These ASP.NET statements associate a <code class="language-nonAPL">RequiredFieldValidator</code> named <code class="language-nonAPL">RFVINT</code> with the <code class="language-nonAPL">EINT</code> field, the field used to enter <strong>Interest Rate</strong>. If the user leaves this field blank, then the system will automatically generate the specified error message.</p>
+<p>A separate <code class="language-nonAPL">ValidationSummary</code> control is defined:
+<pre class="highlight"><code class="language-nonAPL">&lt;asp:ValidationSummary id="Summary1" 
+HeaderText="Please enter a value in the following fields"
+     Font-Size="smaller"
+     ShowSummary="false"
+     ShowMessageBox="true"
+     EnableClientScript="true"
+     runat="server"/&gt;
+</code></pre></p>
+<p>The <code class="language-nonAPL">ValidationSummary</code> control collects error messages from all the other validation controls on the page, and displays them together. In this example, a pop-up message box is used. One advantage of this approach is that this type of validation can be carried out client-side by local JavaScript that is generated automatically on the server and incorporated in the HTML that is sent to the browser.</p>
+<p>Logical field validation for this page is carried out on the server by APL functions that are attached to <code class="language-nonAPL">CustomValidator</code> controls. For example:
+<pre class="highlight"><code class="language-nonAPL">&lt;asp:CustomValidator id="CustomValidator_INT" 
+     OnServerValidate="VALIDATE_INT"
+     ControlToValidate="EINT"
+     Display="Dynamic"                 
+     ErrorMessage="Interest Rate must be a number between 0 and 20"
+     runat="server"/&gt;
+</code></pre></p>
+<p>These ASP.NET statements associate a <code class="language-nonAPL">CustomValidator</code> control called <code class="language-nonAPL">CustomValidator_INT</code> with the Interest Rate field <code class="language-nonAPL">EINT</code>. The statement <code class="language-nonAPL">OnServerValidate="VALIDATE_INT"</code> specifies that <code class="language-nonAPL">VALIDATE_INT</code> is the validation function for the <code class="language-nonAPL">CustomValidator_INT</code> object.</p>
+<p>The <code>VALIDATE_INT</code> function and its .NET properties page are:
+<pre class="highlight"><code class="language-apl">    ∇ VALIDATE_INT MSG;source;args
+[1]   ⍝ Validates Interest Rate
+[2]    :Access Public
+[3]    :Signature VALIDATE_INT Object source, ServerValidateEventArgs args
+[4]    source args←MSG
+[5]    :Trap 0
+[6]        INT←Convert.ToDouble args.Value
+[7]    :Else
+[8]        args.IsValid←0
+[9]        :Return
+[10]   :EndTrap
+[11]   args.IsValid←(0≤INT)^20≥INT
+     ∇</code></pre></p>
+<p>To make the <code>VALIDATE_INT</code> function available to the calling web page, it is exported as a method. Its <em>calling signature</em> (it takes two parameters of type <code class="language-nonAPL">System.Object</code> and <code class="language-nonAPL">System.Web.UI.WebControls.ServerValidateEventArgs</code> respectively) identifies it as a validation function. All these factors are essential in making it recognisable and callable.</p>
+<p>Line <code>[4]</code> assigns its (2-element) argument to <code>source</code> and <code>args</code> respectively. Both are namespace references to .NET objects. <code>source</code> is the object that fired the event (<code class="language-nonAPL">CustomValidator_INT</code>). <code>args</code> is an object that represents the event. Its <code class="language-nonAPL">Value</code> property returns the text in the control being validated, in this case the control called <code class="language-nonAPL">EINT1</code>.</p>
+<p>Line <code>[6]</code> converts the text in the <code class="language-nonAPL">EINT</code> control to a number, using the <code class="language-nonAPL">ToDouble</code> method of the <code class="language-nonAPL">System.Convert</code> class. You could use <code>⎕VFI</code>, but the <code class="language-nonAPL">Convert</code> methods automatically cater for National Language numerical formats. This statement is executed within a <code>:Trap</code> control structure because the method will generate a .NET exception if the data in the field is not a valid number.</p>
+<p>Lines <code>[8 11]</code> set the <code class="language-nonAPL">IsValid</code> property of the <code class="language-nonAPL">ServerValidateEventArgs</code> object <code>args</code> to <code>0</code> or <code>1</code> accordingly. This also sets the <code class="language-nonAPL">IsValid</code> property of the validation control represented by <code>source</code>. The system will automatically display the error message associated with any validation control whose <code>IsValid</code> property is 0. Furthermore, the page itself has an <code class="language-nonAPL">IsValid</code> property, which is the logical-AND of all the <code class="language-nonAPL">IsValid</code> properties of all the validation controls on the page. This is used later by the calculation function <code>CALC_FSLTAB_VALUES</code>.</p>
+<p>In this example, the validation function stores the numeric value of the control in a variable <code>INT</code>, which will subsequently be used by the calculation functions.</p>
+<p>When the page is posted back to the server, ASP.NET executes its own built-in validation controls and then calls the functions associated with the <code class="language-nonAPL">CustomValidator</code> controls, in the order in which they are defined on the page. In addition to the <code>VALIDATE_INT</code> function, there are eight other custom validation functions, for example, functions that validate the <strong>Initial Age</strong>, <strong>Endowment Term</strong> and <strong>Initial Duration</strong> fields.</p>
+<p>All the <code>VALIDATE_xxx</code> functions have the same .NET signature as <code>VALIDATE_INT</code>. <code>VALIDATE_AGE</code> is similar to <code>VALIDATE_INT</code>, except that, because it expects an integer value, it uses the <code>ToInt32</code> method instead of the <code>ToDouble</code> method:
+<pre class="highlight"><code class="language-apl">     ∇ VALIDATE_AGE MSG;source;args
+[1]    ⍝ Validates Age
+[2]    :Access Public
+[3]    :Signature VALIDATE_AGE Object source, ServerValidateEventArgs args
+[4]    source args←MSG
+[5]    :Trap 0
+[6]        AGE←Convert.ToInt32 args.Value
+[7]    :Else
+[8]        args.IsValid←0
+[9]        :Return
+[10]   :EndTrap
+[11]   args.IsValid←(10≤AGE)^80≥AGE
+     ∇</code></pre></p>
+<p><code>VALIDATE_TERM</code>, which validates the <strong>Endowment Term</strong> field, has two levels of checking. The first check – that the user has entered an integer number – is performed by lines <code>[10-15]</code> in the same way as in the previous examples, using the <code class="language-nonAPL">ToInt32</code> method of the <code class="language-nonAPL">System.Convert</code> class within a <code>:Trap</code> control structure. However, validation of the <strong>Endowment Term</strong> field depends upon the value of another field,that is, <strong>Initial Age</strong>. Not only must the user enter an integer, but also its value must be between 10 and (90-<code>AGE</code>) where <code>AGE</code> is the value in the <strong>Initial Age</strong> field. However, if the user has entered an incorrect value in the Initial Age field, then the second level of validation cannot be performed:
+<pre class="highlight"><code class="language-apl">     ∇ VALIDATE_TERM MSG;source;args
+[1]    ⍝ Validates Endowment Term
+[2]    :Access Public
+[3]    :Signature VALIDATE_TERM Object source, ServerValidateEventArgs args
+[4]    source args←MSG
+[5]    :If ^/(RFVAGE CustomValidator_AGE).IsValid
+[6]          source.ErrorMessage←'Endowment Term must be an integer between 10 and ',(⍕90-AGE),' (90-Age)'
+[7]    :Else
+[8]        source.ErrorMessage←'Endowment Term must be an integer between 10 and (90-Age)'
+[9]    :EndIf
+[10]   :Trap 0
+[11]       TERM←Convert.ToInt32 args.Value
+[12]   :Else
+[13]       args.IsValid←0
+[14]       :Return
+[15]   :EndTrap
+[16]   :If ^/(RFVAGE CustomValidator_AGE).IsValid
+[17]       args.IsValid←(TERM≥10)^TERM≤90-AGE
+[18]   :EndIf
+     ∇</code></pre></p>
+<p>At this stage it is worth reviewing the sequence of events that occurs when a user action in the browser causes a <em>postback</em> to the server:</p>
+<ol>
+<li>The page, including all the contents of its fields, is sent back to the ASP.NET server using an http <code class="language-nonAPL">POST</code> command.</li>
+<li>The postback causes the creation of a new instance of the page, which is represented by a new clone of the <code>actuarial</code> namespace.</li>
+<li>The creation of a new page instance raises the <code class="language-nonAPL">Page_Load</code> event, which invokes the <code class="language-nonAPL">Page_Load</code> method associated with the <code class="language-nonAPL">Page</code> class, or an override method is one is specified. In this example, it calls the <code>Page_Load</code> function in the newly-cloned instance of the <code>actuarial</code> namespace. The <code>Page_Load</code> function typically deals with initialisation, such as opening a component file or establishing a connection to a data source. In this example, it does nothing on a postback.</li>
+<li>Because the <strong>Calculate</strong> button was pressed (see <a href="#forcing-validation">Forcing Validation</a>), each of the <code class="language-nonAPL">CustomValidator</code> controls on the page raises an <code class="language-nonAPL">OnServerValidate</code> event, which calls the associated function in the current instance of the page. These events occur in the order the controls are defined within the page. Built-in validation controls, including any <code class="language-nonAPL">RequiredFieldValidator</code> controls, are invoked first, potentially in the browser prior to the postback.</li>
+<li>The control that caused the postback raises an appropriate event, which then fires the associated callback function.</li>
+<li>After all the control events have been raised and processed the <code class="language-nonAPL">Page_UnLoad</code> event is raised and the associated function (if any) is invoked. This function is a practical place to implement termination code, such as closing a component file or data source.</li>
+<li>The instance of the page is destroyed. Any global variables in the namespace that were defined by the <code class="language-nonAPL">Page_Load</code> function, the validation functions, and the callback function, are lost because the clone of the <code>actuarial</code> namespace disappears.</li>
+</ol>
+<p>This means that, within the life of the cloned instance of the <code>actuarial</code> namespace, the system runs the <code>Page_Load</code> function followed by <code>VALIDATE_INT</code>, followed by <code>VALIDATE_AGE</code>, <code>VALIDATE_TERM</code>, <code>VALIDATE_DUR</code>, and so on to <code>CALC_FSLTAB_RESULTS</code>. These functions take their input from the values passed in their arguments (as in the case of the <code>VALIDATE_xxx</code> functions) or from the properties of any of the controls on the Page. They perform output by modifying these properties or by invoking standard methods on the Page.</p>
+<p>If successful, the <code>VALIDATE_INT</code> function set up a global variable (strictly, only global within the current instance of the actuarial namespace) called <code>INT</code> that contains the value in the <strong>Interest Rate</strong> field. Similarly, <code>VALIDATE_AGE</code> defines a variable called <code>AGE</code>. These variables are subsequently available for use by the calculation function.</p>
+<p>This technique (having each validation function define a variable for its associated field) removes the need to repeat the conversion work in the calculation routine <code>CALC_FSLTAB_RESULTS</code> that will be called when the validation is complete. It also removes the need to repeat the conversion work in a validation routine that needs to know the value of a previously validated field.</p>
+<p>Returning to the explanation of <code>VALIDATE_TERM</code>, line <code>[16]</code> checks to see that both the <code class="language-nonAPL">RequiredFieldValidator</code> and <code class="language-nonAPL">CustomValidator</code> controls for the <strong>Initial Age</strong> field register that the value in the field is valid, before attempting to perform the second stage of the validation which depends upon <code>AGE</code>. <code>AGE</code> must exist (and be a reasonable value) if <code class="language-nonAPL">CustomValidator_AGE.IsValid</code> is true. It is not sufficient to check the <code class="language-nonAPL">CustomValidator</code> control, because its validation function will not be invoked (and the control will register that the field is valid) if the field is empty.</p>
+<p>Line [5] uses similar logic to set up an appropriate error message, which is assigned to the <code class="language-nonAPL">ErrorMessage</code> property of the corresponding <code class="language-nonAPL">CustomValidator</code> control, represented by <code>source</code>.</p>
+<p><code>VALIDATE_DUR</code>, which validates the <strong>Initial Duration</strong> field, uses similar logic to check that the value in the <strong>Endowment Term</strong> field is correct and that <code>TERM</code>, on which it depends, is therefore defined. In addition, in line <code>[8]</code> it refers to the <code class="language-nonAPL">Checked</code> property of the <code class="language-nonAPL">RadioButton</code> controls, called <code>TA</code> and <code>TB</code> respectively:
+<pre class="highlight"><code class="language-apl">    ∇ VALIDATE_DUR MSG;source;args;DT
+[1]   ⍝ Validates Initial Duration
+[2]   :Access Public
+[3]   :Signature VALIDATE_DUR Object source, ServerValidateEventArgs args
+[4]   source args←MSG
+[5]   :If 2=GET_RUN_OPTION
+[6]      DT←1
+[7]   :Else
+[8]      DT←+/10 1×(TA TB).Checked
+[9]   :EndIf
+[10]  :If ^/(RFVTRM CustomValidator_TERM).IsValid
+[11]     source.ErrorMessage←'Initial Duration must be an integer between 0 and ',(⍕TERM-DT),' (TERM-',(⍕DT),')'
+[12]  :Else
+[13]     source.ErrorMessage←'Initial Duration must be an integer between 0 and (Term-',(⍕DT),')'
+[14]  :EndIf
+[15]  :Trap 0
+[16]     DUR←Convert.ToInt32 args.Value
+[17]  :Else
+[18]     args.IsValid←0
+[19]     :Return
+[20]  :EndTrap
+[21]  :If ^/(RFVTRM CustomValidator_TERM).IsValid
+[22]     args.IsValid←(0≤DUR)^DUR≤TERM-DT
+[23]  :EndIf
+    ∇</code></pre></p>
+<h2 id="forcing-validation">Forcing Validation</h2>
+<p>Validation controls are automatically invoked when the user activates a Button control, but not when other postbacks occur. For example, when the user selects a different Mortality Table (represented by a <code class="language-nonAPL">RadioButtonList</code> control), the page calls the <code>CHANGE_TABLES</code> function:
+<pre class="highlight"><code class="language-nonAPL">&lt;asp:RadioButtonList id=MT runat="server" RepeatDirection="Vertical" RepeatRows="3" tabIndex=1 onSelectedIndexChanged="CHANGE_TABLES" AutoPostBack="true"&gt;
+   &lt;asp:ListItem Value="UK Assured Lives"&gt;Selected="True"&gt;UK Assured Lives&lt;/asp:ListItem&gt;
+   &lt;asp:ListItem Value="UK Immediate Annuitant"&gt;UK Immediate Annuitant&lt;/asp:ListItem&gt;
+   &lt;asp:ListItem Value="UK Pension Annuitant"&gt;UK Pension Annuitant&lt;/asp:ListItem&gt;
+&lt;/asp:RadioButtonList&gt;
+</code></pre></p>
+<p>A <code class="language-nonAPL">RadioButtonList</code> control does not cause validation to occur, so this must be done explicitly. This is easily achieved by calling the <code class="language-nonAPL">Validate</code> method of the Page itself as shown in line <code>[13]</code>:
+<pre class="highlight"><code class="language-apl">     ∇ CHANGE_TABLES ARGS;TableNames;TableName;OPTSMORT; MORT_OPTION;RUN_OPTION
+[1]   :Access public
+[2]   :Signature CHANGE_TABLES  Object obj, EventArgs ev
+[3]    RUN_OPTION←GET_RUN_OPTION
+[4]    MORT_OPTION←1+MT.SelectedIndex
+[5]    OPTSMORT←MORT_OPTION⊃OPTSMORT_ASS OPTSMORT_ANNI OPTSMORT_ANNP
+[6]    TableNames←⊃OPTSMORT    ⍝ Assured lives/term assurance tables
+[7]    TableNames←↓(2=⎕NC 0 1↓3⊃OPTSMORT)⌿TableNames
+[8]    TableNames←TableNames~¨' '
+[9]    CMTAB.Items.Clear
+[10]   :For TableName :In TableNames
+[11]       CMTAB.Items.Add TableName
+[12]   :EndFor
+[13]   Page.Validate ⍝ Force page validation
+[14]   :Select RUN_OPTION
+[15]   :Case 1
+[16]       CALC_FSLTAB_RESULTS ⍬
+[17]   :Case 2
+[18]       CALC_FSL_RESULTS ⍬
+[19]   :EndSelect
+    ∇</code></pre></p>
+<h2 id="calculating-and-displaying-results">Calculating and Displaying Results</h2>
+<p>The function <code>CALC_FSLTAB_RESULTS</code> is used by the <strong>sla_tab.aspx</strong> page to calculate and display results:
+<pre class="highlight"><code class="language-apl">    ∇ CALC_FSLTAB_RESULTS ARGS;X;ULT;MORTOPT;QTAB;TABLE;TAB_DURS;RUN_OPTION;MORT_OPTION;UNIX;DOS;CURRENTDATE;CURRENTTIME;OPTSMORT;TABLES;MSG;data
+[1]    :If IsValid ⍝ Is page valid ?
+...
+[6]        MORT_OPTION←1+MT.SelectedIndex
+[7]        OPTSMORT←MORT_OPTION⊃OPTSMORT_ASS OPTSMORT_ANNI OPTSMORT_ANNP
+[8]
+[9]        TABLES←↓3⊃OPTSMORT
+[10]       MORTOPT←(⍴TABLES)⍴0
+[11]       MORTOPT[1+CMTAB.SelectedIndex]←1
+[12]       TABLE←⊃MORTOPT/TABLES
+...
+[15]       TAB_DURS←TA.Checked
+...
+[41]       FSLT←((⍴X)⍴(3 0)(3 0)(3 0)(11 4)(11 6)(12 4)(11 6)(8 0))⍕¨X
+[42]       FSLT←FSLT~¨' '
+[43]       :With data←⎕NEW DataTable
+[44]           cols←Columns.Add¨⊂¨##.FSL_HEADER
+[45]           {
+[46]               row←NewRow ⍬
+[47]               row.ItemArray←⍵
+[48]               Rows.Add row
+[49]           }¨↓##.FSLT
+[50]       :EndWith
+[51]       fsl.DataSource←⎕NEW DataView data
+[52]       fsl.DataBind
+[53]       fsl.Visible←1
+[54]   :Else
+[55]       fsl.Visible←0
+[56]   :EndIf
+     ∇</code></pre></p>
+<p>The results of the calculation are displayed in a <code class="language-nonAPL">DataGrid</code> object called <code class="language-nonAPL">fsl</code>. This is defined within the <strong>sla_tab.aspx</strong> page as:
+<pre class="highlight"><code class="language-nonAPL">&lt;asp:DataGrid id="fsl" runat="server" Width="700" AllowPaging="false" BorderColor="black" CellPadding="3" CellSpacing="0"Font-Size="9pt" PageSize="10"&gt;
+   &lt;ItemStyle HorizontalAlign="right" Width="100"&gt;&lt;/ItemStyle&gt;
+   &lt;HeaderStyle HorizontalAlign="center" Font-Size="12pt" Font-Bold="true" BackColor="#17748A"ForeColor="#FFFFFF"&gt;&lt;/HeaderStyle&gt;
+&lt;/asp:DataGrid&gt;
+</code></pre></p>
+<p>Line <code>[1]</code> checks to see whether the user input is valid. If not, line <code>[55]</code> hides the <code class="language-nonAPL">DataGrid</code> object <code class="language-nonAPL">fsl</code> so that no results are displayed in the page. The display of error messages is handled separately (and automatically) by the <code class="language-nonAPL">ValidationSummary</code> control on the page.</p>
+<p>Lines <code>[11 15]</code> obtain the values of the <code>CMTAB</code> (<code class="language-nonAPL">DropDownList</code>) and <code>TA</code> (<code class="language-nonAPL">RadioButton</code>) controls on the page.</p>
+<p>Lines <code>[43-53]</code> store the calculated data table <code>FSLT</code> in the <code class="language-nonAPL">DataGrid</code> <code>fsl</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Made with <a href="https://zensical.org/" target="_blank" rel="noopener"><strong>Zensical</strong></a><br/>Copyright &copy; 1982-2026 <strong><a href="https://dyalog.com" target="_blank" rel="noopener">Dyalog Limited</a></strong> (<button type="button" class="copy" title="Copy build info to the clipboard" data-done="copied" data-fail="copy failed" onclick="var b=this,s=b.nextElementSibling;navigator.clipboard?navigator.clipboard.writeText(b.textContent.trim()).then(function(){s.textContent=b.dataset.done},function(){s.textContent=b.dataset.fail}):s.textContent=b.dataset.fail">2026-09-16 main:1a0009b8</button><span class="copy-status" role="status"></span>).<br/>Except where otherwise noted, content on this site is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener"><strong>Creative Commons Attribution 4.0 International</strong></a> licence.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../..","features":["content.code.copy","navigation.indexes","navigation.instant","navigation.path","navigation.prune","navigation.sections","navigation.tracking"],"redirect":null,"search":"../../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"provider":"mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.8dcc8e9c.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,4396 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuring-the-ide/configuration-dialog/">
+      
+      
+        <link rel="prev" href="../../aplservice-logging-events/">
+      
+      
+        <link rel="next" href="../colour-selection-dialog/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../documentation-assetsz/images/dyalog-ide-cube-2025.2.svg">
+      <meta name="generator" content="zensical-0.0.62">
+    
+    
+      
+        <title>Configuration Dialog - Documentation</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../assets/stylesheets/classic/main.e0592429.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/classic/palette.c7ab7c71.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../documentation-assetsz/css/dyalog.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-configuration-dialog-box" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  You're not viewing the latest version.
+  <a href="../../../..">
+    <strong>Click here to go to latest.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../../../documentation-assetsz/images/dyalog-logo_orange.svg" alt="Documentation">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Configuration Dialog
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/dyalog/documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../../../documentation-assetsz/images/dyalog-logo_orange.svg" alt="Documentation">
+
+    </a>
+    Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dyalog/documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Release Notes
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Release Notes
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../release-notes/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v21.0 Release Notes
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    
+  
+  
+  
+  
+    <a href="../../../earlier-release-notes/release-notes-v20-0/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Earlier Release Notes
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Core Reference
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Core Reference
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../language-reference-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dyalog APL Language
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../programming-reference-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Programming
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Code Tooling
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Code Tooling
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../net-interface-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  .NET Interface
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../compiler-user-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Compiler
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../shared-code-files-user-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Shared Code Files
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dyalog for Microsoft Windows
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Dyalog for Microsoft Windows
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installation/Configuration
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Installation/Configuration
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Documentation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../files-and-directories/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Files and Directories
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../file-associations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  File Extensions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apl-fonts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  APL Fonts
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interoperability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interoperability and Compatibility
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apl-command-line/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  The APL Command Line
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apl-exit-codes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  APL Exit Codes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dyalog-serial-number/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dyalog Serial Number
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../configuration-parameters/configuration-parameters/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Configuration Parameters
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../registry-subfolders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Registry SubFolders
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration-files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Configuration Files
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../window-captions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Window Captions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workspace-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Workspace Management
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interface-with-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interface with Windows
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../auxiliary-processors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Auxiliary Processors
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../access-control-for-external-variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Access Control for External Variables
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../creating-executables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Creating Executables
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../runtime-applications-and-components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Run-Time Applications and Components
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../runtime-applications-additional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Run-Time Applications Additional Considerations
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../com-objects-and-the-dyalog-dll/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  COM Objects and the Dyalog APL DLL
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apl-application-as-a-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  APL Application as a Service
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aplservice-logging-events/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  APLService Logging Events
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_24" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_24" id="__nav_4_1_24_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Configuring the IDE
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_24_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1_24">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Configuring the IDE
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+        <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Configuration Dialog
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Configuration Dialog
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        General Tab
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unicode-input-tab-unicode" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Unicode Input Tab (Unicode)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unicode Input Tab (Unicode)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-method-editor-properties-dialog-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Input Method Editor Properties Dialog Box
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-tab-classic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Input Tab (Classic)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-tab-classic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Output Tab (Classic)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keyboard-shortcuts-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Keyboard Shortcuts Tab
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saved-responses-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Saved Responses Tab
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workspace-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Workspace Tab
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helpdmx-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Help/DMX Tab
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Windows Tab
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Session Tab
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#traceedit-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trace/Edit Tab
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trace&#x2f;Edit Tab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixing-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixing Scripts
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-complete-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Auto Complete Tab
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salt-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SALT Tab
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-commands-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        User Commands Tab
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-syntax-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Object Syntax Tab
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../colour-selection-dialog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Colour Selection Dialog
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Print Configuration Dialog
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../windows-ui-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  User Interface
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../object-reference/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Object Reference
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../interface-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interfaces
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../net-framework-interface-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  .NET Framework Interface
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dyalog for UNIX
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Dyalog for UNIX
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../unix-installation-and-configuration-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installation/Configuration
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../unix-user-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  User Interface
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  About
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  About
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../conventions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Conventions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../licences-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Third-party Licences
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../trademarks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Trademarks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        General Tab
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unicode-input-tab-unicode" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Unicode Input Tab (Unicode)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unicode Input Tab (Unicode)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-method-editor-properties-dialog-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Input Method Editor Properties Dialog Box
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-tab-classic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Input Tab (Classic)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-tab-classic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Output Tab (Classic)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keyboard-shortcuts-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Keyboard Shortcuts Tab
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saved-responses-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Saved Responses Tab
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workspace-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Workspace Tab
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helpdmx-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Help/DMX Tab
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Windows Tab
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Session Tab
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#traceedit-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trace/Edit Tab
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trace&#x2f;Edit Tab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixing-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixing Scripts
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-complete-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Auto Complete Tab
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salt-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SALT Tab
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-commands-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        User Commands Tab
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-syntax-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Object Syntax Tab
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Dyalog v21.0
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Dyalog for Microsoft Windows
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Installation/Configuration
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="././" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Configuring the IDE
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="the-configuration-dialog-box">The Configuration Dialog Box</h1>
+<p>The <strong>Configuration</strong> dialog box is displayed from the Session by selecting <strong>Configure</strong> from the <strong>Options</strong> menu. It presents many of the interpreter's <a href="../../configuration-parameters/configuration-parameters/">configuration parameters</a>, grouped into tabs; changing a setting and clicking <em>OK</em> updates the corresponding parameter. Each tab is described in its own section.</p>
+<p>Some tabs are present only in the Unicode edition or only in the Classic edition, as noted in their headings.</p>
+<h2 id="general-tab">General Tab</h2>
+<p><img alt="configuration dialog general tab" src="../../img/configuration-dialog-general-tab.png" /></p>
+<table id="_table-1">
+<caption style="caption-side:top">Table 1: Configuration dialog box – General tab</caption><thead>
+<tr>
+<th>Label</th>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recently used file list size</td>
+<td><a href="../../configuration-parameters/file-stack-size/">File_Stack_Size</a></td>
+<td>Specifies the number of the most recently used workspaces displayed in the File menu</td>
+</tr>
+<tr>
+<td>Underline URLs and links</td>
+<td><a href="../../configuration-parameters/urlhighlight/">URLHighlight</a></td>
+<td>Specifies whether URLs and links are highlighted in Session and Edit windows</td>
+</tr>
+<tr>
+<td>Display Value Tips</td>
+<td><a href="../../configuration-parameters/valuetips/enabled/">Enabled</a></td>
+<td>Specifies whether Value Tips are enabled</td>
+</tr>
+<tr>
+<td>Display Value Tips after</td>
+<td><a href="../../configuration-parameters/valuetips/delay/">Delay</a></td>
+<td>Specifies the delay before APL displays a Value Tip</td>
+</tr>
+<tr>
+<td>Colour Scheme</td>
+<td><a href="../../configuration-parameters/valuetips/colourscheme/">ColourScheme</a></td>
+<td>Specifies the colour scheme used to display Value Tips</td>
+</tr>
+<tr>
+<td>Enable DPI Scaling of the interpreter and development environment</td>
+<td><a href="../../configuration-parameters/autodpi/">AutoDPI</a></td>
+<td>Enables or disables DPI scaling for the APL Session</td>
+</tr>
+<tr>
+<td>Enable DPI scaling of GUI application</td>
+<td><a href="../../configuration-parameters/dyalog-pixel-type/">Dyalog_Pixel_Type</a></td>
+<td>Determines whether Coord <code>'Pixel'</code> is treated as ScaledPixel or RealPixel</td>
+</tr>
+<tr>
+<td>Configuration saved in</td>
+<td><a href="../../configuration-parameters/inifile/">IniFile</a></td>
+<td>Specifies the full pathname of the registry folder used by APL</td>
+</tr>
+</tbody>
+</table>
+<h2 id="unicode-input-tab-unicode">Unicode Input Tab (Unicode)</h2>
+<p>Unicode Edition can optionally select your APL keyboard each time you start APL. To choose this option, select one of your installed APL keyboards, enable the <strong>Activate selected keyboard</strong> checkbox, then click <em>OK</em>.</p>
+<p><img alt="configuration dialog unicode input tab" src="../../img/configuration-dialog-unicode-input-tab.png" /></p>
+<table id="_table-2">
+<caption style="caption-side:top">Table 2: Configuration dialog box – Unicode Input tab</caption><thead>
+<tr>
+<th>Label</th>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Activate selected keyboard</td>
+<td><a href="../../configuration-parameters/initialkeyboardlayoutinuse/">InitialKeyboardLayoutInUse</a></td>
+<td>If checked, the specified APL keyboard is activated on start-up</td>
+</tr>
+<tr>
+<td>Show keyboards for all Languages</td>
+<td><a href="../../configuration-parameters/initialkeyboardlayoutshowall/">InitialKeyboardLayoutShowAll</a></td>
+<td>If checked, all installed keyboards are displayed. Otherwise, only Dyalog keyboards are shown</td>
+</tr>
+<tr>
+<td>Keyboard</td>
+<td><a href="../../configuration-parameters/initialkeyboardlayout/">InitialKeyboardLayout</a></td>
+<td>The APL keyboard to be selected</td>
+</tr>
+<tr>
+<td>Configure Layout</td>
+<td>&nbsp;</td>
+<td>Displays the <a href="#input-method-editor-properties-dialog-box">Input Method Editor Properties dialog box</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="input-method-editor-properties-dialog-box">Input Method Editor Properties Dialog Box</h3>
+<p><img alt="IME properties" src="../../img/ime-properties.png" /></p>
+<table id="_table-3">
+<caption style="caption-side:top">Table 3: Configuration dialog box – Unicode Input tab (Input Method Editor Properties dialog box)</caption><thead>
+<tr>
+<th>Label</th>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Use Ctrl+X,C,V for clipboard</td>
+<td><a href="../../configuration-parameters/usexcv/">UseXCV</a></td>
+<td>Specifies whether the commonly used keystrokes for copy, cut, and paste are recognised as such</td>
+</tr>
+<tr>
+<td>Enable Backtick Keyboard introducer</td>
+<td>&nbsp;</td>
+<td>Enables the <em>Backtick</em> keyboard, in which the backtick character introduces APL glyphs. See <a href="../../../windows-ui-guide/ime-configuration/#backtick-keyboard">Backtick Keyboard</a></td>
+</tr>
+<tr>
+<td>Enable Overstrikes</td>
+<td><a href="../../configuration-parameters/resolveoverstrikes/">ResolveOverstrikes</a></td>
+<td>1 = enable overstrikes. 0 = disable overstrikes</td>
+</tr>
+<tr>
+<td>Overstrikes do not require the OS introducer key</td>
+<td>&nbsp;</td>
+<td>1 = IME identifies overstrike operation automatically 0 = IME requires the <strong>&lt;OS&gt;</strong> key (default <kbd>Ctrl</kbd>+<kbd>Bksp</kbd>) to signal an overstrike operation</td>
+</tr>
+<tr>
+<td>Use Overstrike popup</td>
+<td><a href="../../configuration-parameters/overstrikespopup/">OverstrikesPopup</a></td>
+<td>1 = enable the overstrike popup. 0 = disable the overstrike popup</td>
+</tr>
+</tbody>
+</table>
+<h2 id="input-tab-classic">Input Tab (Classic)</h2>
+<p><img alt="configuration dialog input tab" src="../../img/configuration-dialog-input-tab.png" /></p>
+<table id="_table-4">
+<caption style="caption-side:top">Table 4: Configuration dialog box – Input tab</caption><thead>
+<tr>
+<th>Label</th>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Input table search path</td>
+<td><a href="../../configuration-parameters/aplkeys/">APLKeys</a></td>
+<td>A list of directories to be searched for the specified input table</td>
+</tr>
+<tr>
+<td>Input table file</td>
+<td><a href="../../configuration-parameters/aplk/">APLK</a></td>
+<td>The name of the input table file (<strong>.DIN</strong>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="output-tab-classic">Output Tab (Classic)</h2>
+<p><img alt="configuration dialog output tab" src="../../img/configuration-dialog-output-tab.png" /></p>
+<table id="_table-5">
+<caption style="caption-side:top">Table 5: Configuration dialog box – Output tab</caption><thead>
+<tr>
+<th>Label</th>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Output table search path</td>
+<td><a href="../../configuration-parameters/apltrans/">APLTrans</a></td>
+<td>A list of directories to be searched for the specified output table</td>
+</tr>
+<tr>
+<td>Output table file</td>
+<td><a href="../../configuration-parameters/aplt/">APLT</a></td>
+<td>The name of the output table file (.DOT)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="keyboard-shortcuts-tab">Keyboard Shortcuts Tab</h2>
+<p><img alt="configuration dialog keyboard shortcuts tab" src="../../img/configuration-dialog-keyboard-shortcuts-tab.png" /></p>
+<p>To alter the keystroke associated with a particular action, simply select the action required and press the keystroke. For example, to change the keystroke associated with the action <strong>&lt;UA&gt;</strong> (undo all changes) from (None) to <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>u</kbd>, simply select the corresponding row in the list and press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>u</kbd>. If <strong>Confirm before Overwrite</strong> is checked, you will be prompted to confirm or cancel before each and every change is written back to the registry.</p>
+<p>Clicking on the column headings sorts on that column; shift and mouse click will sort in reverse order.</p>
+<h2 id="saved-responses-tab">Saved Responses Tab</h2>
+<p><img alt="configuration dialog saved responses tab" src="../../img/configuration-dialog-saved-responses-tab.png" /></p>
+<p>The <strong>Saved Responses</strong> tab of the <strong>Configuration</strong> dialog is used to remove preferences that the user has previously established.</p>
+<p>In this example, the user has at some point chosen to save a text file with a <code>.h</code> extension as text in the workspace and, by checking the option <strong>Save this response for all files with a ".h" extension</strong>, saved this as a preference for all such text files. Similarly, the user has checked the option <strong>Do not show this message again</strong> when responding to the warning dialog <strong>Saving as text will ...</strong>.</p>
+<p>If the user wants to reverse these decisions, even temporarily, it is necessary to select the corresponding option /preference name(s) and click <em>Delete</em>. The names are intended to be self-explanatory and are not listed here.</p>
+<p><img alt="saved responses1" src="../../img/saved-responses1.png" /></p>
+<p><img alt="saved responses2" src="../../img/saved-responses2.png" /></p>
+<h2 id="workspace-tab">Workspace Tab</h2>
+<p><img alt="configuration dialog workspace tab" src="../../img/configuration-dialog-workspace-tab.png" /></p>
+<table id="_table-6">
+<caption style="caption-side:top">Table 6: Configuration dialog box – Workspace tab</caption><thead>
+<tr>
+<th>Label</th>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Workspace search path</td>
+<td><a href="../../configuration-parameters/wspath/">WSPath</a></td>
+<td>A list of directories to be searched for the specified workspace when the user executes <code>)LOAD</code></td>
+</tr>
+<tr>
+<td>Maximum workspace size</td>
+<td><a href="../../configuration-parameters/maxws/">MaxWS</a></td>
+<td>The maximum size of the workspace</td>
+</tr>
+</tbody>
+</table>
+<h2 id="helpdmx-tab">Help/DMX Tab</h2>
+<p><img alt="configuration dialog help dmx tab" src="../../img/configuration-dialog-help-dmx-tab.png" /></p>
+<table id="_table-7">
+<caption style="caption-side:top">Table 7: Configuration dialog box – Help/DMX tab</caption><thead>
+<tr>
+<th>Label</th>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DMX messages should go to</td>
+<td><a href="../../configuration-parameters/dmxoutputonerror/">DMXOutputOnError</a></td>
+<td>If checked, these boxes cause APL to display <a href="../../../language-reference-guide/system-functions/dmx/"><code>⎕DMX</code></a> messages in the corresponding window(s)</td>
+</tr>
+<tr>
+<td>Use Microsoft's documentation centre for non-Dyalog topics</td>
+<td><a href="../../configuration-parameters/useexternalhelpurl/">UseExternalHelpURL</a></td>
+<td>If this option is checked, APL will look for help for external objects at Microsoft's documentation centre, which is identified by the specified URL</td>
+</tr>
+<tr>
+<td>URL</td>
+<td><a href="../../configuration-parameters/externalhelpurl/">ExternalHelpURL</a></td>
+<td>The URL for the documentation centre</td>
+</tr>
+</tbody>
+</table>
+<h2 id="windows-tab">Windows Tab</h2>
+<p><img alt="configuration dialog windows tab" src="../../img/configuration-dialog-windows-tab.png" /></p>
+<table id="_table-8">
+<caption style="caption-side:top">Table 8: Configuration dialog box – Windows tab (Edit Windows panel)</caption><thead>
+<tr>
+<th>Label</th>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Width</td>
+<td><a href="../../configuration-parameters/edit-cols/">Edit_Cols</a></td>
+<td>The maximum number of rows displayed in a new edit window</td>
+</tr>
+<tr>
+<td>Height</td>
+<td><a href="../../configuration-parameters/edit-rows/">Edit_Rows</a></td>
+<td>The maximum number of columns displayed in a new edit window</td>
+</tr>
+<tr>
+<td>X Pos</td>
+<td><a href="../../configuration-parameters/edit-first-x/">Edit_First_X</a></td>
+<td>The initial horizontal position in characters of the first edit window</td>
+</tr>
+<tr>
+<td>Y Pos</td>
+<td><a href="../../configuration-parameters/edit-first-y/">Edit_First_Y</a></td>
+<td>The initial vertical position in characters of the first edit window</td>
+</tr>
+<tr>
+<td>X Offset</td>
+<td><a href="../../configuration-parameters/edit-offset-x/">Edit_Offset_X</a></td>
+<td>The initial horizontal position in characters of the second and subsequent edit windows relative to the previous one</td>
+</tr>
+<tr>
+<td>Y Offset</td>
+<td><a href="../../configuration-parameters/edit-offset-y/">Edit_Offset_Y</a></td>
+<td>The initial vertical position in characters of the second and subsequent edit windows relative to the previous one</td>
+</tr>
+</tbody>
+</table>
+<table id="_table-9">
+<caption style="caption-side:top">Table 9: Configuration dialog box – Windows tab (Trace Windows panel)</caption><thead>
+<tr>
+<th>Label</th>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X Pos</td>
+<td><a href="../../configuration-parameters/trace-first-x/">Trace_First_X</a></td>
+<td>The initial horizontal position in characters of the first trace window</td>
+</tr>
+<tr>
+<td>Y Pos</td>
+<td><a href="../../configuration-parameters/trace-first-y/">Trace_First_Y</a></td>
+<td>The initial vertical position in characters of the first trace window</td>
+</tr>
+<tr>
+<td>X Offset</td>
+<td><a href="../../configuration-parameters/trace-offset-x/">Trace_Offset_X</a></td>
+<td>The initial horizontal position in characters of the second and subsequent trace windows relative to the previous one</td>
+</tr>
+<tr>
+<td>Y Offset</td>
+<td><a href="../../configuration-parameters/trace-offset-y/">Trace_Offset_Y</a></td>
+<td>The initial vertical position in characters of the second and subsequent trace windows relative to the previous one</td>
+</tr>
+</tbody>
+</table>
+<table id="_table-10">
+<caption style="caption-side:top">Table 10: Configuration dialog box – Windows tab (QuadSM Window panel)</caption><thead>
+<tr>
+<th>Label</th>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Width</td>
+<td><a href="../../configuration-parameters/sm-cols/">SM_Cols</a></td>
+<td>The width of the <a href="../../../language-reference-guide/system-functions/sm/"><code>⎕SM</code></a> window</td>
+</tr>
+<tr>
+<td>Height</td>
+<td><a href="../../configuration-parameters/sm-rows/">SM_Rows</a></td>
+<td>The height of the <code>⎕SM</code> window</td>
+</tr>
+</tbody>
+</table>
+<h2 id="session-tab">Session Tab</h2>
+<p><img alt="configuration dialog session tab" src="../../img/configuration-dialog-session-tab.png" /></p>
+<table id="_table-11">
+<caption style="caption-side:top">Table 11: Configuration dialog box – Session tab</caption><thead>
+<tr>
+<th>Label</th>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../../language-reference-guide/system-functions/io/"><code>⎕IO</code></a></td>
+<td><a href="../../configuration-parameters/default-io/">Default_IO</a></td>
+<td>The default value of <code>⎕IO</code> in a <code>clear ws</code></td>
+</tr>
+<tr>
+<td><a href="../../../language-reference-guide/system-functions/ml/"><code>⎕ML</code></a></td>
+<td><a href="../../configuration-parameters/default-ml/">Default_ML</a></td>
+<td>The default value of <code>⎕ML</code> in a <code>clear ws</code></td>
+</tr>
+<tr>
+<td><a href="../../../language-reference-guide/system-functions/pp/"><code>⎕PP</code></a></td>
+<td><a href="../../configuration-parameters/default-pp/">Default_PP</a></td>
+<td>The default value of <code>⎕PP</code> in a <code>clear ws</code></td>
+</tr>
+<tr>
+<td><a href="../../../language-reference-guide/system-functions/rtl/"><code>⎕RTL</code></a></td>
+<td><a href="../../configuration-parameters/default-rtl/">Default_RTL</a></td>
+<td>The default value of <code>⎕RTL</code> in a <code>clear ws</code></td>
+</tr>
+<tr>
+<td><a href="../../../language-reference-guide/system-functions/div/"><code>⎕DIV</code></a></td>
+<td><a href="../../configuration-parameters/default-div/">Default_DIV</a></td>
+<td>The default value of <code>⎕DIV</code> in a <code>clear ws</code></td>
+</tr>
+<tr>
+<td><a href="../../../language-reference-guide/system-functions/wx/"><code>⎕WX</code></a></td>
+<td><a href="../../configuration-parameters/default-wx/">Default_WX</a></td>
+<td>The default value of <code>⎕WX</code> in a <code>clear ws</code></td>
+</tr>
+<tr>
+<td>Auto PW</td>
+<td><a href="../../configuration-parameters/auto-pw/">Auto_PW</a></td>
+<td>If checked, the value of <a href="../../../language-reference-guide/system-functions/pw/"><code>⎕PW</code></a> is dynamic and depends on the width of the Session Window</td>
+</tr>
+<tr>
+<td>Input buffer size</td>
+<td><a href="../../configuration-parameters/input-size/">Input_Size</a></td>
+<td>The size of the buffer used to store marked lines (lines awaiting execution) in the Session</td>
+</tr>
+<tr>
+<td>History size</td>
+<td><a href="../../configuration-parameters/history-size/">History_Size</a></td>
+<td>The size of the buffer used to store previously entered (input) lines in the Session</td>
+</tr>
+<tr>
+<td>PFKey buffer size</td>
+<td><a href="../../configuration-parameters/pfkey-size/">PFKey_Size</a></td>
+<td>The size of the buffer used to store PFKey definitions ( <a href="../../../language-reference-guide/system-functions/pfkey/"><code>⎕PFKEY</code></a> )</td>
+</tr>
+<tr>
+<td>Confirm on Deletion from Session log</td>
+<td><a href="../../configuration-parameters/confirm-session-delete/">Confirm_Session_Delete</a></td>
+<td>Specifies whether you are prompted to confirm the deletion of a line from the Session (and Session log)</td>
+</tr>
+<tr>
+<td>Session log size</td>
+<td><a href="../../configuration-parameters/log-size/">Log_Size</a></td>
+<td>The size of the Session log buffer</td>
+</tr>
+<tr>
+<td>Session file</td>
+<td><a href="../../configuration-parameters/session-file/">Session_File</a></td>
+<td>The name of the Session file in which the definition of your session ( <a href="../../../language-reference-guide/system-functions/se/"><code>⎕SE</code></a> ) is stored</td>
+</tr>
+<tr>
+<td>Use log file</td>
+<td><a href="../../configuration-parameters/log-file-inuse/">Log_File_InUse</a></td>
+<td>Specifies whether the Session log is saved in a session log file</td>
+</tr>
+<tr>
+<td>Use log file</td>
+<td><a href="../../configuration-parameters/log-file/">Log_File</a></td>
+<td>The full pathname of the Session log file</td>
+</tr>
+<tr>
+<td>Multiline Input</td>
+<td><a href="../../configuration-parameters/dyalog-lineeditor-mode/">Dyalog_LineEditor_Mode</a></td>
+<td>Specifies whether multi-line input is enabled in the Session</td>
+</tr>
+</tbody>
+</table>
+<p>The size-related values in the Session tab are specified as an integer value followed by one of K, M, G, T, P, or E. Where no character is included, the default is K (kilobytes).</p>
+<h2 id="traceedit-tab">Trace/Edit Tab</h2>
+<p><img alt="configuration dialog trace edit tab" src="../../img/configuration-dialog-trace-edit-tab.png" /></p>
+<table id="_table-12">
+<caption style="caption-side:top">Table 12: Configuration dialog box – Trace/Edit tab</caption><thead>
+<tr>
+<th>Label</th>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Allow floating edit windows</td>
+<td><a href="../../configuration-parameters/dockableeditwindows/">DockableEditWindows</a></td>
+<td>Allows individual Edit windows to be undocked from (and re-docked in) the main Edit window</td>
+</tr>
+<tr>
+<td>Show status bars</td>
+<td><a href="../../configuration-parameters/statusonedit/">StatusOnEdit</a></td>
+<td>Specifies whether status bars are displayed along the bottom of individual Edit windows</td>
+</tr>
+<tr>
+<td>Show tool bars</td>
+<td><a href="../../configuration-parameters/toolbarsonedit/">ToolBarsOnEdit</a></td>
+<td>Specifies whether tool bars are displayed along the top of individual Edit windows</td>
+</tr>
+<tr>
+<td>Show trace stack on error</td>
+<td><a href="../../configuration-parameters/trace-on-error/">Trace_On_Error</a></td>
+<td>Specifies whether the Tracer is automatically invoked when an error or stop occurs in a defined function</td>
+</tr>
+<tr>
+<td>Allow search to wrap</td>
+<td><a href="../../configuration-parameters/wrapsearch/">WrapSearch</a></td>
+<td>Specifies whether Search/Replace in the Editor stops at the top or bottom of the text, or continues from the start or end as appropriate</td>
+</tr>
+<tr>
+<td>Show message box if text wraps</td>
+<td><a href="../../configuration-parameters/wrapsearchmsgbox/">WrapSearchMsgBox</a></td>
+<td>Specifies whether a message box is displayed to inform the user when the search wraps</td>
+</tr>
+<tr>
+<td>Warn if trace stack bigger than</td>
+<td><a href="../../configuration-parameters/trace-level-warn/">Trace_Level_Warn</a></td>
+<td>Specifies the maximum stack size for automatic deployment of the Tracer</td>
+</tr>
+<tr>
+<td>Confirm edit window close on Close</td>
+<td><a href="../../configuration-parameters/confirm-close/">Confirm_Close</a></td>
+<td>Specifies whether a confirmation dialog box is displayed if the user alters the contents of an edit window then closes it without saving</td>
+</tr>
+<tr>
+<td>Confirm edit window close on Edit (and Fix)</td>
+<td><a href="../../configuration-parameters/confirm-fix/">Confirm_Fix</a></td>
+<td>Specifies whether a confirmation dialog box is displayed if the user alters the contents of an edit window then saves it using <strong>Fix</strong> or <strong>Exit</strong></td>
+</tr>
+<tr>
+<td>Confirm edit window close on Abort</td>
+<td><a href="../../configuration-parameters/confirm-abort/">Confirm_Abort</a></td>
+<td>Specifies whether a confirmation dialog box is displayed if the user alters the contents of an edit window then aborts the edit session</td>
+</tr>
+<tr>
+<td>Autoformat functions</td>
+<td><a href="../../configuration-parameters/autoformat/">AutoFormat</a></td>
+<td>Selects automatic indentation for control structures when function is opened for editing</td>
+</tr>
+<tr>
+<td>Autoindent</td>
+<td><a href="../../configuration-parameters/autoindent/">AutoIndent</a></td>
+<td>Selects semi-automatic indentation for control structures while editing</td>
+</tr>
+<tr>
+<td>Double-click to Edit</td>
+<td><a href="../../configuration-parameters/doubleclickedit/">DoubleClickEdit</a></td>
+<td>Specifies whether double-clicking  over a name invokes the editor</td>
+</tr>
+<tr>
+<td>Skip blank lines when tracing</td>
+<td><a href="../../configuration-parameters/skiplines/">SkipLines</a></td>
+<td>If enabled, this causes the Tracer to automatically skip blank lines</td>
+</tr>
+<tr>
+<td>Skip comment lines when tracing</td>
+<td><a href="../../configuration-parameters/skiplines/">SkipLines</a></td>
+<td>If enabled, this causes the Tracer to automatically skip comment lines</td>
+</tr>
+<tr>
+<td>Skip locals lines when tracing</td>
+<td><a href="../../configuration-parameters/skiplines/">SkipLines</a></td>
+<td>If enabled, this causes the Tracer to automatically skip locals lines</td>
+</tr>
+<tr>
+<td>Limit tracer display to current function in script</td>
+<td><a href="../../configuration-parameters/addclassheaders/">AddClassHeaders</a></td>
+<td>When Tracing the execution of a function in a script, the Tracer displays either just the first line of the script and the function in question (option enabled), or the entire script (option disabled)</td>
+</tr>
+<tr>
+<td>Paste text as Unicode (Classic Edition only)</td>
+<td><a href="../../configuration-parameters/unicodetoclipboard/">UnicodeToClipboard</a></td>
+<td>Specifies whether text transferred to and from the Windows clipboard is to be treated as Unicode</td>
+</tr>
+<tr>
+<td>Tab stops every</td>
+<td><a href="../../configuration-parameters/tabstops/">TabStops</a></td>
+<td>The number of spaces inserted by pressing <kbd>Tab</kbd> in an edit window</td>
+</tr>
+<tr>
+<td>Exit and fix ...</td>
+<td><a href="../../configuration-parameters/initfullscriptsusp/">InitFullScriptSusp</a></td>
+<td>See <a href="#fixing-scripts">Fixing Scripts</a></td>
+</tr>
+<tr>
+<td>If not ...</td>
+<td><a href="../../configuration-parameters/initfullscriptnormal/">InitFullScriptNormal</a></td>
+<td>See <a href="#fixing-scripts">Fixing Scripts</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="fixing-scripts">Fixing Scripts</h3>
+<p>When using the Editor to edit  a script such as a Class or Namespace you can specify whether, when you Fix the script and Exit  the Editor, just the functions in the script are re-fixed, or whether the whole script is re-executed, thereby re-initialising any Fields or variables defined within.</p>
+<p>These two actions always appear in the Editor File menu, but you can specify which is associated with the <strong>&lt;EP&gt;</strong> <kbd>Esc</kbd> key by selecting the appropriate option in the drop-downs labelled:</p>
+<ul>
+<li>Exit and save changes <strong>&lt;EP&gt;</strong> in a suspended class or namespace should fix:</li>
+<li>If not suspended fix:</li>
+</ul>
+<p>In both cases, you can select either <strong>Only Functions</strong> or <strong>Everything</strong>.</p>
+<p>The label for the corresponding items on the Editor File menu (see <a href="../../../windows-ui-guide/editor/#the-file-menu-editing-a-script">The File Menu (editing a script)</a>) will change according to which behaviour applies. If you specify a keystroke for <strong>&lt;S1&gt;</strong> in the <strong>Keyboard Shortcuts</strong> tab, this will be associated with the unselected action.</p>
+<h2 id="auto-complete-tab">Auto Complete Tab</h2>
+<p><img alt="configuration dialog auto complete tab" src="../../img/configuration-dialog-auto-complete-tab.png" /></p>
+<p>To enter values in the <strong>OK Key</strong> and <strong>Cancel Key</strong> fields, click on the field with the mouse and then press the desired keystroke.</p>
+<table id="_table-13">
+<caption style="caption-side:top">Table 13: Configuration dialog box – Auto Complete tab</caption><thead>
+<tr>
+<th>Label</th>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Use Auto Complete</td>
+<td><a href="../../configuration-parameters/autocomplete/enabled/">Enabled</a></td>
+<td>Specifies whether Auto Completion is enabled</td>
+</tr>
+<tr>
+<td>Make suggestions after</td>
+<td><a href="../../configuration-parameters/autocomplete/prefixsize/">PrefixSize</a></td>
+<td>Specifies the number of characters you must enter before Auto Completion begins to make suggestions</td>
+</tr>
+<tr>
+<td>Delay completion for</td>
+<td><a href="../../configuration-parameters/keyboardinputdelay/">KeyboardInputDelay</a></td>
+<td>Specifies the delay in milliseconds before Auto Completion begins to make suggestions</td>
+</tr>
+<tr>
+<td>Suggest up to</td>
+<td><a href="../../configuration-parameters/autocomplete/rows/">Rows</a></td>
+<td>Specifies the maximum number of rows (height) in the AutoComplete pop-up suggestions box</td>
+</tr>
+<tr>
+<td>Show up to</td>
+<td><a href="../../configuration-parameters/autocomplete/cols/">Cols</a></td>
+<td>Specifies the maximum number of columns (width) in the AutoComplete pop-up suggestion box</td>
+</tr>
+<tr>
+<td>Keep History</td>
+<td><a href="../../configuration-parameters/autocomplete/history/">History</a></td>
+<td>Specifies whether AutoComplete maintains a list of previous AutoCompletions</td>
+</tr>
+<tr>
+<td>History Length</td>
+<td><a href="../../configuration-parameters/autocomplete/historysize/">HistorySize</a></td>
+<td>Specifies the number of previous AutoCompletions that are maintained</td>
+</tr>
+<tr>
+<td>Include filenames</td>
+<td><a href="../../configuration-parameters/autocomplete/showfiles/">ShowFiles</a></td>
+<td>Specifies whether AutoCompletion suggests directory and file names for <code>)LOAD</code>, <code>)COPY</code>, and <code>)DROP</code> system commands</td>
+</tr>
+<tr>
+<td>OK Key</td>
+<td><a href="../../configuration-parameters/autocomplete/completekey1/">CompleteKey1</a> <a href="../../configuration-parameters/autocomplete/completekey2/">CompleteKey2</a></td>
+<td>Specifies two possible keys that can be used to select the current option from the Auto Complete suggestion box</td>
+</tr>
+<tr>
+<td>Cancel Key</td>
+<td><a href="../../configuration-parameters/autocomplete/cancelkey1/">CancelKey1</a> <a href="../../configuration-parameters/autocomplete/cancelkey2/">CancelKey2</a></td>
+<td>Specifies two possible keys that can be used to cancel (hide) the Auto Complete suggestion box</td>
+</tr>
+<tr>
+<td>Common Key</td>
+<td><a href="../../configuration-parameters/autocomplete/commonkey1/">CommonKey1</a></td>
+<td>Specifies the key that will auto-complete the <em>common prefix</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="salt-tab">SALT Tab</h2>
+<p>SALT is the Simple APL Library Toolkit, a simple source code management system for Classes and script-based Namespaces. SPICE uses SALT to manage development tools that "plug in" to the Dyalog session.</p>
+<p><img alt="configuration dialog salt tab" src="../../img/configuration-dialog-salt-tab.png" /></p>
+<table id="_table-14">
+<caption style="caption-side:top">Table 14: Configuration dialog box – SALT tab</caption><thead>
+<tr>
+<th>Label</th>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enable Salt</td>
+<td>AddSALT</td>
+<td>Specifies whether SALT is enabled</td>
+</tr>
+<tr>
+<td>Compare command line:</td>
+<td>CompareCMD</td>
+<td>The command line for a third-party file comparison tool to be used to compare two versions of a file</td>
+</tr>
+<tr>
+<td>Editor command line:</td>
+<td>Editor</td>
+<td>Name of the program to be used to edit script files (default "Notepad")</td>
+</tr>
+<tr>
+<td>Source folders:</td>
+<td>SourceFolder</td>
+<td>Sets the SALT working directory; a list of folders to be searched for source code. Include "." on a separate line to include source files from the current working directory</td>
+</tr>
+</tbody>
+</table>
+<h2 id="user-commands-tab">User Commands Tab</h2>
+<p><img alt="configuration dialog user commands tab" src="../../img/configuration-dialog-user-commands-tab.png" /></p>
+<p>This page is used to specify and organise a list of folders that contain user command files. When you issue a user command, these folders will be searched for the source of the command in the order in which they appear in this list.</p>
+<table id="_table-15">
+<caption style="caption-side:top">Table 15: Configuration dialog box – User Commands tab</caption><thead>
+<tr>
+<th>Label</th>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source Folders</td>
+<td>SALT\CommandFolder</td>
+<td>Use this field to add folders to the list of folders that will be searched for User Commands</td>
+</tr>
+</tbody>
+</table>
+<h2 id="object-syntax-tab">Object Syntax Tab</h2>
+<p><img alt="configuration dialog object syntax tab" src="../../img/configuration-dialog-object-syntax-tab.png" /></p>
+<p>The <strong>Object Syntax</strong> tab of the <strong>Configuration</strong> dialog is used to set your <em>default preferences</em> for Object Syntax. Use <strong>Options/Object Syntax</strong> to change the settings for the current workspace.</p>
+<table id="_table-16">
+<caption style="caption-side:top">Table 16: Configuration dialog box – Object Syntax tab</caption><thead>
+<tr>
+<th>Label</th>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Expose properties of GUI Namespaces</td>
+<td><a href="../../configuration-parameters/default-wx/">Default_WX</a></td>
+<td>Specifies the value of <code>⎕WX</code> in a clear workspace</td>
+</tr>
+<tr>
+<td>Expose properties of Root</td>
+<td><a href="../../configuration-parameters/propertyexposeroot/">PropertyExposeRoot</a></td>
+<td>Specifies whether the names of properties, methods, and events of the Root object are exposed</td>
+</tr>
+<tr>
+<td>Expose properties of Session Namespace</td>
+<td><a href="../../configuration-parameters/propertyexposese/">PropertyExposeSE</a></td>
+<td>Specifies whether the names of properties, methods, and events of the Session object are exposed</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Made with <a href="https://zensical.org/" target="_blank" rel="noopener"><strong>Zensical</strong></a><br/>Copyright &copy; 1982-2026 <strong><a href="https://dyalog.com" target="_blank" rel="noopener">Dyalog Limited</a></strong> (<button type="button" class="copy" title="Copy build info to the clipboard" data-done="copied" data-fail="copy failed" onclick="var b=this,s=b.nextElementSibling;navigator.clipboard?navigator.clipboard.writeText(b.textContent.trim()).then(function(){s.textContent=b.dataset.done},function(){s.textContent=b.dataset.fail}):s.textContent=b.dataset.fail">2026-09-16 main:1a0009b8</button><span class="copy-status" role="status"></span>).<br/>Except where otherwise noted, content on this site is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener"><strong>Creative Commons Attribution 4.0 International</strong></a> licence.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../..","features":["content.code.copy","navigation.indexes","navigation.instant","navigation.path","navigation.prune","navigation.sections","navigation.tracking"],"redirect":null,"search":"../../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"provider":"mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.8dcc8e9c.min.js"></script>
+      
+    
+  </body>
+</html>

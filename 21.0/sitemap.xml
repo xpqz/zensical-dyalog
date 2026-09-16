@@ -163,6 +163,9 @@
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/language-reference-guide/primitive-functions/primitive-functions-by-category/</loc>
       </url>
       <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/language-reference-guide/primitive-functions/primitive-functions-a-z/</loc>
+      </url>
+      <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/language-reference-guide/primitive-functions/binomial/</loc>
       </url>
       <url>
@@ -475,6 +478,9 @@
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/language-reference-guide/primitive-operators/operators-summarised/</loc>
       </url>
       <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/language-reference-guide/primitive-operators/primitive-operators-a-z/</loc>
+      </url>
+      <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/language-reference-guide/primitive-operators/at/</loc>
       </url>
       <url>
@@ -769,6 +775,9 @@
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/language-reference-guide/primitive-operators/variant/</loc>
       </url>
       <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/language-reference-guide/other-syntax/</loc>
+      </url>
+      <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/language-reference-guide/other-syntax/abort/</loc>
       </url>
       <url>
@@ -809,6 +818,9 @@
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/language-reference-guide/system-functions/system-functions-by-category/</loc>
+      </url>
+      <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/language-reference-guide/system-functions/system-functions-a-z/</loc>
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/language-reference-guide/system-functions/character-input-output/</loc>
@@ -872,6 +884,9 @@
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/language-reference-guide/system-functions/csv/</loc>
+      </url>
+      <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/language-reference-guide/system-functions/csv-new/</loc>
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/language-reference-guide/system-functions/ct/</loc>
@@ -1264,6 +1279,9 @@
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/language-reference-guide/system-functions/svs/</loc>
       </url>
       <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/language-reference-guide/system-functions/system/</loc>
+      </url>
+      <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/language-reference-guide/system-functions/talloc/</loc>
       </url>
       <url>
@@ -1367,6 +1385,9 @@
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/language-reference-guide/system-commands/</loc>
+      </url>
+      <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/language-reference-guide/system-commands/system-commands-a-z/</loc>
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/language-reference-guide/system-commands/classes/</loc>
@@ -1513,10 +1534,16 @@
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/introduction/expressions/</loc>
       </url>
       <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/introduction/output/</loc>
+      </url>
+      <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/introduction/functions/</loc>
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/introduction/operators/</loc>
+      </url>
+      <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/introduction/results/</loc>
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/introduction/binding-strength/</loc>
@@ -1672,13 +1699,19 @@
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/defined-functions-and-operators/traditional-functions-and-operators/control-structures/disposable/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/defined-functions-and-operators/traditional-functions-and-operators/apl-line-editor/</loc>
-      </url>
-      <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/defined-functions-and-operators/dfns-and-dops/dynamic-functions-and-operators/</loc>
       </url>
       <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/defined-functions-and-operators/dfns-and-dops/model-syntax/</loc>
+      </url>
+      <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/defined-functions-and-operators/dfns-and-dops/statements/</loc>
+      </url>
+      <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/defined-functions-and-operators/dfns-and-dops/multiline-dynamic-functions/</loc>
+      </url>
+      <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/defined-functions-and-operators/dfns-and-dops/arguments-and-operands/</loc>
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/defined-functions-and-operators/dfns-and-dops/default-left-argument/</loc>
@@ -1687,16 +1720,16 @@
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/defined-functions-and-operators/dfns-and-dops/guards/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/defined-functions-and-operators/dfns-and-dops/shy-result/</loc>
-      </url>
-      <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/defined-functions-and-operators/dfns-and-dops/static-name-scope/</loc>
-      </url>
-      <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/defined-functions-and-operators/dfns-and-dops/error-guards/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/defined-functions-and-operators/dfns-and-dops/dynamic-operators/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/defined-functions-and-operators/dfns-and-dops/shy-result/</loc>
+      </url>
+      <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/defined-functions-and-operators/dfns-and-dops/global-local-names/</loc>
+      </url>
+      <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/defined-functions-and-operators/dfns-and-dops/static-name-scope/</loc>
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/defined-functions-and-operators/dfns-and-dops/recursion/</loc>
@@ -1705,7 +1738,16 @@
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/defined-functions-and-operators/dfns-and-dops/tail-calls/</loc>
       </url>
       <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/defined-functions-and-operators/dfns-and-dops/dynamic-operators/</loc>
+      </url>
+      <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/defined-functions-and-operators/dfns-and-dops/restrictions/</loc>
+      </url>
+      <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/defined-functions-and-operators/apl-line-editor/</loc>
+      </url>
+      <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/shell-scripts/</loc>
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/object-oriented-programming/introducing-classes/introducing-classes/</loc>
@@ -2263,52 +2305,52 @@
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/programming-reference-guide/aplmon/notes/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-interface-guide/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-interface-guide/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-interface-guide/installation/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-interface-guide/installation/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-interface-guide/dotnet-classes/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-interface-guide/dotnet-classes/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-interface-guide/dotnet-classes/locating-dotnet-classes-and-assemblies/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-interface-guide/dotnet-classes/locating-dotnet-classes-and-assemblies/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-interface-guide/dotnet-classes/using-dotnet-classes/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-interface-guide/dotnet-classes/using-dotnet-classes/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-interface-guide/dotnet-classes/advanced-techniques/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-interface-guide/dotnet-classes/advanced-techniques/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-interface-guide/dotnet-classes/example-usage/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-interface-guide/dotnet-classes/example-usage/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-interface-guide/dotnet-classes/enumerations/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-interface-guide/dotnet-classes/enumerations/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-interface-guide/dotnet-classes/handling-pointers-with-dyalogbyref/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-interface-guide/dotnet-classes/handling-pointers-with-dyalogbyref/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-interface-guide/dotnet-classes/decf-conversion/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-interface-guide/dotnet-classes/decf-conversion/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-interface-guide/apl-source-files/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-interface-guide/apl-source-files/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-interface-guide/writing-dotnet-classes/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-interface-guide/writing-dotnet-classes/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-interface-guide/writing-dotnet-classes/assemblies-namespaces-and-classes/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-interface-guide/writing-dotnet-classes/assemblies-namespaces-and-classes/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-interface-guide/writing-dotnet-classes/tutorial/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-interface-guide/writing-dotnet-classes/tutorial/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-interface-guide/writing-dotnet-classes/interfaces/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-interface-guide/writing-dotnet-classes/interfaces/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-interface-guide/writing-dotnet-classes/creating-dotnet-classes-with-apl-source-files/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-interface-guide/writing-dotnet-classes/creating-dotnet-classes-with-apl-source-files/</loc>
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/compiler-user-guide/</loc>
@@ -2488,12 +2530,6 @@
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuration-parameters/cfext/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuration-parameters/classicmode/</loc>
-      </url>
-      <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuration-parameters/classicmodesaveposition/</loc>
-      </url>
-      <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuration-parameters/cmd-prefix-and-cmd-postfix/</loc>
       </url>
       <url>
@@ -2578,7 +2614,13 @@
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuration-parameters/dyalog-eventlogname/</loc>
       </url>
       <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuration-parameters/dyalog-extvar-supported/</loc>
+      </url>
+      <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuration-parameters/dyalog-gutter-enable/</loc>
+      </url>
+      <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuration-parameters/dyalog-initsession/</loc>
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuration-parameters/dyalog-lineeditor-mode/</loc>
@@ -2659,6 +2701,9 @@
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuration-parameters/keyboardinputdelay/</loc>
       </url>
       <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuration-parameters/layout-file/</loc>
+      </url>
+      <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuration-parameters/load/</loc>
       </url>
       <url>
@@ -2731,16 +2776,10 @@
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuration-parameters/serial/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuration-parameters/sessionontop/</loc>
-      </url>
-      <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuration-parameters/session-file/</loc>
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuration-parameters/showstatusonerror/</loc>
-      </url>
-      <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuration-parameters/singletrace/</loc>
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuration-parameters/skiplines/</loc>
@@ -2851,9 +2890,6 @@
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/access-control-for-external-variables/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/shell-scripts/</loc>
-      </url>
-      <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/creating-executables/</loc>
       </url>
       <url>
@@ -2872,49 +2908,7 @@
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/aplservice-logging-events/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuring-the-ide/configuration-dialog/configuration-dialog-general-tab/</loc>
-      </url>
-      <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuring-the-ide/configuration-dialog/configuration-dialog-unicode-input-tab-unicode-edition-only/</loc>
-      </url>
-      <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuring-the-ide/configuration-dialog/configuration-dialog-input-tab-classic-edition-only/</loc>
-      </url>
-      <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuring-the-ide/configuration-dialog/configuration-dialog-output-tab-classic-edition-only/</loc>
-      </url>
-      <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuring-the-ide/configuration-dialog/configuration-dialog-keyboard-shortcuts-tab/</loc>
-      </url>
-      <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuring-the-ide/configuration-dialog/configuration-dialog-workspace-tab/</loc>
-      </url>
-      <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuring-the-ide/configuration-dialog/configuration-dialog-help-dmx-tab/</loc>
-      </url>
-      <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuring-the-ide/configuration-dialog/configuration-dialog-windows-tab/</loc>
-      </url>
-      <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuring-the-ide/configuration-dialog/configuration-dialog-session-tab/</loc>
-      </url>
-      <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuring-the-ide/configuration-dialog/configuration-dialog-trace-edit-tab/</loc>
-      </url>
-      <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuring-the-ide/configuration-dialog/configuration-dialog-auto-complete-tab/</loc>
-      </url>
-      <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuring-the-ide/configuration-dialog/configuration-dialog-salt-tab/</loc>
-      </url>
-      <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuring-the-ide/configuration-dialog/configuration-dialog-user-commands-tab/</loc>
-      </url>
-      <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuring-the-ide/configuration-dialog/configuration-dialog-object-syntax-tab/</loc>
-      </url>
-      <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuring-the-ide/configuration-dialog/configuration-dialog-saved-responsestab/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuring-the-ide/configuration-dialog/</loc>
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-installation-and-configuration-guide/configuring-the-ide/colour-selection-dialog/</loc>
@@ -3013,19 +3007,7 @@
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-ui-guide/editor/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-ui-guide/find-and-replace-dialogs/</loc>
-      </url>
-      <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-ui-guide/editing-scripts-and-text-files/</loc>
-      </url>
-      <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-ui-guide/source-as-typed/</loc>
-      </url>
-      <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-ui-guide/tracer/</loc>
-      </url>
-      <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-ui-guide/tracer/inline-tracing/</loc>
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/windows-ui-guide/threads-tool/</loc>
@@ -3571,6 +3553,9 @@
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/object-reference/properties/directory/</loc>
       </url>
       <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/object-reference/properties/dirty/</loc>
+      </url>
+      <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/object-reference/properties/divider/</loc>
       </url>
       <url>
@@ -3674,6 +3659,9 @@
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/object-reference/properties/fontobj/</loc>
+      </url>
+      <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/object-reference/properties/forceontaskbar/</loc>
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/object-reference/properties/formatstring/</loc>
@@ -3959,6 +3947,9 @@
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/object-reference/properties/pageactiveobject/</loc>
+      </url>
+      <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/object-reference/properties/pagesbegindirty/</loc>
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/object-reference/properties/pagesize/</loc>
@@ -5560,6 +5551,9 @@
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/object-reference/properties/directory/</loc>
       </url>
       <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/object-reference/properties/dirty/</loc>
+      </url>
+      <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/object-reference/methodorevents/displaychange/</loc>
       </url>
       <url>
@@ -5759,6 +5753,9 @@
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/object-reference/methodorevents/fontok/</loc>
+      </url>
+      <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/object-reference/properties/forceontaskbar/</loc>
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/object-reference/objects/form/</loc>
@@ -6392,6 +6389,9 @@
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/object-reference/methodorevents/pagenext/</loc>
+      </url>
+      <url>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/object-reference/properties/pagesbegindirty/</loc>
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/object-reference/properties/pagesize/</loc>
@@ -7507,172 +7507,172 @@
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/interface-guide/dde/restrictions-limitations/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/introduction/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/introduction/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/installation/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/installation/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/dotnet-classes/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/dotnet-classes/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/dotnet-classes/locating-dotnet-classes-and-assemblies/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/dotnet-classes/locating-dotnet-classes-and-assemblies/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/dotnet-classes/using-dotnet-classes/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/dotnet-classes/using-dotnet-classes/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/dotnet-classes/browsing-dotnet-classes/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/dotnet-classes/browsing-dotnet-classes/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/dotnet-classes/advanced-techniques/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/dotnet-classes/advanced-techniques/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/dotnet-classes/example-usage/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/dotnet-classes/example-usage/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/dotnet-classes/enumerations/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/dotnet-classes/enumerations/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/dotnet-classes/handling-pointers-with-dyalogbyref/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/dotnet-classes/handling-pointers-with-dyalogbyref/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/dotnet-classes/decf-conversion/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/dotnet-classes/decf-conversion/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/using-windows-forms/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/using-windows-forms/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/windows-presentation-foundation/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/windows-presentation-foundation/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/windows-presentation-foundation/temperature-converter-tutorial/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/windows-presentation-foundation/temperature-converter-tutorial/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/windows-presentation-foundation/data-binding/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/windows-presentation-foundation/data-binding/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/apl-source-files/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/apl-source-files/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/apl-source-files/the-dyalog-dotnet-compiler/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/apl-source-files/the-dyalog-dotnet-compiler/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/apl-source-files/creating-an-apl-source-file/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/apl-source-files/creating-an-apl-source-file/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/apl-source-files/copying-code-from-the-dyalog-session/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/apl-source-files/copying-code-from-the-dyalog-session/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/apl-source-files/general-principles-of-apl-source-files/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/apl-source-files/general-principles-of-apl-source-files/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/apl-source-files/creating-programs-with-apl-source-files/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/apl-source-files/creating-programs-with-apl-source-files/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/apl-source-files/creating-aspnet-classes-with-apl-source-files/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/apl-source-files/creating-aspnet-classes-with-apl-source-files/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-dotnet-classes/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-dotnet-classes/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-dotnet-classes/assemblies-namespaces-and-classes/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-dotnet-classes/assemblies-namespaces-and-classes/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-dotnet-classes/tutorial/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-dotnet-classes/tutorial/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-dotnet-classes/interfaces/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-dotnet-classes/interfaces/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-dotnet-classes/creating-dotnet-classes-within-apl-source-files/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-dotnet-classes/creating-dotnet-classes-within-apl-source-files/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/dyalog-and-iis/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/dyalog-and-iis/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-web-services/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-web-services/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-web-services/web-service-asmx-scripts/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-web-services/web-service-asmx-scripts/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-web-services/compilation/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-web-services/compilation/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-web-services/exporting-methods/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-web-services/exporting-methods/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-web-services/web-service-data-types/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-web-services/web-service-data-types/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-web-services/execution/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-web-services/execution/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-web-services/global-asax-and-application-and-session-objects/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-web-services/global-asax-and-application-and-session-objects/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-web-services/sample-web-services/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-web-services/sample-web-services/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/calling-web-services/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/calling-web-services/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-aspnet-webpages/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-aspnet-webpages/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-aspnet-webpages/your-first-apl-web-page/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-aspnet-webpages/your-first-apl-web-page/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-aspnet-webpages/the-page-load-event/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-aspnet-webpages/the-page-load-event/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-aspnet-webpages/code-behind/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-aspnet-webpages/code-behind/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-aspnet-webpages/workspace-behind/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-aspnet-webpages/workspace-behind/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-aspnet-webpages/converting-an-existing-workspace/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-aspnet-webpages/converting-an-existing-workspace/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-custom-aspnet-controls/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-custom-aspnet-controls/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-custom-aspnet-controls/example-the-simplectl-control/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-custom-aspnet-controls/example-the-simplectl-control/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-custom-aspnet-controls/example-the-temperatureconverterctl1-control/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-custom-aspnet-controls/example-the-temperatureconverterctl1-control/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-custom-aspnet-controls/example-the-temperatureconverterctl2-control/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-custom-aspnet-controls/example-the-temperatureconverterctl2-control/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/writing-custom-aspnet-controls/example-the-temperatureconverterctl3-control/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-custom-aspnet-controls/example-the-temperatureconverterctl3-control/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/implementation-details/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/implementation-details/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/implementation-details/isolation-mode/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/implementation-details/isolation-mode/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/implementation-details/workspace-size/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/implementation-details/workspace-size/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/implementation-details/structure-of-the-active-workspace/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/implementation-details/structure-of-the-active-workspace/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/implementation-details/threading/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/implementation-details/threading/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/implementation-details/debugging-an-apldotnet-class/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/implementation-details/debugging-an-apldotnet-class/</loc>
       </url>
       <url>
-        <loc>https://xpqz.github.io/zensical-dyalog/21.0/dotnet-framework-interface-guide/implementation-details/the-webconfig-file/</loc>
+        <loc>https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/implementation-details/the-webconfig-file/</loc>
       </url>
       <url>
         <loc>https://xpqz.github.io/zensical-dyalog/21.0/unix-installation-and-configuration-guide/</loc>

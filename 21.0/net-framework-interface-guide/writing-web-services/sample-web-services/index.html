@@ -1,0 +1,4041 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://xpqz.github.io/zensical-dyalog/21.0/net-framework-interface-guide/writing-web-services/sample-web-services/">
+      
+      
+        <link rel="prev" href="../global-asax-and-application-and-session-objects/">
+      
+      
+        <link rel="next" href="../../calling-web-services/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../documentation-assetsz/images/dyalog-ide-cube-2025.2.svg">
+      <meta name="generator" content="zensical-0.0.62">
+    
+    
+      
+        <title>Sample Web Services - Documentation</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../assets/stylesheets/classic/main.e0592429.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/classic/palette.c7ab7c71.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../documentation-assetsz/css/dyalog.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sample-web-services" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  You're not viewing the latest version.
+  <a href="../../../..">
+    <strong>Click here to go to latest.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../../../documentation-assetsz/images/dyalog-logo_orange.svg" alt="Documentation">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sample Web Services
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/dyalog/documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../../../documentation-assetsz/images/dyalog-logo_orange.svg" alt="Documentation">
+
+    </a>
+    Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dyalog/documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Release Notes
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Release Notes
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../release-notes/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  v21.0 Release Notes
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    
+  
+  
+  
+  
+    <a href="../../../earlier-release-notes/release-notes-v20-0/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Earlier Release Notes
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Core Reference
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Core Reference
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../language-reference-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dyalog APL Language
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../programming-reference-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Programming
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Code Tooling
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Code Tooling
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../net-interface-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  .NET Interface
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../compiler-user-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Compiler
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../shared-code-files-user-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Shared Code Files
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dyalog for Microsoft Windows
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Dyalog for Microsoft Windows
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../windows-installation-and-configuration-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installation/Configuration
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../windows-ui-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  User Interface
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../object-reference/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Object Reference
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../interface-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interfaces
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  .NET Framework Interface
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  .NET Framework Interface
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introduction
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../dotnet-classes/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  .NET Classes
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../using-windows-forms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Using Windows Forms
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../windows-presentation-foundation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Windows Presentation Foundation
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../apl-source-files/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  APL Source Files
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../writing-dotnet-classes/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Writing .NET Classes
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dyalog-and-iis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dyalog and IIS
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_10" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Writing Web Services
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5_10" id="__nav_4_5_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_5_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_5_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Writing Web Services
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web-service-asmx-scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Web Service (.asmx) Scripts
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compilation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Compilation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exporting-methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Exporting Methods
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web-service-data-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Web Service Data Types
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../execution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Execution
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../global-asax-and-application-and-session-objects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Global.asax, and Application and Session Objects
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+        <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sample Web Services
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sample Web Services
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sample-eg1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sample: EG1
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample: EG1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing-from-a-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Testing from a Browser
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-loanservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sample: LoanService
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample: LoanService">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing-from-a-browser_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Testing from a Browser
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-golfservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sample: GolfService
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample: GolfService">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#globalasax" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Global.asax
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Global.asax">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#golfcourse-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        GolfCourse Class
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slot-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Slot Class
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#booking-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Booking Class
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startingsheet-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        StartingSheet Class
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcourses-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        GetCourses Function
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getstartingsheet-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        GetStartingSheet Function
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makebooking-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        MakeBooking Function
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-from-a-browser_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Testing from a Browser
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-from-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Using from C&#35;
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-eg2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sample: EG2
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample: EG2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing-from-a-browser_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Testing from a Browser
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../calling-web-services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Calling Web Services
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../writing-aspnet-webpages/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Writing ASP.NET Web Pages
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../writing-custom-aspnet-controls/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Writing Custom Controls for ASP.NET
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../implementation-details/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Implementation Details
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dyalog for UNIX
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Dyalog for UNIX
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../unix-installation-and-configuration-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installation/Configuration
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+  
+    <a href="../../../unix-user-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  User Interface
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  About
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  About
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../conventions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Conventions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../licences-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Third-party Licences
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../trademarks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Trademarks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sample-eg1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sample: EG1
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample: EG1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing-from-a-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Testing from a Browser
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-loanservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sample: LoanService
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample: LoanService">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing-from-a-browser_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Testing from a Browser
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-golfservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sample: GolfService
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample: GolfService">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#globalasax" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Global.asax
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Global.asax">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#golfcourse-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        GolfCourse Class
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slot-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Slot Class
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#booking-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Booking Class
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startingsheet-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        StartingSheet Class
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcourses-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        GetCourses Function
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getstartingsheet-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        GetStartingSheet Function
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makebooking-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        MakeBooking Function
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-from-a-browser_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Testing from a Browser
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-from-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Using from C&#35;
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-eg2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sample: EG2
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample: EG2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing-from-a-browser_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Testing from a Browser
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Dyalog v21.0
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../../../windows-installation-and-configuration-guide/" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Dyalog for Microsoft Windows
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    .NET Framework Interface
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Writing Web Services
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="sample-web-services">Sample Web Services</h1>
+<p>The relevant code is supplied in <strong>[DYALOG]\Samples\asp.net</strong>.</p>
+<h2 id="sample-eg1">Sample: EG1</h2>
+<p>This sample is supplied in <strong>[DYALOG]\Samples\asp.net\webservices\eg1.asmx</strong>, which is mapped through an IIS virtual directory to the URL <a href="http://localhost/dyalog.net.18.2.unicode.64/webservices/eg1.asmx">http://localhost/dyalog.net.18.2.unicode.64/webservices/eg1.asmx</a>.
+<pre class="highlight"><code class="language-nonAPL">&lt;%@ WebService Language="Dyalog" Class="APLExample" %&gt;
+
+:Class APLExample: System.Web.Services.WebService
+:Using System
+
+ ∇ R←Add args
+   :Access WebMethod
+   :Signature Int32←Add Int32 arg1,Int32 arg2
+   R←+/args
+ ∇
+
+:EndClass</code></pre></p>
+<p>The <code>Add</code> function is exported as a method that takes exactly (and only) two parameters of type <code>Int32</code> and returns a result of type <code>Int32</code>. This means that <code>R←+/args</code> could  be coded as <code>R←args[1]+args[2]</code>, because .NET guarantees that a client can only call the method by providing two 32-bit integers as parameters.</p>
+<h3 id="testing-from-a-browser">Testing from a Browser</h3>
+<p>If you connect to a URL that represents a web service, the browser displays a page that provides information about the service and the methods that it contains. In certain cases, the page also contains form fields that let you invoke a method from the browser.</p>
+<p>In your preferred browser, navigate to <a href="http://localhost/dyalog.net.15.0.unicode.32/webservices/eg1.asmx">http://localhost/dyalog.net.15.0.unicode.32/webservices/eg1.asmx</a>. The page fabricated by ASP.NET is shown in <a href="#eg1b1"></a> .</p>
+<p><img alt="Browser page fabricated by ASP.NET for &lt;strong&gt;eg1.asmx&lt;/strong&gt;" id="eg1b1" src="../../img/s-samplews-eg1-browser1.png" /></p>
+<p>This shows that the web service is called <code>APLExample</code>, and that it exports a single method called <code>Add</code> which takes two parameters called <code>arg1</code> and <code>arg2</code>.</p>
+<p><a href="#eg1b2"></a> shows the result of entering the values <em>23</em> and <em>19</em> into the form fields and then pressing the <strong>Invoke</strong> button. The method returns an <code>int</code> value of <em>42</em>. The result is described using XML, which is the language used to invoke a web service and return its result.</p>
+<p><img alt="Result of invoking the &lt;strong&gt;eg1.asmx&lt;/strong&gt; form" id="eg1b2" src="../../img/s-samplews-eg1-browser2.png" /></p>
+<p>Accessed in this way from a browser, a web service appears to be behaving like a web server; however, this is not the case. Instead, the browser detects that the target URL is a web service, and invokes an ASP+ page called <strong>DefaultSdlHelpGenerator.aspx</strong> – this inspects the compiled class and returns an HTML view of the web service.</p>
+<h2 id="sample-loanservice">Sample: LoanService</h2>
+<p>This sample is supplied in <strong>[DYALOG]\Samples\asp.net\loan\loan.asmx</strong>, which is mapped through an IIS virtual directory to the URL <a href="http://localhost/dyalog.net.15.0.unicode.32/Loan/Loan.asmx">http://localhost/dyalog.net.15.0.unicode.32/Loan/Loan.asmx</a>.</p>
+<p>This sample defines a class called <code>LoanService</code> that is based on <code>System.Web.Services.WebService</code>. The <code>LoanService</code> class defines a sub-class called <code>LoanResult</code> and a method called <code>CalcPayments</code>.
+<pre class="highlight"><code class="language-nonAPL">&lt;%@ WebService Language="Dyalog" Class="LoanService" %&gt;
+
+:Class LoanService: System.Web.Services.WebService
+:Using System
+    :Class LoanResult
+    :Access public
+        :Field Public Int32[] Periods
+        :Field Public Double[] InterestRates
+        :Field Public Double[] Payments
+    :EndClass
+
+    ∇ R←CalcPayments X;LoanAmt;LenMax;LenMin;IntrMax;IntrMin;PERIODS;INTEREST;NI;NM
+[1]   :Access WebMethod
+[2]   :Signature LoanResult←CalcPayments Int32 LoanAmt,Int32 LenMax,Int32 LenMin,Int32 IntrMax,Int32 IntrMin
+[3] 
+[4]  ⍝ Calculates loan repayments
+[5]  ⍝ Argument X specifies:
+[6]  ⍝   LoanAmt     Loan amount
+[7]  ⍝   LenMax      Maximum loan period
+[8]  ⍝   LenMin      Minimum loan period
+[9]  ⍝   IntrMax     Maximum interest rate
+[10] ⍝   IntrMin     Minimum interest rate
+[11]
+[12]   LoanAmt LenMax LenMin IntrMax IntrMin←X
+[13]   R←⎕NEW LoanResult
+[14]   R.Periods←¯1+LenMin+⍳1+LenMax-LenMin
+[15]   R.InterestRates←0.5×¯1+(2×IntrMin)+⍳1+2×IntrMax-IntrMin
+[16]   NI←⍴INTEREST←R.InterestRates÷100×12
+[17]   NM←⍴PERIODS←R.Periods×12
+[18]   R.Payments←,(LoanAmt)×((NI,NM)⍴NM/INTEREST)÷1-1÷(1+INTEREST)∘.*PERIODS
+     ∇
+:EndClass</code></pre></p>
+<p><code>CalcPayments</code> takes five integer parameters (described within the code) and returns an object of type <code>LoanResult</code>.</p>
+<p>The block of code that defines the sub-class <code>LoanResult</code> must be within the <code>:Class</code> and <code>:EndClass</code> statements of the main class, <code>LoanService</code>. You can define any number of internal classes in this way.</p>
+<p>The <code>LoanResult</code> class only comprises fields, and it does not export any methods or properties. There are also no constructor methods defined, and it relies solely on its default constructor that is inherited from its base class, <code>System.Object</code>. The default constructor is called without any parameters and does nothing except create an instance of the class; the fields it contains initialised to zero. In this sample, that is sufficient, as all the fields will be filled in explicitly later.
+<pre class="highlight"><code class="language-apl">    :Class LoanResult
+    :Access public
+        :Field Public  Int32[] Periods
+        :Field Public Double[] InterestRates
+        :Field Public Double[] Payments
+    :EndClass</code></pre></p>
+<p>The <code>:Class</code> statement starts the definition of a new class and specifies its name; the <code>:EndClass</code> statement terminates it definition.</p>
+<p>The three <code>:Field</code> declaration statements specify the names and data types of three public fields. The <code>Public</code> attributes are necessary to make the fields visible to methods within the <code>LoanService</code> class as a whole, as well as to external clients.</p>
+<p>The <code>Periods</code> field is defined to be an array of integers, and the <code>InterestRates</code> field an array of <code>Double</code>. Both these arrays are 1‑dimensional, that is, vectors. These will contain the numbers of years and the different interest rates to which the repayments matrix applies.</p>
+<p><code>Payments</code> is also defined to be 1‑dimensional even though it is, more naturally, a 2‑dimesional matrix. The reason for this is that web services do not currently support multi-dimensional arrays. This is a .NET restriction and not a Dyalog restriction.</p>
+<p>Line <code>[13]</code> gets a new instance of the <code>LoanResult</code> class by doing <code>⎕New LoanResult</code>. It then assigns values to each of the three fields in lines <code>[14]</code>, <code>[15]</code>, and <code>[18]</code>.</p>
+<h3 id="testing-from-a-browser_1">Testing from a Browser</h3>
+<p>In your prefered browser, navigate to <a href="http://localhost/dyalog.net.15.0.unicode.32/loan/loan.asmx">http://localhost/dyalog.net.15.0.unicode.32/loan/loan.asmx</a>. The page fabricated by ASP.NET is shown in <a href="#loanb1"></a>.</p>
+<p><img alt="Browser page fabricated by ASP.NET for &lt;strong&gt;loan.asmx&lt;/strong&gt;" id="loanb1" src="../../img/s-samplews-loanservice-browser1.png" /></p>
+<p><a href="#loanb2"></a> shows the result of entering into the form fields and then pressing the <strong>Invoke</strong> button.</p>
+<p><img alt="Result of invoking the &lt;strong&gt;loan.asmx&lt;/strong&gt; form" id="loanb2" src="../../img/s-samplews-loanservice-browser2.png" /></p>
+<p>This shows that the result is of type <code>LoanResult</code>, and it contains 3 fields – <code>Payments</code>, <code>InterestRates</code>, and <code>Periods</code>. This information was derived by our definition of the <code>LoanResult</code> class in the APL Source file.</p>
+<p>The <code>InterestRates</code> field shows that it contains a vector of floating-point values (<code>double</code>) from the minimum rate to the maximum rate that was specified on the input form. This time, the increment is 0.5. Similarly, the <code>Payments</code> field contains the calculated repayment values. The <code>Periods</code> field contains a vector of integers, from the minimum period to the maximum period that was specified on the input form, in increments of 1.</p>
+<h2 id="sample-golfservice">Sample: GolfService</h2>
+<p>This sample is supplied in <strong>[DYALOG]\Samples\asp.net\golf</strong> and is associated with the IIS Virtual Directory <strong>dyalog.net/Golf</strong>. This sample makes extensive use of internal classes to define data structures that are appropriate for a client application, such as C# or VB.</p>
+<p>The directory contains a <strong>global.asax</strong> script, which is used to initialise the application.</p>
+<p>This sample manages the reservation of tee-times at golf courses. All the data is held in a component file called <strong>golfdata.dcf</strong> in the <strong>[DYALOG]\Samples\asp.net\golf\data</strong> directory. This file can be initialised using the <code>Golf.INITFILE</code> function in the <strong>[DYALOG]\Samples\asp.net\webservices\webservices.dws</strong> workspace (you might need to alter the file path first).</p>
+<p>Each golf course managed by the application has a unique code (integer) and a name (string). This is handled by defining a class (structure) called <code>GolfCourse</code> with two fields, <code>Code</code> and <code>Name</code>.</p>
+<p><code>GolfService</code> provides three methods:</p>
+<ul>
+<li>
+<p><code>GetCourses()</code> returns a list of Golf Courses (CourseCode and CourseName). The result of this method is an array of <code>GolfCourse</code> objects.</p>
+</li>
+<li>
+<p><code>GetStartingSheet(CourseCode,Date)</code> returns the starting sheet for a specified golf course on a given day. A starting sheet is a list of starting times with a list of the golfers booked to start their round at that time. The result of this method is a <code>StartingSheet</code> object.</p>
+</li>
+<li>
+<p><code>MakeBooking(CourseCode,TeeTime,GimmeNearest,Name1,Name2,Name3,Name4)</code> requests a tee reservation at the course specified by <code>CourseCode</code>. All parameters are required. <code>TeeTime</code> is a <code>DateTime</code> object that specifies the requested date and time. <code>GimmeNearest</code> is <code>Boolean</code> – <code>1</code> means request the nearest tee-time to that specified, and <code>0</code> means request only the specified tee-time. <code>Name1-4</code> are strings specifying the names of up to four players. The result of this method is a <code>Booking</code> object.</p>
+</li>
+</ul>
+<h3 id="globalasax">Global.asax</h3>
+<p>The <strong>[DYALOG]\samples\asp.net\golf\data\golfdata.dcf</strong> file needs to be located where it can be modified.</p>
+<pre class="highlight"><code class="language-nonAPL">&lt;script language="Dyalog" runat=server&gt;
+
+∇ Application_Start;GOLFID
+  :Access Public
+  GOLFID←'c:\Dyalog\samples\asp.net\golf\data\golfdata' ⎕FTIE 0
+  Application[⊂'GOLFID']←GOLFID
+∇
+
+∇ Application_End;GOLFID
+  :Access Public
+  :Trap 6
+     ; GOLFID←Application[⊂'GOLFID']
+      ⎕FUNTIE GOLFID
+  :EndTrap
+∇
+&lt;/script&gt;</code></pre>
+<p>The <code>Application_Start</code> function is called when the <code class="language-nonAPL">GolfService</code> web service is invoked for the first time. It ties the <code>golfdata</code> component file, then stores the tie number in a new item called <code>GOLFID</code> in the<code>Application</code> object. This item is subsequently available to methods in <code>GolfService</code> for the duration of the application.</p>
+<p>The <code>Application_End</code> function is invoked when the <code>GolfService</code> web service terminates. It unties the <code>golfdata</code> component file.</p>
+<p>This example could be considered slightly weak in that the location of the data file is hard-coded in the application's <strong>Global.asax</strong> file. An alternative is to store this information in the <code class="language-nonAPL">&lt;appsettings&gt;</code> section of the appropriate <strong>web.config</strong> file or in the global <strong>machine.config</strong> file. This is preferable if the resource (in this case, a file name) is to be accessed from more than one script. For further information on ASP.NET config files, see the documentation for the .NET Framework SDK.</p>
+<div class="admonition info">
+<p class="admonition-title">Information</p>
+<p>The <strong>golfdata</strong> file can be initialised using the function <code>Golf.INITFILE</code> in the <strong>[DYALOG]\Samples\asp.net\webservices\webservices.dws</strong> workspace. The function will prompt you for the path of the file, initialise it, and update the <strong>Global.asax</strong> file accordingly.</p>
+</div>
+<h4 id="golfcourse-class">GolfCourse Class</h4>
+<p>The <code>GolfCourse</code> class is effectively a structure with two fields, <code>Code</code> and <code>Name</code>. <code>Code</code> is an integer code that provides a shorthand way to refer to a specific golf course. <code>Name</code> is a <code class="language-nonAPL">String</code> containing its full name.
+<pre class="highlight"><code class="language-apl">:Class GolfCourse
+    :Access Public
+    :Field Public Int32 Code
+    :Field Public String Name
+
+    ∇ ctor args
+     :Implements Constructor
+     :Access public
+     :Signature fn Int32, String
+      Code Name←args
+    ∇
+    ∇ ctor_def 
+     :Implements Constructor
+     :Access public
+      ctor ¯1 ''
+    ∇
+:EndClass</code></pre></p>
+<p>The <code>GolfCourse</code> class provides two constructors. The first, <code>ctor_def</code>, takes no arguments and, therefore, overrides the default constructor that is inherited from <code class="language-nonAPL">System.Object</code>. <code>ctor_def</code> calls <code>ctor</code> to initialise the instance with a code of  <code>¯1</code> and an empty <code>Name</code>.</p>
+<p>The constructor <code>ctor</code> accepts two parameters, <code>CourseCode</code> (an integer) and <code>CourseName</code> (a string). It assigns these values into the corresponding fields.</p>
+<p>Valid ways to create an instance of a <code>GolfCourse</code> are:
+<pre class="highlight"><code class="language-apl">      GC←⎕NEW GolfCourse
+      GC.(Code Name)←1 'St Andrews'</code></pre></p>
+<p>Or, more simply:
+<pre class="highlight"><code class="language-apl">      GC←⎕NEW GolfCourse (1 'St Andrews') </code></pre></p>
+<div class="admonition info">
+<p class="admonition-title">Information</p>
+<p>The names of constructor functions are not visible outside the class. Constructors are identified by their signatures (the <code>:Implements Constructor</code> statement) and not by their names.</p>
+</div>
+<h4 id="slot-class">Slot Class</h4>
+<p>The <code>Slot</code> class is effectively a structure with two fields, <code>Time</code> and <code>Players</code>. <code>Time</code> is a <code>DateTime</code> object representing a time that can be reserved on the first tee. <code>Players</code> is an array of (up to 4) strings that contains the names of the golfers who have made a reservation to start their round of golf at that time.
+<pre class="highlight"><code class="language-apl">:Class Slot
+    :Access Public
+    :Field Public DateTime Time
+    :Field Public String[] Players
+
+    ∇ ctor1 arg
+     :Implements Constructor
+     :Access public
+     :Signature fn DateTime
+      Time←arg
+      Players← 0⍴⊂''
+    ∇
+
+    ∇ ctor2 args
+     :Implements Constructor
+     :Access public
+     :Signature fn DateTime, String[]
+      Time Players←args
+    ∇
+
+    ∇ ctor_def
+     :Implements Constructor
+     :Access public
+    ∇
+:EndClass</code></pre></p>
+<p>This class provides two constructor functions, <code>ctor1</code> and <code>ctor2</code>. For internal reasons, if a class defines any constructor functions, then it is necessary to provide a dummy default constructor (the form of the constructor that takes no parameters); hence <code>ctor_def</code>.</p>
+<p>The constructor <code>ctor1</code> accepts a single <code>DateTime</code> parameter, which it assigns to the <code>Time</code> field, and initialises the <code>Players</code> field to an empty array.</p>
+<p>The constructor <code>ctor2</code> accepts two arguments – a specified tee time, and an array of strings that contains golfers' names. It assigns these parameters to <code>Time</code> and <code>Players</code> respectively.</p>
+<h4 id="booking-class">Booking Class</h4>
+<p>The <code>Booking</code> class represents the result of the <code>MakeBooking</code> method. It contains four fields – <code>OK</code>, <code>Course</code>, <code>TeeTime</code>, and <code>Message</code>.</p>
+<p><code>OK</code> is Boolean, and indicates whether an attempt to make a reservation was successful:</p>
+<ul>
+<li>
+<p>If <code>OK</code> is false (<code>0</code>), the <code>Message</code> field (a string) indicates the reason for failure.</p>
+</li>
+<li>
+<p>If <code>OK</code> is true (<code>1</code>), the <code>Course</code> field contains an instance of a <code>GolfCourse</code> object, and the <code>TeeTime</code> field contains an instance of a <code>Slot</code> object. Together, these objects identify the reserved golf course and starting slot. The latter specifies both the starting time and the names of all the golfers who have been allocated that starting time and who will, therefore, play together.</p>
+</li>
+</ul>
+<pre class="highlight"><code class="language-apl">:Class Booking
+    :Access Public
+    :Field Public Boolean OK
+    :Field Public GolfCourse Course
+    :Field Public Slot TeeTime
+    :Field Public String Message
+
+    ∇ ctor args
+     :Implements Constructor
+     :Access public
+     :Signature fn Boolean, GolfCourse, Slot, String
+      OK Course TeeTime Message←args
+    ∇
+
+    ∇ ctor_def
+     :Access public
+     :Implements Constructor
+    ∇
+:EndClass</code></pre>
+<p>This class provides a single constructor method, which must be called with values for all four fields.</p>
+<h4 id="startingsheet-class">StartingSheet Class</h4>
+<p>The <code>StartingSheet</code> class represents the result of the <code>GetStartingSheet</code> method. It contains five fields – <code>OK</code>, <code>Course</code>, <code>Date</code>, <code>Slots</code>, and <code>Message</code>.</p>
+<p><code>OK</code> is Boolean, and indicates whether a starting sheet is available for the specified course and date:</p>
+<ul>
+<li>
+<p>If <code>OK</code> is false (<code>0</code>), the <code>Message</code> field (a string) indicates the reason for failure.</p>
+</li>
+<li>
+<p>If <code>OK</code> is true (<code>1</code>) the <code>Course</code> field contains an instance of a <code>GolfCourse</code> object,  the <code>Date</code> field contains the date in question, and the <code>Slots</code> field contains an array of <code>Slot</code> objects. Each <code>Slot</code> object specifies a starting time, and the names of all the golfers who have been allocated that starting time and who will, therefore, play together.</p>
+</li>
+</ul>
+<pre class="highlight"><code class="language-apl">:Class StartingSheet
+    :Access Public
+    :Field Public Boolean OK
+    :Field Public GolfCourse Course
+    :Field Public DateTime Date
+    :Field Public Slot[] Slots
+    :Field Public String Message
+
+    ∇ ctor args
+     :Implements Constructor
+     :Access public
+     :Signature fn Boolean, GolfCourse, DateTime
+      OK Course Date←args
+    ∇
+
+    ∇ ctor_def 
+     :Implements Constructor
+     :Access public
+    ∇
+:EndClass</code></pre>
+<p>Like the <a href="#booking-class"><code>Booking</code> class</a>, the <code>StartingSheet</code> class provides a single constructor method. In this case, the constructor is called with values for just three of the fields; the values of the other fields are expected to be assigned later.</p>
+<h4 id="getcourses-function">GetCourses Function</h4>
+<pre class="highlight"><code class="language-apl">     ∇ R←GetCourses;COURSECODES;COURSES;INDEX;GOLFID
+[1]   ⍝
+[2]   :Access WebMethod
+[3]   :Signature GolfCourse[]←fn
+[4]
+[5]    GOLFID←Application[⊂'GOLFID']
+[6]    COURSECODES COURSES INDEX←⎕FREAD GOLFID 1
+[7]    R←⎕NEW¨GolfCourse,¨⊂¨↓⍉↑COURSECODES COURSE
+     ∇</code></pre>
+<p>The <code>GetCourses</code> function retrieves the tie number of the <code>GolfData</code> component file from the <code>Application</code> object and reads its first component.</p>
+<p>The function then creates a <code>GolfCourse</code> object for each of the courses recorded on the file, and returns the array of <code>GolfCourse</code> objects as its result.</p>
+<h4 id="getstartingsheet-function">GetStartingSheet Function</h4>
+<p>The <code>GetStartingSheet</code> function retrieves the tie number of the <code>GolfData</code> component file from the <code>Application</code> object and reads its first component.
+<pre class="highlight"><code class="language-apl">     ∇ R←GetStartingSheet ARGS;CODE;COURSE;DATE;GOLFID;COURSECODES;COURSES;INDEX;COURSEI;IDN;DATES;COMPS;IDATE;TEETIMES;GOLFERS;I;T
+[1]   
+[2]   :Access WebMethod
+[3]   :Signature StartingSheet←fn Int32 CCode, DateTime Date
+[4]
+[5]    CODE DATE←ARGS
+[6]    GOLFID←Application[⊂'GOLFID']
+[7]    COURSECODES COURSES INDEX←⎕FREAD GOLFID 1
+[8]    COURSEI←COURSECODES⍳CODE
+[9]    COURSE←⎕NEW GolfCourse (CODE(COURSEI⊃COURSES,⊂''))
+[10]   R←⎕NEW StartingSheet (0 COURSE DATE)
+[11]   :If COURSEI&gt;⍴COURSECODES
+[12]       R.Message←'Invalid course code'
+[13]       :Return
+[14]   :EndIf
+[15]   IDN←2 ⎕NQ'.' 'DateToIDN',DATE.(Year Month Day)
+[16]   DATES COMPS←⎕FREAD GOLFID,COURSEI⊃INDEX
+[17]   IDATE←DATES⍳IDN
+[18]   :If IDATE&gt;⍴DATES
+[19]       R.Message←'No Starting Sheet available'
+[20]       :Return
+[21]   :EndIf
+[22]   TEETIMES GOLFERS←⎕FREAD GOLFID,IDATE⊃COMPS
+[23]   R.OK←1
+[24]   T←⎕NEW¨DateTime,¨⊂¨(⊂DATE.(Year Month Day)),¨ 3↑¨↓[1]24 60⊤TEETIMES
+[25]   R.Slots←⎕NEW¨Slot,¨⊂¨T,∘⊂¨↓GOLFERS
+     ∇</code></pre></p>
+<p>Line <code>[10]</code> creates an instance of a <code>StartingSheet</code> object and uses it to initialise the result <code>R</code>. The value of the <code>OK</code> field is set to zero to indicate failure. It then validates the requested <code>CourseCode</code>. If invalid, it sets the <code>Message</code> field in the result and returns it. Similarly, it checks to see whether there is a starting sheet on file for the requested date and, if there is not, it sets the <code>Message</code> field to indicate this, and returns.</p>
+<p>Line <code>[15]</code> extracts the <code>Year</code>, <code>Month</code> and <code>Day</code> properties from the requested tee time, a <code>DateTime</code> object, and converts them to an IDN. This is used to index the component containing the <code>starting</code> sheet for that day.</p>
+<p>Line <code>[23]</code> sets the <code>OK</code> field of the result to <code>1</code> (success).</p>
+<p>Line <code>[24]</code> converts the stored tee times (in minutes) to <code>DateTime</code> objects.</p>
+<p>Line <code>[25]</code> combines the tee times and golfers into a vector of 2-element arrays, and creates a <code>Slot</code> object for each of them. The result is assigned to the <code>Slots</code> field of the result <code>R</code>.</p>
+<h4 id="makebooking-function">MakeBooking Function</h4>
+<p>The <code>MakeBooking</code> function checks that the requested tee-time is available (for the specified number of players) and updates the starting sheet accordingly. The result of the function is a <code>Booking</code> object.
+<pre class="highlight"><code class="language-apl">    ∇ R←MakeBooking ARGS;CODE;COURSE;SLOT;TEETIME;GOLFID;COURSECODES;COURSES;INDEX;COURSEI;IDN;DATES;COMPS;IDATE;TEETIMES;GOLFERS;OLD;COMP;HOURS;MINUTES;NEAREST;TIME;NAMES;FREE;FREETIMES;I;J;DIFF
+[1]
+[2]   :Access WebMethod
+[3]   :Signature Booking←Int32 CourseCode,
+                         DateTime TeeTime,
+                         Boolean GimmeNearest,
+                         String Name1,
+                         String Name2,
+                         String Name3,
+                         String Name4
+[4] 
+[5] 
+[6]  ⍝ If GimmeNearest=0, books (or fails) for specified time
+[7]  ⍝ If GimmeNearest=1, books (or fails) for nearest to specified time
+[8] 
+[9]    CODE TEETIME NEAREST←3↑ARGS
+[10]   GOLFID←Application[⊂'GOLFID']
+[11]   COURSECODES COURSES INDEX←⎕FREAD GOLFID 1
+[12]   COURSEI←COURSECODES⍳CODE
+[13]   COURSE←⎕NEW GolfCourse,⊂CODE(COURSEI⊃COURSES,⊂'')
+[14]   SLOT←⎕NEW Slot TEETIME
+[15]   R←⎕NEW Booking (0 COURSE SLOT '')
+[16]   :If COURSEI&gt;⍴COURSECODES
+[17]       R.Message←'Invalid course code'
+[18]       :Return
+[19]   :EndIf
+[20]   :If TEETIME.Now&gt;TEETIME
+[21]       R.Message←'Requested tee-time is in the past'
+[22]       :Return
+[23]   :EndIf
+[24]   :If TEETIME&gt;TEETIME.Now.AddDays 30
+[25]       R.Message←'Requested tee-time is more than 30 days from now'
+[26]       :Return
+[27]   :EndIf
+[28]   IDN←2 ⎕NQ'.' 'DateToIDN',TEETIME.(Year Month Day)
+[29]   DATES COMPS←⎕FREAD GOLFID,COURSEI⊃INDEX
+[30]   IDATE←DATES⍳IDN
+[31]   :If IDATE&gt;⍴DATES
+[32]       TEETIMES←(60×7)+10×¯1+⍳1+8×6 ⍝ 10 minute intervals, 07:00 to 15:00
+[33]       GOLFERS←((⍴TEETIMES),4)⍴⊂'' ⍝ up to 4 golfers allowed per tee time
+[34]       :If 0=OLD←⊃(DATES&lt;2 ⎕NQ'.' 'DateToIDN',3↑⎕TS)/⍳⍴DATES
+[35]           COMP←(TEETIMES GOLFERS)⎕FAPPEND GOLFID
+[36]           DATES,←IDN
+[37]           COMPS,←COMP
+[38]           (DATES COMPS)⎕FREPLACE GOLFID,COURSEI⊃INDEX
+[39]       :Else
+[40]           DATES[OLD]←IDN
+[41]           (TEETIMES GOLFERS)⎕FREPLACE GOLFID,COMP←OLD⊃COMPS
+[42]           DATES COMPS ⎕FREPLACE GOLFID,COURSEI⊃INDEX
+[43]       :EndIf
+[44]   :Else
+[45]       COMP←IDATE⊃COMPS
+[46]       TEETIMES GOLFERS←⎕FREAD GOLFID COMP
+[47]   :EndIf
+[48]   HOURS MINUTES←TEETIME.(Hour Minute)
+[49]   NAMES←(3↓ARGS)~⍬''
+[50]   TIME←60⊥HOURS MINUTES
+[51]   TIME←10×⌊0.5+TIME÷10 ⍝ Round to nearest 10-minute interval
+[52]   :If ~NEAREST
+[53]       I←TEETIMES⍳TIME
+[54]       :If I&gt;⍴TEETIMES
+[55]       :OrIf (⍴NAMES)&gt;⊃,/+/0=⍴¨GOLFERS[I;]
+[56]           R.Message←'Not available'
+[57]           :Return
+[58]       :EndIf
+[59]   :Else
+[60]       :If ~∨/FREE←(⍴NAMES)≤⊃,/+/0=⍴¨GOLFERS
+[61]           R.Message←'Not available'
+[62]           :Return
+[63]       :EndIf
+[64]       FREETIMES←(FREE×TEETIMES)+32767×~FREE
+[65]       DIFF←|FREETIMES-TIME
+[66]       I←DIFF⍳⌊/DIFF
+[67]   :EndIf
+[68]   J←(⊃,/0=⍴¨GOLFERS[I;])/⍳4
+[69]   GOLFERS[I;(⍴NAMES)↑J]←NAMES
+[70]   (TEETIMES GOLFERS)⎕FREPLACE GOLFID COMP
+[71]   TEETIME←⎕NEW DateTime,⊂TEETIME.(Year Month Day), 3↑24 60⊤I⊃TEETIMES
+[72]   SLOT.Time←TEETIME
+[73]   SLOT.Players←(⊃,/0&lt;⍴¨GOLFERS[I;])/GOLFERS[I;]
+[74]   R.(OK TeeTime)←1 SLOT
+    ∇</code></pre></p>
+<p><code>MakeBooking</code> first retrieves the tie number of the <code>GolfData</code> component file from the <code>Application</code> object and reads its first component.</p>
+<p>Lines <code>[13 14]</code> create instances of <code>GolfCourse</code> and <code>Slot</code> objects, which at this stage are not validated. Line<code>[15]</code> then initialises the result, <code>R</code>, a <code>Booking</code> object, that includes these instances. At this stage, <code>R.OK</code> is <code>0</code>, indicating failure.</p>
+<p>Line <code>[16]</code> validates the requested <code>CourseCode</code>, and, if invalid, sets <code>R.Message</code> and returns.</p>
+<p>Similarly, lines <code>[20 23]</code> check that the requested tee time is within the next 30 days from now. If not, the function assigns the appropriate error message to <code>R.Message</code> and returns. These two statements employ the primitive function <code>&gt;</code> (rather that the <code>op_GreaterThan</code> method) to compare the requested tee time (a <code>DateTime</code> object) with a new <code>DateTime</code> object that represents <code>Now</code> and <code>Now+30 days</code> respectively.</p>
+<p>Line<code>[24]</code> uses the <code>AddDays</code> method to create a new <code>DateTime</code> object that represents <code>Now+30 days</code>. An alternative expression to get <code>Now+30 days</code> is:
+<pre class="highlight"><code class="language-apl">      TEETIME.Now+⎕NEW TimeSpan (30 0 0 0)</code></pre></p>
+<p>Lines <code>[28-47]</code> are concerned with retrieving the appropriate component from the file and initialising it, or re-using an old one if it is not present. Each component represents the starting sheet for a particular course on a particular day.</p>
+<p>Lines <code>[48-63]</code> check whether the requested slot is available (for the specified number of golfers). If not, it returns an error message as before or, if <code>GimmeNearest</code> is <code>1</code> (true), it attempts to allocate the slot closest to the requested time.</p>
+<p>If an appropriate slot is found, lines <code>[72 73]</code> update the <code>Slot</code> object with the assigned time and names of the golfers. Line <code>[74]</code> then inserts the modified <code>Slot</code> object into the result, and sets the <code>OK</code> field to <code>1</code> (true) to indicate success.</p>
+<h3 id="testing-from-a-browser_2">Testing from a Browser</h3>
+<p>In your prefered browser, navigate to  <a href="http://localhost/dyalog.net.15.0.unicode.32/Golf/Golf.asmx">http://localhost/dyalog.net.15.0.unicode.32/Golf/Golf.asmx</a>. The page fabricated by ASP.NET is shown in <a href="#golfb1"></a> – the three methods exposed by <code>GolfService</code> are listed.</p>
+<p><img alt="Browser page fabricated by ASP.NET for &lt;strong&gt;Golf.asmx&lt;/strong&gt;" id="golfb1" src="../../img/s-samplews-golfservice-browser1.png" /></p>
+<p><a href="#golfb2"></a> shows the result of clicking on <strong>GetCourses</strong>, thereby accessing the <code>GetCourses</code> method. The data type of the result is <code>ArrayOfGolfCourse</code>, and the data type of each element of the result is <code>GolfCourse</code>. The public fields defined for the <code>GolfCourse</code> object are clearly named. All this information is derived from the declarations in the <strong>Golf.asmx</strong> script. The <code>GolfData</code> component file contains only three golf courses.</p>
+<p><img alt="Result of selecting GetCourses on the &lt;strong&gt;golf.asmx&lt;/strong&gt; form" id="golfb2" src="../../img/s-samplews-golfservice-browser2.png" /></p>
+<p><a href="#golfb3"></a> shows the result of clicking on <strong>MakeBooking</strong>, thereby accessing the <code>MakeBooking</code> method.</p>
+<p><img alt="Browser page when MakeBooking is selected" id="golfb3" src="../../img/s-samplews-golfservice-browser3.png" /></p>
+<p>ASP.NET generates a form containing fields that allow the user to invoke the <code>MakeBooking</code> method. Notice the way a <code>TeeTime</code> value is specified. The <code>GimmeNearest</code> parameter is Boolean, so you must enter <code>True</code> or <code>False</code> – if you enter <code>0</code> or <code>1</code>, an error is generated and the application does not try to call <code>MakeBooking</code>.</p>
+<p>When experimenting with adding values to this form, the date entered must be within the next 30 days from today's system date, and the time must be between 07:00 and 15:00 (unless you want to experiment with invalid data to check the error handling).</p>
+<p><a href="#golfb4"></a> shows the result of invoking <code>MakeBooking</code> with this data. All the information about the <code>Booking</code> object structure, including the structure of the sub-objects, is provided.</p>
+<p><img alt="Result of invoking the &lt;strong&gt;golf.asmx/MakeBooking&lt;/strong&gt; form" id="golfb4" src="../../img/s-samplews-golfservice-browser4.png" /></p>
+<p><a href="#golfb5"></a> shows the result of clicking on <strong>GetStartingSheet</strong>, thereby accessing the <code>GetStartingSheet</code> method.</p>
+<p><img alt="Browser page when GetStartingSheet is selected" id="golfb5" src="../../img/s-samplews-golfservice-browser5.png" /></p>
+<p>When experimenting with adding values to this form, choose a course and date on which you have made at least one successful booking.</p>
+<p><a href="#golfb6"></a> shows the result of invoking <code>GetStartingSheet</code> with this data. This shows that the result, a <code>StartingSheet</code> object, contains an array of <code>Slot</code> objects, each of which contains a <code>Time</code> field and a <code>Players</code> field.</p>
+<p><img alt="Result of invoking the &lt;strong&gt;golf.asmx/GetStartingSheet&lt;/strong&gt; form" id="golfb6" src="../../img/s-samplews-golfservice-browser6.png" /></p>
+<h3 id="using-from-c">Using from C&#35;</h3>
+<p>The <strong>csharp</strong> sub-directory in <strong>[DYALOG]\Samples\asp.net\golf</strong> contains sample files for accessing the <code class="language-nonAPL">GolfService</code> web service from C#. The C# source code in <strong>Golf.cs</strong> is:
+<pre class="highlight"><code class="language-nonAPL">using System;
+
+class MainClass  {
+
+    static void Main(String[] args)
+        {
+        GolfService golf = new GolfService();
+        int nArgs = args.Length;
+        Booking booking;
+
+        booking=golf.MakeBooking(
+/* Course Code    */    1,
+/* Desired Tee Time */  DateTime.Parse(args[0]),
+/* nearest is OK    */  true,
+/* player 1       */    (nArgs &gt; 1) ? args[1] : "",
+/* player 2       */    (nArgs &gt; 2) ? args[2] : "",
+/* player 3       */    (nArgs &gt; 3) ? args[3] : "",
+/* player 4       */    (nArgs &gt; 4) ? args[4] : ""
+            );
+
+        Console.WriteLine(booking.OK);
+        Console.WriteLine(booking.TeeTime.Time.ToString());
+        foreach (String player in booking.TeeTime.Players)
+            Console.WriteLine(player);
+        }
+}
+</code></pre></p>
+<p>The C# program <strong>[DYALOG]\Samples\asp.net\golf\golf.exe</strong> can be run from a command prompt window. For example:
+<pre class="highlight"><code class="language-nonAPL">csharp&gt;golf 2006-08-07T08:00:00 T.Woods A.Palmer P.Donnelly
+True
+25/08/2008 08:00:00
+T.Woods
+A.Palmer
+P.Donnelly
+
+csharp&gt;</code></pre></p>
+<h2 id="sample-eg2">Sample: EG2</h2>
+<p>This sample is supplied in <strong>[DYALOG]\Samples\asp.net\webservices\eg2.asmx</strong>, which is mapped through an IIS virtual directory to the URL <a href="http://localhost/dyalog.net/webservices/eg2.asmx">http://localhost/dyalog.net/webservices/eg2.asmx</a>.</p>
+<p>In other previous webservice samples (<a href="#sample-eg1">EG1</a>, <a href="#sample-loanservice">LoanService</a>, and <a href="#sample-golfservice">Golfservice</a>), ASP.NET compiled the APL source file into a .NET class prior to running it. This sample illustrates how you can make a .NET class yourself. In this sample, the web service script is reduced to a single statement that invokes the pre-defined class <code>APLServices.Example</code>; the entire file, viewed using Notepad, is shown in <a href="#eg2notepad"></a>.</p>
+<p><img alt="Notepad displaying content of &lt;strong&gt;eg2.asmx&lt;/strong&gt;" id="eg2notepad" src="../../img/s-samplews-eg2-notepad.png" /></p>
+<p>Given this instruction, ASP.NET will locate the <code>APLServices.Example</code> web service by searching the <strong>bin</strong> sub-directory for assemblies. Therefore, to make this work, we need to create a .NET assembly in <strong>[DYALOG]\Samples\asp.net\webservices\bin</strong>. The assembly should contain a .NET namespace named <code class="language-nonAPL">APLServices</code>, which in turn defines a class named <code class="language-nonAPL">Example</code>.</p>
+<p>The procedure for creating .NET classes and assemblies in Dyalog was described in <a href="../../writing-dotnet-classes/">Writing .NET Classes</a> and its sub-sections. The same procedure is performed to make a web service class.</p>
+<p><strong>[DYALOG]\Samples\asp.net\webservices\bin</strong> already contains copies of the dependent Dyalog DLLs that are required to execute the code.</p>
+<p>To be able to create an assembly, Dyalog must be started with administration privileges (right-click on the Dyalog icon, and select <strong>Run as administrator</strong>).</p>
+<p>In a clear workspace, create a namespace called <code>APLServices</code>. This will act as the container corresponding to a .NET namespace in the assembly.
+<pre class="highlight"><code class="language-apl">      )NS APLServices
+#.APLServices</code></pre></p>
+<p>Within <code>APLServices</code>, create a class called <code>Example</code> that inherits from <code class="language-nonAPL">System.Web.Services.WebService</code>. This is the web service class.
+<pre class="highlight"><code class="language-apl">      )CS APLServices
+#.APLServices
+      )ED ○Example
+
+:Class Example: WebService                        
+:Using System                                     
+:Using System.Web.Services,System.Web.Services.dll
+    ∇ R←Add arg                                   
+      :Access webmethod                           
+      :Signature Int32←Add Int32 arg1, Int32 arg2 
+      R←+/arg                                     
+    ∇                                             
+:EndClass                             </code></pre></p>
+<p>Within <code>APLServices.Example</code>, the function called <code>Add</code> represents the single method to be exported by this web service.</p>
+<p>Fix the class, then click <strong>File</strong> &gt; <strong>Save As...</strong> in the menu and save the workspace as <strong>egs.dws</strong> in <strong>[DYALOG]\Samples\asp.net\webservices\bin</strong>.</p>
+<p>Select <strong>File</strong> &gt; <strong>Export...</strong> in the  menu, and save the assembly as <strong>eg2.dll</strong> in the same directory.</p>
+<p>When you click <strong>Save</strong>, the <strong>Status</strong> window displays the information shown in <a href="#eg2status"></a> to confirm that the assembly has been created correctly.</p>
+<p><img alt="Status window showing the successful creation of &lt;strong&gt;eg2.dll&lt;/strong&gt; assembly" id="eg2status" src="../../img/s-samplews-eg2-status.png" /></p>
+<h3 id="testing-from-a-browser_3">Testing from a Browser</h3>
+<p>In your prefered browser, navigate to <a href="http://localhost/dyalog.net.15.0.unicode.32/webservices/eg2.asmx">http://localhost/dyalog.net.15.0.unicode.32/webservices/eg2.asmx</a>. The page fabricated by ASP.NET is shown in <a href="#eg2b1"></a>.</p>
+<p><img alt="Browser page fabricated by ASP.NET for &lt;strong&gt;eg2.asmx&lt;/strong&gt;" id="eg2b1" src="../../img/s-samplews-eg2-browser1.png" /></p>
+<p>This shows that the web service is called <code>Example</code>, and that it exports a single method called <code>Add</code> which takes two parameters called <code>arg1</code> and <code>arg2</code>.</p>
+<p><a href="#eg2b1"></a> shows the result of entering the values <em>123</em> and <em>456</em> into the form fields and then pressing the <strong>Invoke</strong> button. The method returns an <code>int</code> value of <em>579</em>.</p>
+<p><img alt="Result of invoking the &lt;strong&gt;eg2.asmx&lt;/strong&gt; form" id="eg2b2" src="../../img/s-samplews-eg2-browser2.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Made with <a href="https://zensical.org/" target="_blank" rel="noopener"><strong>Zensical</strong></a><br/>Copyright &copy; 1982-2026 <strong><a href="https://dyalog.com" target="_blank" rel="noopener">Dyalog Limited</a></strong> (<button type="button" class="copy" title="Copy build info to the clipboard" data-done="copied" data-fail="copy failed" onclick="var b=this,s=b.nextElementSibling;navigator.clipboard?navigator.clipboard.writeText(b.textContent.trim()).then(function(){s.textContent=b.dataset.done},function(){s.textContent=b.dataset.fail}):s.textContent=b.dataset.fail">2026-09-16 main:1a0009b8</button><span class="copy-status" role="status"></span>).<br/>Except where otherwise noted, content on this site is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener"><strong>Creative Commons Attribution 4.0 International</strong></a> licence.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../..","features":["content.code.copy","navigation.indexes","navigation.instant","navigation.path","navigation.prune","navigation.sections","navigation.tracking"],"redirect":null,"search":"../../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"provider":"mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.8dcc8e9c.min.js"></script>
+      
+    
+  </body>
+</html>
