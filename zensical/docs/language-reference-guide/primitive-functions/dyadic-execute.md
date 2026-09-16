@@ -2,15 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⍎ execute
-</div>
 
 # Dyadic Execute
 
 ```apl
 R←X⍎Y
 ```
+[Key to notation](../key-to-notation.md)
 
 !!! Warning "Warning"
     If the right argument to _dyadic execute_ could include user input, then there is a risk to data and systems. To reduce this risk, a system function might be more appropriate than the _dyadic execute_ function. For example:
@@ -69,3 +67,8 @@ Using a reference:
           space ⎕VGET'nums'
     1 2 3 4 5 6
     ```
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⍎ execute
+</div>

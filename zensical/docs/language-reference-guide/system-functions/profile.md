@@ -2,20 +2,17 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕PROFILE PROFILE
-</div>
 
 # Profile Application
 
 ```apl
 {R}←{X}⎕PROFILE Y
 ```
+[Key to notation](../key-to-notation.md)
 
 `⎕PROFILE` facilitates the profiling of CPU consumption, code coverage, or elapsed time for a workspace. It does so by retaining time measurements collected for APL functions/operators and function/operator lines. `⎕PROFILE` is used to both control the state of profiling and retrieve the collected profiling data.
 
-`Y` specifies the action to perform and any options for that action, if applicable. `Y` is case-insensitive. The result `R` is, in some cases, shy.
+`Y` specifies the action to perform and any options for that action, if applicable. `Y` is case-insensitive. The result `R` is, in some cases, [shy](../../programming-reference-guide/introduction/results.md#shy-results).
 
 |Syntax                              |Description                                                                    |
 |----------------------------------|-------------------------------------------------------------------------------|
@@ -125,7 +122,6 @@ clear ws
 ### Retrieve Data (Flat Form)
 
 Syntax: `data←{X} ⎕PROFILE 'data'`
-
 
 Retrieves the collected profiling data and returns it in flat form. If the `X` is omitted, the result is a matrix with the following columns:
 
@@ -258,3 +254,8 @@ The timing data collected by `⎕PROFILE` is not adjusted for the timer's call t
 ## The `]Profile` User Command
 
 The `]Profile` user command implements a high-level interface to `⎕PROFILE`, and provides reporting and analysis tools that act on the profiling data. For more information, see the [_Application Tuning Guide_](https://docs.dyalog.com/20.0/files/Application_Tuning_Guide.pdf).
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕PROFILE PROFILE
+</div>

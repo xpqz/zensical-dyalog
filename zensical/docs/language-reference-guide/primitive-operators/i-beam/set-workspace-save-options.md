@@ -3,35 +3,21 @@ search:
   boost: 2
 ---
 
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  2400⌶
-</div>
-
-
-
-
-
 
 # Set Workspace Save Options
 
 ```apl
 R←2400⌶Y
 ```
-
-
+[Key to notation](../../key-to-notation.md)
 
 This function sets a flag in the workspace that determines what happens when it is saved. The flag itself is part of the workspace and is saved with it.
 
-
 If the flag is set, all Trace, Stop and Monitor settings will be cleared whenever the workspace is saved, whether by `)SAVE`, `⎕SAVE` or by *File/Save* from the Session menubar.
-
 
 `Y` must be 1 (set the flag) or 0 (clear the flag).
 
-
 The result `R` is the previous value of the flag.
-
 
 This function may be extended in the future and a left-argument may be added.
 
@@ -48,5 +34,7 @@ temp saved Sat Apr 05 17:01:30 2014
 
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  2400⌶
+</div>

@@ -21,5 +21,3 @@ Dyadic Logical AND means
 
 ```
 [Language Elements](../glyphs.md)
-
-

@@ -2,22 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⍴ rho shape
-</div>
-
-
-
-
-
 
 # Shape
 
 ```apl
 R←⍴Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` may be any array.  `R` is a non-negative integer vector whose elements are the dimensions of `Y`.  If `Y` is a scalar, then `R` is an empty vector.  The rank of `Y` is given by `⍴⍴Y`.
 
@@ -48,5 +39,7 @@ R←⍴Y
           3  5  4
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⍴ rho shape
+</div>

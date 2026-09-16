@@ -3,19 +3,13 @@ search:
   exclude: true
 ---
 
-
-
-
-
 # Trace Controls
 
 ```apl
 ⎕TRACE
 ```
 
-
 ## Dyadic `⎕TRACE` means
-
 
 [Set Trace Controls](set-trace.md)
 ```apl
@@ -24,7 +18,6 @@ search:
 ```
 
 ## Monadic `⎕TRACE` means
-
 
 [Query Trace Controls](query-trace.md)
 ```apl

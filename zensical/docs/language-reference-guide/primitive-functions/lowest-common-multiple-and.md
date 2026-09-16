@@ -2,21 +2,17 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ^ lcm and
-</div>
 
 # Lowest Common Multiple/AND
 
 ```apl
 R←X∧Y
 ```
-
+[Key to notation](../key-to-notation.md)
 
 ## Case 1: Lowest Common Multiple – either or both X and Y are numeric (non-Boolean)
 
-
-`R` is the lowest common multiple of `X` and `Y`. Note that in this case, `⎕CT` and `⎕DCT` are implicit arguments.
+`R` is the lowest common multiple of `X` and `Y`. In this case, `⎕CT` and `⎕DCT` are implicit arguments.
 
 ## Example
 ```apl
@@ -32,7 +28,6 @@ R←X∧Y
 
 ## Case 2: AND – `X` and `Y` are Boolean
 
-
 `R` is Boolean is determined as follows:
 ```apl
              X   Y     R
@@ -43,10 +38,7 @@ R←X∧Y
              1   1     1
 ```
 
-
-
-Note that the ASCII caret (`^`) will also be interpreted as an APL **And** (`∧`).
-
+The ASCII caret (`^`) is also interpreted as an APL **And** (`∧`).
 
 ## Example
 ```apl
@@ -54,4 +46,7 @@ Note that the ASCII caret (`^`) will also be interpreted as an APL **And** (`∧
 0 0 0 1
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ^ lcm and
+</div>

@@ -2,19 +2,17 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  | magnitude
-</div>
 
 # Magnitude
 
 ```apl
 R←|Y
 ```
+[Key to notation](../key-to-notation.md)
 
 `Y` may be any numeric array. `R` is numeric composed of the absolute (unsigned) values of `Y`.
 
-Note that the magnitude of a complex number <math xmlns="http://www.w3.org/1998/Math/MathML">
+The magnitude of a complex number <math xmlns="http://www.w3.org/1998/Math/MathML">
 <mi>z</mi>
 <mo>=</mo>
 <mi>a</mi>
@@ -62,5 +60,7 @@ Note that the magnitude of a complex number <math xmlns="http://www.w3.org/1998/
 
 `⎕IO` is an implicit argument of magnitude.
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  | magnitude
+</div>

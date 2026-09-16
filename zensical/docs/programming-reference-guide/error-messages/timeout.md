@@ -1,21 +1,14 @@
 
 
-
-
-
 # TIMEOUT
 
 ```apl
 1006
 ```
 
-
-
 This report is given when the time limit specified by the system variable `⎕RTL` is exceeded while awaiting input through character input (`⍞`) or `⎕SR`.
 
-
 It is also reported by `⎕FHOLD` if it times out.
-
 
 It is usual for this error to be trapped.
 
@@ -27,6 +20,3 @@ TIMEOUT
       ⎕RTL←5 ⋄ ⍞←'RESPOND WITHIN 5 SECONDS: ' ⋄ R←⍞
                                                   ^
 ```
-
-
-

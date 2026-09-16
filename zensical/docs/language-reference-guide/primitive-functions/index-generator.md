@@ -2,26 +2,20 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⍳ iota interval
-</div>
 
 # Index Generator
 
 ```apl
 R←⍳Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` must be a simple scalar or vector array of non-negative numbers. `R` is a numeric array composed of the set of all possible coordinates of an array of shape `Y`. The shape of `R` is `Y` and each element of `R` occurs in its self-indexing position in `R`. In particular, the following identity holds:
 ```apl
       ⍳Y ←→ (⍳Y)[⍳Y]
 ```
 
-
-`⎕IO` is an implicit argument of Index Generator. This function is also known as Interval.
-
+`⎕IO` is an implicit argument of _index generator_. This function is also known as _interval_.
 
 ## Examples
 ```apl
@@ -58,4 +52,7 @@ MAIN
 EXIT
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⍳ iota interval
+</div>

@@ -2,25 +2,15 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ≠ neq
-</div>
-
-
-
-
-
 
 # Not Equal To
 
 ```apl
 R←X≠Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` may be any array. `X` may be any array. `R` is Boolean. `R` is 0 if `X=Y`. Otherwise `R` is 1.
-
 
 For Boolean `X` and `Y`, the value of `R` is the exclusive or (XOR)  result, determined as follows:
 ```apl
@@ -32,9 +22,7 @@ For Boolean `X` and `Y`, the value of `R` is the exclusive or (XOR)  result, det
              1   1     0
 ```
 
-
-`⎕CT` and `⎕DCT` are  implicit arguments of Not Equal To.
-
+`⎕CT` and `⎕DCT` are  implicit arguments of _not equal to_.
 
 ## Examples
 ```apl
@@ -50,4 +38,7 @@ For Boolean `X` and `Y`, the value of `R` is the exclusive or (XOR)  result, det
 1 1 1
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ≠ neq
+</div>

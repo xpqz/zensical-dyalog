@@ -2,15 +2,6 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕ML ML
-</div>
-
-
-
-
-
 
 # Migration Level
 
@@ -18,10 +9,15 @@ search:
 ⎕ML
 ```
 
+`⎕ML` determines the degree of migration of the Dyalog APL language towards IBM's APL2.
 
+`⎕ML` is an [implicit argument](../primitive-functions/notes.md#implicit-arguments) of:
 
-`⎕ML` determines the degree of migration of the Dyalog APL language towards IBM's APL2.  Setting this variable to other than its default value of `1` changes the interpretation of certain symbols and language constructs. `⎕ML` has Namespace scope.
+- monadic functions: [`∊`](../primitive-functions/enlist.md), [`↑`](../primitive-functions/mix.md), [`⊃`](../primitive-functions/first.md), [`≡`](../primitive-functions/depth.md)
+- dyadic functions: [`⊂`](../primitive-functions/partitioned-enclose.md)
+- system functions: [`⎕TC`](tc.md)
 
+Setting this variable to other than its default value of `1` changes the interpretation of certain symbols and language constructs. `⎕ML` has Namespace scope.
 
 |-------|----------|-----------------------------------------------------------------------------------------------------|
 |`⎕ML←0`|&nbsp;    |Original Native Dyalog                                                                               |
@@ -32,9 +28,7 @@ search:
 |`⎕ML←3`|`R←X⊂[K]Y`|Dyadic `'⊂'` follows the APL2 (rather than the original Dyalog APL) convention.                      |
 |&nbsp; |`⎕TC`     |The order of the elements of `⎕TC` is the same as in APL2.                                           |
 
-
 Subsequent versions of Dyalog APL may provide further migration levels.
-
 
 ## Examples
 ```apl
@@ -81,4 +75,7 @@ Subsequent versions of Dyalog APL may provide further migration levels.
 
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕ML ML
+</div>

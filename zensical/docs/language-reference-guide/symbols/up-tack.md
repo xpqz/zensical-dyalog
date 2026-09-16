@@ -23,5 +23,3 @@ Dyadic Up Tack means
 10000
 ```
 [Language Elements](../glyphs.md)
-
-

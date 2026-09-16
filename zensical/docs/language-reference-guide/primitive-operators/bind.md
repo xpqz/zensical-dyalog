@@ -2,15 +2,6 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ∘
-  bind
-</div>
-
-
-
-
-
 
 # Bind
 
@@ -18,17 +9,13 @@ search:
 {R}←A∘fY
 {R}←(f∘B)Y
 ```
+[Key to notation](../key-to-notation.md)
 
-
-
-The Bind operator binds an array `A` or `B` to a dyadic function `f` either as its left or its right argument respectively. The former may be described as left argument currying and the latter as right argument currying.
-
+The _bind_ operator binds an array `A` or `B` to a dyadic function `f` either as its left or its right argument respectively. The former may be described as left argument currying and the latter as right argument currying.
 
 `A`, `B` and `Y` may be any arrays whose items are appropriate to function `f`. In the case where `B` is bound as the right argument of function `f`, the parentheses are required in order to distinguish between the operand `B` and the argument `Y`.
 
-
 The derived function is equivalent to `AfY` or `YfB` and need not return a result.
-
 
 ## Examples
 ```apl
@@ -51,8 +38,7 @@ The derived function is equivalent to `AfY` or `YfB` and need not return a resul
 2 4 5
 ```
 
-
-The following example uses both forms of Bind to list functions in the workspace:
+The following example uses both forms of _bind_ to list functions in the workspace:
 ```apl
       ⎕NL 3
 ADD
@@ -68,4 +54,8 @@ PLUS
      ∇
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ∘
+  bind
+</div>

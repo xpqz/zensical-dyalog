@@ -2,35 +2,21 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  \
-  scan
-</div>
-
-
-
-
-
 
 # Scan
 
 ```apl
 R←f\[K]Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `f` may be any dyadic function that returns a result.  `Y` may be any array whose items in the sub-arrays along the `K`th axis are appropriate to the function `f`.
 
-
 The axis specification is optional.  If present, `K` must identify an axis of `Y`.  If absent, the last axis of `Y` is implied.  The form `R←f⍀Y` implies the first axis of `Y`.
-
 
 `R` is an array formed by successive reductions along the `K`th axis of `Y`.  If `V` is a typical vector taken from the `K`th axis of `Y`, then the `I`<sup>th</sup> element of the result is determined as `f/I↑V`.
 
-
 The shape of `R` is the same as the shape of `Y`.  If `Y` is an empty array, then `R` is the same empty array.
-
 
 ## Examples
 ```apl
@@ -88,7 +74,7 @@ The imprecise way in which large and non-integral values can be stored means tha
       +\ 1 1E100 ¯1E100
 1 1E100 0
 ``` 
-For backwards compatibility reasons, `+\` and `×\` of simple vectors are still evaluated in left-to-right order and that will not change. Any deviation from this, such as arguments that are not simple vectors (for example, higher-rank arrays or nested arguments) or additional qualifications of the derived function (for example, with bracket axes or application of the rank operator) can change the evaluation order. This means that some running sums and products can give different results to those that might be expected. For example:
+For backwards compatibility reasons, `+\` and `×\` of simple vectors are still evaluated in left-to-right order and that will not change. Any deviation from this, such as arguments that are not simple vectors (for example, higher-rank arrays or nested arguments) or additional qualifications of the derived function (for example, with bracket axes or application of the _rank_ operator) can change the evaluation order. This means that some running sums and products can give different results to those that might be expected. For example:
 ```apl 
       +\ 1E100 ¯1E100 1
 1E100 0 1
@@ -98,3 +84,9 @@ For backwards compatibility reasons, `+\` and `×\` of simple vectors are still 
 1E100 0 0
 ```
 This also applies to `+⍀` and `×⍀`.
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  \
+  scan
+</div>

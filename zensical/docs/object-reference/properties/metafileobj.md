@@ -2,29 +2,18 @@
 
 Property
 
-
-
-**Applies To:** [Clipboard](../objects/clipboard.md)
-
-**Description**
-
-
 This property is used to copy graphical data to and from the Windows clipboard using the Windows Metafile format.
 
+When you set the MetafileObj property of a [Clipboard](../objects/clipboard.md) object to the name of the [Metafile](../objects/metafile.md) object using [`⎕WS`](../../language-reference-guide/system-functions/ws.md) its contents are copied to the Windows clipboard in Windows Metafile format.
 
-
-When you set the MetafileObj property of a [Clipboard](../objects/clipboard.md) object to the name of the [Metafile](../objects/metafile.md) object using [`⎕WS`](../../../language-reference-guide/system-functions/ws) its contents are copied to the Windows clipboard in Windows Metafile format.
-
-
-To import a picture that has been stored in the Windows clipboard in Metafile format you use [`⎕WG`](../../../language-reference-guide/system-functions/wg). This returns a nested array whose elements correspond to the graphical components of the picture. Each of the elements of the array may be used as the arguments of [`⎕WC`](../../../language-reference-guide/system-functions/wc) to draw the corresponding component of the picture. For example, if the picture stored in C:\MSOFFICE\CLIPART\BIRD.WMF is copied to the Windows clipboard, it may be imported into Dyalog APL/W as follows :
+To import a picture that has been stored in the Windows clipboard in Metafile format you use [`⎕WG`](../../language-reference-guide/system-functions/wg.md). This returns a nested array whose elements correspond to the graphical components of the picture. Each of the elements of the array may be used as the arguments of [`⎕WC`](../../language-reference-guide/system-functions/wc.md) to draw the corresponding component of the picture. For example, if the picture stored in C:\MSOFFICE\CLIPART\BIRD.WMF is copied to the Windows clipboard, it may be imported into Dyalog APL/W as follows :
 ```apl
       BIRD ← 'CL' ⎕WG 'MetafileObj'
       ⍴BIRD
 4
 ```
 
-
-Each of the items in `BIRD` is a 2-element vector. The first element is a "dummy" object name which you may use or ignore as you wish. The second element is an array that defines a graphical object and is suitable as the right argument of [`⎕WC`](../../../language-reference-guide/system-functions/wc). For example :
+Each of the items in `BIRD` is a 2-element vector. The first element is a "dummy" object name which you may use or ignore as you wish. The second element is an array that defines a graphical object and is suitable as the right argument of [`⎕WC`](../../language-reference-guide/system-functions/wc.md). For example :
 ```apl
       2⊃4⊃BIRD
 POLY  191 397   FSTYLE  0   FILLCOL  0 0 0    ...
@@ -49,7 +38,6 @@ POLY  191 397   FSTYLE  0   FILLCOL  0 0 0    ...
 191 397
 ```
 
-
 From this array, you can rebuild the imported picture component by component, either as a [Metafile](../objects/metafile.md) object or directly onto a [Form](../objects/form.md), [Static](../objects/static.md) or another object. The following example draws the picture in a [Form](../objects/form.md) using the dummy names supplied.
 ```apl
       'TEST' ⎕WC 'FORM' ('Coord' 'User')
@@ -57,7 +45,8 @@ From this array, you can rebuild the imported picture component by component, ei
       TEST.⎕WC/¨BIRD
 ```
 
+The co-ordinates of each of the graphical components are typically integers in a co-ordinate system that extends from 0 to 1024 in the y-direction and 0 to 2048 in the x-direction. The simplest way to draw the picture is, therefore, to set up the same co-ordinate system on a [Form](../objects/form.md) as in the example above.
 
-Notice that the co-ordinates of each of the graphical components are typically integers in a co-ordinate system that extends from 0 to 1024 in the y-direction and 0 to 2048 in the x-direction. The simplest way to draw the picture is therefore to set up the same co-ordinate system on a [Form](../objects/form.md) as in the example above.
+## Application
 
-
+Objects: [Clipboard](../objects/clipboard.md)

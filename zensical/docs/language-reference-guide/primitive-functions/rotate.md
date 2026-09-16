@@ -2,34 +2,21 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⌽ rotate
-</div>
-
-
-
-
-
 
 # Rotate
 
 ```apl
 R←X⌽[K]Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` may be any array.  `X` must be a simple integer array.  The axis specification is optional.  If present, `K` must be a simple integer scalar or one-element vector.
 
-
 The value of `K` must be an axis of `Y`.  If absent, the last axis of `Y` is implied.  The form `R←X⊖Y` implies the first axis.
-
 
 `X` must have the same shape as `Y`, excluding `Y`'s `K`th axis. Otherwise, if `X` is a one-element array, it will be extended to conform.
 
-
 `R` is an array with the same shape as `Y`, with the elements of each of the vectors along the `K`th axis of `Y` rotated by the value of the corresponding element of `X`.  If the value is positive, the rotation is in the sense of right to left.  If the value is negative, the rotation is in the sense of left to right.
-
 
 ## Examples
 ```apl
@@ -71,4 +58,7 @@ The value of `K` must be an axis of `Y`.  If absent, the last axis of `Y` is imp
  
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⌽ rotate
+</div>

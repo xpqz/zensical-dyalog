@@ -7,7 +7,6 @@ search:
 
 Example 1
 
-
 ```apl
 'F'⎕WC'Form' 'ToolControl: Dropdown Buttons'('Size' 20 40)
 'F.TB'⎕WC'ToolControl'('ShowDropDown' 1)
@@ -28,7 +27,4 @@ Example 1
 'F.TB.B2'⎕WC'ToolButton' 'Edit'('Style' 'DropDown')('Popup' 'F.EMENU')
 ```
 
-
 ![](../img/tool9.gif)
-
-

@@ -3,20 +3,16 @@ search:
   boost: 2
 ---
 
-<div style="display: none;">
-  ← gets
-</div>
-
 # Assignment
 
 ```apl
 X←Y
 ```
+[Key to notation](../../key-to-notation.md)
 
 Assignment  allocates the result of the expression `Y` to the *name* or *names* in `X`.
 
 If `Y` is an array expression, `X` must contain one or more names which are variables, system variables, or are undefined. Following assignment, the name(s) in `X` become variable(s) with value(s) taken from the result of the expression `Y`.
-
 
 If `X` contains a single name, the variable assumes the value of `Y`. If `X` contains multiple names then `Y` can be a single-item array of any rank (including a scalar) or  a vector. If `Y` is a single-item array, the scalar value `⊃Y` is assigned to all names in `X`. Otherwise, each element of `Y` is assigned to the corresponding name in `X`.  Although not mandatory, Dyalog recommends that the names in `X` are enclosed in parentheses to reduce potential ambiguity in assignment statements.
 
@@ -64,7 +60,7 @@ TEXT
 2017			
 			
 ```
-Implementation note: erroneous expressions such as `var 3←5` will result in `5` being assigned to `var`, even though a `SYNTAX ERROR` will be generated. In the case of `(var 3)←5` no assignment will be made.
+Erroneous expressions such as `var 3←5` result in `5` being assigned to `var`, even though a `SYNTAX ERROR` is generated. In the case of `(var 3)←5` no assignment is made.
 
 Pass-through assignments are permitted. The value of `Y` is carried through each assignment:
 ```apl
@@ -122,10 +118,14 @@ If an expression evaluates to a namespace reference, or *ref*, you may assign it
 
 A name that already exists may be assigned a new value if the assignment will not alter its name class, or will change it from 2 to 9 or vice versa. The table of permitted re-assignments is as follows:
 
-
 |&nbsp;  |Ref   |Variable|Function|Operator|
 |--------|------|--------|--------|--------|
 |Ref     |Yes   |Yes     |&nbsp;  |&nbsp;  |
 |Variable|Yes   |Yes     |&nbsp;  |&nbsp;  |
 |Function|&nbsp;|&nbsp;  |Yes     |Yes     |
 |Operator|&nbsp;|&nbsp;  |Yes     |Yes     |
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ← gets
+</div>

@@ -2,28 +2,19 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕OPT OPT
-</div>
-
-
-
-
-
 
 # Variant
 
 ```apl
 {R}←{X}(f ⎕OPT B)Y
 ```
+[Key to notation](../key-to-notation.md)
 
-
-
-`⎕OPT` is synonymous with the Variant Operator `⍠` and can be used in both Classic and Unicode Editions - unlike `⍠` which is valid in Unicode Editions only, and `⎕U2360` which is valid in Classic Editions only.
-
+`⎕OPT` is synonymous with the _variant_ operator `⍠` and can be used in both Classic and Unicode Editions - unlike `⍠` which is valid in Unicode Editions only, and `⎕U2360` which is valid in Classic Editions only.
 
 See [Variant](../primitive-operators/variant.md).
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕OPT OPT
+</div>

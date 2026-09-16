@@ -2,20 +2,12 @@
 
 Method 275
 
-
-
-**Applies To:** [Calendar](../objects/calendar.md)
-
-**Description**
-
-
 This method is used to obtain the minimum size that you must specify for a [Calendar](../objects/calendar.md) object for it to display a complete month.
-
 
 The GetMinSize method is niladic.
 
+The ([shy](../../programming-reference-guide/introduction/results.md#shy-results)) result of the method is a 2-element numeric vector containing the minimum height and width required for the object to display a complete month.
 
-The (shy) result of the method is a 2-element numeric vector containing the minimum height and width required for the object to display a complete month.
+## Application
 
-
-
+Objects: [Calendar](../objects/calendar.md)

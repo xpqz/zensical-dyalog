@@ -1,4 +1,4 @@
-# Locked Functions &amp; Operators
+# Locked Functions & Operators
 
 A defined operation may be locked by the system function `⎕LOCK`.
 

@@ -2,22 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  + plus add
-</div>
-
-
-
-
-
 
 # Plus
 
 ```apl
 R←X+Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` must be numeric. `X` must be numeric. `R` is the arithmetic sum of `X` and `Y`. `R` is numeric. This function is also known as Add.
 
@@ -36,5 +27,7 @@ R←X+Y
 ¯1J4 0J5
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  + plus add
+</div>

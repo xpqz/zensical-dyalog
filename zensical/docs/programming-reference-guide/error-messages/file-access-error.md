@@ -1,15 +1,10 @@
 
 
-
-
-
 # FILE ACCESS ERROR
 
 ```apl
 19
 ```
-
-
 
 This report is given when the user attempts to execute a file system function for which the user is not authorised, or has supplied the wrong passnumber.  It also occurs if the file specified as the argument to `⎕FERASE` or `⎕FRENAME` is not exclusively tied.
 
@@ -31,6 +26,3 @@ FILE ACCESS ERROR
       'SALES' ⎕FERASE 1
       ^
 ```
-
-
-

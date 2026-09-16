@@ -2,31 +2,17 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕DR DR
-</div>
-
-
-
-
-
 
 # Data Representation (Monadic)
 
 ```apl
 R←⎕DR Y
 ```
+[Key to notation](../key-to-notation.md)
 
-
-
-Monadic `⎕DR` returns the type of its argument `Y`.  The result `R` is an integer scalar containing one of the following values. Note that the internal representation and data types for character data differ between the Unicode and Classic Editions.
-
-
-
+Monadic `⎕DR` returns the type of its argument `Y`.  The result `R` is an integer scalar containing one of the following values. The internal representation and data types for character data differ between the Unicode and Classic Editions.
 
 Table: Unicode Edition
-
 
 |Value|Data Type                                |
 |-----|-----------------------------------------|
@@ -42,11 +28,7 @@ Table: Unicode Edition
 |1287 |128 bits Decimal                         |
 |1289 |128 bits Complex                         |
 
-
-
-
 Table: Classic Edition
-
 
 |Value|Data Type                                 |
 |-----|------------------------------------------|
@@ -60,5 +42,7 @@ Table: Classic Edition
 |1287 |128 bits Decimal                          |
 |1289 |128 bits Complex                          |
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕DR DR
+</div>

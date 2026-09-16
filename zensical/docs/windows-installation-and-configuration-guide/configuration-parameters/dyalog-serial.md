@@ -1,4 +1,4 @@
-# DYALOG\_SERIAL
+# DYALOG_SERIAL
 
 This parameter contains your Dyalog serial number. This must be set to the serial number issued to you. If not set, then the software is unregistered.
 

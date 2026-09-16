@@ -3,19 +3,16 @@ search:
   boost: 2
 ---
 
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  4007⌶
-</div>
 
 # Signal Counts
 
 ```apl
 R←4007⌶Y
 ```
+[Key to notation](../../key-to-notation.md)
 
-!!! note
-    **UNIX, Linux and macOS only.**
+!!! info "Dyalog on Unix"
+    This function is available only under Unix.
 
 `Y` must be a simple empty vector but is ignored.
 
@@ -27,5 +24,7 @@ Each time the function is called it zeros the counts; it is therefore inadvisabl
 
 Currently, only SIGHUP, SIGINT, SIGQUIT, SIGTERM and SIGWINCH are counted and all other corresponding elements of `R` are 0.
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  4007⌶
+</div>

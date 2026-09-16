@@ -2,36 +2,21 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕INSTANCES INSTANCES
-</div>
-
-
-
-
-
 
 # Instances
 
 ```apl
 R←⎕INSTANCES Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `⎕INSTANCES` returns a list all the current instances of the Class specified by `Y`.
 
-
 `Y` must be a reference.
-
 
 If `Y` is a reference to a Class, `R` is a vector of references to all existing Class Instances of  `Y`. Otherwise, `R` is empty.
 
-
-
 ## Examples
-
 
 This example illustrates a simple inheritance tree or Class hierarchy. There are 3 Classes, namely:
 ```apl
@@ -79,4 +64,7 @@ Animal
  eeyore  robin  polly 
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕INSTANCES INSTANCES
+</div>

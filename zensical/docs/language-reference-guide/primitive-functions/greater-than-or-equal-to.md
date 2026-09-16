@@ -2,27 +2,17 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ≥ greater
-</div>
-
-
-
-
-
 
 # Greater Than Or Equal To
 
 ```apl
 R←X≥Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` must be numeric. `X` must be numeric. `R` is Boolean. `R` is 1 if `X` is greater than `Y` or `X=Y`. Otherwise `R` is 0.
 
-
-`⎕CT` and `⎕DCT` are  implicit arguments of Greater Than Or Equal To.
+`⎕CT` and `⎕DCT` are  implicit arguments of _greater than or equal to_.
 
 ## Examples
 ```apl
@@ -41,5 +31,7 @@ R←X≥Y
 0
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ≥ greater
+</div>

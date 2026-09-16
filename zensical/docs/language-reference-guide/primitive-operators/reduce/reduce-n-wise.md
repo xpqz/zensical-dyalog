@@ -2,16 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  /
-  reduce
-</div>
 
 # Reduce N-Wise
 
 ```apl
 R←Xf/[K]Y
 ```
+[Key to notation](../../key-to-notation.md)
 
 `f` must be a dyadic function. `X` must be a simple scalar or one-item integer array. `Y` may be any array whose sub-arrays along the `K`th axis are appropriate to function `f`.
 
@@ -48,3 +45,9 @@ If `X` is negative, each sub-vector is reversed before being reduced.
       ¯2,/⍳4   ⍝ (2,1) (3,2) (4,3)
  2 1  3 2  4 3 
 ```
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  /
+  reduce
+</div>

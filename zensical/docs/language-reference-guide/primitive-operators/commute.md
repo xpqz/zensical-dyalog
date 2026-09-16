@@ -2,35 +2,22 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⍨
-  commute
-</div>
-
-
-
-
-
 
 # Commute
 
 ```apl
 {R}←{X}f⍨Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `f` may be any dyadic function.  `X` and `Y` may be any arrays whose items are appropriate to function `f`.
 
-
 The derived function is equivalent to `YfX`.  The derived function need not return a result.
-
 
 If left argument `X` is omitted, the right argument `Y` is duplicated in its place, that is:
 ```apl
       f⍨Y ←→ Y f⍨Y
 ```
-
 
 ## Examples
 ```apl
@@ -43,12 +30,10 @@ If left argument `X` is omitted, the right argument `Y` is duplicated in its pla
       ⍴⍨3
 3 3 3
 
-
       mean←+/∘(÷∘⍴⍨) ⍝ mean of a vector
       mean ⍳10
 5.5
 ```
-
 
 The following statements are equivalent:
 ```apl
@@ -57,7 +42,10 @@ The following statements are equivalent:
       F←I/F
 ```
 
+_Commute_ often eliminates the need for parentheses
 
-Commute often eliminates the need for parentheses
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⍨
+  commute
+</div>

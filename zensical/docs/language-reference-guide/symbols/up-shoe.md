@@ -19,5 +19,3 @@ Dyadic Up Shoe means
 └──┴──┘
 ```
 [Language Elements](../glyphs.md)
-
-

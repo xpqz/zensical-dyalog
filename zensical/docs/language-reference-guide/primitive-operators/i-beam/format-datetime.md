@@ -2,16 +2,17 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  1200⌶
-</div>
 
 # Format Date-time
 
 ```apl
 R←X(1200⌶)Y
 ```
+[Key to notation](../../key-to-notation.md)
+
+!!! Info "Information"
+    `1200⌶` has been deprecated and is scheduled for removal in a future release; its functionality can instead be achieved using [`⎕DT`](../../system-functions/dt.md). For information on how to identify uses of `1200⌶` in your existing codebase, see the [Release Notes](../../../release-notes/announcements/deprecated-functionality.md#identifying-deprecated-functionality-in-executed-code).
+
 
 `Y` is a numeric array of any shape, where every element contains a Dyalog Date Number that represents a date between 1
 January 0001 and 31 December 9999 in the [Proleptic Gregorian Calendar](https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar).
@@ -30,264 +31,47 @@ The format sequences are intended to be visually reminiscent of the generated te
 easily associated with the substitution (e.g. `D`, `M` and `Y` for Day, Month and Year respectively) repeated one or
 more times to indicate format. As noted below, some sequences allow the first character to be replaced by a `_`, or the casing to be altered.
 
-<table>
-    <thead>
-        <tr>
-            <th>Format letter</th>
-            <th>Length</th>
-            <th>Meaning</th>
-            <th>Variations</th>
-            <th>Example</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan="2" style="vertical-align: middle;">
-                <ins>Y</ins>ear</td>
-            <td class="apl">YY</td>
-            <td>Without century</td>
-            <td class="apl">YY</td>
-            <td class="apl">19</td>
-        </tr>
-        <tr>
-            <td class="apl">YYYY</td>
-            <td>With century</td>
-            <td class="apl">YYYY</td>
-            <td class="apl">2019</td>
-        </tr>
-        <tr>
-            <td rowspan="4" style="vertical-align: middle;">
-                <ins>M</ins>onth</td>
-            <td class="apl">M</td>
-            <td>1 or 2 digit numeric</td>
-            <td class="apl">M</td>
-            <td class="apl">3</td>
-        </tr>
-        <tr>
-            <td class="apl">MM</td>
-            <td>2 character numeric</td>
-            <td class="apl">MM<br />_M</td>
-            <td class="apl">03<br />&nbsp;3</td>
-        </tr>
-        <tr>
-            <td class="apl">MMM</td>
-            <td>Abbreviated name</td>
-            <td class="apl">MMM<br />Mmm<br />mmm<br />_mm<sup>1</sup></td>
-            <td class="apl">MAR<br />Mar<br />mar<br />Mar</td>
-        </tr>
-        <tr>
-            <td class="apl">MMMM </td>
-            <td>Full name </td>
-            <td class="apl">MMMM<br />Mmmm<br />mmmm<br />_mmm<sup>1</sup></td>
-            <td class="apl">MARCH<br />March<br />march<br />March</td>
-        </tr>
-        <tr>
-            <td rowspan="2" style="vertical-align: middle;">
-                <ins>D</ins>ay of month</td>
-            <td class="apl">D</td>
-            <td>1 or 2 digit numeric</td>
-            <td class="apl">D</td>
-            <td class="apl">4</td>
-        </tr>
-        <tr>
-            <td class="apl">DD</td>
-            <td>2 character numeric</td>
-            <td class="apl">DD<br />_D</td>
-            <td class="apl">04<br />&nbsp;4</td>
-        </tr>
-        <tr>
-            <td rowspan="2" style="vertical-align: middle;">
-                <ins>h</ins>ours</td>
-            <td class="apl">h</td>
-            <td>1 or 2 digit numeric</td>
-            <td class="apl">h</td>
-            <td class="apl">8</td>
-        </tr>
-        <tr>
-            <td class="apl">hh</td>
-            <td>2 character numeric</td>
-            <td class="apl">hh<br />_h</td>
-            <td class="apl">08<br />&nbsp;8</td>
-        </tr>
-        <tr>
-            <td rowspan="2" style="vertical-align: middle;">
-                <ins>m</ins>inutes</td>
-            <td class="apl">m </td>
-            <td>1 or 2 digit numeric</td>
-            <td class="apl">m</td>
-            <td class="apl">5</td>
-        </tr>
-        <tr>
-            <td class="apl">mm</td>
-            <td>2 character numeric</td>
-            <td class="apl">mm<br />_m</td>
-            <td class="apl">05<br />&nbsp;5</td>
-        </tr>
-        <tr>
-            <td rowspan="2" style="vertical-align: middle;">
-                <ins>s</ins>econds</td>
-            <td class="apl">s</td>
-            <td>1 or 2 digit numeric </td>
-            <td class="apl">s</td>
-            <td class="apl">0</td>
-        </tr>
-        <tr>
-            <td class="apl">ss </td>
-            <td>2 character numeric </td>
-            <td class="apl">ss<br />_s</td>
-            <td class="apl">00<br />&nbsp;0</td>
-        </tr>
-        <tr>
-            <td rowspan="6" style="vertical-align: middle;">
-                <ins>f</ins>ractional seconds</td>
-            <td class="apl">f</td>
-            <td>1 digit precision</td>
-            <td class="apl">f</td>
-            <td class="apl">5</td>
-        </tr>
-        <tr>
-            <td class="apl">ff</td>
-            <td>2 digit precision</td>
-            <td class="apl">ff</td>
-            <td class="apl">55</td>
-        </tr>
-        <tr>
-            <td class="apl">fff</td>
-            <td>3 digit precision</td>
-            <td class="apl">fff</td>
-            <td class="apl">555</td>
-        </tr>
-        <tr>
-            <td class="apl">ffff</td>
-            <td>4 digit precision</td>
-            <td class="apl">ffff</td>
-            <td class="apl">5555</td>
-        </tr>
-        <tr>
-            <td class="apl">fffff</td>
-            <td>5 digit precision</td>
-            <td class="apl">fffff</td>
-            <td class="apl">55555</td>
-        </tr>
-        <tr>
-            <td class="apl">ffffff</td>
-            <td>6 digit precision</td>
-            <td class="apl">ffffff</td>
-            <td class="apl">555555</td>
-        </tr>
-        <tr>
-            <td rowspan="3" style="vertical-align: middle;">
-                <ins>d</ins>ay of week</td>
-            <td class="apl">d </td>
-            <td>Numeric (1-7)</td>
-            <td class="apl">d</td>
-            <td class="apl">1</td>
-        </tr>
-        <tr>
-            <td class="apl">ddd</td>
-            <td>Abbreviated name</td>
-            <td class="apl">DDD<br />Ddd<br />ddd<br />_dd<sup>1</sup></td>
-            <td class="apl">MON<br />Mon<br />mon<br />Mon</td>
-        </tr>
-        <tr>
-            <td class="apl">dddd</td>
-            <td>Full name</td>
-            <td class="apl">DDDD<br />Dddd<br />dddd<br />_ddd<sup>1</sup></td>
-            <td class="apl">MONDAY<br />Monday<br />monday<br />Monday</td>
-        </tr>
-        <tr>
-            <td rowspan="2" style="vertical-align: middle;">ISO <ins>w</ins>eek number</td>
-            <td class="apl">w</td>
-            <td>1 or 2 digit numeric</td>
-            <td class="apl">w</td>
-            <td class="apl">10</td>
-        </tr>
-        <tr>
-            <td class="apl">ww</td>
-            <td>2 character numeric</td>
-            <td class="apl">ww<br />_w</td>
-            <td class="apl">10<br />10</td>
-        </tr>
-        <tr>
-            <td rowspan="2" style="vertical-align: middle;">year of ISO<br /><ins>W</ins>eek<br />number<sup>2</sup></td>
-            <td class="apl">WW</td>
-            <td>Without century</td>
-            <td class="apl">WW</td>
-            <td class="apl">19</td>
-        </tr>
-        <tr>
-            <td class="apl">WWWW</td>
-            <td>With century</td>
-            <td class="apl">WWWW</td>
-            <td class="apl">2019</td>
-        </tr>
-        <tr>
-            <td rowspan="2" style="vertical-align: middle;">day of <ins>y</ins>ear</td>
-            <td class="apl">y</td>
-            <td>1 to 3 digit numeric</td>
-            <td class="apl">y</td>
-            <td class="apl">63</td>
-        </tr>
-        <tr>
-            <td class="apl">yy</td>
-            <td>3 character numeric</td>
-            <td class="apl">yy<br />_y</td>
-            <td class="apl">063<br />&nbsp;63</td>
-        </tr>
-        <tr>
-            <td rowspan="2" style="vertical-align: middle;">
-                <ins>O</ins>rdinal indicator<sup>3</sup><br />for day of month</td>
-            <td class="apl">O</td>
-            <td>Short</td>
-            <td class="apl">O<br />o</td>
-            <td class="apl">T<br />t</td>
-        </tr>
-        <tr>
-            <td class="apl">OO</td>
-            <td>Full</td>
-            <td class="apl">OO<br />Oo<br />oo</td>
-            <td class="apl">TH<br />Th<br />th</td>
-        </tr>
-        <tr>
-            <td rowspan="2" style="vertical-align: middle;">hours in <ins>t</ins>welve<br />hour clock</td>
-            <td class="apl">t</td>
-            <td>1 or 2 digit numeric</td>
-            <td class="apl">t</td>
-            <td class="apl">8</td>
-        </tr>
-        <tr>
-            <td class="apl">tt</td>
-            <td>2 character numeric</td>
-            <td class="apl">tt<br />_t</td>
-            <td class="apl">08<br />&nbsp;8</td>
-        </tr>
-        <tr>
-            <td rowspan="2">AM/<ins>P</ins>M Indicator</td>
-            <td class="apl">P</td>
-            <td>Short</td>
-            <td class="apl">P<br />p</td>
-            <td class="apl">A<br />a</td>
-        </tr>
-        <tr>
-            <td class="apl">PP</td>
-            <td>Full</td>
-            <td class="apl">PP<br />pp</td>
-            <td class="apl">AM<br />am<br /></td>
-        </tr>
-    </tbody>
-</table>
+| Format letter | Length | Meaning | Variations | Example |
+|---|---|---|---|---|
+| <u>Y</u>ear | `YY` | Without century | `YY` | `19` |
+|_   _| `YYYY` | With century | `YYYY` | `2019` |
+| <u>M</u>onth | `M` | 1 or 2 digit numeric | `M` | `3` |
+| | `MM` | 2 character numeric | `MM`<br>`_M` | `03`<br>` 3` |
+| | `MMM` | Abbreviated name | `MMM`<br>`Mmm`<br>`mmm`<br>`_mm`[^1] | `MAR`<br>`Mar`<br>`mar`<br>`Mar` |
+|_   _| `MMMM` | Full name | `MMMM`<br>`Mmmm`<br>`mmmm`<br>`_mmm`[^1] | `MARCH`<br>`March`<br>`march`<br>`March` |
+| <u>D</u>ay of month | `D` | 1 or 2 digit numeric | `D` | `4` |
+|_   _| `DD` | 2 character numeric | `DD`<br>`_D` | `04`<br>` 4` |
+| <u>h</u>ours | `h` | 1 or 2 digit numeric | `h` | `8` |
+|_   _| `hh` | 2 character numeric | `hh`<br>`_h` | `08`<br>` 8` |
+| <u>m</u>inutes | `m` | 1 or 2 digit numeric | `m` | `5` |
+|_   _| `mm` | 2 character numeric | `mm`<br>`_m` | `05`<br>` 5` |
+| <u>s</u>econds | `s` | 1 or 2 digit numeric | `s` | `0` |
+|_   _| `ss` | 2 character numeric | `ss`<br>`_s` | `00`<br>` 0` |
+| <u>f</u>ractional seconds | `f` | 1 digit precision | `f` | `5` |
+| | `ff` | 2 digit precision | `ff` | `55` |
+| | `fff` | 3 digit precision | `fff` | `555` |
+| | `ffff` | 4 digit precision | `ffff` | `5555` |
+| | `fffff` | 5 digit precision | `fffff` | `55555` |
+|_   _| `ffffff` | 6 digit precision | `ffffff` | `555555` |
+| <u>d</u>ay of week | `d` | Numeric (1-7) | `d` | `1` |
+| | `ddd` | Abbreviated name | `DDD`<br>`Ddd`<br>`ddd`<br>`_dd`[^1] | `MON`<br>`Mon`<br>`mon`<br>`Mon` |
+|_   _| `dddd` | Full name | `DDDD`<br>`Dddd`<br>`dddd`<br>`_ddd`[^1] | `MONDAY`<br>`Monday`<br>`monday`<br>`Monday` |
+| ISO <u>w</u>eek number | `w` | 1 or 2 digit numeric | `w` | `10` |
+|_   _| `ww` | 2 character numeric | `ww`<br>`_w` | `10`<br>`10` |
+| year of ISO <u>W</u>eek number[^2] | `WW` | Without century | `WW` | `19` |
+|_   _| `WWWW` | With century | `WWWW` | `2019` |
+| day of <u>y</u>ear | `y` | 1 to 3 digit numeric | `y` | `63` |
+|_   _| `yy` | 3 character numeric | `yy`<br>`_y` | `063`<br>` 63` |
+| <u>O</u>rdinal indicator[^3] for day of month | `O` | Short | `O`<br>`o` | `T`<br>`t` |
+|_   _| `OO` | Full | `OO`<br>`Oo`<br>`oo` | `TH`<br>`Th`<br>`th` |
+| hours in <u>t</u>welve hour clock | `t` | 1 or 2 digit numeric | `t` | `8` |
+|_   _| `tt` | 2 character numeric | `tt`<br>`_t` | `08`<br>` 8` |
+| AM/<u>P</u>M Indicator | `P` | Short | `P`<br>`p` | `A`<br>`a` |
+|_   _| `PP` | Full | `PP`<br>`pp` | `AM`<br>`am` |
 
-**Footnotes**
-
-1. Natural sentence case, which may be specified for M(month name) and d(day
-name) only, causes the text to be substituted in the case which is natural for
-the language; some languages (for example, English) always capitalise the
-first letter of day and month names whereas others (for example, French) do
-not.
-2. Dates at the start of the year may be in the final week of the previous year,
-and dates at the end of the year may be in the first week of the following year.
-3. An ordinal indicator is a character or group of characters following a numeral,
-such as (in English) the suffixes -st, -nd, -rd, -th as in 1st, 2nd, 3rd, 4th.
+[^1]: Natural sentence case, which can be specified for `M` (month name) and `d` (day name) only, causes the text to be substituted in the case which is natural for the language; some languages (for example, English) always capitalise the first letter of day and month names whereas others (for example, French) do not.
+[^2]: Dates at the start of the year can be in the final week of the previous year, and dates at the end of the year can be in the first week of the following year.
+[^3]: An ordinal indicator is a character or group of characters following a numeral, such as (in English) the suffixes -st, -nd, -rd, -th as in 1st, 2nd, 3rd, 4th.
 
 The upper and lower case letters, underscore `_`, dollar `$` and percent `%` are all reserved for introducing format
 sequences, even though not all currently have meaning. The remaining, non-reserved, characters are copied to the result
@@ -296,7 +80,7 @@ e.g. `12:00`). All characters or sequences of characters may be delimited by `"`
 string to prevent them being interpreted as a part of a format sequence, and, within these delimiters, two adjacent
 delimiter characters produce a single delimiter.
 
-Note: The characters `AaaaBbbb` consist of two adjacent format sequences because there is a sequence of As followed by a
+The characters `AaaaBbbb` consist of two adjacent format sequences because there is a sequence of As followed by a
 sequence of Bs. The characters `AaaaAaaa` consist of one format sequence because it only contains `A`s. It can be
 separated into two format sequences by insering an empty `"` or `'` - delimited string, e.g. `Aaaa""Aaaa`.
 
@@ -496,7 +280,11 @@ In the following examples:
       fmt (1200⌶⍠'Dictionary' dict) tn
  Dydd Mercher, 13eg chwefror 2019; 10:16:56 
 
-
       '__cy__%DateVerbose%' (1200⌶⍠'Dictionary' dict) tn
  the date is 13 Chw 2019
 ```
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  1200⌶
+</div>

@@ -2,11 +2,7 @@
 
 Method 92
 
-**Applies To:** [Root](../objects/root.md)
-
-**Description**
-
-This method is used to obtain the current state of a Dyalog APL service running under Windows. See [APL Application as a Service](../../../windows-installation-and-configuration-guide/apl-application-as-a-service).
+This method is used to obtain the current state of a Dyalog APL service running under Windows. See [APL Application as a Service](../../windows-installation-and-configuration-guide/apl-application-as-a-service.md).
 
 The GetServiceState method is niladic.
 
@@ -24,3 +20,7 @@ typedef struct _SERVICE_STATUS {
 ```
 
 For further details, see the on-line documentation for `SERVICE_STATE` and the function `HashDefine` in the sample workspace `aplservice`.
+
+## Application
+
+Objects: [Root](../objects/root.md)

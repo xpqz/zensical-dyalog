@@ -7,7 +7,6 @@ search:
 
 Example 2
 
-
 ```apl
 'F'⎕WC'Form' 'CoolBar Object with simple controls'('Size' 25 40)
 'F'⎕WS'Coord' 'Pixel'
@@ -27,7 +26,4 @@ Example 2
 :EndWith
 ```
 
-
 ![](../img/cool2.gif)
-
-

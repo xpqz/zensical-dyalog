@@ -2,21 +2,17 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕ATX ATX
-</div>
 
 # Extended Attributes
 
 ```apl
 R←X ⎕ATX Y
 ```
+[Key to notation](../key-to-notation.md)
 
 This function provides information about a name in a workspace, including its usage, history, restrictions, role and origin.
 
-!!! note
-    To retrieve this information for an unnamed value, wrap `⎕ATX` in a dfn and use the name `⍵`, for example `{60⎕ATX'⍵'}`
+To retrieve this information for an unnamed value, wrap `⎕ATX` in a dfn and use the name `⍵`, for example `{60⎕ATX'⍵'}`.
 
 `Y` can be a simple character scalar, a simple or enclosed character vector, or a vector of character scalars and vectors  (as least one must be a character vector) of the name(s) for which information is required.
 
@@ -25,7 +21,7 @@ This function provides information about a name in a workspace, including its us
 |Group|`X`|Meaning|Default|
 |---|---|---|---|
 |Identity|0|Name|`''`|
-|Syntax|10|Function result ( `0` : none or not a function, `1` : explicit, `¯1` : shy)|`0`|
+|Syntax|10|Function result ( `0` : none or not a function, `1` : explicit, `¯1` : [shy](../../programming-reference-guide/introduction/results.md#shy-results))|`0`|
 |      |11|Function valence ( `0` : niladic, `1` : monadic, `2` : dyadic, `¯2` : ambivalent)|`0`|
 |_    _|12|Operator valence: ( `0` : not an operator, `1` : monadic, `2` : dyadic)|`0`|
 |Last edit|20|Author of last edit|`''`|
@@ -53,14 +49,12 @@ This function provides information about a name in a workspace, including its us
 
 `R` depends on the combination of `X` and `Y`:
 
-
 |&nbsp;                            ||`X`                                                                                                   ||
 |-----------------------------------|------------------------------|---------------------------------------------|--------------------------|
 |&nbsp;                            ||Scalar                        | Vector |
 |`Y`                                |Simple character scalar/vector|Requested value (not enclosed)               |Vector of requested values|
 |                                   |Enclosed character vector     |Requested value (enclosed)                   |Scalar containing vector of requested values|
 |_-                               -_|Vector of character scalars/vectors|Vector of requested values              |Outer shape from `⍴⍺` , inner shape from `⍴⍵`|
-
 
 ## Examples
 ```apl
@@ -121,3 +115,8 @@ This function provides information about a name in a workspace, including its us
 │└────────────┴─────────────┘│└────────────┘│
 └────────────────────────────┴──────────────┘
 ```
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕ATX ATX
+</div>

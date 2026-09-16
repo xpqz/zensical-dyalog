@@ -8,7 +8,6 @@ search:
 |
 ```
 
-
 Monadic Stile means
 [Magnitude](../primitive-functions/magnitude.md)
 ```apl
@@ -23,5 +22,3 @@ Dyadic Stile means
 1 7 ¯2
 ```
 [Language Elements](../glyphs.md)
-
-

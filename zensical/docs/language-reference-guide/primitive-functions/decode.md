@@ -2,15 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⊥ decode base
-</div>
 
 # Decode
 
 ```apl
 R←X⊥Y
 ```
+[Key to notation](../key-to-notation.md)
 
 `Y` must be a simple numeric array.  `X` must be a simple numeric array.  `R` is the numeric array which results from
 the evaluation of `Y` in the number system with radix `X`.
@@ -29,7 +27,7 @@ dimension. That is:
 For vector arguments, each element of `X` defines the ratio between the units for corresponding pairs of elements
 in `Y`. The first element of `X` has no effect on the result.
 
-This function is also known as Base Value.
+This function is also known as _base value_.
 
 ## Examples
 
@@ -49,7 +47,7 @@ This function is also known as Base Value.
 
 ## Polynomial Evaluation
 
-If `X` is a scalar and `Y` a vector of length n, decode evaluates the polynomial (Index origin 1):
+If `X` is a scalar and `Y` a vector of length n, _decode_ evaluates the polynomial (Index origin 1):
 
 <math xmlns="http://www.w3.org/1998/Math/MathML">
     <mrow>
@@ -153,4 +151,7 @@ Extension along a unit axis may be applied:
 0 1 10 11 100 101 110 111
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⊥ decode base
+</div>

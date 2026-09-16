@@ -4,7 +4,7 @@
 
 A *Train* is a derived function constructed from a sequence of 2 or 3 functions, or from an array followed by two functions, which bind together to form a function.
 
-Note that the right-most item  of a function train (which is by definition a function) must be isolated from anything to its right, otherwise it will be bound to that rather than to the items to its left. This is done using parentheses.
+The right-most item of a function train (which is, by definition, a function) must be isolated from anything to its right, otherwise it will be bound to that rather than to the items to its left. This is done using parentheses.
 
 For example, the following expression  comprises a function train `-,÷` that is separated from its argument 2 by parentheses:
 ```apl
@@ -14,15 +14,15 @@ For example, the following expression  comprises a function train `-,÷` that is
 
 and means:
 
-1. Calculate the reciprocal of 2
-2. Calculate the negation of 2
-3. Catenate these 2 results together
+1. Calculate the _reciprocal_ of 2
+2. Calculate the _negation_ of 2
+3. _Catenate_ these 2 results together
 
 Whereas, without the parentheses to identify the function train, the expression      means (as it did before):
 
-1. Calculate the reciprocal of 2
-2. Ravel the result of step 1
-3. Negate the result of step 2
+1. Calculate the _reciprocal_ of 2
+2. _Ravel_ the result of step 1
+3. _Negate_ the result of step 2
 ```apl
 
       -,÷ 2
@@ -32,13 +32,13 @@ Whereas, without the parentheses to identify the function train, the expression 
 ## Forks and Atops
 
 The following trains are currently supported where `f`, `g` and `h` are functions and `A` is an array:
+
 ```apl
+        g h
       f g h
       A g h
-        g h
 ```
-
-The 3-item trains `(f g h)` and `(A g h)` are termed *forks* while the 2-item train `(g h)` is termed an *atop*. To distinguish the two styles of *fork*, we can use the terms *fgh-fork* or *Agh-fork*.
+The 2-item train `(g h)` is termed an *atop* and the 3-item trains `(f g h)` and `(A g h)` are termed *forks*. To distinguish the two styles of *fork*, we can use the terms *fgh-fork* or *Agh-fork*.
 
 ## Trains as Functions
 
@@ -49,16 +49,36 @@ A train is syntactically equivalent to a function and so, in common with any oth
 - consumed by operators as an operand
 - and so forth.
 
-In particular, trains may be applied to a single array (monadic use) or between 2 arrays (dyadic use), providing  six new constructs.
-```apl
-    ⍺(f g h)⍵ ←→ (⍺ f ⍵) g (⍺ h ⍵)   ⍝ dyadic (fgh) fork
-    ⍺(A g h)⍵ ←→    A    g (⍺ h ⍵)   ⍝ dyadic (Agh) fork
-    ⍺(  g h)⍵ ←→         g (⍺ h ⍵)   ⍝ dyadic       atop
+In particular, trains can be applied to a single array (monadic use) or between two arrays (dyadic use), providing six new constructs:
 
-     (f g h)⍵ ←→ (  f ⍵) g (  h ⍵)   ⍝ monadic (fgh) fork
-     (A g h)⍵ ←→    A    g (  h ⍵)   ⍝ monadic (Agh) fork
-     (  g h)⍵ ←→         g (  h ⍵)   ⍝ monadic       atop
-```
+<style id="ID">
+.md-typeset #ID+div table {
+  margin-left: 2em;
+  & tr:nth-child(2n) td {
+    padding-bottom: 1em!important;
+  }
+  & td {
+    border: none;
+	&:nth-child(2) {
+	  padding: 0 1em !important;
+	}
+	&:last-child {
+	  padding-left: 1em !important;
+	}
+    & code {
+      white-space:pre;
+    }
+  } 
+}
+</style>
+
+|------------:|:-:|-------------------:|----------|
+|  `(  g h) Y`| ⇔ |        `g (  h Y)` | atop     |
+|`X (  g h) Y`| ⇔ |        `g (X h Y)` | atop     |
+|  `(f g h) Y`| ⇔ |`(  f Y) g (  h Y)` | fgh-fork |
+|`X (f g h) Y`| ⇔ |`(X f Y) g (X h Y)` | fgh-fork |
+|  `(A g h) Y`| ⇔ |      `A g (  h Y)` | Agh-fork |
+|`X (A g h) Y`| ⇔ |      `A g (X h Y)` | Agh-fork |
 
 ## Identifying a Train
 
@@ -83,7 +103,7 @@ Whereas, without these means to identify the sequence as a train, the expression
 ¯0.2
 ```
 
-means the negation of the ravel of the reciprocal of 5.
+means the _negation_ of the _ravel_ of the _reciprocal_ of 5.
 
 ## Idiom Recognition
 
@@ -183,7 +203,7 @@ The binding strength between the items of a train is less than that of operand-o
 └─────┴─┴─────┘
 ```
 
-This means that any of the four hybrid tokens `/ ⌿ \ ⍀` will not be interpreted as a function if there's a function to its left in the train. In order to fix one of these tokens as a replicate or expand function, it must be isolated from the function to its left:
+This means that any of the four hybrid tokens `/ ⌿ \ ⍀` will not be interpreted as a function if there's a function to its left in the train. In order to fix one of these tokens as a _replicate_ or _expand_ function, it must be isolated from the function to its left:
 ```apl
       (⍳/⍳)3        ⍝ → ⍳/ atop ⍳3 → RANK ERROR
 RANK ERROR

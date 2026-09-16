@@ -1,8 +1,6 @@
 # ExecuteJavaScript
 
-```apl
 Method 839
-```
 
 |-----------|--------------------------------------------------------------|
 |Applies To:|[HTMLRenderer](https://help.dyalog.com/19.0/index.htm#GUI/Objects/HTMLRenderer.htm)|

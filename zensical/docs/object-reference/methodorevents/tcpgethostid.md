@@ -2,21 +2,11 @@
 
 Method 376
 
-
-
-**Applies To:** [Root](../objects/root.md), [TCPSocket](../objects/tcpsocket.md)
-
-**Description**
-
-
 This method is used to obtain the IP Address of your PC.
-
 
 The TCPGetHostID method is niladic.
 
-
-The (shy) result is a character string containing your IP address. If you have more than one, it will return the first.
-
+The ([shy](../../programming-reference-guide/introduction/results.md#shy-results)) result is a character string containing your IP address. If you have more than one, it will return the first.
 
 For example:
 
@@ -25,5 +15,6 @@ For example:
 193.32.236.43
 ```
 
+## Application
 
-
+Objects: [Root](../objects/root.md), [TCPSocket](../objects/tcpsocket.md)

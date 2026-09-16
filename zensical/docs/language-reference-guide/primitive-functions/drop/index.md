@@ -2,15 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ↓ drop
-</div>
 
 # Drop
 
 ```apl
 R←X↓Y
 ```
+[Key to notation](../../key-to-notation.md)
 
 `Y` may be any array.  `X` must be a simple scalar or vector of integers. If `X` is a scalar, it is treated as a one-element vector.  If `Y` is a scalar, it is treated as an array whose shape is `(⍴X)⍴1`. After any scalar extensions, the shape of `X` must be less than or equal to the rank of `Y`. Any missing trailing items in `X` default to 0.
 
@@ -56,4 +54,7 @@ ABCD
 EFGH
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ↓ drop
+</div>

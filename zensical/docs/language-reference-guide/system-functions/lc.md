@@ -2,16 +2,13 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕LC LC
-</div>
 
 # Line Count
 
 ```apl
 R←⎕LC
 ```
+[Key to notation](../key-to-notation.md)
 
 This is a simple vector of line numbers drawn from the state indicator. The most recently activated line is shown first. If a value corresponds to a defined function in the state indicator, it represents the current line number where the function is either suspended or pendent.
 
@@ -37,3 +34,8 @@ The value of `⎕LC` in a clear workspace is the null vector.
       ⍴⎕LC
 0
 ```
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕LC LC
+</div>

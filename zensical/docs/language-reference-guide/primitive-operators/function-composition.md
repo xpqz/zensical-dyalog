@@ -4,7 +4,7 @@ Function composition refers to the "gluing" together of two functions using a dy
 
 !!! Info "Information"
     In the diagrams below, the dotted branch falls away when the operator is applied monadically.
-    Note that monadic _atop_, _beside_, and _over_ are all equivalent to each other and to `h(x)=(f∘g)(x)` of traditional mathematics.
+    Monadic _atop_, _beside_, and _over_ are all equivalent to each other and to `h(x)=(f∘g)(x)` of traditional mathematics.
 
 _Atop_: `{R}←{X}f⍤g Y`
 
@@ -13,7 +13,6 @@ _Atop_: `{R}←{X}f⍤g Y`
 _Behind_: `{R}←{X}f⍛g Y`
 
 ![Function composition diagram for monadic behind](../img/behind-monadic-composition.png){: style="max-height: 16em"}
-
 
 ![Function composition diagram for dyadic behind](../img/behind-dyadic-composition.png){: style="max-height: 16em"}
 

@@ -3,19 +3,16 @@ search:
   boost: 2
 ---
 
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  2011⌶
-</div>
 
 # Read DataTable
 
 ```apl
 R←{X}2011⌶Y
 ```
+[Key to notation](../../key-to-notation.md)
 
-!!! note
-    **.NET Framework only**
+!!! Info "Information"
+    This function is available only in the .NET Framework interface.
 
 This function performs a *block read* from an instance of the ADO.NET object System.Data.DataTable. This object may only be read using an explicit row-wise loop, which is slow at the APL level. `2011⌶` implements an *internal* row-wise loop which is much faster on large arrays. Furthermore, the function handles NULL values and the conversion of .NET data types to the appropriate internal APL form in a more efficient manner than can otherwise be achieved. These 3 factors together mean that the function provides a significant improvement in performance compared to calling the row-wise programming interface directly at the APL level.
 
@@ -163,3 +160,7 @@ The left argument to `2011⌶` allows you to flag columns which should be return
 
 Depending on your application, you may need to process the text in the fourth column in some way – but the overall performance will probably still be very much better than it would be if DateTime objects were used.
 
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  2011⌶
+</div>

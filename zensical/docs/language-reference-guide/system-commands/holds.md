@@ -1,30 +1,21 @@
 
 
-
-
-
 # Display Held Tokens
 
 ```apl
 )HOLDS
 ```
 
-
-
 System command `)HOLDS` displays a list of tokens which have been acquired or requested by the `:Hold` control structure.
-
 
 Each line of the display is of the form:
 ```apl
 token:  acq  req  req ...
 ```
 
-
 Where `acq` is the number of *the* thread that has acquired the token, and `req` is the number of *a* thread which is requesting it. For a token to appear in the display, a thread (and only one thread) must have acquired it, whereas any number of threads can be requesting it.
 
-
 ## Example
-
 
 Thread `300`’s attempt to acquire token `'blue'` results in a deadlock:
 ```apl
@@ -39,11 +30,9 @@ red:    300     200     100
  
 ```
 
-
 - `Blue` has been acquired by thread `100`.
 - `Green` has been acquired by `200` and requested by `100`.
 - `Red` has been acquired by `300` and requested by `200` and `100`.
-
 
 The following cycle of dependencies has caused the deadlock:
 ```
@@ -52,6 +41,3 @@ which is owned by 100,                     ↑      ↓
 which is waiting for red,                 red ←  100
 which is owned by 300.
 ```
-
-
-

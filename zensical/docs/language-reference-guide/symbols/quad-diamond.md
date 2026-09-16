@@ -8,7 +8,6 @@ search:
 ⌺
 ```
 
-
 Quad Diamond is a dyadic operator
 
 Operator Quad Diamond means
@@ -47,5 +46,3 @@ Operator Quad Diamond means
 46 72 78 54
 ```
 [Language Elements](../glyphs.md)
-
-

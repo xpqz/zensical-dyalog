@@ -2,16 +2,13 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕AT
-</div>
 
 # Attributes
 
 ```apl
 R←{X} ⎕AT Y
 ```
+[Key to notation](../key-to-notation.md)
 
 `Y` can be a simple character scalar, vector or matrix, or a vector of character vectors representing the names of 0 or more defined functions or operators. Used dyadically, this function closely emulates the APL2 implementation. Used monadically, it returns information that is more appropriate for Dyalog APL.
 
@@ -24,7 +21,7 @@ If `X` is omitted, `R` is a 4-element vector or a 4 column matrix with the same 
 `R[1]` or `R[;1]`: Each item is a 3-element integer vector representing the function header syntax:
 
 |---|---|---|
-|1|Function result|0 if the function has no result 1 if the function has an explicit result `¯1` if the function has a shy result|
+|1|Function result|0 if the function has no result 1 if the function has an explicit result `¯1` if the function has a [shy](../../programming-reference-guide/introduction/results.md#shy-results) result|
 |2|Function valence|0 if the object is a niladic function or not a function 1 if the object is a monadic function 2 if the object is a dyadic function `¯2` if the object is an ambivalent 				function|
 |3|Operator valence|0 if the object is not an operator 1 if the object is a monadic operator 2 if the object is a dyadic operator|
 
@@ -68,7 +65,6 @@ The following values correspond to the syntax shown alongside:
 ```
 ```apl
 
-
       ]Display ⎕AT 'myop' 'foo' 'util' 'util2'
 .→--------------------------------------------.
 ↓ .→------. .→-----------------.     .→---.   |
@@ -86,7 +82,6 @@ The following values correspond to the syntax shown alongside:
 '∊--------------------------------------------'
 ```
 ## Dyadic Use
-
 
 The dyadic form of `⎕AT` emulates APL2. It returns the same rank and shape result containing information that matches the APL2 implementation as closely as possible.
 
@@ -119,3 +114,8 @@ If `X` is 3, `R` specifies *execution properties* and contains 4 elements (or co
 |4  |&nbsp;                  |(always 0)                                                                             |
 
 If `X` is 4, `R` specifies *object size* and contains 2 elements (or columns) that both report the `⎕SIZE` of the object.
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕AT
+</div>

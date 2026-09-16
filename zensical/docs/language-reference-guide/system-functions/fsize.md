@@ -2,26 +2,15 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕FSIZE FSIZE
-</div>
-
-
-
-
-
 
 # File Size
 
 ```apl
 R←⎕FSIZE Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` must be a simple integer scalar or 1 or 2 element vector containing the file tie number followed by an optional passnumber.  If the passnumber is omitted it is assumed to be zero.  The result is a 4 element numeric vector containing the following:
-
 
 |Element|Description                                                                        |
 |-------|-----------------------------------------------------------------------------------|
@@ -36,5 +25,7 @@ R←⎕FSIZE Y
 1 21 65271 4294967295
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕FSIZE FSIZE
+</div>

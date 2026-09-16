@@ -2,19 +2,17 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  < less
-</div>
 
 # Less Than
 
 ```apl
 R←X<Y
 ```
+[Key to notation](../key-to-notation.md)
 
 `Y` may be any numeric array. `X` may be any numeric array. `R` is Boolean. `R` is 1 if `X` is less than `Y` and `X=Y` is 0. Otherwise `R` is 0.
 
-`⎕CT` and `⎕DCT` are  implicit arguments of Less Than.
+`⎕CT` and `⎕DCT` are  implicit arguments of _less than_.
 
 ## Examples
 ```apl
@@ -26,3 +24,8 @@ R←X<Y
       1 0.99999999999 0.9999999999<1
 0 0 1
 ```
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  < less
+</div>

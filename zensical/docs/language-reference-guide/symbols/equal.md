@@ -26,5 +26,3 @@ Dyadic Equal means
 0
 ```
 [Language Elements](../glyphs.md)
-
-

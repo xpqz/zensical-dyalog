@@ -34,5 +34,3 @@ Dyadic Not Equal means
 1
 ```
 [Language Elements](../glyphs.md)
-
-

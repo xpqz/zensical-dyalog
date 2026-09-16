@@ -2,29 +2,17 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕SRC SRC
-</div>
-
-
-
-
-
 
 # Source
 
 ```apl
 R←⎕SRC Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `⎕SRC` returns the script that defines the scripted object   `Y`.
 
-
 `Y` must be a reference to a scripted object. Scripted objects include Classes, Interfaces and scripted Namespaces.
-
 
 `R` is a vector of character vectors containing the script that was used to define `Y`.
 
@@ -55,8 +43,12 @@ r←1+arg
  :EndClass
 ```
 
+The only two ways to permanently alter the source of a scripted object are to either change the object in the editor or to refix it using `⎕FIX`.
 
-!!! note
-    The only two ways to permanently alter the source of a scripted object are to change the object in the editor, or by refixing it using `⎕FIX`. A useful technique to ensure that a scripted object is in sync with its source is to `⎕FIX ⎕SRC ref`, where `ref` is an object reference.
+!!! tip "Hints and Recommendations"
+    A useful technique to ensure that a scripted object is in sync with its source is to `⎕FIX ⎕SRC ref`, where `ref` is an object reference.
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕SRC SRC
+</div>

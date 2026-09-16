@@ -2,32 +2,19 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕TKILL TKILL
-</div>
-
-
-
-
-
 
 # Kill Thread
 
 ```apl
 {R}←{X}⎕TKILL Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` must be a simple array of integers representing thread numbers to be terminated. `X` is a Boolean single, defaulting to 1, which indicates that all descendant threads should also be terminated.
 
-
-The shy result `R` is a vector of the numbers of all threads that have been terminated.
-
+The [shy](../../programming-reference-guide/introduction/results.md#shy-results) result `R` is a vector of the numbers of all threads that have been terminated.
 
 The **base thread** 0 is always excluded from the cull.
-
 
 ## Examples
 ```apl
@@ -40,4 +27,7 @@ The **base thread** 0 is always excluded from the cull.
       ⎕TKILL ⎕TCNUMS ⎕TID ⍝ Kill descendants.
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕TKILL TKILL
+</div>

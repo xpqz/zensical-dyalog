@@ -3,29 +3,20 @@ search:
   boost: 2
 ---
 
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  2502⌶
-</div>
-
-
-
-
-
 
 # Discard Parked Threads
 
 ```apl
 R←2502⌶Y
 ```
-
-
+[Key to notation](../../key-to-notation.md)
 
 APL threads that Dyalog creates to serve incoming .NET requests are not terminated when their work is done. They persist so that if another call comes in on the same .NET thread the same APL thread can handle it. In effect the thread is *parked* until it is needed again. If the thread is not required, there is a small performance cost in maintaining it in this state.
-
 
 `(2502⌶0)`
  removes all parked threads from the workspace.
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  2502⌶
+</div>

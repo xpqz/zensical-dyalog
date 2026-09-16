@@ -2,21 +2,19 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ∪ union
-</div>
 
 # Union
 
 ```apl
 R←X∪Y
 ```
+[Key to notation](../key-to-notation.md)
 
 `Y` must be a vector.  `X` must be a vector.  If either argument is a scalar, it is treated as a one-element vector.  `R` is a vector of the elements of `X` catenated with the elements of `Y` which are not found in `X`.
 
 Items in `X` and `Y` are considered the same if `X≡Y` returns 1 for those items.
 
-`⎕CT` and `⎕DCT` are  implicit arguments of Union.
+`⎕CT` and `⎕DCT` are  implicit arguments of _union_.
 
 ## Examples
 ```apl
@@ -27,8 +25,9 @@ WASHOUT
  ONE  TWO  THREE
 ```
 
+For performance information, see [Programmer's Guide: "Search Functions and Hash Tables"](../../programming-reference-guide/introduction/search-functions-and-hash.md).
 
-For performance information, see [Programmer's Guide: "Search Functions and Hash Tables"](../../../programming-reference-guide/introduction/search-functions-and-hash).
-
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ∪ union
+</div>

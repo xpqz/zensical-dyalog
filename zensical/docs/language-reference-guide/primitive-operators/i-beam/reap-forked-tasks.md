@@ -3,49 +3,30 @@ search:
   boost: 2
 ---
 
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  4002⌶
-</div>
-
-
-
-
-
 
 # Reap Forked Tasks
 
 ```apl
 R←4002⌶Y
 ```
+[Key to notation](../../key-to-notation.md)
 
-
-
-!!! note
-    **AIX only**
-
+!!! info "Dyalog on AIX"
+    This function is available only under AIX.
 
 Under UNIX, when a child process terminates, it signals to its parent that it has terminated and waits for the parent to acknowledge that signal. `4002⌶` is the mechanism to allow the APL programmer to issue such acknowledgements.
 
-
 `Y` must be a simple empty vector but is ignored.
-
-
 
 The result `R` is a matrix containing the list of the newly-terminated processes which have been terminated as a result of receiving the acknowledgement, along with information about each of those processes as described below.
 
-
 `R[;1]` is the process ID (PID) of the terminated child
-
 
 `R[;2]` is `¯1` if the child process terminated normally, otherwise it is the signal number which caused the child process to terminate.
 
-
 `R[;3]` is `¯1` if the child process terminated as the result of a signal, otherwise it is the exit code of the child process
 
-
-The remaining 15 columns are the contents of the `rusage` structure returned by the underlying `wait3()` system call. Note that the two timevalstructs are each returned as a floating point number.
-
+The remaining 15 columns are the contents of the `rusage` structure returned by the underlying `wait3()` system call. The two `timeval` structs are each returned as a floating point number.
 
 The current `rusage` structure contains:
 ```c
@@ -68,7 +49,6 @@ struct rusage {
     long   ru_nivcsw;        /* involuntary context switches */
 };
 ```
-
 
 `4002⌶` may return the PID of an abnormally terminated Auxiliary Processor; APL code should check that the list of processes that have been reaped is a superset of the list of processes that have been started.
 
@@ -104,4 +84,7 @@ struct rusage {
      ∇
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  4002⌶
+</div>

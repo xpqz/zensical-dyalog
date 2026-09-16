@@ -26,7 +26,6 @@ Monadic Iota means
 
 Dyadic Iota means
 
-
 [Index Of
       ](../primitive-functions/index-of.md)
 ```apl

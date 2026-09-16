@@ -49,5 +49,3 @@ If `⎕ML≥3`[ Partition](../primitive-functions/partition.md)
 └─┴─┘
 ```
 [Language Elements](../glyphs.md)
-
-

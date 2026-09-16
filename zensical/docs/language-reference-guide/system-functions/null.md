@@ -2,25 +2,15 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕NULL NULL
-</div>
-
-
-
-
 
 # Null Item
 
 ```apl
 R←⎕NULL
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 This is a reference to a null item, such as may be returned across the COM interface to represent a null value. A null might be returned as the result of a .NET method or as the value of an empty cell in a spreadsheet
-
 
 `⎕NULL` may be used in any context that accepts a namespace reference, in particular:
 
@@ -45,8 +35,6 @@ This is a reference to a null item, such as may be returned across the COM inter
  Margin      20      16      20      40 
 ```
 
-
-
 To determine which of the cells are filled, you can compare the array with `⎕NULL`.
 ```apl
       ⎕NULL≢¨(WB.Sheets.Item 1).UsedRange.Value2
@@ -61,5 +49,7 @@ To determine which of the cells are filled, you can compare the array with `⎕N
 1 1 1 1 1
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕NULL NULL
+</div>

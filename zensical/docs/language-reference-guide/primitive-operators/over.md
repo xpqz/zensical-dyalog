@@ -2,16 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⍥
-  over
-</div>
 
 # Over
 
 ```apl
 {R}←{X}f⍥gY
 ```
+[Key to notation](../key-to-notation.md)
 
 !!! Info "Information"
     The `⍥` glyph is not available in Classic Edition, and the _behind_ operator is instead represented by `⎕U2365`.
@@ -36,3 +33,9 @@ The derived function is equivalent to `fgY` or `(gX)f(gY)` and need not return a
      (weights×scores)÷⍥(+/)weights ⍝ Weighted average
 82.1
 ```
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⍥
+  over
+</div>

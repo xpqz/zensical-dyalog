@@ -3,21 +3,21 @@ search:
   boost: 2
 ---
 
-<div style="display: none;">
-  ← gets
-</div>
-
 # Assignment (Modified)
 
 ```apl
 {R}←Xf←Y
 ```
+[Key to notation](../../key-to-notation.md)
 
 `f` may be any dyadic function which returns an explicit result.  `Y` may be any array  appropriate to function `f`.  `X` must be the *name* of an existing array appropriate to function `f`.
 
 `R` is the “pass-through” value, that is, the value of `Y`.  If the result of the derived function is not assigned or used, there is no explicit result.
 
 The effect of the derived function is to reset the value of the array named by `X` to the result of `XfY`.
+
+!!! Info "Information"
+    In a dfn or dop, modified assignment works only when `f` is a primitive. A named `f` is read as part of a multiple assignment, so `X plus←10` assigns `10` to both `X` and `plus`. Instead, modified assignment can be achieved by inserting `∘⊢`, that is, `X plus∘⊢←10`. 
 
 ## Examples
 ```apl
@@ -39,3 +39,8 @@ The effect of the derived function is to reset the value of the array named by `
       vec/⍨←vec>0 ⋄vec
 3 5 1 4 2
 ```
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ← gets
+</div>

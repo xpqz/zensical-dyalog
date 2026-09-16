@@ -2,16 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⍤
-  atop
-</div>
 
 # Atop
 
 ```apl
 {R}←{X}f⍤gY
 ```
+[Key to notation](../key-to-notation.md)
 
 !!! Info "Information"
     The `⍤` glyph is not available in Classic Edition, and the _atop_ operator is instead represented by `⎕U2364`.
@@ -35,3 +32,9 @@ The derived function is equivalent to `fgY` or `fXgY` and need not return a resu
 0 0 1 0 1
 
 ```
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⍤
+  atop
+</div>

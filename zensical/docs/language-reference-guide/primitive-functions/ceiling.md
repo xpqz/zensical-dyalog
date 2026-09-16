@@ -2,31 +2,19 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⌈ ceiling
-</div>
-
-
-
-
-
 
 # Ceiling
 
 ```apl
 R←⌈Y
 ```
+[Key to notation](../key-to-notation.md)
 
-
-
-Ceiling is defined in terms of Floor as `⌈Y←→-⌊-Y`
-
+_Ceiling_ is defined in terms of _floor_ as `⌈Y←→-⌊-Y`
 
 `Y` must be numeric.
 
-
 If an element of `Y` is real, the corresponding element of `R` is the least integer greater than or equal to the value of `Y`.
-
 
 If an element of `Y` is complex, the corresponding element of `R` depends on the relationship between the real and imaginary parts of the numbers in `Y`.
 
@@ -39,11 +27,11 @@ If an element of `Y` is complex, the corresponding element of `R` depends on the
 1J3 1J¯2
 ```
 
-
 For further explanation, see [Floor](floor.md).
 
+`⎕CT` is an implied argument of _ceiling_.
 
-`⎕CT` is an implied argument of Ceiling.
-
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⌈ ceiling
+</div>

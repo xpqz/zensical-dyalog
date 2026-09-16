@@ -35,5 +35,3 @@ Dyadic Down Shoe means
 └──┴───┴──┴─┘
 ```
 [Language Elements](../glyphs.md)
-
-

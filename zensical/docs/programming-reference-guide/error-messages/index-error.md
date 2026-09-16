@@ -1,15 +1,10 @@
 
 
-
-
-
 # INDEX ERROR
 
 ```apl
 3
 ```
-
-
 
 This report is given when either:
 
@@ -32,6 +27,3 @@ INDEX ERROR
       ↑ [2]'ABC' 'DEF'
       ^
 ```
-
-
-

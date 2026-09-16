@@ -40,7 +40,7 @@ Note that a hold is not released by a request for input through `⎕` or `⍞`.
 
 If `Y` is a matrix, the shy result `R` is `Y[1;]`. Otherwise, the  shy result `R` is `Y`.
 
-# Examples {: .example}
+## Examples
 ```apl
       ⎕FHOLD 1
  

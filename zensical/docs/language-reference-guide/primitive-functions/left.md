@@ -2,21 +2,15 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⊣ tack left
-</div>
-
 
 # Left
 
 ```apl
 R←X⊣Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `X` and `Y` may be any arrays.
-
 
 The result `R` is the left argument `X`.
 
@@ -26,9 +20,7 @@ The result `R` is the left argument `X`.
 42
 ```
 
-
-Note that when `⊣` is applied using reduction, the derived function selects the first sub-array of the array along the specified dimension. This is implemented as an idiom.
-
+When `⊣` is applied using reduction, the derived function selects the first sub-array of the array along the specified dimension. This is implemented as an idiom.
 
 ## Examples
 ```apl
@@ -47,7 +39,6 @@ scarf
 13 14 15 16
 ```
 
-
 Similarly, with expansion:
 ```apl
       ⊣\mat
@@ -64,4 +55,7 @@ scent
 scent
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⊣ tack left
+</div>

@@ -7,6 +7,7 @@ search:
 ```apl
 R←120⌶Y
 ```
+[Key to notation](../../key-to-notation.md)
 
 This function generates a [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) (**U**niversally **U**nique **ID**entifier) according to the [RFC 9562](https://datatracker.ietf.org/doc/html/rfc9562) specification. In this system, the string representation of each UUID comprises multiple groups of hexadecimal characters separated by single dashes/hyphens.
 

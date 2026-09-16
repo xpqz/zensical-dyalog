@@ -3,21 +3,15 @@ search:
   boost: 2
 ---
 
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  400⌶
-</div>
 
 # Compiler Control
 
 ```apl
 R←{X}(400⌶)Y
 ```
+[Key to notation](../../key-to-notation.md)
 
-
-
-
-Controls the actions of the Compiler (for more information on the Compiler, see the [_Compiler User Guide_](../../../../compiler-user-guide/)).
+Controls the actions of the Compiler (for more information on the Compiler, see the [_Compiler User Guide_](../../../compiler-user-guide/index.md)).
 
 The optional left-argument `X` must be one of the following:
 
@@ -113,3 +107,8 @@ The result `R` is a matrix of diagnostic information or, if `Y` was either a mat
 - `[;4]` – the error message   
 
 If the matrix has zero rows then the compilation was successful.
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  400⌶
+</div>

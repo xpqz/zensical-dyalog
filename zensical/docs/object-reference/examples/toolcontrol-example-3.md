@@ -7,7 +7,6 @@ search:
 
 Example 3
 
-
 ```apl
 'F'⎕WC'Form' 'ToolControl: Transparent 1)'('Size' 10 40)
 'F.BM'⎕WC'Bitmap' 'C:\WINDOWS\WINLOGO'
@@ -23,7 +22,4 @@ Example 3
 'F.TB.B3'⎕WC'ToolButton' 'Save'('ImageIndex' 9)
 ```
 
-
 ![](../img/tool8.gif)
-
-

@@ -3,19 +3,13 @@ search:
   exclude: true
 ---
 
-
-
-
-
 # Data Representation
 
 ```apl
 ⎕DR
 ```
 
-
 ## Monadic `⎕DR` means
-
 
 [Query Data Type](data-representation-monadic.md)
 ```apl
@@ -26,7 +20,6 @@ search:
 ```
 
 ## Dyadic `⎕DR` means
-
 
 [Change Data Type](data-representation-dyadic.md)
 ```apl

@@ -2,60 +2,38 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕FIX FIX
-</div>
-
-
-
-
-
 
 # Fix Script
 
 ```apl
 {R}←{X}⎕FIX Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `⎕FIX` establishes Namespaces, Classes, Interfaces and functions from the script specified by `Y` in the workspace.
 
-
 In this section, the term *namespace* covers scripted Namespaces, Classes and Interfaces.
 
-
-`Y` may be a simple character vector, or  a vector of character vectors or character scalars. The value of `X` determines what `Y` may contain.
-
-
+`Y` can be a simple character vector, or  a vector of character vectors or character scalars. The value of `X` determines what `Y` can contain.
 
 If `Y` is a simple character vector, it must start with `file://`, followed by the name of a file which must exist. The contents of the file must follow the same rules that apply to `Y` when `Y` is a vector of character vectors or scalars. The file name can be relative or absolute; when considering cross-platform portability, using "/" as the directory delimiter is recommended, although "\" is also valid under Windows.
 
+If specified, `X` must be a numeric scalar. It can currently take the value `0`, `1` or `2`. If not specified, the value is assumed to be `1`.
 
-If specified, `X` must be a numeric scalar. It may currently take the value `0`, `1` or `2`. If not specified, the value is assumed to be `1`.
+If `X` is `0`, `Y` must specify a single valid *namespace* which might or might not be named, or a file containing such a definition. If so, the [shy](../../programming-reference-guide/introduction/results.md#shy-results) result `R` contains a reference to the *namespace*. Even if the *namespace* is named, it is not established *per se*, although it will exist for as long as at least one reference to it exists.
 
-
-If `X` is `0`, `Y` must specify a single valid *namespace* which may or may not be named, or a file containing such a definition. If so, the shy result `R` contains a reference to the *namespace*. Even if the *namespace* is named, it is not established *per se*, although it will exist for as long as at least one reference to it exists.
-
-
-If `X` is `1`, `Y` must specify a single valid *namespace* which may or may not be named, or a file containing such a definition.  If so, the shy result `R` contains a reference to the *namespace*. If `Y` contains the definition of a named *namespace*, the *namespace* is established in the workspace.
-
+If `X` is `1`, `Y` must specify a single valid *namespace* which might or might not be named, or a file containing such a definition.  If so, the shy result `R` contains a reference to the *namespace*. If `Y` contains the definition of a named *namespace*, the *namespace* is established in the workspace.
 
 If `X` is `2`, `Y` is either a character vector containing the name of a script file, or a vector of character vectors that represents a script.
 
-
-`Y` may specify a series of **named** *namespaces* or function definitions,   or a combination of functions and namespaces.
+`Y` can specify a series of **named** *namespaces* or function definitions,   or a combination of functions and namespaces.
 
 - If the script contains more than one item,  tradfn definitions must be delimited by `∇`symbols.
-- Derived and assigned functions may be specified only within namespaces.
-
+- Derived and assigned functions can be specified only within namespaces.
 
 In this case,  the shy result `R` is a vector of character vectors, containing the names of all of the objects that have been established in the workspace; the order of the names in `R` is not defined. Currently `2 ⎕FIX` is not certain to be an atomic operation, although this might change in future versions.
 
-
 ## Example 1
-
 
 In the first example, the Class specified by `Y` is *named* (`MyClass`) but the result of `⎕FIX` is discarded. The end-result is that `MyClass` is established in the workspace as a Class.
 ```apl
@@ -63,9 +41,7 @@ In the first example, the Class specified by `Y` is *named* (`MyClass`) but the 
 #.MyClass
 ```
 
-
 ## Example 2
-
 
 In the second example, the Class specified by `Y` is *named* (`MyClass`) and the result of `⎕FIX` is assigned to a different name (`MYREF`). The end-result is that a Class named `MyClass` is established in the workspace, and `MYREF` is a reference to it.
 ```apl
@@ -82,7 +58,6 @@ MyClass MYREF
 
 ## Example 3
 
-
 In the third example, the left-argument of `0` causes the named Class `MyClass` to be visible only via the reference to it (`MYREF`). It is there, but hidden.
 ```apl
       MYREF←0 ⎕FIX ':Class MyClass' ':EndClass'
@@ -92,9 +67,7 @@ MYREF
 #.MyClass
 ```
 
-
 ## Example 4
-
 
 The fourth example illustrates the use of un-named Classes.
 ```apl
@@ -109,10 +82,7 @@ MYREF
 Pete
 ```
 
-
-
 ## Example 5
-
 
 In the final example, the left argument of `2` allows a script containing multiple objects to be fixed:
 
@@ -128,11 +98,7 @@ In the final example, the left argument of `2` allows a script containing multip
 
 ```
 
-
-
-
 ## Restrictions
-
 
 `⎕FIX` is unable to fix a namespace from `Y` when `Y` specifies a multi-line dfn which is preceded by a `⋄` (diamond separator).
 ```apl
@@ -148,52 +114,58 @@ DOMAIN ERROR: There were errors processing the script
 
 ## Variant Options
 
+`⎕FIX` supports four variant options, `Quiet`, `FixWithErrors`, `AllowLateBinding`, and `InjectReferences`, specified using the _variant_ operator [`⍠`](../primitive-operators/variant.md), summarised in [](#variantoptionsforfix), and described in detail beneath it. These options apply only to namespaces and classes specified by the script. There is no principal option.
 
-`⎕FIX` may be applied using the  Variant operator with the options Quiet, FixWithErrors,  AllowLateBinding and InjectReferences. These options apply only to namespaces and classes specified by the script. There is no principal option.
+Table: Variant options for `⎕FIX` { #variantoptionsforfix }
 
-## Quiet Option
+|Variant Option|Valid Values|Default|Effect|
+|---|---|---|---|
+|[`Quiet`](#variant-option-quiet)|`0` or `1`|`0`|Whether script errors are shown in the Status Window.|
+|[`FixWithErrors`](#variant-option-fixwitherrors)|`0`, `1`, or `2`|`1`|Whether namespaces and classes containing errors are fixed.|
+|[`AllowLateBinding`](#variant-option-allowlatebinding)|`0` or `1`|`1`|Whether a Class with an undefined Base class is fixed.|
+|[`InjectReferences`](#variant-option-injectreferences)|`'All'`, `'InClasses'` or `'None'`|`'InClasses'`|How internal references are inserted to implement lexical scope.|
 
+### Variant Option: `Quiet`
+
+Controls whether script errors are reported in the Status Window.
 
 |---|------------------------------------------------------------------------------|
-|0  |If the script contains errors, these are displayed in the Status Window.      |
+|`0` <small>(default)</small>|If the script contains errors, these are displayed in the Status Window.      |
 |`1`|If the script contains errors, the errors are not shown  in the Status Window.|
 
-## FixWithErrors Option
+### Variant Option: `FixWithErrors`
 
+Controls whether namespaces and classes that contain errors are fixed.
 
 |---|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|0  |If the script contains errors, `⎕FIX` fails with `DOMAIN ERROR` .                                                                                                      |
-|`1`|`⎕FIX` fixes all the namespaces and classes in the script regardless of any errors they may contain.                                                                   |
+|`0`|If the script contains errors, `⎕FIX` fails with `DOMAIN ERROR`.                                                                                                      |
+|`1` <small>(default)</small>|`⎕FIX` fixes all the namespaces and classes in the script regardless of any errors they might contain.                                                                   |
 |`2`|If the script contains errors, `⎕FIX` displays a message box prompting the user to choose whether or not to fix all the offending namespaces and classes in the script.|
 
-## AllowLateBinding Option
+### Variant Option: `AllowLateBinding`
 
+Controls whether a Class whose Base class is not yet defined can be fixed.
 
 |---|---------------------------------------------------------------------------------------------------------------------|
-|0  |`⎕FIX` will only fix a Class whose Base class (if specified) is defined in the script or is present in the workspace.|
-|`1`|`⎕FIX` will fixes a Class whose Base class is neither defined in the script nor present in the workspace.            |
+|`0`|`⎕FIX` will only fix a Class whose Base class (if specified) is defined in the script or is present in the workspace.|
+|`1` <small>(default)</small>|`⎕FIX` will fix a Class whose Base class is neither defined in the script nor present in the workspace.            |
 
-## InjectReferences Option
+### Variant Option: `InjectReferences`
 
+Controls how internal references are inserted to implement lexical scope.
 
 |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 |`'All'`    |In order to implement lexical scope, `⎕FIX` will insert internal references into all objects in the script.                                          |
-|'InClasses'|In order to implement lexical scope, `⎕FIX` will insert internal references ONLY into Classes and sub-classes in the script, but not into namespaces.|
+|`'InClasses'` <small>(default)</small>|To implement lexical scope, `⎕FIX` will insert internal references only into Classes and sub-classes in the script, but not into namespaces.|
 |`'None'`   |No internal references are inserted and lexical scope does not apply.                                                                                |
 
+See [Lexical Scope in Scripts](../../earlier-release-notes/release-notes-v19-0/introduction/lexical-scope-in-scripts.md).
 
-See [Lexical Scope in Scripts](../../../earlier-release-notes/release-notes-v19-0/introduction/lexical-scope-in-scripts).
-
-
-The following examples illustrate how different values of the InjectReferences option affect the scope of objects in scripts. The examples are based on the following family tree:
-
+The following examples illustrate how different values of the `InjectReferences` option affect the scope of objects in scripts. The examples are based on the following family tree:
 
 ![family tree for fix](../img/family-tree-for-fix.png)
 
-
 Two scripts are defined to map this tree onto a structure of Classes and Namespaces. In this scheme, female family members are represented by Classes and male family members by Namespaces.
-
-
 
 So the scripted tree for `Pete` has a parent Namespace:
 ```apl
@@ -213,7 +185,6 @@ So the scripted tree for `Pete` has a parent Namespace:
     :EndClass
 :EndNamespace
 ```
-
 
 While the scripted tree for `Jill` has a parent Class:
 ```apl
@@ -235,31 +206,25 @@ While the scripted tree for `Jill` has a parent Class:
 :EndClass
 ```
 
-
-
 Using the `Pete` Namespace, after executing the expression:
 ```apl
       2(⎕FIX⍠'InjectReferences' 'All')⎕SRC Pete
 ```
 
-- Code in `Pete` may refer to `Aisha`    , `Andy`     , `George`   , `Katherine`, and `Woody`
-- Code in `Andy` may refer to `Aisha`    and `Katherine`
+- Code in `Pete` can refer to `Aisha`    , `Andy`     , `George`   , `Katherine`, and `Woody`
+- Code in `Andy` can refer to `Aisha`    and `Katherine`
 - ... and so forth.
-
 
 But after executing:
 ```apl
       2(⎕FIX⍠'InjectReferences' 'InClasses')⎕SRC Pete
 ```
 
-- Code in `Pete` may refer only to `Andy` and  `Katherine`
-- Code in `Andy` may refer only to `Aisha`
+- Code in `Pete` can refer only to `Andy` and  `Katherine`
+- Code in `Andy` can refer only to `Aisha`
 - ... and so forth.
 
-
 The following tables show which objects in Namespace `Pete` can *see* (that is, refer to) which other objects representing members of the family, in each case; `All`, `InClasses` and `None`.
-
-
 
 |'All'    |Pete  |Andy  |Aisha |Katherine|Woody |George|
 |---------|------|------|------|---------|------|------|
@@ -270,7 +235,6 @@ The following tables show which objects in Namespace `Pete` can *see* (that is, 
 |Woody    |&nbsp;|&nbsp;|&nbsp;|&nbsp;   |&nbsp;|✔     |
 |George   |&nbsp;|&nbsp;|&nbsp;|&nbsp;   |✔     |&nbsp;|
 
-
 |'InClasses'|Pete  |Andy  |Aisha |Katherine|Woody |George|
 |-----------|------|------|------|---------|------|------|
 |Pete       |&nbsp;|✔     |&nbsp;|✔        |&nbsp;|&nbsp;|
@@ -279,8 +243,6 @@ The following tables show which objects in Namespace `Pete` can *see* (that is, 
 |Katherine  |✔     |✔     |&nbsp;|✔        |✔     |✔     |
 |Woody      |&nbsp;|&nbsp;|&nbsp;|&nbsp;   |&nbsp;|&nbsp;|
 |George     |&nbsp;|&nbsp;|&nbsp;|&nbsp;   |&nbsp;|&nbsp;|
-
-
 
 |'None'   |Pete  |Andy  |Aisha |Katherine|Woody |George|
 |---------|------|------|------|---------|------|------|
@@ -291,10 +253,7 @@ The following tables show which objects in Namespace `Pete` can *see* (that is, 
 |Woody    |&nbsp;|&nbsp;|&nbsp;|&nbsp;   |&nbsp;|&nbsp;|
 |George   |&nbsp;|&nbsp;|&nbsp;|&nbsp;   |&nbsp;|&nbsp;|
 
-
-
 Whilst the next set of tables show the same for Class `Jill`.
-
 
 |'All'    |Jill  |Andy  |Aisha |Katherine|Woody |George|
 |---------|------|------|------|---------|------|------|
@@ -305,8 +264,6 @@ Whilst the next set of tables show the same for Class `Jill`.
 |Woody    |&nbsp;|&nbsp;|&nbsp;|&nbsp;   |&nbsp;|✔     |
 |George   |&nbsp;|&nbsp;|&nbsp;|&nbsp;   |✔     |&nbsp;|
 
-
-
 |'InClasses'|Jill  |Andy  |Aisha |Katherine|Woody |George|
 |-----------|------|------|------|---------|------|------|
 |Jill       |✔     |✔     |✔     |✔        |✔     |✔     |
@@ -315,7 +272,6 @@ Whilst the next set of tables show the same for Class `Jill`.
 |Katherine  |✔     |✔     |&nbsp;|✔        |✔     |✔     |
 |Woody      |&nbsp;|&nbsp;|&nbsp;|&nbsp;   |&nbsp;|&nbsp;|
 |George     |&nbsp;|&nbsp;|&nbsp;|&nbsp;   |&nbsp;|&nbsp;|
-
 
 |'None'   |Jill  |Andy  |Aisha |Katherine|Woody |George|
 |---------|------|------|------|---------|------|------|
@@ -326,4 +282,7 @@ Whilst the next set of tables show the same for Class `Jill`.
 |Woody    |&nbsp;|&nbsp;|&nbsp;|&nbsp;   |&nbsp;|&nbsp;|
 |George   |&nbsp;|&nbsp;|&nbsp;|&nbsp;   |&nbsp;|&nbsp;|
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕FIX FIX
+</div>

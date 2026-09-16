@@ -2,16 +2,13 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕R
-</div>
 
 # Replace
 
 ```apl
 R←{X}(A ⎕R B) Y
 ```
+[Key to notation](../key-to-notation.md)
 
 `⎕R` (Replace) and `⎕S` (Search) are system operators which take search pattern(s) as their left arguments and transformation rule(s) as their right arguments; the derived function operates on text data to perform either a **search**, or a search and **replace** operation.
 
@@ -19,7 +16,7 @@ The search patterns may include *Regular Expressions* so that complex searches m
 
 The transformation rules are applied to the text which matches the search patterns; they may be given as a simple character vector, numeric codes, or  a function.
 
-The two system operators, `⎕R` for replace and `⎕S` for search, are syntactically identical. With `⎕R`, the input document is examined; text which matches the search pattern is amended and the remainder is left unchanged. With `⎕S`, each match in the input document results in an item in the result whose type is dependent on the transformation specified. The operators use the Variant operator to set options.
+The two system operators, `⎕R` for replace and `⎕S` for search, are syntactically identical. With `⎕R`, the input document is examined; text which matches the search pattern is amended and the remainder is left unchanged. With `⎕S`, each match in the input document results in an item in the result whose type is dependent on the transformation specified. The operators use the _variant_ operator to set options.
 
 `A` specifies one or more search patterns, being given as a single character, a character vector, a vector of character vectors or a vector of both characters and character vectors. See search pattern following.
 
@@ -123,11 +120,11 @@ A **vector of character vectors** as input will result in a **vector of characte
 
 A **stream** as input will result in a **vector of character vectors** document output. Any and all line endings in the output document will be implied at the end of each character vector.
 
-Note that the shape of the output document may be significantly different to that of the input document.
+The shape of the output document can be significantly different to that of the input document.
 
 If the ResultText option is specified, the output type may be forced to be a **character vector** or **vector of character vectors** as described above, regardless of the input document.
 
-With an output stream specified the text is appended to the stream. If the appended text does not end with a line ending character then the line ending character specified by the EOL option is also appended. The resulting length of the file  is returned as a shy result.
+With an output stream specified the text is appended to the stream. If the appended text does not end with a line ending character then the line ending character specified by the EOL option is also appended. The resulting length of the file  is returned as a [shy](../../programming-reference-guide/introduction/results.md#shy-results) result.
 
 ## `⎕S`
 
@@ -144,7 +141,7 @@ For more information on the syntax of the search pattern, see the [PCRE document
 
 There may be multiple search patterns. If more than one search pattern is specified and more than one pattern matches the same part of the input document then priority is given to the pattern specified first.
 
-Note that when anchoring a search to the beginning of a line, it is essential to use `^` (`⎕UCS 94`), not `∧` (`⎕UCS 8743`).
+When anchoring a search to the beginning of a line, it is essential to use `^` (`⎕UCS 94`), not `∧` (`⎕UCS 8743`).
 
 ## Transformation pattern
 
@@ -238,15 +235,13 @@ The pattern has two subpatterns - (`A`) and (`B`). Therefore Offsets and Lengths
 
 When `ABC` is searched the first match is the `A` in the first subpattern. The second subpattern does not feature. Offsets is `0 0` and Lengths is `1 1`: the entire pattern matched from offset 0 length 1 and the first subpattern also matched from offset 0 length 1. The second subpattern did not feature in the match.
 
-Note that `¯1` is only used as a "filler" when there are higher-numbered subpatterns that did match.
+`¯1` is only used as a "filler" when there are higher-numbered subpatterns that match.
 
 The second match is the B in the second subpattern. Offsets is `1 ¯1 1` and Lengths is `1 ¯1 1`: the entire pattern matched from offset 1 length 1 and the second subpattern also matched from offset 1 length 1. The first subpattern did not feature in the match and this is indicated by the `¯1`s. There has to be something between the offset/length for the entire pattern and the second subpattern.
 
 ## Variant Options
 
-Options are specified using the Variant operator. The Principal option is IC.
-
-Default values are highlighted thus.
+Options are specified using the _variant_ operator. The Principal option is IC.
 
 ### IC Option
 
@@ -409,7 +404,7 @@ This option specifies the encoding of the input stream when it cannot be determi
 When the stream is read from its start, and the start of the stream contains a recognised Byte Order Mark (BOM), the encoding is taken as that specified by the BOM and this option is ignored. Otherwise, the encoding is assumed to be as specified by this option.
 
 |------------|----------------------------------------------------------------------------------------------------------------------------------|
-|`UTF-8` (default)|The stream is processed as UTF-8 data. Note that ASCII is a subset of UTF-8, so this default is also suitable for ASCII data.     |
+|`UTF-8` (default)|The stream is processed as UTF-8 data. ASCII is a subset of UTF-8, so this default is also suitable for ASCII data.     |
 |UTF-16      |The stream is processed as UTF16 little-endian data on little-ended systems, or as UTF16 big-endian data on big-endian systems.   |
 |UTF-16LE    |The stream is processed as UTF16 little-endian data.                                                                              |
 |UTF-16BE    |The stream is processed as UTF16 big-endian data.                                                                                 |
@@ -503,7 +498,6 @@ This option may be used to disable regular expression matching which is enabled 
 |`1` (default)|Regular expression matching is applied. |
 |0  |regular expression matching is disabled.|
 
-
 ## Examples
 ```apl
       STR
@@ -524,37 +518,27 @@ The \u0 \u0 on the \u0
 
 The Mode setting determines how the input document is packaged as a block and passed to the search engine. In line mode each line is processed separately; in document mode and mixed mode the entire document is presented to the search engine. This affects both the semantics of the search expression, and memory usage.
 
-
-
 ## Semantic differences
 
 - The ML option applies per block of data.
 - In line mode, search patterns cannot be constructed to span multiple lines. Specifically, patterns that include line ending characters (such as '\r') will never match because the line endings are never presented to the search engine.
 - By default the search pattern metacharacters '^' and '\$' match the start and end of the block of data. In line mode this is always the start and end of each line. In document mode this is the start and end of the document. In mixed mode the behaviour of '^' and '\$' are amended by setting the PCRE option 'MULTILINE' so that they match the start and end of each line within the document.
 
-
 ## Memory usage differences
-
 
 Blocks of data passed to the search engine are processed and stored in the workspace. Processing the input document in line mode limits the total memory requirements; in particular this means that large streams can be processed without holding all the data in the workspace at the same time.
 
 ## Technical Considerations
 
-
 `⎕R` and `⎕S` utilise the open-source regular-expression search engine PCRE, which is built into the Dyalog software and distributed according to the PCRE licence which is published separately.
-
 
 Before data is passed to PCRE it is converted to UTF-8 format. This converted data is buffered in the workspace; processing large documents may have significant memory requirements. In line mode, the data is broken into individual lines and each is processed separately, potentially reducing memory demands.
 
-
 It is possible to save a workspace with an active `⎕R` or `⎕S` on the stack and execution can continue when the workspace is reloaded with the same interpreter version. Later versions of the interpreter may not remain compatible and may signal a `DOMAIN ERROR` with explanatory message in the status window if it is unable to continue execution.
-
 
 PCRE has a buffer length limit of 2<sup>31</sup> bytes (2GB). UTF-8 encodes each character using between 1 and 6 bytes (typically 1 or 3). In the very worst case, where every character is encoded in 6 bytes, the maximum block length which can be searched would be 357,913,940 characters.
 
 ## Further Examples
-
-
 
 Several of the examples use the following vector as the input document:
 ```apl
@@ -564,7 +548,6 @@ Whether 'tis nobler in the mind to suffer
 The slings and arrows of outrageous fortune,
 Or to take arms against a sea of troubles
 ```
-
 
 Replace all upper and lower-case vowels by `'X'`:
 ```apl
@@ -618,7 +601,7 @@ Place every non-space sequence of characters in brackets:
 
 Replace all sequences of one or more spaces by newline:
 
-Note that the effect of this is dependent on the input format
+The effect of this is dependent on the input format.
 
 Character vector input results in a single character vector output with embedded newlines:
 
@@ -713,7 +696,6 @@ For the list of objectionable words
        profanity←'bleeding' 'heck'
 ```
 
-
 first construct a pattern which will match the words:
 ```apl
       ptn←(('^' '$' '\r\n') ⎕R '\\b(' ')\\b' '|'
@@ -721,7 +703,6 @@ first construct a pattern which will match the words:
       ptn
 \b(bleeding|heck)\b
 ```
-
 
 then a function that uses this pattern:
 ```apl
@@ -732,7 +713,6 @@ then a function that uses this pattern:
 
 Replace the characters 'or' with '\u0' without having to escape the backslash:
 
-
 Escaping transformation strings can be a daunting task. To avoid doing so, one can simply enclose the string in braces. This is not a special feature, but just a consequence of how transformation functions are used.
 ```apl
       ('to' ⎕R {'\u0'})text
@@ -742,4 +722,7 @@ The slings and arrows of outrageous fortune,
 Or \u0 take arms against a sea of troubles
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕R
+</div>

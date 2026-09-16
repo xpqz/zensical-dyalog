@@ -2,25 +2,15 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  - minus subtract
-</div>
-
-
-
-
-
 
 # Minus
 
 ```apl
 R←X-Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` may be any numeric array. `X` may be any numeric array. `R` is numeric. The value of `R` is the difference between `X` and `Y`.
-
 
 This function is also known as Subtract.
 
@@ -33,5 +23,7 @@ This function is also known as Subtract.
 1.7J¯2
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  - minus subtract
+</div>

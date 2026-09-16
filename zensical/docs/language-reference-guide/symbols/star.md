@@ -8,7 +8,6 @@ search:
 *
 ```
 
-
 Monadic Star means
 [Exponential](../primitive-functions/exponential.md)
 ```apl
@@ -23,5 +22,3 @@ Dyadic Star means
 7 25 0J2
 ```
 [Language Elements](../glyphs.md)
-
-

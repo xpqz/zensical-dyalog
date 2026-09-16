@@ -22,5 +22,3 @@ Dyadic Log means
 5 3
 ```
 [Language Elements](../glyphs.md)
-
-

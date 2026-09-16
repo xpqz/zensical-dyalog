@@ -1,19 +1,12 @@
 
 
-
-
-
 # With Statement
 
 ```apl
 :With obj
 ```
 
-
-
 [Formal Definition](with-statement-definition.md){: .noprint }
-
-
 
 `:With` is a control structure that may be used to simplify a series of references to an object or namespace. `:With` changes into the specified namespace for the duration of the control structure, and is terminated by `:End[With]`. `obj` is either the name of or a reference to a namespace. For example, you could update several properties of a Grid object `F.G` as follows:
 
@@ -25,9 +18,6 @@
        :EndWith
 ```
 
-
-
-
 `:With` is analogous to `⎕CS` in  the following senses:
 
 - The namespace argument to `:With` is interpreted relative to the current space.
@@ -35,9 +25,7 @@
 - Global references from within the `:With` control structure are to names in the new space. 
 - Exiting the defined function from within a `:With` control structure causes the space to revert to the one from which the function was called.
 
-
-
-On leaving the `:With` control structure, execution reverts to the original namespace. Notice however that the interpreter does not detect branches (`→`) out of the control structure. `:With` control structures can be nested in the normal fashion:
+On leaving the `:With` control structure, execution reverts to the original namespace. However, the interpreter does not detect branches (`→`) out of the control structure. `:With` control structures can be nested in the normal fashion:
 ```apl
 [1]   :With 'x'           ⍝ Change to #.x
 [2]       :With 'y'       ⍝ Change to #.x.y
@@ -47,5 +35,3 @@ On leaving the `:With` control structure, execution reverts to the original name
 [6]       :EndWith        ⍝ Back to #.x
 [7]   :EndWith            ⍝ Back to #
 ```
-
-

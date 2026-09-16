@@ -2,10 +2,6 @@
 
 Property
 
-**Applies To:** [ListView](../objects/listview.md), [TreeView](../objects/treeview.md)
-
-**Description**
-
 The CheckBoxes property specifies whether or not check boxes are displayed
 alongside items in a [ListView](../objects/listview.md) or [TreeView](../objects/treeview.md) object.
 
@@ -30,5 +26,6 @@ The picture below illustrates the effect on the appearance of a [ListView](../ob
 
 ![](../img/lv-cb.gif)
 
+## Application
 
-
+Objects: [ListView](../objects/listview.md), [TreeView](../objects/treeview.md)

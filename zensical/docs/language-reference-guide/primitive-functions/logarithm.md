@@ -2,27 +2,17 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⍟ log logarithm
-</div>
-
-
-
-
-
 
 # Logarithm
 
 ```apl
 R←X⍟Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `X` and `Y` must be numeric arrays. `X` cannot be 1 unless `Y` is also 1. `R` is the base `X` logarithm of `Y`.
 
-
-Note that Logarithm (dyadic `⍟`) is defined in terms of Natural Logarithm (monadic `⍟`) as:
+_Logarithm_ (dyadic `⍟`) is defined in terms of _natural logarithm_ (monadic `⍟`) as:
 ```apl
       X⍟Y←→(⍟Y)÷⍟X
 ```
@@ -41,5 +31,7 @@ Note that Logarithm (dyadic `⍟`) is defined in terms of Natural Logarithm (mon
 0
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⍟ log logarithm
+</div>

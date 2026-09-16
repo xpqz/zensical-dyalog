@@ -2,25 +2,15 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⍨
-  constant
-</div>
-
-
-
-
-
 
 # Constant
 
 ```apl
 R←{X}(A⍨)Y
 ```
+[Key to notation](../key-to-notation.md)
 
-
-
-`A`,  `X` and `Y` are arrays. The Constant operator returns array `A`.
+`A`,  `X` and `Y` are arrays. The _constant_ operator returns array `A`.
 
 ## Examples
 ```apl
@@ -35,5 +25,8 @@ mu
 
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⍨
+  constant
+</div>

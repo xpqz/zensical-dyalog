@@ -3,19 +3,13 @@ search:
   exclude: true
 ---
 
-
-
-
-
 # Unix Shell
 
 ```apl
 ⎕SH
 ```
 
-
 ## Monadic `⎕SH` means
-
 
 [Execute Unix Command](execute-unix-command.md)
 ```apl
@@ -24,7 +18,6 @@ FILES WS temp
 ```
 
 ## Dyadic `⎕SH` means
-
 
 [Start Unix Auxiliary Processor](start-unix-auxiliary-processor.md)
 ```apl

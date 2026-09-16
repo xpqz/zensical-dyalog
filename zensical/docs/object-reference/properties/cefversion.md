@@ -2,18 +2,9 @@
 
 Property
 
-
-
-**Applies To:** [HTMLRenderer](../objects/htmlrenderer.md)
-
-**Description**
-
-
 CEFVersion is a read-only property that reports the version of the [Chromium Embedded Framework (CEF)](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework) that is being used. This information is primarily used for debugging and support.
 
-
 It is a 10-element vector containing the following:
-
 
 |Index |Description                                                                             ||
 |------|----------------------------------------------------------------------------------|------|
@@ -28,5 +19,6 @@ It is a 10-element vector containing the following:
 |`[9]` |GIT Hashes                                                                        |&nbsp;|
 |`[10]`|GIT Hashes                                                                        |&nbsp;|
 
+## Application
 
-
+Objects: [HTMLRenderer](../objects/htmlrenderer.md)

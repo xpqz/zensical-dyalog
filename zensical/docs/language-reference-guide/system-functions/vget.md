@@ -2,16 +2,13 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕VGET VGET
-</div>
 
 # Value Get
 
 ```apl
 R←{X}⎕VGET Y
 ```
+[Key to notation](../key-to-notation.md)
 
 `⎕VGET` enables values to be read for names in a source namespace or source namespaces. Optionally, a fallback value can be used if the name requested is undefined.
 
@@ -51,7 +48,6 @@ The fallback values must be one of the following:
 
 * a vector with as many elements as there are names in the matrix.
 * a scalar value that is the fallback value for all names.
-
 
 The result `R` is a vector of the values from the corresponding names or fallback values.
 
@@ -178,6 +174,8 @@ See [Case 1: Name Matrix](#case-1-name-matrix) for an example of multiple names 
 
 `Y` must be a numeric scalar or vector, where each item is a nameclass (see [Name Classification](nc.md)).
 
+`⎕VGET` can only report names that hold a value, so each item of `Y` must be `1` (Label), `2` (Variable), `8` (Event), or `9` (Object); any other value causes a `DOMAIN ERROR`. An item can also include a sub-class, for example `2.2` (Field), and can be negative, for example `¯2` or `¯2.2`.
+
 If any of the numbers in `Y` are negative, the result `R` is a vector of name-value pairs, one for each existing name in the source namespace with a nameclass from `Y`. Otherwise, `R` is a 2-element nested vector, where the first element is a character matrix of names and the second element is a vector of values. In both cases, `R` is suitable as an argument for [`⎕VGET`](vget.md) and [`⎕VSET`](vset.md).
 
 [`⎕NC`](nc.md) always reports the names of fields in a class as having nameclass `2` (`2.2` with the sub-class), even when the name has no value (might expect `0`) or the field is a namespace reference (might expect `9`). [`⎕VGET`](vget.md) with a right argument of `2` will only include fields that have values that are not references, while a right argument of `9` will include fields that are references. With a right argument of `2.2`, [`⎕VGET`](vget.md) will return all fields that are not undefined.
@@ -221,6 +219,25 @@ DOMAIN ERROR: Divide by zero
  Vendor                                                Dyalog
 ```
 
+The following example lists the available line labels after a failed branch:
+```apl
+      ∇ foo
+[1]   l1:
+[2]   l2:
+[3]    :GoTo l3
+      ∇
+      foo
+VALUE ERROR: Undefined name: l3
+foo[3] :GoTo l3
+             ∧
+      ⎕VGET ¯1
+┌──────┬──────┐
+│┌──┬─┐│┌──┬─┐│
+││l1│1│││l2│2││
+│└──┴─┘│└──┴─┘│
+└──────┴──────┘
+```
+
 Name matrix and value vector:
 
 ```apl
@@ -234,3 +251,8 @@ Was OFF
 │name3│└───┴─────┴─────┘│
 └─────┴─────────────────┘
 ```
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕VGET VGET
+</div>

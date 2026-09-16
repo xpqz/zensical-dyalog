@@ -2,16 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ∘
-  beside
-</div>
 
 # Beside
 
 ```apl
 {R}←{X}f∘gY
 ```
+[Key to notation](../key-to-notation.md)
 
 The _beside_ operator allows functions to be *glued* together to build up more complex functions. For further information, see [Function Composition](./function-composition.md).
 
@@ -47,3 +44,9 @@ The derived function is equivalent to `fgY` or `XfgY` and need not return a resu
       0,∘⍳¨⍳5
 0 1  0 1 2  0 1 2 3  0 1 2 3 4  0 1 2 3 4 5
 ```
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ∘
+  beside
+</div>

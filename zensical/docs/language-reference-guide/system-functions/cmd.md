@@ -3,19 +3,13 @@ search:
   exclude: true
 ---
 
-
-
-
-
 # Windows Command
 
 ```apl
 ⎕CMD
 ```
 
-
 ## Monadic `⎕CMD` means
-
 
 [Execute Windows Command](execute-windows-command.md)
 ```apl
@@ -37,7 +31,6 @@ search:
 
 ## Dyadic `⎕CMD` means
 
-
 [Start Windows Auxiliary Processor](start-windows-auxiliary-processor.md)
 ```apl
       )CLEAR
@@ -48,7 +41,4 @@ avx     box     dbr     getenv  hex     ltom    ltov    mtol    ss      vtol
 
 ```
 
-
 [Language Elements](../symbols/language-elements.md)
-
-

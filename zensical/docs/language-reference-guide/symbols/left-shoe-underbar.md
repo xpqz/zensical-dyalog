@@ -8,7 +8,6 @@ search:
 ⊆
 ```
 
-
 Monadic Left Shoe Underbar means
 [Nest](../primitive-functions/nest.md)
 ```apl
@@ -39,5 +38,3 @@ Dyadic Left Shoe Underbar means
 └────┴─┴────┘
 ```
 [Language Elements](../glyphs.md)
-
-

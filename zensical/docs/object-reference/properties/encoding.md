@@ -2,10 +2,6 @@
 
 Property
 
-**Applies To:** [TCPSocket](../objects/tcpsocket.md)
-
-**Description**
-
 The Encoding property is a character vector that specifies how character data
 are encoded or translated.
 
@@ -32,7 +28,7 @@ Table: Classic Edition
 |`'Raw'`  |`'Classic'` (default)|Characters are transmitted/received as indices of `⎕AV`.|
 |_       _|`'Unicode'`|Characters are converted to/from Unicode using `⎕AVU` and transmitted/received as Unicode code points. An attempt to transmit or receive a characters not present in `⎕AVU` will cause `TRANSLATION ERROR`.|
 
-The default value of Encoding depends upon the value of [Style](style.md) as indicated. Default values are highlighted <span class="shaded">thus</span> in the above tables.
+The default value of Encoding depends upon the value of [Style](style.md) as indicated.
 
 An attempt to set the value of Encoding to a value not valid for the current [Style](style.md),
 as implied by the above tables, will cause `DOMAIN ERROR`.
@@ -48,3 +44,7 @@ Char  None
       s0.(Style Encoding)
 Apl  Classic
 ```
+
+## Application
+
+Objects: [TCPSocket](../objects/tcpsocket.md)

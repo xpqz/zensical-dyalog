@@ -46,5 +46,3 @@ GH
 1.61803
 ```
 [Language Elements](../glyphs.md)
-
-

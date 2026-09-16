@@ -3,43 +3,30 @@ search:
   boost: 2
 ---
 
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  3002⌶
-</div>
-
-
-
-
-
 
 # Disable Component Checksum Validation
 
 ```apl
 {R}←3002⌶Y
 ```
-
-
+[Key to notation](../../key-to-notation.md)
 
 Checksums allow component files to be validated and repaired using [`⎕FCHK`](../../system-functions/fchk.md).
 
-
 From Version 13.1 onwards, components which contain checksums are also validated on every component read.
-
 
 Although not recommended, applications which favour performance over security may disable checksum validation by `⎕FREAD` using this function.
 
-
 `Y` is an integer defined as follows:
-
 
 |Value|Description                                                                 |
 |-----|----------------------------------------------------------------------------|
 |0    |`⎕FREAD` will not validate checksums.                                       |
 |1    |`⎕FREAD` will validate checksums when they are present. This is the default.|
 
+The [shy](../../../programming-reference-guide/introduction/results.md#shy-results) result `R` is the previous value of this setting.
 
-The shy result `R` is the previous value of this setting.
-
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  3002⌶
+</div>

@@ -3,40 +3,28 @@ search:
   boost: 2
 ---
 
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  2007⌶
-</div>
-
-
-
-
-
 
 # Disable Global Triggers
 
 ```apl
 R←2007⌶Y
 ```
+[Key to notation](../../key-to-notation.md)
 
-
-
-This function is used to temporarily disable and re-enable [Global Triggers](../../../../programming-reference-guide/triggers/global-triggers).
-
+This function is used to temporarily disable and re-enable [Global Triggers](../../../programming-reference-guide/triggers/global-triggers.md).
 
 `Y` is Boolean.
 
-
 `R` is the previous value setting.
-
 
 |`Y`|Effect                  |
 |---|------------------------|
 |`0`|Enable Global Triggers. |
 |`1`|Disable Global Triggers.|
 
-
 This function has effect only in the current thread and its effect is immediate. If there are pending triggers when triggers are disabled, those pending will be queued and fired when triggers are re-enabled.
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  2007⌶
+</div>

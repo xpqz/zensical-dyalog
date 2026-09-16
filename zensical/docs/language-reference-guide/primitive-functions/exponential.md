@@ -2,22 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  * exponential
-</div>
-
-
-
-
-
 
 # Exponential
 
 ```apl
 R←*Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` must be numeric. `R` is numeric and is the `Y`th power of *e*, the base of natural logarithms.
 
@@ -33,5 +24,7 @@ R←*Y
 0
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  * exponential
+</div>

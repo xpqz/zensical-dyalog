@@ -37,5 +37,3 @@ r
 3
 ```
 [Language Elements](../glyphs.md)
-
-

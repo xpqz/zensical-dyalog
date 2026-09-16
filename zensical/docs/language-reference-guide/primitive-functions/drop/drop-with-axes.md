@@ -2,41 +2,27 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ↓
-  drop
-</div>
-
-
-
-
-
 
 # Drop with Axes
 
 ```apl
 R←X↓[K]Y
 ```
-
-
+[Key to notation](../../key-to-notation.md)
 
 `Y` may be any non-scalar array.  `X` must be a simple integer scalar or vector.  `K` is a vector of zero or more axes of `Y`.
 
-
 `R` is an array of the elements of `Y` with the first or last `X`[i] elements removed. Elements are removed from the beginning or end of `Y` according to the sign of `X`[i].
-
 
 The rank of `R` is the same as the rank of `Y`:
 ```apl
        ⍴⍴R ←→ ⍴⍴Y
 ```
 
-
 The size of each axis of `R` is determined by the corresponding element of `X`:
 ```apl
       (⍴R)[,K] ←→ 0⌈(⍴Y)[,K]-|,X
 ```
-
 
 ## Examples
 ```apl
@@ -73,4 +59,8 @@ The size of each axis of `R` is determined by the corresponding element of `X`:
 23 24
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ↓
+  drop
+</div>

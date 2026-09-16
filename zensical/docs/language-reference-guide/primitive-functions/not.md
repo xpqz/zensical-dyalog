@@ -2,22 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ~ not
-</div>
-
-
-
-
-
 
 # NOT
 
 ```apl
 R←~Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` must be a Boolean array. `R` is Boolean. The value of `R` is 0 if `Y` is 1, and `R` is 1 if `Y` is 0.
 
@@ -27,5 +18,7 @@ R←~Y
 1 0
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ~ not
+</div>

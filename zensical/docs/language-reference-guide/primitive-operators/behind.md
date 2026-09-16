@@ -2,16 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⍛
-  behind
-</div>
 
 # Behind
 
 ```apl
 {R}←{X}f⍛gY
 ```
+[Key to notation](../key-to-notation.md)
 
 !!! Info "Information"
     The `⍛` glyph is not available in Classic Edition, and the _behind_ operator is instead represented by `⎕U235B`.
@@ -109,7 +106,7 @@ Does the left argument exist within the right argument?
 1
 ```
 
-Select elements using the index function:
+Select elements using the _index_ function:
 ```apl
       1 4 1 13 ⊂⍛⌷ ⎕A
 ADAM
@@ -189,3 +186,9 @@ Split a vector with a function that can be applied either monadically (in which 
 │,I│S,EAT│ING,RATES│
 └──┴─────┴─────────┘
 ```
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⍛
+  behind
+</div>

@@ -2,47 +2,33 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕FDROP FDROP
-</div>
-
-
-
-
-
 
 # File Drop Component
 
 ```apl
 {R}←⎕FDROP Y
 ```
-
+[Key to notation](../key-to-notation.md)
 
 ## Access code 32
 
-
 `Y` must be a simple integer vector of length 2 or 3 whose elements are:
-
 
 |---|---|
 |`[1]`|a file tie number|
 |`[2]`|a number specifying the position and number of components to be dropped.  A positive value indicates that components are to be removed from the beginning of the file; a negative value indicates that components are to be removed from the end of the file|
 |`[3]`|an optional passnumber which if omitted is assumed to be zero|
 
-
-
-The shy result of a `⎕FDROP` is a vector of the numbers of the dropped components. This is analogous to `⎕FAPPEND` in that the result is potentially useful for updating some sort of dictionary:
+The [shy](../../programming-reference-guide/introduction/results.md#shy-results) result of a `⎕FDROP` is a vector of the numbers of the dropped components. This is analogous to `⎕FAPPEND` in that the result is potentially useful for updating some sort of dictionary:
 ```apl
       cnos,←vec ⎕FAPPEND¨tie ⍝ Append index to dictionary
       
       cnos~←⎕FDROP tie,-⍴vec ⍝ Remove index from dict.
 ```
 
+The potentially-large result vector is only generated request.
 
-Note that the result vector, though potentially large, is generated only on request.
-
-# Examples {: .example}
+## Examples
 ```apl
       ⎕FSIZE 1
 1 21 5436 4294967295
@@ -55,4 +41,7 @@ Note that the result vector, though potentially large, is generated only on requ
  
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕FDROP FDROP
+</div>

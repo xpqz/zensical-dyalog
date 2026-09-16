@@ -2,26 +2,17 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕FMT FMT
-</div>
-
-
-
-
-
 
 # Format (Monadic)
 
 ```apl
 R←⎕FMT Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` may be any array.  `R` is a simple character matrix which appears the same as the default display of `Y`.  If `Y` contains control characters from `⎕TC`, they will be resolved.
 
+[`⎕PP`](pp.md) is an implicit argument of `⎕FMT`.
 
 ## Examples
 ```apl
@@ -52,4 +43,12 @@ R←⎕FMT Y
 3 12
 ```
 
+## See Also
 
+- [Display of Arrays](../../programming-reference-guide/introduction/arrays/display-of-arrays.md) – how arrays appear in the session
+- [`⍕`](../primitive-functions/format.md) – Format: returns a character array (vector or matrix depending on input rank)
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕FMT FMT
+</div>

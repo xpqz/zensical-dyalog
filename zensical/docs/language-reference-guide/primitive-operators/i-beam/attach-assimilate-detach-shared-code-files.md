@@ -3,20 +3,17 @@ search:
   boost: 2
 ---
 
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  8666⌶
-</div>
 
 # Attach/Assimilate/Detach Shared Code Files
 
 ```apl
 {R}←{X} (8666⌶) Y
 ```
+[Key to notation](../../key-to-notation.md)
 
 **Restriction**: 64-bit Unicode only
 
-The value of `Y` specifies whether this attaches, assimilates, or detaches [shared code files](../../../../shared-code-files-user-guide/).
+The value of `Y` specifies whether this attaches, assimilates, or detaches [shared code files](../../../shared-code-files-user-guide/index.md).
 
 ## Attach Shared Code Files
 
@@ -60,3 +57,8 @@ Before a shared code file is disconnected from the active workspace:
 
 !!! info "Dyalog on Microsoft Windows"
     As shared code files are read-only, they cannot be updated while they are in use. Instead, if a shared code file needs to be updated, it must be rebuilt. When a new version of a shared code file becomes available, anyone using the old version should detach it and attach the new one instead as soon as is practical.
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  8666⌶
+</div>

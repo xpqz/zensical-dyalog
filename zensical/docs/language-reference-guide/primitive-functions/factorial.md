@@ -2,22 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ! factorial
-</div>
-
-
-
-
-
 
 # Factorial
 
 ```apl
 R←!Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` must be numeric excluding negative integers.  `R` is numeric.  `R` is the product of the first `Y` integers for positive integer values of `Y`. In general, `!Y` is gamma `Y+1`.
 
@@ -33,5 +24,7 @@ R←!Y
 0.4980156681J¯0.1549498283 0.1122942423J0.3236128855
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ! factorial
+</div>

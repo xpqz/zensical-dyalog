@@ -2,26 +2,17 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ∨ gcd or
-</div>
-
-
-
-
-
 
 # Greatest Common Divisor/OR
 
 ```apl
 R←X∨Y
 ```
-
+[Key to notation](../key-to-notation.md)
 
 ## Case 1: Greatest Common Divisor – `X` and `Y` are numeric (non-Boolean)
 
-
-R is the Greatest Common Divisor of `X` and `Y`. Note that in this case, `⎕CT` and `⎕DCT` are implicit arguments.
+R is the Greatest Common Divisor of `X` and `Y`. In this case, `⎕CT` and `⎕DCT` are implicit arguments.
 
 ## Examples
 ```apl
@@ -35,9 +26,7 @@ R is the Greatest Common Divisor of `X` and `Y`. Note that in this case, `⎕CT`
 10000 5000  50 1 2 3
 ```
 
-
 ## Case 2: OR – `X` and `Y` are Boolean
-
 
 R is Boolean and is determined as follows:
 ```apl
@@ -55,4 +44,7 @@ R is Boolean and is determined as follows:
 0 1 1 1
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ∨ gcd or
+</div>

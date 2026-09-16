@@ -36,5 +36,3 @@ Dyadic Grade Up means
 2 4 6 3 5 1
 ```
 [Language Elements](../glyphs.md)
-
-

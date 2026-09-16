@@ -3,35 +3,21 @@ search:
   boost: 2
 ---
 
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  127⌶
-</div>
-
-
-
-
-
 
 # Overwrite Free Pockets
 
 ```apl
 R←127⌶Y
 ```
-
-
+[Key to notation](../../key-to-notation.md)
 
 Overwrites all free pockets in the workspace.
 
-
 Some applications (cryptography for example) make use of secure data during execution. The nature of the APL workspace is such that remnants of this secure data may persist in the workspace (and thus the process memory) even after the relevant APL variables have been expunged. This function overwrites all unused data pockets in the workspace so that any potentially secure data is removed.
-
 
 `Y` is any empty array, preferably `⍬`(zilde). `R` is always 1.
 
-
 It is the responsibility of the programmer to ensure that there are no USED pockets in the workspace that reference the data.
-
 
 ## Example
 ```apl
@@ -61,4 +47,7 @@ It is the responsibility of the programmer to ensure that there are no USED pock
 
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  127⌶
+</div>

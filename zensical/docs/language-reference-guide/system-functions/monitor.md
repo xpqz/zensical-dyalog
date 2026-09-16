@@ -3,19 +3,13 @@ search:
   exclude: true
 ---
 
-
-
-
-
 # Monitor Controls
 
 ```apl
 ⎕MONITOR
 ```
 
-
 ## Dyadic `⎕MONITOR` means
-
 
 [Set Monitor Controls](set-monitor.md)
 ```apl
@@ -24,7 +18,6 @@ search:
 ```
 
 ## Monadic `⎕MONITOR` means
-
 
 [Query Monitor Controls](query-monitor.md)
 ```apl

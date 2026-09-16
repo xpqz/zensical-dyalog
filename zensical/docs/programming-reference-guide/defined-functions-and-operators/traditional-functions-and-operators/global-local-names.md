@@ -1,4 +1,4 @@
-# Global &amp; Local Names
+# Global & Local Names
 
 The following names, if present, are local to the defined operation:
 

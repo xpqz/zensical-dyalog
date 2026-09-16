@@ -2,34 +2,21 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⍷ find
-</div>
-
-
-
-
-
 
 # Find
 
 ```apl
 R←X⍷Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `X` and `Y` may be any arrays.  `R` is a simple Boolean array the same shape as Y which identifies occurrences of `X` within `Y`.
 
-
 If the rank of `X` is smaller than the rank of `Y`, `X` is treated as if it were the same rank with leading axes of size 1.  For example a vector is treated as a 1-row matrix.
-
 
 If the rank of `X` is larger than the rank of `Y`, no occurrences of `X` are found in `Y`.
 
-
-`⎕CT` and `⎕DCT` are implicit arguments of Find.
-
+`⎕CT` and `⎕DCT` are implicit arguments of _find_.
 
 ## Examples
 ```apl
@@ -56,4 +43,7 @@ ISN'T
 0 0 0 0 0 0 0 0 0
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⍷ find
+</div>

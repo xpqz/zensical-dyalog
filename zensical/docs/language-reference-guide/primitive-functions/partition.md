@@ -3,18 +3,15 @@ search:
   boost: 2
 ---
 
-<div style="display: none;">
-   ⊆ partition
-</div>
-
 # Partition
 
 ```apl
 R←X⊆[K]Y
 ```
+[Key to notation](../key-to-notation.md)
 
-!!! note "Classic Edition"
-    The symbol `⊆` (Left Shoe Underbar) is not available in Classic Edition, and Partition is instead represented by `⎕U2286`.
+!!! Info "Information"
+    The symbol `⊆` (Left Shoe Underbar) is not available in Classic Edition, and _partition_ is instead represented by `⎕U2286`.
 
 `Y` may be any non-scalar array.
 
@@ -26,98 +23,80 @@ The axis specification is optional.  If present, it must be a simple integer sca
 
 A new partition is started in the result whenever the corresponding element in `X` is greater than the previous one. Items in `Y` corresponding to `0`s in `X` are not included in the result.
 
-Note that if `⎕ML≥3`, the symbol `⊂` means the same as `⊆`.
+If `⎕ML≥3`, the symbol `⊂` means the same as `⊆`.
 
 ## Examples
 ```apl
       ⎕ML←3
- 
-      ]Display 1 1 1 2 2 3 3 3⊆'NOWISTHE'
-┌→─────────────────┐
-│ ┌→──┐ ┌→─┐ ┌→──┐ │
-│ │NOW│ │IS│ │THE│ │
-│ └───┘ └──┘ └───┘ │
-└∊─────────────────┘
- 
-      ]Display 1 1 1 0 0 3 3 3⊆'NOWISTHE'
-┌→────────────┐
-│ ┌→──┐ ┌→──┐ │
-│ │NOW│ │THE│ │
-│ └───┘ └───┘ │
-└∊────────────┘
- 
+      ]Boxing ON
+Was OFF
+      1 1 1 2 2 3 3 3⊆'NOWISTHE'
+┌───┬──┬───┐
+│NOW│IS│THE│
+└───┴──┴───┘
+      1 1 1 0 0 3 3 3⊆'NOWISTHE'
+┌───┬───┐
+│NOW│THE│
+└───┴───┘
       TEXT←'   NOW     IS      THE      TIME    '
-      ]Display (' '≠TEXT)⊆TEXT
-┌→────────────────────────┐
-│ ┌→──┐ ┌→─┐ ┌→──┐ ┌→───┐ │
-│ │NOW│ │IS│ │THE│ │TIME│ │
-│ └───┘ └──┘ └───┘ └────┘ │
-└∊────────────────────────┘
- 
+      (' '≠TEXT)⊆TEXT
+┌───┬──┬───┬────┐
+│NOW│IS│THE│TIME│
+└───┴──┴───┴────┘
 ```
+
+
 ```apl
+      NMAT←[
+      0  100 150
+      0    0 350
+      0 1000 500
+      ]
+      COLS←'Jan' 'Feb' 'Mar'
+      ROWS←'Cakes' 'Biscuits' 'Buns'
+      CMAT←⎕FMT(' ',ROWS),COLS⍪NMAT
+      CMAT
+           Jan   Feb  Mar 
+ Cakes       0   100  150 
+ Biscuits    0     0  350 
+ Buns        0  1000  500 
 
-      ]Display CMAT←⎕FMT(' ',ROWS),COLS⍪NMAT
-┌→─────────────────────────┐
-↓           Jan   Feb  Mar │
-│ Cakes       0   100  150 │
-│ Biscuits    0     0  350 │
-│ Buns        0  1000  500 │
-└──────────────────────────┘
+      (∨⌿' '≠CMAT)⊆CMAT   ⍝ Split at blank cols.
+┌────────┬───┬────┬───┐
+│        │Jan│ Feb│Mar│
+├────────┼───┼────┼───┤
+│Cakes   │  0│ 100│150│
+├────────┼───┼────┼───┤
+│Biscuits│  0│   0│350│
+├────────┼───┼────┼───┤
+│Buns    │  0│1000│500│
+└────────┴───┴────┴───┘
 
+      N←4 4⍴⍳16
+      N
+ 1  2  3  4
+ 5  6  7  8
+ 9 10 11 12
+13 14 15 16
+      1 1 0 1⊆N
+┌─────┬──┐
+│1 2  │4 │
+├─────┼──┤
+│5 6  │8 │
+├─────┼──┤
+│9 10 │12│
+├─────┼──┤
+│13 14│16│
+└─────┴──┘
+      1 1 0 1⊆[1]N
+┌───┬───┬───┬───┐
+│1 5│2 6│3 7│4 8│
+├───┼───┼───┼───┤
+│13 │14 │15 │16 │
+└───┴───┴───┴───┘
 ```
-```apl
 
-      ]Display (∨⌿' '≠CMAT)⊆CMAT   ⍝ Split at blank cols.
-┌→──────────────────────────────┐
-↓ ┌→───────┐ ┌→──┐ ┌→───┐ ┌→──┐ │
-│ │        │ │Jan│ │ Feb│ │Mar│ │
-│ └────────┘ └───┘ └────┘ └───┘ │
-│ ┌→───────┐ ┌→──┐ ┌→───┐ ┌→──┐ │
-│ │Cakes   │ │  0│ │ 100│ │150│ │
-│ └────────┘ └───┘ └────┘ └───┘ │
-│ ┌→───────┐ ┌→──┐ ┌→───┐ ┌→──┐ │
-│ │Biscuits│ │  0│ │   0│ │350│ │
-│ └────────┘ └───┘ └────┘ └───┘ │
-│ ┌→───────┐ ┌→──┐ ┌→───┐ ┌→──┐ │
-│ │Buns    │ │  0│ │1000│ │500│ │
-│ └────────┘ └───┘ └────┘ └───┘ │
-└∊──────────────────────────────┘
- 
-      ]Display N←4 4⍴⍳16
-┌→──────────┐
-↓ 1  2  3  4│
-│ 5  6  7  8│
-│ 9 10 11 12│
-│13 14 15 16│
-└~──────────┘
- 
-      ]Display 1 1 0 1⊆N
-┌→─────────────┐
-↓ ┌→──┐   ┌→┐  │
-│ │1 2│   │4│  │
-│ └~──┘   └~┘  │
-│ ┌→──┐   ┌→┐  │
-│ │5 6│   │8│  │
-│ └~──┘   └~┘  │
-│ ┌→───┐  ┌→─┐ │
-│ │9 10│  │12│ │
-│ └~───┘  └~─┘ │
-│ ┌→────┐ ┌→─┐ │
-│ │13 14│ │16│ │
-│ └~────┘ └~─┘ │
-└∊─────────────┘
-
-```
-```apl
- 
-      ]Display 1 1 0 1⊆[1]N
-┌→────────────────────────┐
-↓ ┌→──┐ ┌→──┐ ┌→──┐ ┌→──┐ │
-│ │1 5│ │2 6│ │3 7│ │4 8│ │
-│ └~──┘ └~──┘ └~──┘ └~──┘ │
-│ ┌→─┐  ┌→─┐  ┌→─┐  ┌→─┐  │
-│ │13│  │14│  │15│  │16│  │
-│ └~─┘  └~─┘  └~─┘  └~─┘  │
-└∊────────────────────────┘
-```
+<!-- Hidden search keywords -->
+<div style="display: none;">
+   ⊆ partition
+</div>

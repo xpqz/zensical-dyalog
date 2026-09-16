@@ -2,16 +2,13 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕FMT FMT
-</div>
 
 # Format (Dyadic)
 
 ```apl
 R←X ⎕FMT Y
 ```
+[Key to notation](../key-to-notation.md)
 
 `Y` must be a simple array of rank not exceeding two, or a non-simple scalar or vector whose items are simple arrays of rank not exceeding two.  The simple arrays in `Y` must be homogeneous, either character or numeric. All numeric values in `Y` must be simple; if `Y` contains any complex numbers, dyadic `⎕FMT` will generate a `DOMAIN ERROR`. `X` must be a simple character vector.  `R` is a simple character matrix.
 
@@ -31,7 +28,6 @@ The **format specification** consists of a series of control phrases, with adjac
 |`Xn`          |Relative tabulation|
 |`⍞t⍞`         |Text insertion     |
 
-
 (Alternative surrounding pairs for Pattern or Text insertion are   `< >, ⊂ ⊃, ⎕ ⎕`  or `¨ ¨`.)
 
 **where**
@@ -46,10 +42,7 @@ The **format specification** consists of a series of control phrases, with adjac
 |`t`|is any arbitrary text excluding the surrounding character pair.  Double quotes imply a single quote in the result.|
 |`pattern`|see following section **G format**|
 
-
-
 **Qualifiers q are as follows**
-
 
 |---|---|
 |`B`|leaves the field blank if the result would otherwise be zero.|
@@ -61,9 +54,7 @@ The **format specification** consists of a series of control phrases, with adjac
 |`Z`|fills unused leading positions in the result with zeros (and commas if `C` is also specified).|
 |`9`|digit selector|
 
-
 **Affixtures are as follows**
-
 
 |---|---|
 |`M⍞t⍞`|prefixes negative results with the text t instead of the negative sign.|
@@ -73,6 +64,9 @@ The **format specification** consists of a series of control phrases, with adjac
 |`R⍞t⍞`|presets the field with the text `t` which is repeated as necessary to fill the field.  The text will be replaced in parts of the field filled by the result, including the effects of other qualifiers and affixtures except the `B` qualifier|
 
 The surrounding affixture delimiters may be replaced by the alternative pairs described for Text Insertion.
+
+The affixtures, qualifiers, and control phrases are case-sensitive and must be specified in upper case.
+
 
 ## Examples
 
@@ -259,3 +253,8 @@ NIL
 ```
 
 `⎕CT` and `⎕DCT` are  implicit arguments of `⎕FMT` with the O format qualifier.
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕FMT FMT
+</div>

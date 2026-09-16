@@ -7,6 +7,7 @@ search:
 ```apl
 R←X(5581⌶)Y
 ```
+[Key to notation](../../key-to-notation.md)
 
 Converts characters in an array to one of four Unicode Normal Forms.
 
@@ -70,4 +71,3 @@ BrandTM
 1
 
 ```
-

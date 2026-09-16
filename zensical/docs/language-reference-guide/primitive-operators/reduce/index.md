@@ -2,16 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  /
-  reduce
-</div>
 
 # Reduce
 
 ```apl
 R←f/[K]Y
 ```
+[Key to notation](../../key-to-notation.md)
 
 `f` must be a dyadic function.  `Y` may be any array whose items in the sub-arrays along the `K`<sup>th</sup> axis are appropriate to function `f`.
 
@@ -35,7 +32,7 @@ Otherwise, if the length of the `K`<sup>th</sup> axis is 0 then the result depen
 
 If `f` is one of the functions listed in [](#IdentityElements) then `R` is `S⍴⊂I`, where `I` is formed from `⊃Y` by replacing each depth-zero item of `⊃Y` with the *identity element* from the table.
 
-Otherwise, if `f` is Catenate, `R` is `S⍴⊂0/⊃Y`. If `f` is Catenate First, `R` is `S⍴⊂0⌿⊃Y`. If `f` is Catenate along the J<sup>th</sup> axis, `R` is `S⍴⊂0/[J]⊃Y`. See [Catenate/Laminate](../../primitive-functions/catenate-laminate.md).
+Otherwise, if `f` is _catenate_, `R` is `S⍴⊂0/⊃Y`. If `f` is _catenate first_, `R` is `S⍴⊂0⌿⊃Y`. If `f` is _catenate_ along the J<sup>th</sup> axis, `R` is `S⍴⊂0/[J]⊃Y`. See [Catenate/Laminate](../../primitive-functions/catenate-laminate.md).
 
 Otherwise, `DOMAIN ERROR` is reported.
 
@@ -116,7 +113,7 @@ The imprecise way in which large and non-integral values can be stored means tha
       +/ 1 1E100 ¯1E100
 0
 ``` 
-For backwards compatibility reasons, `+/` and `×/` of simple vectors are still evaluated in left-to-right order and that will not change. Any deviation from this, such as arguments that are not simple vectors (for example, higher-rank arrays or nested arguments) or additional qualifications of the derived function (for example, with bracket axes or application of the rank operator) can change the evaluation order. This means that some sums and products can give different results to those that might be expected. For example:
+For backwards compatibility reasons, `+/` and `×/` of simple vectors are still evaluated in left-to-right order and that will not change. Any deviation from this, such as arguments that are not simple vectors (for example, higher-rank arrays or nested arguments) or additional qualifications of the derived function (for example, with bracket axes or application of the _rank_ operator) can change the evaluation order. This means that some sums and products can give different results to those that might be expected. For example:
 ```apl 
       +/ 1E100 ¯1E100 1
 1
@@ -128,3 +125,9 @@ For backwards compatibility reasons, `+/` and `×/` of simple vectors are still 
 0
 ```
 This also applies to `+⌿` and `×⌿`.
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  /
+  reduce
+</div>

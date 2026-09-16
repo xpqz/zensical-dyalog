@@ -177,7 +177,6 @@ Let's see what this means if two APL workspaces are involved.
     </tr>
 </table>
 
-
 As you can see, this has the desired effect, namely that an APL workspace sets the value of a shared variable by assignment to it and **uses** it by reference to it. The mechanism of using the DATA and ACK messages to imply **set** and **use** also works with non-APL applications which do not (in general) support these concepts.
 
 Access control between two APL workspaces is imposed by each workspace acting independently. Whenever either workspace changes its `⎕SVC`, the information is transmitted to the other. Thus both workspaces maintain their own copy of the **effective** access control vector upon which to base decisions.
@@ -355,7 +354,7 @@ This is simply achieved by withholding the ACK message. Thus if APL receives a D
 
 Assuming that the second application waits for the acknowledgement before proceeding, this will cause the desired synchronisation. Naturally, this cannot be entirely guaranteed because APL has no **direct** control over a non-APL program. Indeed, when an application transmits a DATA message, it can include a flag to indicate that an acknowledgement is neither expected nor required. In these circumstances, APL is powerless to impose any access control.
 
-Note that APL does not (and cannot) have any control over successive internal references to the data by a non-APL application.
+APL does not (and cannot) have any control over successive internal references to the data by a non-APL application.
 
 The rule for establishing your partner's initial `⎕SVC` is as follows:
 

@@ -2,15 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⍒ grade
-</div>
 
 # Dyadic Grade Down
 
 ```apl
 R←X⍒Y
 ```
+[Key to notation](../key-to-notation.md)
 
 `Y` must be a simple character array of rank greater than 0. `X` must be a simple character array of rank 1 or greater. `R` is a simple integer vector of shape `1↑⍴Y` containing the permutation of `⍳1↑⍴Y` that places the sub-arrays of `Y` along the first axis in descending order according to the collation sequence `X`. The indices of any set of identical sub-arrays in `Y` occur in `R` in ascending order.
 
@@ -86,7 +84,6 @@ That is, the order of rows is 4 2 1 3 which corresponds to a descending row sort
  abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 ```
 
-
 The following results are tabulated for comparison:
 ```
 X       X[S1⍒X;]    X[S2⍒X;]    X[S3⍒X;]    X[S4⍒X;]
@@ -102,6 +99,9 @@ MAT       FIRsT       FIRsT       FIRsT       FIRST
 RAT       FIRST       FIRST       FIRST       fIRST
 ```
 
-`⎕IO` is an implicit argument of Grade Down.
+`⎕IO` is an implicit argument of _grade down_.
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⍒ grade
+</div>

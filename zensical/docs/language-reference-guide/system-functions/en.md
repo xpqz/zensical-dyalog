@@ -2,18 +2,15 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕EN EN
-</div>
 
 # Event Number
 
 ```apl
 R←⎕EN
 ```
+[Key to notation](../key-to-notation.md)
 
-This simple integer scalar reports the identification number for the most recent event which occurred, caused by an APL action or by an interrupt or by the `⎕SIGNAL` system function.  Its value in a clear workspace is `0`.
+This simple integer scalar reports the identification number for the most recent event which occurred, caused by an APL action or by an interrupt or by the [`⎕SIGNAL`](signal.md) system function.  Its value in a clear workspace is `0`.
 
 ## Example
 ```apl
@@ -25,11 +22,11 @@ DOMAIN ERROR: Divide by zero
 11
 ```
 
+See [APL Error Messages](../../programming-reference-guide/error-messages/apl-errors.md).
 
-See [APL Error Messages](../../../programming-reference-guide/error-messages/apl-errors).
+The value of this system constant can be reset using `⎕SIGNAL`.
 
-!!! note
-    `⎕SIGNAL` can be used to reset the value of this system constant.
-
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕EN EN
+</div>

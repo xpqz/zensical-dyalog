@@ -2,37 +2,23 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⊃ pick
-</div>
-
-
-
-
-
 
 # Pick
 
 ```apl
 R←X⊃Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` may be any array.
 
-
 `X` is a scalar or vector of indices of `Y`.
-
 
 `R` is an item selected from the structure of `Y` according to `X`.
 
-
 Elements of `X` select from successively deeper levels in the structure of `Y`.  The items of `X` are simple integer scalars or vectors which identify a set of indices, one per axis at the particular level of nesting of `Y` in row-major order.  Simple scalar items in `Y` may be picked by empty vector items in `X` to any arbitrary depth.
 
-
-`⎕IO` is an implicit argument of Pick.
-
+`⎕IO` is an implicit argument of _pick_.
 
 ## Examples
 ```apl
@@ -60,4 +46,7 @@ K
 
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⊃ pick
+</div>

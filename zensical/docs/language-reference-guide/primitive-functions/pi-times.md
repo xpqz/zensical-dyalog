@@ -2,22 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ○ pi
-</div>
-
-
-
-
-
 
 # Pi Times
 
 ```apl
 R←○Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` may be any numeric array. `R` is numeric. The value of `R` is the product of the mathematical constant *π=3.14159...* (Pi), and `Y`.
 
@@ -33,5 +24,7 @@ R←○Y
 ¯1
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ○ pi
+</div>

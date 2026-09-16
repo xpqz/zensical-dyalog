@@ -2,26 +2,21 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⌹
-</div>
 
 # Matrix Divide
 
 ```apl
 R←X⌹Y
 ```
+[Key to notation](../key-to-notation.md)
 
 `Y` must be a simple numeric array of rank 2 or less.  `X` must be a simple numeric array of rank 2 or less.  `Y` must be non-singular.  A scalar argument is treated as a matrix with one-element.  If `Y` is a vector, it is treated as a single column matrix.  If `X` is a vector, it is treated as a single column matrix.  The number of rows in `X` and `Y` must be the same.  `Y` must have at least the same number of rows as columns.
 
 `R` is the result of matrix division of `X` by `Y`.  That is, the matrix product `Y+.×R` is `X`.
 
-
 `R` is determined such that `(X-Y+.×R)*2` is minimised.
 
-
 The shape of `R` is `(1↓⍴Y),1↓⍴X`.
-
 
 ## Examples
 ```apl
@@ -46,7 +41,6 @@ The shape of `R` is `(1↓⍴Y),1↓⍴X`.
 8.2111 7.1222
 5.0889 5.5778
 ```
-
 
 If there are more rows than columns in the right argument, the least squares solution results.  In the following example, the constants a and b which provide the best fit for the set of equations represented by P = a + bQ are determined:
 ```apl
@@ -79,7 +73,6 @@ If there are more rows than columns in the right argument, the least squares sol
       ⍝ that is, y⌹x recovered the coefficients 3 4 5 6
 ```
 
-
 ## Additional Information
 ```apl
 
@@ -87,14 +80,14 @@ If there are more rows than columns in the right argument, the least squares sol
 
 ```
 
-
 (Use `+⍉` instead of `⍉` for complex `y`.)
-
 
 This equivalence, familiar to mathematicians and statisticians, explains
 
 - the conformability requirements for `⌹`
 - how to compute the result for tall matrices from the better known square matrix case
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⌹
+</div>

@@ -1,15 +1,10 @@
 
 
-
-
-
 # FILE INDEX ERROR
 
 ```apl
 20
 ```
-
-
 
 This report is given when an attempt is made to reference a non-existent component.
 
@@ -27,6 +22,3 @@ FILE INDEX ERROR
       ⎕FDROP 1 50
       ^
 ```
-
-
-

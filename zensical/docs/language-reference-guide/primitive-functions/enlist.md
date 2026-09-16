@@ -2,15 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ∊ enlist
-</div>
 
 # Enlist
 
 ```apl
 (⎕ML≥1) R←∊Y
 ```
+[Key to notation](../key-to-notation.md)
 
 Migration level must be such that `⎕ML≥1` (otherwise see [Type](type.md)).
 
@@ -34,5 +32,7 @@ MISSISSIPPI
 1 2 3 4 5 6 7 8
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ∊ enlist
+</div>

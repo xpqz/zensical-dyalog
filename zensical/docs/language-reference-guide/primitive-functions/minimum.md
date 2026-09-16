@@ -2,22 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⌊ min minimum
-</div>
-
-
-
-
-
 
 # Minimum
 
 ```apl
 R←X⌊Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` may be any numeric array.  `X` may be any numeric array.  `R` is numeric.  `R` is the smaller of `X` and `Y`.
 
@@ -27,5 +18,7 @@ R←X⌊Y
 ¯3.2 0.1 15.3
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⌊ min minimum
+</div>

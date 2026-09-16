@@ -2,29 +2,17 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕FNAMES FNAMES
-</div>
-
-
-
-
-
 
 # File Names
 
 ```apl
 R←⎕FNAMES
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 The result is a character matrix containing the names of all tied files, with one file name per row.  The number of columns is that required by the longest file name.
 
-
 A file name is returned precisely as it was specified when the file was tied, except that the directory delimiter `\` is replaced by `/`.  If no files are tied, the result is a character matrix with 0 rows and 0 columns.  The rows of the result are in the order in which the files were tied.
-
 
 ## Examples
 ```apl
@@ -47,4 +35,7 @@ PROFIT
  5 PROFIT
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕FNAMES FNAMES
+</div>

@@ -3,16 +3,13 @@ search:
   boost: 2
 ---
 
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  8415⌶
-</div>
 
 # Singular Value Decomposition
 
 ```apl
 R←(8415⌶)Y
 ```
+[Key to notation](../../key-to-notation.md)
 
 `Y` is a simple numeric matrix. `⎕FR` must be 645.
 
@@ -33,8 +30,9 @@ This can be useful for analysing matrices for which `⌹` cannot compute an inve
 
 For further information, see Wikipedia's article on [Singular Value Decomposition](https://en.wikipedia.org/wiki/Singular_value_decomposition).
 
-!!! note
-    This function signals `DOMAIN ERROR` if `⎕FR` is 1287. See [Floating-Point Representation ](../../system-functions/fr.md).
+This function signals `DOMAIN ERROR` if [`⎕FR`](../../system-functions/fr.md) is 1287.
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  8415⌶
+</div>

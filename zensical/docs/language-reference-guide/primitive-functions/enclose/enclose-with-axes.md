@@ -2,28 +2,23 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⊂ enclose
-</div>
 
 # Enclose with Axes
 
 ```apl
 R←⊂[K]Y
 ```
-
+[Key to notation](../../key-to-notation.md)
 
 `Y` may be any array.  `K` is a vector of zero or more axes of `Y`.  `R` is an array of the elements of `Y` enclosed along the axes `K`.  The shape of `R` is the shape of `Y` with the `K` axes removed:
 ```apl
       ⍴R ←→ (⍴Y)[(⍳⍴⍴R)~K]
 ```
 
-
 The shape of each element of `R` is the shape of the `K`th axes of `Y`:
 ```apl
       ⍴⊃R ←→ (⍴Y)[,K]
 ```
-
 
 ## Examples
 ```apl
@@ -70,4 +65,7 @@ The shape of each element of `R` is the shape of the `K`th axes of `Y`:
 └∊─────────────────────┘
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⊂ enclose
+</div>

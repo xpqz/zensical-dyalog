@@ -2,36 +2,21 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕WG WG
-</div>
-
-
-
-
-
 
 # Window Get Property
 
 ```apl
 R←{X}⎕WG Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 **Windows only.**
 
-
 This system function returns property values for a GUI object.
-
 
 `X` is a namespace reference or a character vector containing the name of the object. `Y` is a character vector or a vector of character vectors containing the name(s) of the properties whose values are required. The result `R` contains the current values of the specified properties. If `Y` specifies a single property name, a single property value is returned. If `Y` specifies more than one property, `R` is a vector with one element per name in `Y`.
 
-
-
 If `X` refers to a non-existent GUI name, a `VALUE ERROR` is reported. If `Y` refers to a non-existent property, or to a property that is not defined for the type of object `X`, a `DOMAIN ERROR` is reported.
-
 
 GUI objects are named **relative** to the current namespace. A null value of `X` (referring to the namespace in which the function is being evaluated) may be omitted. The following examples are equivalent:
 ```apl
@@ -64,4 +49,7 @@ TEST
 └∊─────────────────┘
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕WG WG
+</div>

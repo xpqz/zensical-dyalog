@@ -2,31 +2,20 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ≠ nubsieve unique mask
-</div>
-
-
-
-
-
 
 # Unique Mask
 
 ```apl
 R←≠Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` may be any array.
-
 
 `R` is a Boolean vector whose length is the number of major cells
 in `Y`. For each major cell of `Y`, the corresponding element of  `R` is 1 if it is the first occurrence of that value, and 0 if it is a duplicate of an earlier major cell.
 
-
-`⎕CT` and `⎕DCT` are  implicit arguments of Unique.
+`⎕CT` and `⎕DCT` are implicit arguments of _unique mask_.
 
 ## Examples
 ```apl
@@ -51,5 +40,7 @@ DUCK
 
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ≠ nubsieve unique mask
+</div>

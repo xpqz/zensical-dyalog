@@ -8,7 +8,6 @@ This command allows WINDOWS or UNIX shell commands to be given from APL.  `)SH`
 
 The system functions [`⎕SH`](../system-functions/execute-unix-command.md) and [`⎕CMD`](../system-functions/execute-windows-command.md) provide similar facilities but may be executed from within APL code. For further information, see [Execute (UNIX) Command](../system-functions/execute-unix-command.md) and [Execute Windows Command](../system-functions/execute-windows-command.md).
 
-
 `)SH` allows UNIX shell commands to be given from APL. The argument must be entered in the appropriate case (usually lower-case).  The result of the command, if any, is displayed.
 
 `)SH` causes Dyalog to invoke the `system()` library call. The shell which is used to run the command is therefore the shell which `system()` is defined to call. For example, under AIX this would be `/usr/bin/sh`.
@@ -28,7 +27,5 @@ The parameters CMD_PREFIX and CMD_POSTFIX may be used to execute a different she
   6179 11665660      -  0:00 sshd
 ```
 
-!!! note
+!!! Info "Information"
     This function is disabled and instead generates a `DOMAIN ERROR` if the RIDE_SPAWNED parameter is non-zero. This is designed to prevent it being invoked from a Ride session which does not support this type of user interface. For further details, see the [Ride User Guide](https://dyalog.github.io/ride).
-
-

@@ -2,25 +2,15 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⌽ reverse
-</div>
-
-
-
-
-
 
 # Reverse
 
 ```apl
 R←⌽[K]Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` may be any array.  The axis specification is optional.  If present, `K` must be an integer scalar or one-element vector.  The value of `K` must be an axis of `Y`.  If absent, the last axis is implied.  The form `R←⊖Y` implies the first axis.
-
 
 `R` is the array `Y` reversed on the `K`th or implied axis.
 
@@ -43,5 +33,7 @@ R←⌽[K]Y
 1 2 3
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⌽ reverse
+</div>

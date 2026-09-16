@@ -2,20 +2,15 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ? deal
-</div>
 
 # Deal
 
 ```apl
 R←X?Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` must be a simple scalar or 1-element vector containing a non-negative integer. `X` must be a simple scalar or 1-element vector containing a non-negative integer and `X≤Y`.
-
 
 `R` is an integer  vector obtained by making `X` random selections from `⍳Y` without repetition.
 
@@ -29,8 +24,9 @@ R←X?Y
 20 4 22 36 31 49 45 28 5 35 37 48 40
 ```
 
-
 `⎕IO` and `⎕RL` are implicit arguments of Deal. A side effect of Deal is to change the value of `⎕RL`. See [Random Number Seed](../system-functions/rl.md/#random-number-seed).
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ? deal
+</div>

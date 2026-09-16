@@ -55,5 +55,3 @@ StandHat
 9  2  7  8
 ```
 [Language Elements](../glyphs.md)
-
-

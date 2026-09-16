@@ -2,22 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⍉ transpose
-</div>
-
-
-
-
-
 
 # Transpose (Monadic)
 
 ```apl
 R←⍉Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` may be any array.  `R` is an array of shape `⌽⍴Y`, similar to `Y` with the order of the axes reversed.
 
@@ -68,4 +59,7 @@ R←⍉Y
 
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⍉ transpose
+</div>

@@ -2,30 +2,19 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ∊ member membership
-</div>
-
-
-
-
-
 
 # Membership
 
 ```apl
 R←X∊Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` may be any array.  `X` may be any array.  `R` is Boolean. An element of `R` is 1 if the corresponding element of `X` can be found in `Y`.
 
-
 An element of `X` is considered identical to an element in `Y` if `X≡Y` returns 1 for those elements.
 
-
-`⎕CT` and `⎕DCT` are  implicit arguments of Membership.
+`⎕CT` and `⎕DCT` are  implicit arguments of _membership_.
 
 ## Examples
 ```apl
@@ -36,8 +25,9 @@ An element of `X` is considered identical to an element in `Y` if `X≡Y` return
 1 1 0
 ```
 
+For performance information, see [Programmer's Guide: "Search Functions and Hash Tables"](../../programming-reference-guide/introduction/search-functions-and-hash.md).
 
-For performance information, see [Programmer's Guide: "Search Functions and Hash Tables"](../../../programming-reference-guide/introduction/search-functions-and-hash).
-
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ∊ member membership
+</div>

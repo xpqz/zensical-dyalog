@@ -2,22 +2,13 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕FCREATE FCREATE
-</div>
-
-
-
-
-
-
 
 # File Create
 
 ```apl
 {R}←X ⎕FCREATE Y
 ```
+[Key to notation](../key-to-notation.md)
 
 `Y` must be a simple integer scalar or a 1 or 2 element vector:  
 
@@ -29,24 +20,17 @@ search:
 
 `X` must be either:
 
-1. a simple character scalar or vector which specifies the name of the file to be created. If no file extension is supplied, the first extension specified by the   **CFEXT** parameter will be added. See [ CFEXT](../../../windows-installation-and-configuration-guide/configuration-parameters/configuration-parameters).
+1. a simple character scalar or vector which specifies the name of the file to be created. If no file extension is supplied, the first extension specified by the   **CFEXT** parameter will be added. See [ CFEXT](../../windows-installation-and-configuration-guide/configuration-parameters/configuration-parameters.md).
 2. a vector of length 1 or 2 whose items are:- a simple character scalar or vector as above.
 - an integer scalar specifying the file size limit in bytes.
 
-
-
-
 The newly created file is tied for exclusive use.
 
-
-The shy result of `⎕FCREATE` is the tie number of the new file.
+The [shy](../../programming-reference-guide/introduction/results.md#shy-results) result of `⎕FCREATE` is the tie number of the new file.
 
 ## Automatic Tie Number Allocation
 
-
 A tie number of 0 as argument to a create or tie operation, allocates, and returns as an explicit result, the first (closest to zero) available tie number. This allows you to simplify code. For example:
-
-
 
 from:
 ```apl
@@ -56,13 +40,11 @@ from:
 
 ```
 
-
 to:
 ```apl
 
       tie←file ⎕FCREATE 0 ⍝ Create with first available..
 ```
-
 
 ## Examples
 ```apl
@@ -74,32 +56,30 @@ to:
 
 ```
 
+## Variant Options
 
-## File Properties
+`⎕FCREATE` sets the properties of the newly created file through variant options, summarised in [](#variantoptionsforfcreate). These are the file properties described in [File Properties](fprops.md).
 
+Table: Variant options for `⎕FCREATE` { #variantoptionsforfcreate }
 
-`⎕FCREATE` allows you to specify properties for the newly created file via the variant operator `⍠` used with the following options:
+|Variant Option|Valid Values|Default|Effect|
+|---|---|---|---|
+|`'J'`|`0`, `1`, `2`, or `3`|`1`|Sets the journaling level.|
+|`'C'`|`0` or `1`|`1`|Sets the checksum level.|
+|`'Z'`|`0` or `1`|`0`|Sets compression.|
+|`'U'`|`0` or `1`|`1`|Sets Unicode support.|
+|`'S'`|`64`|`64`|Sets the file size (span).|
 
-- `'J'` - journaling level; a numeric value
-- `'C'` - checksum level; 0 or 1
-- `'Z'` - compression; 0 or 1
-- `'U'` - Unicode; 0 or 1
-- `'S'` - File Size (span); 64
+The principal option is a number that sets journaling (`'J'`) and checksum (`'C'`) together:
 
-
-
-
-The Principal Option is  as follows:
-
-- 0 - sets `('J' 0) ('C' 0)`
-- 1 - sets `('J' 1) ('C' 1)`
-- 2 - sets `('J' 2) ('C' 1)`
-- 3 - sets `('J' 3) ('C' 1)`
-
+|Principal option|Effect|
+|---|---|
+|`0`|sets `('J' 0) ('C' 0)`, which signals a `DOMAIN ERROR` as this combination is no longer supported|
+|`1`|sets `('J' 1) ('C' 1)`|
+|`2`|sets `('J' 2) ('C' 1)`|
+|`3`|sets `('J' 3) ('C' 1)`|
 
 See also: [File Properties ](fprops.md).
-
-
 
 ## Examples
 ```apl
@@ -110,13 +90,10 @@ See also: [File Properties ](fprops.md).
 
 ```
 
-
-
 Alternatively:
 ```apl
       JFCREATE←⎕FCREATE ⍠ 3
 ```
-
 
 will name a variant of `⎕FCREATE` which will create component file with level 3 journaling, and checksum enabled. Then:
 ```apl
@@ -125,4 +102,9 @@ will name a variant of `⎕FCREATE` which will create component file with level 
 ```
 
 !!! Info "Information"
-    Component files that have both journalling and checksum properties set to `0` have been deprecated; from Dyalog v21.0 it will not be possible to create files with this combination of properties. For information on how to identify code that creates component files that have both journalling and checksum properties set to `0` in your existing codebase, see the [Release Notes](../../../release-notes/announcements/deprecated-functionality/).
+    Component files that have both journalling and checksum properties set to `0` have been deprecated, and it is no longer possible to create files with this combination of properties. For information on how to identify code that creates component files that have both journalling and checksum properties set to `0` in your existing codebase, see the [Release Notes](../../release-notes/announcements/deprecated-functionality.md).
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕FCREATE FCREATE
+</div>

@@ -27,5 +27,3 @@ Dyadic Down Tack means
 
 ```
 [Language Elements](../glyphs.md)
-
-

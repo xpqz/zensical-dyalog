@@ -7,7 +7,6 @@ search:
 
 Example 5
 
-
 ```apl
 'F'⎕WC'Form' 'Combining Horizontal and Vertical Splitters'
 'F.E1'⎕WC'Edit'(20 6⍴'Edit 1')('Style' 'Multi')
@@ -22,7 +21,4 @@ Example 5
 'F.S4'⎕WC'Splitter' 'F.E4' 'F.E5'('Style' 'Horz')
 ```
 
-
 ![](../img/split5.gif)
-
-

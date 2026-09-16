@@ -3,32 +3,19 @@ search:
   boost: 2
 ---
 
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  5176⌶
-</div>
-
-
-
-
-
 
 # List Loaded Files
 
 ```apl
 R←5176⌶Y
 ```
+[Key to notation](../../key-to-notation.md)
 
-
-
-The editor may be used to edit Dyalog script files (*.dyalog* files) and general text files and to save the contents in the workspace. Additionally `⎕FIX` can be used to fix scripts held in files. This I-Beam returns a list of all of the files which are associated with objects in the workspace, together with information about each file.
-
+The editor may be used to edit Dyalog script files (*.dyalog* files) and general text files and to save the contents in the workspace. Additionally `⎕FIX` can be used to fix scripts held in files. This _I-beam_ returns a list of all of the files which are associated with objects in the workspace, together with information about each file.
 
 `Y` may be any value.
 
-
 `R` is a vector of vectors, one element per associated file. Each element is a 5 element vector:
-
 
 |Element|Contains |
 |-------|---------|
@@ -38,9 +25,7 @@ The editor may be used to edit Dyalog script files (*.dyalog* files) and general
 |4      |Newline  |
 |5      |Flags    |
 
-
-Encoding, newline and flags are defined the same as for `⎕NGET`. See [File Encodings](../../system-functions/nget.md). Checksum is an 8-character hexadecimal value, see [GetBuildID](../../../../object-reference/methodorevents/getbuildid)  for more information.
-
+Encoding, newline and flags are defined the same as for `⎕NGET`. See [File Encodings](../../system-functions/nget.md). Checksum is an 8-character hexadecimal value, see [GetBuildID](../../../object-reference/methodorevents/getbuildid.md)  for more information.
 
 ## Examples
 ```apl
@@ -60,4 +45,7 @@ clear ws
 			
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  5176⌶
+</div>

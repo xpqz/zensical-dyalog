@@ -2,16 +2,13 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕C
-</div>
 
 # Case Convert
 
 ```apl
 R←{X}⎕C Y
 ```
+[Key to notation](../key-to-notation.md)
 
 `Y` is any array. `R` is an identical array except that character arrays within it are either folded for case-less comparison, or mapped to upper or lower case.
 
@@ -44,7 +41,6 @@ If `X` is specified, the following cases are supported:
 
 ## Example
 
-
 Greek has two forms of lower-case Sigma, namely "σ" and "ς" but a single upper-case Sigma "Σ". Each lower-case form remains unchanged when mapped to lower-case, but both fold to "σ", while "Σ" is mapped to lower-case "σ" .
 ```apl
       ⎕C 'ίσως'
@@ -56,7 +52,9 @@ Greek has two forms of lower-case Sigma, namely "σ" and "ς" but a single upper
 
 ```
 
-!!! note
-    Refs in `Y` are not followed but just returned unchanged.
+Refs in `Y` are not followed but returned unchanged.
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕C
+</div>

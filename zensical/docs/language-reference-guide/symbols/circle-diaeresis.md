@@ -23,5 +23,3 @@ Operator Circle Diaeresis means
 0
 ```
 [Language Elements](../glyphs.md)
-
-

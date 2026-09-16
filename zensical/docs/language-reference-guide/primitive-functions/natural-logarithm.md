@@ -2,22 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⍟ log logarithm
-</div>
-
-
-
-
-
 
 # Natural Logarithm
 
 ```apl
 R←⍟Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` must be a numeric array. `R` is numeric.  `R` is the natural (or Napierian) logarithm of `Y` whose base is the mathematical constant *e=2.71828...*.
 
@@ -31,5 +22,7 @@ R←⍟Y
 1.282474679J0.9827937232 1.6094379120J0.927295218
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⍟ log logarithm
+</div>

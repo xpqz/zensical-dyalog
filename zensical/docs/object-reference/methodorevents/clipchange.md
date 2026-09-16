@@ -2,22 +2,14 @@
 
 Event 120
 
-
-
-**Applies To:** [Clipboard](../objects/clipboard.md)
-
-**Description**
-
-
 If enabled, this event is reported when another application changes the contents of the Windows clipboard.
 
-
-The event message reported as the result of [`⎕DQ`](../../../language-reference-guide/system-functions/dq), or supplied as the right argument to your callback function, is a 2-element vector as follows :
-
+The event message reported as the result of [`⎕DQ`](../../language-reference-guide/system-functions/dq.md), or supplied as the right argument to your callback function, is a 2-element vector as follows :
 
 |-----|------|-----------------------|
 |`[1]`|Object|ref or character vector|
 |`[2]`|Event |`'ClipChange'` or 120  |
 
+## Application
 
-
+Objects: [Clipboard](../objects/clipboard.md)

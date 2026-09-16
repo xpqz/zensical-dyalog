@@ -25,5 +25,3 @@ Dyadic Question Mark means
 36 31 44 11 27 42 13 8 2 33 19 34 6
 ```
 [Language Elements](../glyphs.md)
-
-

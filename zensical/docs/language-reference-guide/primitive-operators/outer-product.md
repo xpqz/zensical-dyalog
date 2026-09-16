@@ -2,23 +2,17 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  .
-  outer
-</div>
 
 # Outer Product
 
 ```apl
 {R}←X∘.gY
 ```
+[Key to notation](../key-to-notation.md)
 
 `g` may be any dyadic function.  The left operand of the operator is the symbol `∘`.  `X` and `Y` may be any arrays whose elements are appropriate to the function `g`.
 
-
 Function `g` is applied to all combinations of the elements of `X` and `Y`.  If function `g` returns a result, the shape of `R` is `(⍴X),⍴Y`.  Each element of `R` is the item returned by function `g` when applied to the particular combination of elements of `X` and `Y`.
-
-
 
 If `X` or `Y` is empty, the result `R` is a conformable empty array, and the operand function is applied *once* between the first items of `X` and `Y` to determine the prototype of `R`.
 
@@ -44,4 +38,8 @@ If `X` or `Y` is empty, the result `R` is a conformable empty array, and the ope
 0 0 1
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  .
+  outer
+</div>

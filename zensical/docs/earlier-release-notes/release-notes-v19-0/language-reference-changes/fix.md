@@ -103,7 +103,7 @@ DOMAIN ERROR: There were errors processing the script
 
 ## Variant Options
 
-`⎕FIX` may be applied using the  Variant operator with the options Quiet, FixWithErrors,  AllowLateBinding and InjectReferences. These options apply only to namespaces and classes specified by the script. There is no principal option.
+`⎕FIX` may be applied using the  _variant_ operator with the options Quiet, FixWithErrors,  AllowLateBinding and InjectReferences. These options apply only to namespaces and classes specified by the script. There is no principal option.
 
 ## Quiet Option
 
@@ -207,7 +207,6 @@ The following tables show which objects in Namespace `Pete` can *see* (that is, 
 |Woody    |&nbsp;|&nbsp;|&nbsp;|&nbsp;   |&nbsp;|✔     |
 |George   |&nbsp;|&nbsp;|&nbsp;|&nbsp;   |✔     |&nbsp;|
 
-
 |'InClasses'|Pete  |Andy  |Aisha |Katherine|Woody |George|
 |-----------|------|------|------|---------|------|------|
 |Pete       |&nbsp;|✔     |&nbsp;|✔        |&nbsp;|&nbsp;|
@@ -216,7 +215,6 @@ The following tables show which objects in Namespace `Pete` can *see* (that is, 
 |Katherine  |✔     |✔     |&nbsp;|✔        |✔     |✔     |
 |Woody      |&nbsp;|&nbsp;|&nbsp;|&nbsp;   |&nbsp;|&nbsp;|
 |George     |&nbsp;|&nbsp;|&nbsp;|&nbsp;   |&nbsp;|&nbsp;|
-
 
 |'None'   |Pete  |Andy  |Aisha |Katherine|Woody |George|
 |---------|------|------|------|---------|------|------|

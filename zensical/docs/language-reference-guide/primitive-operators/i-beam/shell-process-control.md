@@ -3,16 +3,13 @@ search:
   boost: 2
 ---
 
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  8373⌶
-</div>
 
 # Shell Process Control
 
 ```apl
 R←{X}(8373⌶)Y
 ```
+[Key to notation](../../key-to-notation.md)
 
 This function provides a way to determine the process IDs of processes started by [`⎕SHELL`](../../system-functions/shell.md), as well as enabling the sending of signals to any of those processes.
 
@@ -46,6 +43,10 @@ If `Y` is `⍬`, then `R` is a numeric vector containing all the process IDs of 
 
 `R` is a Boolean scalar indicating whether the signal was successfully sent (`1`), as reported by the operating-system.
 
-
 !!! info "Dyalog on Microsoft Windows"
-	On Microsoft Windows, the only valid value for `X` is `9`, which makes the I-beam call `TerminateProcess()` on the child process.
+	On Microsoft Windows, the only valid value for `X` is `9`, which makes the _I-beam_ call `TerminateProcess()` on the child process.
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  8373⌶
+</div>

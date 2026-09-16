@@ -2,19 +2,17 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ! binomial
-</div>
 
 # Binomial
 
 ```apl
 R←X!Y
 ```
+[Key to notation](../key-to-notation.md)
 
 `X` and `Y` may be any numbers except that if `Y` is a negative integer then `X` must be an integer. `R` is numeric. An element of `R` is integer if corresponding elements of `X` and `Y` are integers.
 
-Binomial is defined in terms of the function Factorial:
+_Binomial_ is defined in terms of the function _factorial_:
 
 ```apl
       X!Y ←→ (!Y)÷(!X)×!Y-X
@@ -37,3 +35,8 @@ For positive integer arguments, `R` is the number of selections of `X` things fr
       2!3j2
 1J5
 ```   
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ! binomial
+</div>

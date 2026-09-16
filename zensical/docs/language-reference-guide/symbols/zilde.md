@@ -21,5 +21,3 @@ Niladic Zilde is
 0
 ```
 [Language Elements](../glyphs.md)
-
-

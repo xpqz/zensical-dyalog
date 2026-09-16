@@ -2,29 +2,17 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕KL KL
-</div>
-
-
-
-
-
 
 # Key Label
 
 ```apl
 R←⎕KL Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` is a simple character vector or a vector of character vectors containing Input Codes for Keyboard Shortcuts. In the Classic Edition, keystrokes are associated with Keyboard Shortcuts by the Input Translate Table.
 
-
 `R` is a simple character vector or a vector of character vectors containing the labels associated with the codes.  If `Y` specifies codes that are not defined, the corresponding elements of `R` are the codes in `Y`.
-
 
 `⎕KL` provides the information required to build device-independent help messages into applications, particularly full-screen applications using `⎕SM` and `⎕SR`.
 
@@ -43,3 +31,8 @@ Right
           ⎕KL '⌸'
     Control+Shift+K
     ```
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕KL KL
+</div>

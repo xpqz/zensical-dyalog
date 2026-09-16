@@ -2,32 +2,19 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕MONITOR MONITOR
-</div>
-
-
-
-
-
 
 # Query Monitor
 
 ```apl
 R←⎕MONITOR Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` must be a simple character scalar or vector which is taken to be the name of a visible defined function or operator.
 
-
-Note that `⎕MONITOR` does not apply to  dfns or dops.
-
+`⎕MONITOR` does not apply to dfns or dops.
 
 `R` is a simple non-negative integer matrix of 5 columns with one row for each line in the function or operator `Y` which has the monitor set, giving:
-
 
 |--------|-------------------------------------|
 |Column 1|Line number                          |
@@ -36,9 +23,7 @@ Note that `⎕MONITOR` does not apply to  dfns or dops.
 |Column 4|Elapsed time in milliseconds         |
 |Column 5|Reserved                             |
 
-
 The value of `0` in column one indicates that the monitor is set on the function or operator as a whole. `R` will be empty for dfns and dops.
-
 
 ## Example
 ```apl
@@ -63,4 +48,7 @@ The value of `0` in column one indicates that the monitor is set on the function
 5 1  100    0 0
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕MONITOR MONITOR
+</div>

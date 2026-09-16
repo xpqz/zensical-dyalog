@@ -1,15 +1,10 @@
 
 
-
-
-
 # DOMAIN ERROR
 
 ```apl
 11
 ```
-
-
 
 This report is given when either:
 
@@ -17,7 +12,6 @@ This report is given when either:
 - An array operand of an operator is not an array, or it is not of the correct type, or its numeric value is outside the range of permitted values.  A function operand of an operator is not one of a prescribed set of functions.
 - A value assigned to a system variable is not of the correct type, or its numeric value is outside the range of permitted values
 - The result produced by a function includes numeric elements which cannot be fully represented.
-
 
 ## Examples
 ```apl
@@ -36,5 +30,3 @@ DOMAIN ERROR
       ⎕IO←5
       ^
 ```
-
-

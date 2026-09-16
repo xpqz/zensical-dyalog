@@ -2,23 +2,13 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕A
-</div>
-
-
-
-
-
 
 # Alphabetic Characters
 
 ```apl
 R←⎕A
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 This is a simple character vector, composed of the letters of the alphabet.
 
@@ -28,5 +18,7 @@ This is a simple character vector, composed of the letters of the alphabet.
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕A
+</div>

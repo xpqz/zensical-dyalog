@@ -2,16 +2,13 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕EXCEPTION EXCEPTION
-</div>
 
 # Exception
 
 ```apl
 R←⎕EXCEPTION
 ```
+[Key to notation](../key-to-notation.md)
 
 This is a system object that identifies the most recent *Exception* thrown by a Microsoft .NET object.
 
@@ -48,7 +45,9 @@ mscorlib
 
 Similarly to GUI objects, `⎕EXCEPTION` is not preserved across a save/load cycle if the workspace is loaded in a different interpreter.
 
-!!! note
-    `⎕SIGNAL` can be used to reset the value of this system constant.
+The value of this system constant can be reset using [`⎕SIGNAL`](signal.md).
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕EXCEPTION EXCEPTION
+</div>

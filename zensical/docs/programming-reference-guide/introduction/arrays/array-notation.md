@@ -1,12 +1,10 @@
 # Array Notation
 
-
 Array notation extends [vector notation](vector-notation.md) to define arrays of higher rank, and namespaces, and lets these definitions span multiple lines:
 
 -   **Parentheses** embrace vector definitions and namespace name-value pairs
 -   **Square brackets** embrace higher-rank arrays
 -   **Diamonds** and **linebreaks** separate array elements and name-value pairs
-
 
 ## Examples
 
@@ -46,7 +44,7 @@ Some examples of different kinds of arrays defined with array notation.
 ```
 
 Short items are padded.
-(See [Mix](../../../../language-reference-guide/primitive-functions/mix) for details.)
+(See [Mix](../../../language-reference-guide/primitive-functions/mix.md) for details.)
 
 ```apl
       ⍴mice←['Three'
@@ -109,7 +107,6 @@ Mice |
 2 0 0
 
 ```
-
 
 ## Namespaces
 
@@ -234,8 +231,5 @@ The array notation can be described in this form, where `expression` is any trad
     space ::= '(' sep? ( name ':' value ( sep name ':' value )* )? sep? ')'
     sep   ::= [⋄#x000A#x000D#x0085]+
 
-
 ![Syntax diagram](../../img/array-notation-syntax.png)
 <!-- Eventually replace with Mermaid diagram. -->
-
-

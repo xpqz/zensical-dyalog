@@ -31,5 +31,3 @@ Dyadic Hydrant means
 
 ```
 [Language Elements](../glyphs.md)
-
-

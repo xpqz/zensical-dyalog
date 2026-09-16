@@ -2,28 +2,17 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ∪ unique
-</div>
-
-
-
-
-
 
 # Unique
 
 ```apl
 R←∪Y
 ```
+[Key to notation](../key-to-notation.md)
 
+`Y` may be any array. The result `R` has the same rank as `Y`, unless `Y` is a scalar, in which case `R` is a one-element vector. The [major cells](../../programming-reference-guide/introduction/arrays/cells-and-subarrays.md) of `R` are the unique major cells of `Y` (the unique elements of a vector, the unique rows of a matrix, and so on), in the order in which they first appear in `Y`.
 
-
-`Y` may be any array. `R` is a vector of the unique major cells of `Y` (the unique items of a vector, the unique rows of a matrix and so forth), in the order in which they first appear in `Y`.  For further information, see [Major Cells](../../../programming-reference-guide/introduction/arrays/cells-and-subarrays).
-
-
-`⎕CT` and `⎕DCT` are  implicit arguments of Unique.
-
+`⎕CT` and `⎕DCT` are implicit arguments of _unique_.
 
 ## Examples
 ```apl
@@ -73,4 +62,7 @@ DUCK
 
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ∪ unique
+</div>

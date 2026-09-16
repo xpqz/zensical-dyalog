@@ -2,28 +2,17 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⍒ grade
-</div>
-
-
-
-
-
 
 # Grade Down
 
 ```apl
 R←⍒Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` may be any array of rank greater than 0 but may not contain namespaces. `R` is an integer vector being the permutation of `⍳1↑⍴Y` that places the sub-arrays along the first axis in descending order. For the rules for comparing items of `Y` with one another, see [Grade Up](grade-up.md).
 
-
-`⎕IO` is an implicit argument of Grade Down.
-
+`⎕IO` is an implicit argument of _grade down_.
 
 ## Examples
 ```apl
@@ -46,9 +35,7 @@ R←⍒Y
 
 ```
 
-
-
-!!! note
+!!! Info "Information"
     Character arrays sort differently in the Unicode and Classic Editions.
 
 ```apl
@@ -86,7 +73,6 @@ porridge
 </tr>
 </table>
 
-
 ```apl
       ⍴pb
 6 3
@@ -109,4 +95,7 @@ porridge
 
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⍒ grade
+</div>

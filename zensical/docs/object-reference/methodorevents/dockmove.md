@@ -2,10 +2,6 @@
 
 Event 481
 
-**Applies To:** [CoolBand](../objects/coolband.md), [CoolBar](../objects/coolbar.md), [Form](../objects/form.md), [SubForm](../objects/subform.md), [ToolControl](../objects/toolcontrol.md)
-
-**Description**
-
 If enabled, this event is reported by a host object when a dockable object (the client) is dragged over it. The event will only be reported if the name of the client object is included in the list of objects that the host object will accept, which is defined by its DockChildren property.
 
 The event message reported as the result of `⎕DQ`, or supplied as the right argument to your callback function, is a 7-element vector as follows :
@@ -30,3 +26,7 @@ If a callback function returns 0, the system displays the bounding rectangle and
 A callback function may modify the event message to cause a different sized docking zone to be displayed, or to force docking along a particular edge.
 
 The DockMove event is generated repeatedly as the docking object is dragged.
+
+## Application
+
+Objects: [CoolBand](../objects/coolband.md), [CoolBar](../objects/coolbar.md), [Form](../objects/form.md), [SubForm](../objects/subform.md), [ToolControl](../objects/toolcontrol.md)

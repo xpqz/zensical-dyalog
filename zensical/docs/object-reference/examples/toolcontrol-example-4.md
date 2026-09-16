@@ -7,7 +7,6 @@ search:
 
 Example 4
 
-
 ```apl
 'F'⎕WC'Form' 'ToolControl with MenuBar'('Size' 20 40)
 'F.TB'⎕WC'ToolControl'
@@ -28,7 +27,4 @@ Example 4
 :EndWith
 ```
 
-
 ![](../img/tool10.gif)
-
-

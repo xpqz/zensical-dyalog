@@ -3,15 +3,12 @@ search:
   boost: 2
 ---
 
-<div style="display: none;">
-  ← gets
-</div>
-
 # Assignment (Indexed Modified)
 
 ```apl
 {R}←X[I]f←Y
 ```
+[Key to notation](../../key-to-notation.md)
 
 `f` may be any dyadic function which returns an explicit result.  `Y` may be any array whose items are appropriate to function `f`.  `X` must be the *name* of an existing array.  `I` must be a valid index specification.  The items of the indexed portion of `X` must be appropriate to function `f`.
 
@@ -38,7 +35,6 @@ The operator loops through the indices specified by `I` in ravel order. For each
 1 3 1.5 5 5
 ```
 
-
 As the operator performs a loop, if an index in `I` is repeated, function `f` will be applied that number of times and successively to the same item of `X`.
 
 ## Example
@@ -51,3 +47,8 @@ As the operator performs a loop, if an index in `I` is repeated, function `f` wi
 1 0 2 0 1
 
 ```
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ← gets
+</div>

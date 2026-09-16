@@ -2,15 +2,7 @@
 
 Property
 
-
-
-**Applies To:** [Font](../objects/font.md), [Printer](../objects/printer.md)
-
-**Description**
-
-
 This property is a character vector that specifies the face name for a [Font](../objects/font.md) object, or the printing device associated with a [Printer](../objects/printer.md). It is case-independent.
-
 
 For a [Printer](../objects/printer.md), PName contains the description of the printer followed by a comma (,) and then the device to which it is attached.
 
@@ -21,5 +13,6 @@ For a [Printer](../objects/printer.md), PName contains the description of the pr
 HP Universal Printing PS,hp4200
 ```
 
+## Application
 
-
+Objects: [Font](../objects/font.md), [Printer](../objects/printer.md)

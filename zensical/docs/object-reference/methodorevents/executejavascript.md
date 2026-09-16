@@ -2,29 +2,20 @@
 
 Method 839
 
-
-
-**Applies To:** [HTMLRenderer](../objects/htmlrenderer.md)
-
-**Description**
-
-
 This method is used to execute JavaScript in an [HTMLRenderer](../objects/htmlrenderer.md) object.
 
-
 The argument to ExecuteJavaScript is a single item as follows:
-
 
 |-----|----|-------------------------------------------|
 |`[1]`|Code|character vector containing JavaScript code|
 
-
-The shy result of ExecuteJavaScript is currently 1; this may change.
+The [shy](../../programming-reference-guide/introduction/results.md#shy-results) result of ExecuteJavaScript is currently 1; this may change.
 
 ## Example
 ```apl
       hr.ExecuteJavaScript 'alert("Hello")'
 ```
 
+## Application
 
-
+Objects: [HTMLRenderer](../objects/htmlrenderer.md)

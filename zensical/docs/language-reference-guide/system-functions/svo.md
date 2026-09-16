@@ -2,14 +2,6 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕SVO SVO
-</div>
-
-
-
-
 
 # Shared Variable Offer
 
@@ -17,9 +9,7 @@ search:
 ⎕SVO
 ```
 
-
 ## Dyadic `⎕SVO` means
-
 
 [Shared Variable Offer](shared-variable-offer.md)
 ```apl
@@ -30,9 +20,13 @@ search:
 
 ## Monadic `⎕SVO` means
 
-
 [Query Degree of Coupling](query-degree-of-coupling.md)
 ```apl
       ⎕SVO 'DATA'
 1
 ```
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕SVO SVO
+</div>

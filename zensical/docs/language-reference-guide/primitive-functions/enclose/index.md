@@ -2,15 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⊂ enclose
-</div>
 
 # Enclose
 
 ```apl
 R←⊂Y
 ```
+[Key to notation](../../key-to-notation.md)
 
 `Y` may be any array.  `R` is a scalar array whose item is the array `Y`.  If `Y` is a simple scalar, `R` is the simple scalar unchanged.  Otherwise, `R` has a depth whose magnitude is one greater than the magnitude of the depth of `Y`.
 
@@ -52,5 +50,7 @@ A
 
 See also: [Enclose with Axes](enclose-with-axes.md).
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⊂ enclose
+</div>

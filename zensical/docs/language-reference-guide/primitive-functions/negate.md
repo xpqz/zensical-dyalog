@@ -2,15 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  - negate
-</div>
 
-# Negate {: #negative}
+# Negate
 
 ```apl
 R←-Y
 ```
+[Key to notation](../key-to-notation.md)
 
 `Y` may be any numeric array. `R` is numeric and is the negative value of `Y`. For complex numbers both the real and imaginary parts are negated.
 
@@ -23,5 +21,7 @@ R←-Y
 ¯1J¯2 2J¯3 ¯4J5
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  - negate
+</div>

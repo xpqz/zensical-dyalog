@@ -2,19 +2,15 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  + conjugate
-</div>
-
 
 # Conjugate
 
 ```apl
 R←+Y
 ```
+[Key to notation](../key-to-notation.md)
 
 If `Y` is complex, `R` is `Y` with the imaginary part of all elements negated.
-
 
 If `Y` is real or non-numeric, `R` is the same array unchanged, although `⊢` is faster. See [Same](same.md).
 
@@ -37,5 +33,7 @@ If `Y` is real or non-numeric, `R` is the same array unchanged, although `⊢` i
 1
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  + conjugate
+</div>

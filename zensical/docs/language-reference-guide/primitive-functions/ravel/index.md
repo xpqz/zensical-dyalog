@@ -2,15 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  , ravel
-</div>
 
 # Ravel
 
 ```apl
 R←,Y
 ```
+[Key to notation](../../key-to-notation.md)
 
 `Y` may be any array.  `R` is a vector of the elements of `Y` taken in row-major order.
 
@@ -37,5 +35,7 @@ ABCDEFGHIJKL
 
 See also: [Ravel with Axes](ravel-with-axes.md).
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  , ravel
+</div>

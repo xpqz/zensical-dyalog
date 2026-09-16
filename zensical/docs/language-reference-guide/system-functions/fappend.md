@@ -2,32 +2,21 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕FAPPEND FAPPEND
-</div>
-
-
-
-
-
 
 # File Append Component
 
 ```apl
 {R}←X ⎕FAPPEND Y
 ```
-
+[Key to notation](../key-to-notation.md)
 
 ## Access code 8
 
-
 `Y` must be a simple integer scalar or a 1 or 2 element vector containing the file tie number followed by an optional passnumber.  If the passnumber is omitted it is assumed to be zero. Subject to a few restrictions, `X` may be any array.
 
+The [shy](../../programming-reference-guide/introduction/results.md#shy-results) result `R` is the number of the component to which `X` is written, and is 1 greater than the previously highest component number in the file, or 1 if the file is new.
 
-The shy result `R` is the number of the component to which `X` is written, and is 1 greater than the previously highest component number in the file, or 1 if the file is new.
-
-# Examples {: .example}
+## Examples
 ```apl
       (1000?1000) ⎕FAPPEND 1
  
@@ -44,4 +33,9 @@ Dump←{
 ```
 
 !!! Info "Information"
-    Component files that have both journalling and checksum properties set to `0` have been deprecated; from Dyalog v21.0, component files with this combination of properties will be read-only. Dyalog Ltd recommends using `⎕FPROPS` to convert any such files to have different properties. For information on how to identify component files that have both journalling and checksum properties set to `0` in your existing codebase, see the [Release Notes](../../../release-notes/announcements/deprecated-functionality/).
+    Component files that have both journalling and checksum properties set to `0` have been deprecated, and component files with this combination of properties are read-only. Dyalog Ltd recommends using `⎕FPROPS` to convert any such files to have different properties. For information on how to identify component files that have both journalling and checksum properties set to `0` in your existing codebase, see the [Release Notes](../../release-notes/announcements/deprecated-functionality.md).
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕FAPPEND FAPPEND
+</div>

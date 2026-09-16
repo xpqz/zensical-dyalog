@@ -2,23 +2,13 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕DM DM
-</div>
-
-
-
-
-
 
 # Diagnostic Message
 
 ```apl
 R←⎕DM
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 This niladic function returns the last reported APL error as a three-element vector, giving error message, line in error and position of caret pointer.
 
@@ -34,8 +24,9 @@ DOMAIN ERROR
  DOMAIN ERROR        2÷0       ^
 ```
 
+The value of this system constant can be reset using [`⎕SIGNAL`](signal.md).
 
-Note: `⎕SIGNAL` can be used to reset the value of this system constant.
-
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕DM DM
+</div>

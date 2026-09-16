@@ -7,7 +7,6 @@ search:
 
 Example 2
 
-
 ```apl
 'F'⎕WC'Form' 'Horizontal Splitter'('Size' 25 25)
 'F.E1'⎕WC'Edit'(5 6⍴'Edit 1')('Style' 'Multi')
@@ -15,7 +14,4 @@ Example 2
 'F.S'⎕WC'Splitter' 'F.E1' 'F.E2'('Style' 'Horz')
 ```
 
-
 ![](../img/split2.gif)
-
-

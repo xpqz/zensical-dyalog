@@ -2,22 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⊢ right tack
-</div>
-
-
-
-
-
 
 # Right
 
 ```apl
 R←X⊢Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `X` and `Y` may be any arrays. The result `R` is the right argument `Y`.
 
@@ -41,8 +32,6 @@ R←X⊢Y
 
 ```
 
-
-
 When `⊢` is applied using reduction, the derived function selects the last sub-array of the array along the specified dimension. This is implemented as an idiom.
 
 ## Examples
@@ -61,4 +50,7 @@ tenet
 21 22 23 24
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⊢ right tack
+</div>

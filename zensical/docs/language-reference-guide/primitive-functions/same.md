@@ -2,25 +2,15 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⊢ same tack 
-</div>
-
-
-
-
-
 
 # Same
 
 ```apl
 R←⊣YR←⊢Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` may be any array.
-
 
 The result `R` is the argument `Y`.
 
@@ -40,5 +30,7 @@ avl    17476
 
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⊢ same tack 
+</div>

@@ -3,23 +3,13 @@ search:
   boost: 2
 ---
 
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  180⌶
-</div>
-
-
-
-
-
 
 # Canonical Representation
 
 ```apl
 R←180⌶Y
 ```
-
-
+[Key to notation](../../key-to-notation.md)
 
 This function is the same as the system function `⎕CR` except that it can be used to obtain the canonical representation of methods in classes. `180⌶` is used by `]PROFILE`.
 
@@ -40,5 +30,7 @@ C:\Program Files\Dyalog\Dyalog APL-64 15.0 Unicode\...
   
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  180⌶
+</div>

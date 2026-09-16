@@ -2,44 +2,29 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕FHIST FHIST
-</div>
-
-
-
-
-
 
 # File History
 
 ```apl
 R←⎕FHIST Y
 ```
-
+[Key to notation](../key-to-notation.md)
 
 ## Access code 16384
 
-
 `Y` must be a simple integer vector of length 1 or 2 containing the file tie number and an optional passnumber. If the passnumber is omitted it is assumed to be zero.
-
 
 The result is a numeric matrix with shape (5 2) whose rows represent the most recent occurrence of the following events.
 
-1. File creation (see note)
+1. File creation (see below)
 2. Undefined, currently `(0 0)`
 3. Last update of the access matrix
 4. Undefined, currently `(0 0)`
 5. Last update performed by `⎕FAPPEND`, `⎕FCREATE`, `⎕FDROP` or `⎕FREPLACE`
 
-
-
 For each event, the first column contain the user number and the second a timestamp. Like the timestamp reported by `⎕FRDCI` this is measured in 60<sup>th</sup>s of a second since 1st January 1970 (UTC).
 
-
-**Note:** `⎕FHIST` collects information only if journaling and/or checksum is in operation. If neither is in use, the collection of data for `⎕FHIST` is disabled and its result is entirely 0. If a file has both journaling and checksum disabled, and then either is  enabled, the collection of data for `⎕FHIST` is enabled too. In this case, the information in row 1 of `⎕FHIST` relates to the most recent enabling `⎕FPROPS` operation rather than the original `⎕FCREATE`.
-
+`⎕FHIST` collects information only if journaling and/or checksum is in operation. If neither is in use, the collection of data for `⎕FHIST` is disabled and its result is entirely 0. If a file has both journaling and checksum disabled, and then either is  enabled, the collection of data for `⎕FHIST` is enabled too. In this case, the information in row 1 of `⎕FHIST` relates to the most recent enabling `⎕FPROPS` operation rather than the original `⎕FCREATE`.
 
 In the examples that follow, the `FHist` function is used below to format the result of `⎕FHIST`.
 ```apl
@@ -60,7 +45,7 @@ In the examples that follow, the `FHist` function is used below to format the re
 
 ```
 
-# Examples {: .example}
+## Examples
 ```apl
      'c:\temp'⎕FCREATE 1 ⋄ FHist 1
                User  TimeStamp            
@@ -89,4 +74,7 @@ In the examples that follow, the `FHist` function is used below to format the re
  Last Updated  0     2012-01-14 12:29:55  
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕FHIST FHIST
+</div>

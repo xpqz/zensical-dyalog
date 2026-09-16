@@ -3,32 +3,19 @@ search:
   boost: 2
 ---
 
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  950⌶
-</div>
-
-
-
-
-
 
 # List Loaded Libraries
 
 ```apl
 R←950⌶Y
 ```
-
-
+[Key to notation](../../key-to-notation.md)
 
 Reports the names of the dynamic link libraries that are currently loaded as a result of executing `⎕NA`.
 
-
 `Y` is an empty vector.
 
-
 The result `R` is a vector of character vectors containing  the names of all the DLLs or shared libraries that have been explicitly loaded by `⎕NA` and are still loaded by virtue of the presence of at least one external function reference.
-
 
 ## Examples
 ```apl
@@ -60,7 +47,9 @@ Ulok    copy
 clear ws
       950⌶⍬
 
-
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  950⌶
+</div>

@@ -8,7 +8,6 @@ search:
 ⌸
 ```
 
-
 Quad Equal is a monadic operator with an ambivalent operand
 
 Operator Quad Equal means
@@ -44,5 +43,3 @@ n  9
 └─┴─────┘
 ```
 [Language Elements](../glyphs.md)
-
-

@@ -7,7 +7,6 @@ search:
 
 Example 1
 
-
 ```apl
 'F'⎕WC'Form' 'CoolBar Object with ToolControls'('Size' 25 50)
 'F.IL'⎕WC'ImageList'('Masked' 0)('MapCols' 1)
@@ -32,25 +31,16 @@ Example 1
 :EndWith
 ```
 
-
 ![](../img/cool1.gif)
-
 
 ![](../img/cool1a.gif)
 
-
 after user has moved band 2 into row 1
-
 
 ![](../img/cool1b.gif)
 
-
 after user has maximised band 1
-
 
 ![](../img/cool1c.gif)
 
-
 after user has maximised band 2
-
-

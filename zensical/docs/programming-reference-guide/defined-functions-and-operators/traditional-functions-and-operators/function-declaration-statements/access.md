@@ -27,12 +27,9 @@ However, a Method declared as being `Overridable` is replaced in-situ (that is, 
 
 ## WebMethod
 
-Note that `:Access WebMethod` is equivalent to:
+`:Access WebMethod` is equivalent to:
 
 ```other
 :Access Public
 :Attribute System.Web.Services.WebMethodAttribute
 ```
-
-
-

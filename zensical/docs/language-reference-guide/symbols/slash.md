@@ -58,5 +58,3 @@ Operator Slash means
 
 ```
 [Language Elements](../glyphs.md)
-
-

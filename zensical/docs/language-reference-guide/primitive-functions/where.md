@@ -2,37 +2,24 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⍸ where
-</div>
-
-
-
-
-
 
 # Where
 
 ```apl
 R←⍸Y
 ```
+[Key to notation](../key-to-notation.md)
 
-
-
-**Classic Edition:**  the symbol `⍸` (Iota Underbar) is not available in Classic Edition, and Where is instead represented by `⎕U2378`.
-
+!!! Info "Information"
+    The symbol `⍸` (Iota Underbar) is not available in Classic Edition, and _where_ is instead represented by `⎕U2378`.
 
 `Y` must be a simple Boolean or numeric array of non-negative integers.
 
-
-The model for Where can be expressed as `{(,⍵)/,⍳⍴⍵}`.
-
+The model for _where_ can be expressed as `{(,⍵)/,⍳⍴⍵}`.
 
 If `Y` is Boolean, `R` is a vector of the indices of all the 1s in `Y`. If `Y` is all zeros, `R` is an empty vector.
 
-
-`⎕IO` is an implicit argument of Where.
-
+`⎕IO` is an implicit argument of _where_.
 
 ## Examples
 ```apl
@@ -71,4 +58,7 @@ If `Y` is Boolean, `R` is a vector of the indices of all the 1s in `Y`. If `Y` i
 
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⍸ where
+</div>

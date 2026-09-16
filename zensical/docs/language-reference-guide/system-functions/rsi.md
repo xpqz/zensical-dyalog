@@ -2,32 +2,19 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕RSI RSI
-</div>
-
-
-
-
-
 
 # Space Indicator
 
 ```apl
 R←⎕RSI
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `R` is a vector of refs to the spaces from which functions in the state indicator were called `(⍴⎕RSI←→⍴⎕NSI←→⍴⎕SI)`.
 
-
 `⎕RSI` and `⎕NSI` are identical except that `⎕RSI` returns refs to the spaces whereas `⎕NSI` returns their names. Put another way: `⎕NSI←→⍕¨⎕RSI``.`
 
-
-Note that `⎕RSI` returns refs to the spaces *from which* functions were called not those *in which* they are currently running.
-
+`⎕RSI` returns refs to the spaces from which functions were called, not those in which they are currently running.
 
 ## Example
 ```apl
@@ -57,4 +44,7 @@ xx      yy
 └∊───────────┘
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕RSI RSI
+</div>

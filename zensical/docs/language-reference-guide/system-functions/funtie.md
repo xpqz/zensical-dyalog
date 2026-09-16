@@ -2,31 +2,19 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕FUNTIE FUNTIE
-</div>
-
-
-
-
-
 
 # File Untie
 
 ```apl
 {R}←⎕FUNTIE Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` must be a simple integer scalar or vector (including Zilde).  Files whose tie numbers occur in `Y` are untied.  Other elements of `Y` have no effect.
 
-
 If `Y` is empty, no files are untied, but all the interpreter's internal file buffers are flushed and the operating system is asked to flush all file updates  to disk.  This special facility allows the programmer to add extra security (at the expense of performance) for application data files.
 
-
-The shy result of `⎕FUNTIE` is a vector of tie numbers of the files **actually untied**.
+The [shy](../../programming-reference-guide/introduction/results.md#shy-results) result of `⎕FUNTIE` is a vector of tie numbers of the files **actually untied**.
 
 ## Example
 ```apl
@@ -35,5 +23,7 @@ The shy result of `⎕FUNTIE` is a vector of tie numbers of the files **actually
       ⎕FUNTIE ⍬      ⍝ Flushes all buffers to disk
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕FUNTIE FUNTIE
+</div>

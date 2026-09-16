@@ -1,4 +1,4 @@
-# RIDE\_Init
+# RIDE_Init
 
 This parameter determines how the interpreter should behave with respect to the Ride protocol. Setting this configuration parameter on the machine that hosts the interpreter enables the interpreter-Ride connection.
 
@@ -17,7 +17,7 @@ The format of the value is:
 - poll – try to connect to the specified Ride at regular intervals and reconnect if the connection is lost
 - config - specifies the name of the Ride ini file to be used
 
-For serve and http, <address> is a list of IPv4 or IPv6 addresses and/or DNS names of interfaces in the machine where the APL process is running, and specifies the interfaces through which incoming requests to connect are accepted. If <address> is empty, incoming requests are accepted only from the machine itself (the interpreter will listen on the loopback addresses only). If <address> is set to “*” then the interpreter will listen for requests through all the available interfaces in the local machine.
+For serve and http, &lt;address> is a list of IPv4 or IPv6 addresses and/or DNS names of interfaces in the machine where the APL process is running, and specifies the interfaces through which incoming requests to connect are accepted. If &lt;address> is empty, incoming requests are accepted only from the machine itself (the interpreter will listen on the loopback addresses only). If &lt;address> is set to “*” then the interpreter will listen for requests through all the available interfaces in the local machine.
 
 If *setting* is `serve` or `http` then *address*  is a list of IPv4 or IPv6 addresses and/or DNS names of interfaces in the machine where the APL process is running, and specifies the interfaces through which incoming requests to connect are accepted. If *address* is empty, incoming requests are accepted only from the machine itself (the interpreter will listen on the loopback addresses only). If *address* is set to “*” then the interpreter will listen for requests through all the available interfaces in the local machine.
 
@@ -30,14 +30,14 @@ If *setting* is `connect` or `poll` then *address* is an IP address or DNS name 
 
 *port* is the TCP port to listen on
 
-Settings specified by the **RIDE_Init** configuration parameter take precedence over the same setting specified in the Ride ini file. Note that the **RIDE_Init** configuration parameter can specify both *config* and one of *serve*, *http*, *connect* or *poll*. For example,
+Settings specified by the **RIDE_Init** configuration parameter take precedence over the same setting specified in the Ride ini file. The **RIDE_Init** configuration parameter can specify both *config* and one of *serve*, *http*, *connect*, or *poll*. For example,
 ```
 RIDE_INIT=serve:*:4502,config=/home/andys/.dyalog/secureride.ini
 ```
 
 This is most useful when multiple interpreters need to be run, each with its own Ride connection as each must have a separate port number.
 
-Note that the **RIDE_Init** configuration parameter is set automatically when launching a new Dyalog Session from Ride.
+The **RIDE_Init** configuration parameter is set automatically when launching a new Dyalog Session from Ride.
 
 ## Examples
 

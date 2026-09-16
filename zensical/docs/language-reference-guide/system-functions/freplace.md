@@ -2,16 +2,13 @@
 search:
   boost: 2
 ---
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  ⎕FREPLACE FREPLACE
-</div>
 
 # File Replace Component
 
 ```apl
 {R}←X ⎕FREPLACE Y
 ```
+[Key to notation](../key-to-notation.md)
 
 ## Access code 16
 
@@ -19,7 +16,7 @@ search:
 
 `X` is any array (including, for example, the `⎕OR` of a namespace), and overwrites the value of the specified component.  The component information (see [File Read Component Information](frdci.md)) is also updated.
 
-The shy result of `⎕FREPLACE` is the file index (component number of replaced record).
+The [shy](../../programming-reference-guide/introduction/results.md#shy-results) result of `⎕FREPLACE` is the file index (component number of replaced record).
 
 ## Example
 ```apl
@@ -40,4 +37,9 @@ Frep←{
 ```
 
 !!! Info "Information"
-    Component files that have both journalling and checksum properties set to `0` have been deprecated; from Dyalog v21.0, component files with this combination of properties will be read-only. Dyalog Ltd recommends using `⎕FPROPS` to convert any such files to have different properties. For information on how to identify component files that have both journalling and checksum properties set to `0` in your existing codebase, see the [Release Notes](../../../release-notes/announcements/deprecated-functionality/).
+    Component files that have both journalling and checksum properties set to `0` have been deprecated, and component files with this combination of properties are read-only. Dyalog Ltd recommends using `⎕FPROPS` to convert any such files to have different properties. For information on how to identify component files that have both journalling and checksum properties set to `0` in your existing codebase, see the [Release Notes](../../release-notes/announcements/deprecated-functionality.md).
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⎕FREPLACE FREPLACE
+</div>

@@ -3,22 +3,15 @@ search:
   boost: 2
 ---
 
-<!-- Hidden search keywords -->
-<div style="display: none;">
-  1302⌶
-</div>
-
 
 # aplcore Parameters
 
 ```apl
 R←1302⌶Y
 ```
-
-
+[Key to notation](../../key-to-notation.md)
 
 Sets the aplcore parameters **AplCoreName** and/or **MaxAplCores** for the current process.
-
 
 `Y` may be:
 
@@ -27,14 +20,13 @@ Sets the aplcore parameters **AplCoreName** and/or **MaxAplCores** for the curre
 - a 2-element nested vector containing new values for AplCoreName and MaxAplCores in that order
 - an empty vector
 
-
 `R` is a 2-element nested vector containing the old values.
-
 
 If `Y` is empty, the function simply returns the values of these parameters without changing them.
 
+See also: [AplCoreName](../../../windows-installation-and-configuration-guide/configuration-parameters/aplcorename.md) and [MaxAplCores.](../../../windows-installation-and-configuration-guide/configuration-parameters/maxaplcores.md)
 
-See also: [AplCoreName](../../../../windows-installation-and-configuration-guide/configuration-parameters/aplcorename) and [MaxAplCores.](../../../../windows-installation-and-configuration-guide/configuration-parameters/maxaplcores)
-
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  1302⌶
+</div>

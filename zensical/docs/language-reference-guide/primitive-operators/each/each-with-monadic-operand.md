@@ -2,25 +2,19 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ¨
-  each
-</div>
 
 # Each (with Monadic Operand)
 
 ```apl
 {R}←f¨Y
 ```
+[Key to notation](../../key-to-notation.md)
 
 `f` may be any monadic function.  `Y` may be any array, each of whose items are separately appropriate to function `f`.
 
-
 The derived function applies function `f` separately to each item of `Y`.  The derived function need not return a result.  If a result is returned, `R` has the same shape as `Y`, and its elements are the items produced by the application of function `f` to the corresponding items of `Y`.
 
-
 If `Y` is empty, the prototype of `R` is determined by applying the operand function *once* to the prototype of `Y`.
-
 
 ## Examples
 ```apl
@@ -37,4 +31,8 @@ If `Y` is empty, the prototype of `R` is determined by applying the operand func
  FOO1 FOO2
 ```
 
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ¨
+  each
+</div>

@@ -2,15 +2,13 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ⍎ execute
-</div>
 
 # Execute
 
 ```apl
 R←⍎Y
 ```
+[Key to notation](../key-to-notation.md)
 
 !!! Warning "Warning"
     If the argument to _execute_ could include user input, then there is a risk to data and systems. To reduce this risk, a system function might be more appropriate than the _execute_ function. For example:
@@ -54,3 +52,8 @@ VALUE ERROR: No result was provided when the context expected one
       A←⍎''
         ∧
 ```
+
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ⍎ execute
+</div>

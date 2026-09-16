@@ -2,25 +2,15 @@
 search:
   boost: 2
 ---
-<div style="display: none;">
-  ↓ split
-</div>
-
-
-
-
-
 
 # Split
 
 ```apl
 R←↓[K]Y
 ```
-
-
+[Key to notation](../key-to-notation.md)
 
 `Y` may be any array.  The axis specification is optional.  If present, `K` must be a simple integer scalar or one-element vector.  The value of `K` must be an axis of `Y`.  If absent, the last axis is implied.
-
 
 The items of `R` are the sub-arrays of `Y` along the `K`th axis.  `R` is a scalar if `Y` is a scalar.  Otherwise `R` is an array whose rank is `¯1+⍴⍴Y` and whose shape is `(K≠⍳⍴⍴Y)/⍴Y`.
 
@@ -36,5 +26,7 @@ The items of `R` are the sub-arrays of `Y` along the `K`th axis.  `R` is a scala
  1 6  2 7  3 8  4 9  5 10
 ```
 
-
-
+<!-- Hidden search keywords -->
+<div style="display: none;">
+  ↓ split
+</div>
