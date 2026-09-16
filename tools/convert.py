@@ -3,32 +3,42 @@
 Reads the monorepo source (read-only) and regenerates this repository's
 content and build config:
 
-- copies each sub-project's docs tree to docs/<sub>/, byte-identical,
-  preserving the directory-name-equals-mount-point invariant so every
-  public URL and relative link survives the flatten,
-- copies the root project's docs (documentation-assets is not copied: it is
-  a git submodule at docs/documentation-assets tracking the shared corporate
-  style, preserved across regeneration),
-- consolidates the identical per-sub-project mathjax.js copies into the
-  single canonical docs/javascripts/mathjax.js,
-- merges the root config and the 14 sub-project configs into one config:
-  each "!include ./<sub>/mkdocs.yml" nav entry replaced by that
-  sub-project's nav path-prefixed with <sub>/, extensions and extra
-  folded into a superset with the root value winning any conflict, and
-  extra_css taken from the root alone (the monorepo build reads only the
-  root values, so root-wins preserves the rendered baseline; the corpus's
-  only sub-only extra_css entries dangle),
-- serialises the merged config to zensical.toml, the sole build config.
-  The monorepo, site-urls and caption plugins are dropped: the first two
-  are retired by the flatten, and caption has no Zensical module and is
-  replaced by a Python-Markdown extension in Phase 5.
+- copies each sub-project's docs tree to docs/<alias>/, where <alias> is the
+  mount point mkdocs-monorepo-plugin gave it on the live site (its site_name,
+  slugified: twelve guides' aliases equal their directory names, the two .NET
+  guides' do not), so every public URL and cross-guide relative link survives
+  the flatten; and the root project's docs to docs/,
+- applies the content transforms in transforms.py to every copied Markdown
+  page, so the house classes the MkDocs stylesheet styled (title banners,
+  example headings, shaded default cells, sprite toolbar icons, the
+  binding-strength layout classes, bespoke admonition types) are replaced by
+  plain Markdown that stock Zensical renders,
+- lays the content overlay (tools/content/) over the copied tree: images the
+  transforms reference that have no source in the monorepo, and whole-page
+  replacements for the few pages that were reworked by hand. A replacement
+  carries a sidecar recording the SHA-256 of the source page it was written
+  against; the conversion refuses to run while a sidecar no longer matches,
+  so an upstream edit to such a page is never silently discarded,
+- drops the MathJax loader: nothing in the corpus uses arithmatex, and the
+  per-sub-project mathjax.js copies are not carried over,
+- merges the root config and the 14 sub-project configs: each
+  "!include ./<sub>/mkdocs.yml" nav entry replaced by that sub-project's nav
+  path-prefixed with <sub>/, markdown_extensions folded into a superset
+  (minus arithmatex, plus the caption extension), extra folded with the root
+  winning conflicts,
+- renders zensical.toml from tools/zensical.toml.template, which holds the
+  house configuration (theme, palette, stylesheet, plugins, copyright) with
+  its rationale in comments, and receives the merged site name, repository
+  URL, extensions, extra and nav.
 
 The source tree is never written to. The output directory is this
 repository's zensical/ directory, a self-contained generated project
 (zensical.toml and docs/ together). The script owns everything under it
-except the documentation-assets submodule: it regenerates the owned paths on
-every run, so orphaned and stray files do not survive, while leaving the
-submodule checkout intact. Nothing outside zensical/ is ever written.
+except the two asset directories under docs/ (documentation-assets, the
+retired MkDocs submodule, and documentation-assetsz, the Zensical assets):
+it regenerates the owned paths on every run, so orphaned and stray files do
+not survive, while leaving the assets intact. Nothing outside zensical/ is
+ever written.
 
 Forward-looking by design: it reads MkDocs config and writes Zensical
 config, with no MkDocs fallback or backwards-compatibility path.
@@ -40,13 +50,16 @@ can drive them against fixture trees.
 """
 
 import copy
+import hashlib
 import re
 import shutil
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 import tomli_w
 import yaml
 from bs4 import BeautifulSoup, NavigableString
+
+import transforms
 
 # The 14 sub-projects, in root-nav order. The root nav's !include lines are
 # the canonical enumeration; a source checkout missing any of these is an
@@ -68,12 +81,20 @@ SUBPROJECTS: tuple[str, ...] = (
     "unix-user-guide",
 )
 
+TOOLS_DIR = Path(__file__).resolve().parent
+
 # The generated project directory inside this repository, and the sibling
 # monorepo checkout it is generated from.
-OUTPUT_ROOT = Path(__file__).resolve().parent.parent / "zensical"
-SOURCE_ROOT = Path(__file__).resolve().parent.parent.parent / "documentation"
+OUTPUT_ROOT = TOOLS_DIR.parent / "zensical"
+SOURCE_ROOT = TOOLS_DIR.parent.parent / "documentation"
 
-ASSETS_DIR = "documentation-assets"
+# Asset directories under docs/ that convert does not own: the retired MkDocs
+# style (a git submodule, kept until its removal is done as its own change)
+# and the Zensical style the build actually reads.
+PRESERVED_DIRS = frozenset({"documentation-assets", "documentation-assetsz"})
+
+# The MathJax loader the monorepo carried in every sub-project. Nothing in the
+# corpus renders maths, so no copy is carried over.
 MATHJAX_REL = Path("javascripts") / "mathjax.js"
 
 # Theme override providing the outdated-version warning banner. Kept in a
@@ -81,26 +102,60 @@ MATHJAX_REL = Path("javascripts") / "mathjax.js"
 # static file) and pointed at by theme.custom_dir. The template is a committed
 # project artefact, copied into the generated project.
 OVERRIDES_DIR = "overrides"
-OVERRIDE_TEMPLATE = Path(__file__).resolve().parent / OVERRIDES_DIR / "main.html"
+OVERRIDE_TEMPLATE = TOOLS_DIR / OVERRIDES_DIR / "main.html"
 
-# Dropped from the merged config. monorepo has done its job; site-urls is a
-# no-op for this corpus (nothing uses its site: prefix); caption has no
-# Zensical module and is replaced by a Python-Markdown extension in Phase 5.
-DROPPED_PLUGINS = frozenset({"monorepo", "site-urls", "caption"})
+# The house build configuration with the generated regions as placeholders.
+TOML_TEMPLATE = TOOLS_DIR / "zensical.toml.template"
 
-# The Python-Markdown extension that replaces the dropped caption plugin. Named
-# by importable module so Zensical hands it to Python-Markdown at build time.
+# Content the transforms need that has no source in the monorepo, plus the
+# hand-reworked page replacements with their source-hash sidecars.
+CONTENT_OVERLAY = TOOLS_DIR / "content"
+SIDECAR_SUFFIX = ".source-sha256"
+
+# Dropped from the merged markdown_extensions: arithmatex has no content to
+# render (the only `$$` in the corpus is APL output), and dropping it lets the
+# MathJax loader go too.
+DROPPED_EXTENSIONS = frozenset({"pymdownx.arithmatex"})
+
+# The Python-Markdown extension that replaces the monorepo's caption plugin.
+# Named by importable module so Zensical hands it to Python-Markdown at build
+# time.
 CAPTION_EXTENSION = "dyalog_caption"
 
-# The production canonical site URL. The source config sets none, but versioned
-# publishing needs it: with a version set (MIKE_DOCS_VERSION), Zensical prefixes
-# site_url with the version to produce docs.dyalog.com/<ver>/. Staging deploys
-# (github.io) serve the same build via relative links, and the canonical still
-# points at production, which is correct. A build served from a different host
-# therefore needs a different site_url and must be rebuilt with it changed.
-SITE_URL = "https://docs.dyalog.com/"
+# Root config keys carried into the rendered zensical.toml header.
+CARRIED_KEYS = ("site_name", "repo_url")
 
 _INCLUDE_RE = re.compile(r"^!include \./([^/]+)/mkdocs\.yml$")
+
+# mkdocs-monorepo-plugin mounts an included project at an alias derived from
+# its site_name: the name itself when it is already a plain path token,
+# otherwise its slug (python-slugify). ".NET Interface Guide" is therefore
+# served at net-interface-guide/, not at its directory dotnet-interface-guide/.
+_PLAIN_ALIAS_RE = re.compile(r"^[a-zA-Z0-9_.\-/]+$")
+
+
+def guide_alias(site_name):
+    """The URL path segment mkdocs-monorepo-plugin mounts a guide at."""
+    if _PLAIN_ALIAS_RE.fullmatch(site_name):
+        return site_name
+    return re.sub(r"[^a-z0-9]+", "-", site_name.lower()).strip("-")
+
+
+def _alias_of(name, config):
+    return guide_alias(config.get("site_name", name))
+
+
+def mount_points(sub_configs):
+    """{alias: directory} for the ordered {directory: config} sub-configs,
+    the geometry the output docs/ tree takes. Two guides resolving to one
+    alias would overwrite each other, so that is an error."""
+    mounts = {}
+    for name, config in sub_configs.items():
+        alias = _alias_of(name, config)
+        if alias in mounts:
+            raise ValueError(f"sub-projects {mounts[alias]} and {name} both mount at {alias}/")
+        mounts[alias] = name
+    return mounts
 
 # Opening/closing fence marker (3+ backticks or tildes), optionally indented.
 _FENCE_RE = re.compile(r"^\s*(`{3,}|~{3,})")
@@ -139,7 +194,7 @@ def prefix_nav(nav, prefix):
 
 def _replace_includes(nav, sub_configs):
     """Replace "!include ./<sub>/mkdocs.yml" strings with that
-    sub-project's nav, path-prefixed with <sub>/."""
+    sub-project's nav, path-prefixed with its mount alias."""
     if isinstance(nav, str):
         match = _INCLUDE_RE.match(nav)
         if match:
@@ -149,7 +204,7 @@ def _replace_includes(nav, sub_configs):
                     f"root nav includes a sub-project outside the"
                     f" hardcoded list: {name}"
                 )
-            return prefix_nav(sub_configs[name]["nav"], name)
+            return prefix_nav(sub_configs[name]["nav"], _alias_of(name, sub_configs[name]))
         return nav
     if isinstance(nav, list):
         return [_replace_includes(entry, sub_configs) for entry in nav]
@@ -161,28 +216,20 @@ def _replace_includes(nav, sub_configs):
 
 
 def merge_configs(root_config, sub_configs):
-    """Merge the root config and the ordered {name: config} sub-configs.
+    """Merge the root config and the ordered {name: config} sub-configs into
+    the values the rendered zensical.toml takes from the source.
 
     Nav: each "!include ./<name>/mkdocs.yml" string is replaced by that
-    sub-project's nav, path-prefixed with "<name>/". markdown_extensions
-    and extra fold into a superset, root value winning conflicts.
-    extra_css comes from the root alone: the monorepo build ignores sub
-    extra_css, and the corpus's only sub-only entries dangle (no such
-    files in source), so folding them in would break the rendered
-    baseline. extra_javascript and the rest of the top-level keys are
-    inherited from the root unchanged (the root already references the
-    single javascripts/mathjax.js plus the external MathJax URL). site_url
-    is set to the production canonical (the source sets none) so versioned
-    publishing can prefix it with the version, and theme.custom_dir points at
-    the overrides/ theme override (the outdated-version warning banner). The
-    monorepo, site-urls and caption plugins are dropped.
+    sub-project's nav, path-prefixed with its mount alias. markdown_extensions
+    fold into a superset with root precedence, minus DROPPED_EXTENSIONS and
+    plus the caption extension. extra folds with the root winning conflicts.
+    site_name and repo_url come from the root. Everything else in the source
+    configs (theme, stylesheets, scripts, plugins, copyright) is MkDocs house
+    configuration that the template replaces, so it is not carried.
     """
-    merged = copy.deepcopy(root_config)
+    merged = {key: root_config[key] for key in CARRIED_KEYS if key in root_config}
 
-    merged["site_url"] = SITE_URL
-    merged.setdefault("theme", {})["custom_dir"] = OVERRIDES_DIR
-
-    merged["nav"] = _replace_includes(merged.get("nav", []), sub_configs)
+    merged["nav"] = _replace_includes(copy.deepcopy(root_config.get("nav", [])), sub_configs)
 
     extensions = copy.deepcopy(root_config.get("markdown_extensions", []))
     seen = {_entry_name(e) for e in extensions}
@@ -191,7 +238,8 @@ def merge_configs(root_config, sub_configs):
             if _entry_name(entry) not in seen:
                 extensions.append(copy.deepcopy(entry))
                 seen.add(_entry_name(entry))
-    # Restore the caption numbering the dropped caption plugin provided, as a
+    extensions = [e for e in extensions if _entry_name(e) not in DROPPED_EXTENSIONS]
+    # Restore the caption numbering the monorepo's caption plugin provided, as a
     # Python-Markdown extension Zensical can load (see tools/dyalog_caption.py).
     if CAPTION_EXTENSION not in seen:
         extensions.append(CAPTION_EXTENSION)
@@ -203,25 +251,19 @@ def merge_configs(root_config, sub_configs):
     extra.update(copy.deepcopy(root_config.get("extra", {})))
     merged["extra"] = extra
 
-    merged["plugins"] = [
-        plugin
-        for plugin in merged.get("plugins", [])
-        if _entry_name(plugin) not in DROPPED_PLUGINS
-    ]
-
     return merged
 
 
 def rewrite_h1(md_text):
     """Rewrite raw-HTML page-title headings to Markdown ATX headings.
 
-    The corpus writes page titles as raw HTML (`<h1 class="heading">` with
-    inner styling spans) via md_in_html, so neither MkDocs nor Zensical sees
-    an ATX heading and both fall back for the page title: MkDocs to the nav
-    label, Zensical to the filename. Converting each raw `<h1 ...>INNER</h1>`
-    to `# INNER {: attrs}` gives Zensical a heading whose text becomes the
-    title, while attr_list carries the original attributes so the class and
-    inner spans (hence the styling) survive.
+    The pre-July corpus wrote page titles as raw HTML (`<h1 class="heading">`
+    with inner styling spans) via md_in_html, so neither MkDocs nor Zensical
+    saw an ATX heading. Converting each raw `<h1 ...>INNER</h1>` to
+    `# INNER {: attrs}` gives a heading whose text becomes the title, while
+    attr_list carries the original attributes; transforms.normalise_titles
+    then reduces the spans to plain Markdown. The monorepo has since made the
+    same move itself, so this now only catches stragglers.
 
     Markdown-special characters in INNER are escaped so command headings
     containing APL (e.g. `R<-f\\[K]Y`) render verbatim rather than being
@@ -292,6 +334,24 @@ def _h1_attr_list(attrs):
     return " ".join(tokens)
 
 
+def transform_markdown(text, page_rel_path):
+    """Run the content transform pipeline over one page's Markdown.
+
+    page_rel_path is the page's POSIX path relative to docs/, used to compute
+    the relative links the transforms emit. Returns (text, icon_slugs): the
+    transformed text and the toolbar icon images it references.
+    """
+    page_rel_path = PurePosixPath(page_rel_path).as_posix()
+    text = transforms.rewrite_example_headings(text)
+    text = rewrite_h1(text)
+    text = transforms.normalise_titles(text, key_link=transforms.key_link_for(page_rel_path))
+    text = transforms.normalise_admonitions(text)
+    text = transforms.replace_shaded_defaults(text)
+    text = transforms.simplify_table_markup(text)
+    img_dir = transforms.relative_to_page(page_rel_path, transforms.TOOLBAR_IMG_DIR)
+    return transforms.replace_toolbar_icons(text, img_dir)
+
+
 def _remove(path):
     if path.is_dir() and not path.is_symlink():
         shutil.rmtree(path)
@@ -299,68 +359,138 @@ def _remove(path):
         path.unlink()
 
 
-def _clean_owned(output, preserve_name):
+def _clean_owned(output, preserved):
     """Wipe convert-owned paths under the output, keeping docs/ and the
-    documentation-assets submodule (preserve_name, a docs/ child) intact, so a
-    re-run is deterministic without disturbing the submodule checkout."""
+    preserved asset directories (docs/ children) intact, so a re-run is
+    deterministic without disturbing the assets."""
     if not output.exists():
         return
     docs = output / "docs"
     for entry in output.iterdir():
         if entry == docs and docs.is_dir():
             for child in docs.iterdir():
-                if child.name != preserve_name:
+                if child.name not in preserved:
                     _remove(child)
         else:
             _remove(entry)
 
 
-def copy_content(source, output, subprojects):
+def source_path_for(rel, source, mounts):
+    """The source file a docs/-relative output path was copied from, given
+    the {alias: directory} mount points."""
+    rel = Path(rel)
+    if rel.parts and rel.parts[0] in mounts:
+        return Path(source) / mounts[rel.parts[0]] / "docs" / Path(*rel.parts[1:])
+    return Path(source) / "docs" / rel
+
+
+def _sha256(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def overlay_files(overlay):
+    """The overlay's content files (sidecars excluded), as paths relative to
+    the overlay root."""
+    overlay = Path(overlay)
+    if not overlay.is_dir():
+        return []
+    return sorted(
+        p.relative_to(overlay)
+        for p in overlay.rglob("*")
+        if p.is_file() and not p.name.endswith(SIDECAR_SUFFIX)
+    )
+
+
+def check_overlay(overlay, source, mounts):
+    """Verify the overlay against the source before anything is written.
+
+    Every overlay file that would replace a source page must carry a sidecar
+    naming the SHA-256 of that source page, and the hash must still match;
+    otherwise the page changed upstream since the replacement was written
+    and the two must be re-merged by hand. Raises ValueError listing every
+    offending file.
+    """
+    overlay = Path(overlay)
+    problems = []
+    for rel in overlay_files(overlay):
+        sidecar = overlay / (str(rel) + SIDECAR_SUFFIX)
+        src = source_path_for(rel, source, mounts)
+        if src.is_file():
+            if not sidecar.is_file():
+                problems.append(f"{rel}: replaces a source page but has no {SIDECAR_SUFFIX} sidecar")
+            elif sidecar.read_text().strip() != _sha256(src):
+                problems.append(
+                    f"{rel}: source page changed since the replacement was written"
+                    f" (re-merge, then update {sidecar.name})"
+                )
+        elif sidecar.is_file():
+            problems.append(f"{rel}: has a sidecar but its source page no longer exists")
+    if problems:
+        raise ValueError("content overlay is stale:\n  " + "\n  ".join(problems))
+
+
+def apply_overlay(overlay, docs):
+    """Copy the overlay's content files over the docs tree."""
+    overlay = Path(overlay)
+    for rel in overlay_files(overlay):
+        dest = Path(docs) / rel
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(overlay / rel, dest)
+
+
+def copy_content(source, output, mounts, overlay=CONTENT_OVERLAY):
     """Copy content out-of-place from the source monorepo to the output.
 
-    <sub>/docs/* copies to <output>/docs/<sub>/* for every sub-project;
-    root docs/* to <output>/docs/*. Per-sub-project docs/javascripts/mathjax.js
-    duplicates are not carried over; the root copy becomes the single canonical
-    one. Content bytes are never edited. The committed theme override is placed
-    in a top-level overrides/ (theme.custom_dir).
+    <dir>/docs/* copies to <output>/docs/<alias>/* for every {alias: dir} in
+    mounts; root docs/* to <output>/docs/*. No javascripts/mathjax.js is
+    carried over. Every copied Markdown page then goes through
+    transform_markdown, the overlay is laid over the result, and the
+    committed theme override is placed in a top-level overrides/
+    (theme.custom_dir).
 
-    documentation-assets is NOT copied: it is a git submodule in the output
-    repo at <output>/docs/documentation-assets, tracking the shared corporate
-    style. Regeneration therefore preserves that path and wipes only the paths
-    convert owns, so orphaned and stray files do not survive a re-run while the
-    submodule checkout is left intact. The source tree is never written to.
+    The preserved asset directories are neither copied nor transformed:
+    regeneration wipes only the paths convert owns, so orphaned and stray
+    files do not survive a re-run while the assets are left intact. The source
+    tree is never written to.
     """
     source = Path(source)
     output = Path(output)
     docs = output / "docs"
 
-    _clean_owned(output, ASSETS_DIR)
+    _clean_owned(output, PRESERVED_DIRS)
 
     output.mkdir(parents=True, exist_ok=True)
     docs.mkdir(exist_ok=True)
-    # docs persists (it holds the submodule), so merge the root docs into it.
+    # docs persists (it holds the assets), so merge the root docs into it.
     shutil.copytree(source / "docs", docs, dirs_exist_ok=True)
+    for alias, name in mounts.items():
+        shutil.copytree(source / name / "docs", docs / alias)
+    for stray in [docs / MATHJAX_REL] + [docs / alias / MATHJAX_REL for alias in mounts]:
+        if stray.exists():
+            stray.unlink()
+            if not any(stray.parent.iterdir()):
+                stray.parent.rmdir()
 
-    for name in subprojects:
-        shutil.copytree(source / name / "docs", docs / name)
-        duplicate = docs / name / MATHJAX_REL
-        if duplicate.exists():
-            duplicate.unlink()
-            if not any(duplicate.parent.iterdir()):
-                duplicate.parent.rmdir()
-
-    # Convert raw-HTML page-title headings to Markdown in the copied files, so
-    # Zensical derives the title from the heading text. The source is untouched;
-    # files without a raw <h1> are left byte-for-byte as copied. The
-    # documentation-assets submodule is skipped: convert never writes into it.
-    assets = docs / ASSETS_DIR
-    for md_file in docs.rglob("*.md"):
-        if assets in md_file.parents:
+    provided_icons = {
+        p.stem[len("tbt-") :]
+        for p in (Path(overlay) / transforms.TOOLBAR_IMG_DIR).glob("tbt-*.png")
+    }
+    preserved = [docs / name for name in PRESERVED_DIRS]
+    for md_file in sorted(docs.rglob("*.md")):
+        if any(root in md_file.parents for root in preserved):
             continue
         text = md_file.read_text(encoding="utf-8")
-        rewritten = rewrite_h1(text)
+        rewritten, icons = transform_markdown(text, md_file.relative_to(docs).as_posix())
+        missing = icons - provided_icons
+        if missing:
+            raise ValueError(
+                f"{md_file.relative_to(docs)} references toolbar icons the overlay"
+                f" does not provide: {', '.join(sorted(missing))}"
+            )
         if rewritten != text:
             md_file.write_text(rewritten, encoding="utf-8")
+
+    apply_overlay(overlay, docs)
 
     # Place the theme override (the outdated-version warning banner) that
     # theme.custom_dir points at.
@@ -369,22 +499,53 @@ def copy_content(source, output, subprojects):
     shutil.copy2(OVERRIDE_TEMPLATE, override_dir / "main.html")
 
 
-def write_zensical_toml(config, path):
-    """Serialise the merged config as zensical.toml under [project].
+def render_zensical_toml(merged, template_text):
+    """Fill the house template's generated regions from the merged config.
 
-    Plugin exclusions are already applied by merge_configs; this only wraps
-    the merged config in the [project] table Zensical expects.
+    The template carries the static house configuration with its rationale
+    in comments (tomli_w cannot write comments), and three placeholder lines:
+    @@HEADER@@ (site_name, repo_url), @@MARKDOWN_EXTENSIONS@@ and
+    @@EXTRA_AND_NAV@@ ([project.extra] and the [[project.nav]] tables). Each
+    must appear exactly once.
     """
-    with open(path, "wb") as f:
-        tomli_w.dump({"project": config}, f)
+    regions = {
+        "@@HEADER@@\n": tomli_w.dumps({k: merged[k] for k in CARRIED_KEYS if k in merged}),
+        "@@MARKDOWN_EXTENSIONS@@\n": tomli_w.dumps(
+            {"markdown_extensions": merged["markdown_extensions"]}
+        ),
+        "@@EXTRA_AND_NAV@@\n": tomli_w.dumps(
+            {"project": {"extra": merged["extra"], "nav": merged["nav"]}}
+        ),
+    }
+    text = template_text
+    for placeholder, rendered in regions.items():
+        if text.count(placeholder) != 1:
+            raise ValueError(f"template must contain {placeholder.strip()} exactly once")
+        text = text.replace(placeholder, rendered)
+    return text
 
 
-def convert(source, output, subprojects=SUBPROJECTS):
-    """Run the full conversion: copy content, merge configs, serialise.
+def write_zensical_toml(merged, path, template=TOML_TEMPLATE):
+    Path(path).write_text(
+        render_zensical_toml(merged, Path(template).read_text(encoding="utf-8")),
+        encoding="utf-8",
+    )
+
+
+def convert(
+    source,
+    output,
+    subprojects=SUBPROJECTS,
+    overlay=CONTENT_OVERLAY,
+    template=TOML_TEMPLATE,
+):
+    """Run the full conversion: check the overlay, copy and transform content,
+    merge configs, render zensical.toml.
 
     Deterministic and idempotent: converting the same source twice
     produces byte-identical output. Raises FileNotFoundError naming the
-    sub-projects missing from the source.
+    sub-projects missing from the source, and ValueError (before anything is
+    written) when the content overlay is stale against the source.
     """
     source = Path(source)
     output = Path(output)
@@ -404,10 +565,12 @@ def convert(source, output, subprojects=SUBPROJECTS):
     sub_configs = {
         name: load_yaml(source / name / "mkdocs.yml") for name in subprojects
     }
+    mounts = mount_points(sub_configs)
+    check_overlay(overlay, source, mounts)
     merged = merge_configs(root_config, sub_configs)
 
-    copy_content(source, output, subprojects)
-    write_zensical_toml(merged, output / "zensical.toml")
+    copy_content(source, output, mounts, overlay=overlay)
+    write_zensical_toml(merged, output / "zensical.toml", template=template)
 
 
 if __name__ == "__main__":

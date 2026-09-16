@@ -79,3 +79,61 @@ def test_paragraph_without_a_following_table_is_left_untouched():
     html = render("Table: orphan with no table\n\nJust a paragraph.")
     assert "<caption" not in html
     assert "Table: orphan with no table" in html
+
+
+# --- custom ids and empty references (the monorepo's post-July usage) ----
+
+
+def render_with_attr_list(text):
+    return markdown.markdown(
+        text,
+        extensions=["attr_list", "markdown_tables_extended", dyalog_caption.makeExtension()],
+    )
+
+
+def test_caption_with_a_custom_id_gives_the_table_that_id():
+    html = render_with_attr_list(f"Table: Time numbers {{ #timenumbers }}\n\n{TABLE}")
+    assert '<table id="timenumbers">' in html
+    assert "_table-1" not in html
+    assert "Table 1: Time numbers" in html
+    assert "{ #timenumbers }" not in html
+
+
+def test_caption_custom_id_accepts_the_colon_form():
+    html = render_with_attr_list(f"Table: Identity Elements {{: #IdentityElements }}\n\n{TABLE}")
+    assert '<table id="IdentityElements">' in html
+    assert "Table 1: Identity Elements" in html
+
+
+def test_empty_reference_to_a_numbered_table_is_filled_with_table_n():
+    html = render_with_attr_list(
+        f"Options are shown in [](#opts).\n\nTable: Options {{ #opts }}\n\n{TABLE}"
+    )
+    assert '<a href="#opts">Table 1</a>' in html
+
+
+def test_empty_reference_to_something_else_is_left_alone():
+    html = render_with_attr_list("See [](#figure-1).\n\nTable: Foo\n\n" + TABLE)
+    assert '<a href="#figure-1"></a>' in html
+
+
+def test_non_empty_reference_text_is_kept():
+    html = render_with_attr_list(
+        f"See [the options](#opts).\n\nTable: Options {{ #opts }}\n\n{TABLE}"
+    )
+    assert '<a href="#opts">the options</a>' in html
+
+
+def test_caption_keeps_its_inline_markup():
+    html = render_with_attr_list(f"Table: Variant options for `⎕CSV` {{ #v }}\n\n{TABLE}")
+    caption = re.search(r"<caption[^>]*>(.*?)</caption>", html, re.S)
+    assert caption.group(1) == "Table 1: Variant options for <code>⎕CSV</code>"
+
+
+def test_numbering_counts_custom_and_default_ids_together():
+    html = render_with_attr_list(
+        f"Table: First {{ #first }}\n\n{TABLE}\n\nTable: Second\n\n{TABLE}"
+    )
+    assert '<table id="first">' in html
+    assert '<table id="_table-2">' in html
+    assert "Table 2: Second" in html

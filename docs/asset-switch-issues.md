@@ -95,9 +95,23 @@ are uncommitted in the working tree.
   content or config. Dropping it (git rm + .gitmodules + the CI `.git`-strip
   step from #44) is a separate structural change. The sprite source lives
   there; the sliced PNGs are now content-owned.
-- convert.py still regenerates this repo from the monorepo: these transforms
-  and the new toml header must be ported into convert.py, or conversion
-  retired, before any re-run (it would overwrite all of this).
+- convert.py regenerates this repo from the monorepo (ported 2026-09-16):
+  the transforms live in tools/transforms.py, the toml header is
+  tools/zensical.toml.template, and the hand-reworked front page and the
+  sliced toolbar PNGs are a content overlay in tools/content/. Against the
+  July source the regenerated tree matches the tree described above except
+  where the port deliberately goes further: `<h1 class="example">` is
+  demoted to `##` rather than kept as a second h1 (7 pages); a classifier in
+  the command position (`Event 525`, `Method 838`) becomes a plain line, not
+  an ```apl block (13 pages); the remaining `{ .shaded }` cells and
+  "highlighted thus" legends are converted too; the standalone breakpoint
+  icon reuses tbt-reset.png (the slices were byte-identical). Against the
+  September source it also handles what the monorepo changed since July:
+  Markdown titles with bare spans and `{{key}}` (the key macro becomes a
+  relative "Key to notation" text link under the syntax block, since its
+  white SVG icon is invisible off the old banner), caption ids
+  (`Table: ... { #id }`) and empty `[](#id)` table references, and the two
+  .NET guides mounted at their live-site aliases.
 - 151 pages use adjacent input/output code blocks the old CSS merged; the
   default two-block rendering is accepted (honest structure, copy button per
   block). Revisit only if it reads badly.

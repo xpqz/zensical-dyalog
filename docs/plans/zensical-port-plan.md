@@ -41,6 +41,9 @@ becomes the authoring home at cutover.
 ### Key facts verified during planning
 - The monorepo mounts each sub-project at a URL path equal to its directory name
   (e.g. `object-reference/docs/objects/button.md` is served at `/object-reference/objects/button/`).
+  *Correction (2026-09-16): the mount point is the slugified `site_name`, which equals the
+  directory name for twelve guides but not for `.NET Interface Guide` (`net-interface-guide/`)
+  or `.NET Framework Interface Guide` (`net-framework-interface-guide/`); convert.py derives it.*
   886 cross-sub-project links are authored against this geometry, e.g.
   `](../../../language-reference-guide/system-functions/dq)`. Therefore copying
   `<sub>/docs/*` to `docs/<sub>/*` in the output project preserves every public URL and

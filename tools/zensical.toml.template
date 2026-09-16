@@ -1,0 +1,61 @@
+[project]
+@@HEADER@@
+
+# House style: the generator credit lives here and extra.generator is off.
+# The $CURRENT_YEAR / $BUILD_DATE / $GIT_INFO placeholders are stamped at
+# deploy time; local builds show them unsubstituted. The build stamp is a
+# <button>, not a link: navigation.instant claims any same-origin href
+# (href="#" included) and scrolls the page to the top, and a button is
+# keyboard-operable where an href-less <a> is not. dyalog.css strips the
+# control chrome so it still reads as inline text. The onclick avoids single
+# quotes because `copyright` is a TOML literal string — hence the data-*
+# strings.
+copyright = 'Made with <a href="https://zensical.org/" target="_blank" rel="noopener"><strong>Zensical</strong></a><br/>Copyright &copy; 1982-$CURRENT_YEAR <strong><a href="https://dyalog.com" target="_blank" rel="noopener">Dyalog Limited</a></strong> (<button type="button" class="copy" title="Copy build info to the clipboard" data-done="copied" data-fail="copy failed" onclick="var b=this,s=b.nextElementSibling;navigator.clipboard?navigator.clipboard.writeText(b.textContent.trim()).then(function(){s.textContent=b.dataset.done},function(){s.textContent=b.dataset.fail}):s.textContent=b.dataset.fail">$BUILD_DATE $GIT_INFO</button><span class="copy-status" role="status"></span>).<br/>Except where otherwise noted, content on this site is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener"><strong>Creative Commons Attribution 4.0 International</strong></a> licence.'
+
+extra_css = ["documentation-assetsz/css/dyalog.css"]
+# privacy and minify are MkDocs plugins Zensical does not implement; search is
+# built in. Only macros (version-number substitution) remains.
+plugins = [
+    "search",
+    "macros",
+]
+@@MARKDOWN_EXTENSIONS@@
+site_url = "https://docs.dyalog.com/"
+
+[project.theme]
+# Classic drives the header and accents from --md-primary-*/--md-accent-*,
+# which is what dyalog.css sets. The modern variant is deliberately neutral
+# and uses the primary colour in only two places, so the brand barely shows.
+variant = "classic"
+# Orange wordmark in both schemes — matches Dyalog's own dyalog_readme.htm.
+logo = "documentation-assetsz/images/dyalog-logo_orange.svg"
+favicon = "documentation-assetsz/images/dyalog-ide-cube-2025.2.svg"
+# Fonts are self-hosted by documentation-assetsz; skip the Google Fonts request
+font = false
+custom_dir = "overrides"
+features = [
+    "content.code.copy",
+    "navigation.indexes",
+    "navigation.instant",
+    "navigation.path",
+    "navigation.sections",
+    "navigation.tracking",
+]
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "custom"
+accent = "custom"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "custom"
+accent = "custom"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to light mode"
+
+@@EXTRA_AND_NAV@@

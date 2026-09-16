@@ -11,21 +11,31 @@ import tomllib
 import pytest
 
 import convert
-from fixture_tree import SUB_NAMES, MATHJAX_JS, PNG_BYTES, tree_digest
+from fixture_tree import (
+    INDEX_OVERLAY_MD,
+    PNG_BYTES,
+    SUB_NAMES,
+    tree_digest,
+)
 
 
-def run(source, output, **kwargs):
+def run(source, output, overlay, **kwargs):
     kwargs.setdefault("subprojects", SUB_NAMES)
-    return convert.convert(source, output, **kwargs)
+    return convert.convert(source, output, overlay=overlay, **kwargs)
+
+
+def read_toml(out_dir):
+    with open(out_dir / "zensical.toml", "rb") as f:
+        return tomllib.load(f)["project"]
 
 
 # --- content copying ---------------------------------------------------
 
 
 def test_copies_each_subproject_docs_tree_to_docs_sub_preserving_bytes(
-    source_tree, out_dir
+    source_tree, out_dir, overlay
 ):
-    run(source_tree, out_dir)
+    run(source_tree, out_dir, overlay)
     copied = (
         out_dir
         / "docs"
@@ -44,52 +54,52 @@ def test_copies_each_subproject_docs_tree_to_docs_sub_preserving_bytes(
     assert (out_dir / "docs" / "compiler-user-guide" / "basic-usage.md").is_file()
 
 
-def test_copies_binary_assets_byte_identical(source_tree, out_dir):
-    run(source_tree, out_dir)
+def test_copies_binary_assets_byte_identical(source_tree, out_dir, overlay):
+    run(source_tree, out_dir, overlay)
     assert (
         out_dir / "docs" / "release-notes" / "images" / "logo.png"
     ).read_bytes() == PNG_BYTES
 
 
-def test_copies_root_docs_pages_to_the_docs_root(source_tree, out_dir):
-    run(source_tree, out_dir)
+def test_copies_root_docs_pages_to_the_docs_root(source_tree, out_dir, overlay):
+    run(source_tree, out_dir, overlay)
     assert (out_dir / "docs" / "conventions.md").is_file()
-    assert (out_dir / "docs" / "index.md").read_text() == "# Documentation\n"
 
 
-def test_does_not_copy_documentation_assets(source_tree, out_dir):
+def test_does_not_copy_documentation_assets(source_tree, out_dir, overlay):
     # documentation-assets is a git submodule in the output repo, tracking the
-    # shared corporate style. It is not convert's to manage, so convert must not
+    # retired MkDocs style. It is not convert's to manage, so convert must not
     # copy the source checkout's copy in.
-    run(source_tree, out_dir)
+    run(source_tree, out_dir, overlay)
     assert not (out_dir / "docs" / "documentation-assets").exists()
 
 
-def test_preserves_the_documentation_assets_submodule_on_regen(source_tree, out_dir):
-    run(source_tree, out_dir)
-    # Stand in for the submodule checkout landing at its path.
-    sub = out_dir / "docs" / "documentation-assets" / "css"
+@pytest.mark.parametrize("assets", ["documentation-assets", "documentation-assetsz"])
+def test_preserves_the_asset_directories_on_regen(source_tree, out_dir, overlay, assets):
+    run(source_tree, out_dir, overlay)
+    # Stand in for the asset checkout landing at its path.
+    sub = out_dir / "docs" / assets / "css"
     sub.mkdir(parents=True, exist_ok=True)
-    (sub / "main.css").write_text("SUBMODULE SENTINEL\n")
-    # Regenerating must not wipe the submodule checkout.
-    run(source_tree, out_dir)
-    assert (sub / "main.css").read_text() == "SUBMODULE SENTINEL\n"
+    (sub / "main.css").write_text("ASSET SENTINEL\n")
+    # Regenerating must not wipe the assets.
+    run(source_tree, out_dir, overlay)
+    assert (sub / "main.css").read_text() == "ASSET SENTINEL\n"
 
 
-def test_does_not_rewrite_markdown_inside_the_submodule(source_tree, out_dir):
-    run(source_tree, out_dir)
-    # A markdown file inside the submodule with a raw <h1> must be left
-    # byte-for-byte: the heading rewrite must never write into the submodule.
-    sub = out_dir / "docs" / "documentation-assets"
+def test_does_not_rewrite_markdown_inside_the_asset_directories(source_tree, out_dir, overlay):
+    run(source_tree, out_dir, overlay)
+    # A markdown file inside the assets with a raw <h1> must be left
+    # byte-for-byte: the transforms must never write into the assets.
+    sub = out_dir / "docs" / "documentation-assetsz"
     sub.mkdir(parents=True, exist_ok=True)
-    raw = '<h1 class="heading"><span class="name">Asset</span></h1>\n\nBody.\n'
+    raw = '<h1 class="heading"><span class="name">Asset</span></h1>\n\n!!! Hint "x"\n'
     (sub / "README.md").write_text(raw)
-    run(source_tree, out_dir)
+    run(source_tree, out_dir, overlay)
     assert (sub / "README.md").read_text() == raw
 
 
-def test_places_the_version_warning_theme_override(source_tree, out_dir):
-    run(source_tree, out_dir)
+def test_places_the_version_warning_theme_override(source_tree, out_dir, overlay):
+    run(source_tree, out_dir, overlay)
     override = out_dir / "overrides" / "main.html"
     assert override.is_file()
     text = override.read_text()
@@ -102,68 +112,95 @@ def test_places_the_version_warning_theme_override(source_tree, out_dir):
     assert "latest" in text.lower()
 
 
-def test_rewrites_raw_html_headings_in_output_markdown(source_tree, out_dir):
-    run(source_tree, out_dir)
+def test_rewrites_raw_html_title_to_plain_heading_and_classifier(source_tree, out_dir, overlay):
+    run(source_tree, out_dir, overlay)
     page = (out_dir / "docs" / "compiler-user-guide" / "raw-heading.md").read_text()
-    assert "<h1" not in page
-    assert any(line.startswith("# ") for line in page.splitlines())
-    assert "Widget" in page and "Object" in page
+    assert page == "# Widget\n\nObject\n\nBody text.\n"
 
 
-def test_leaves_markdown_without_a_raw_heading_unchanged(source_tree, out_dir):
-    run(source_tree, out_dir)
+def test_rewrites_styled_title_with_syntax_block_and_key_link(source_tree, out_dir, overlay):
+    run(source_tree, out_dir, overlay)
+    page = (out_dir / "docs" / "compiler-user-guide" / "styled-title.md").read_text()
+    assert page.startswith(
+        "# Comma Separated Values\n\n```apl\n{R}←{X} ⎕CSV Y\n```\n"
+        "[Key to notation](../language-reference-guide/key-to-notation.md)\n\n"
+    )
+    assert "## Examples\n```apl\n" in page
+    assert "{{key}}" not in page
+
+
+def test_applies_admonition_shaded_and_example_transforms(source_tree, out_dir, overlay):
+    run(source_tree, out_dir, overlay)
+    page = (out_dir / "docs" / "compiler-user-guide" / "examples.md").read_text()
+    assert '!!! tip "Hints and Recommendations"' in page
+    assert "|`0` (default)|do not repair|" in page
+    assert "highlighted thus" not in page
+    assert "## Example\n```apl" in page
+
+
+def test_replaces_toolbar_icons_with_overlay_images(source_tree, out_dir, overlay):
+    run(source_tree, out_dir, overlay)
+    page = (out_dir / "docs" / "compiler-user-guide" / "toolbar.md").read_text()
+    assert "![Exec toolbar button](../windows-ui-guide/img/tbt-exec.png)" in page
+    assert (out_dir / "docs" / "windows-ui-guide" / "img" / "tbt-exec.png").read_bytes() == PNG_BYTES
+
+
+def test_refuses_a_toolbar_icon_the_overlay_does_not_provide(source_tree, out_dir, overlay):
+    (overlay / "windows-ui-guide" / "img" / "tbt-exec.png").unlink()
+    with pytest.raises(ValueError, match="exec"):
+        run(source_tree, out_dir, overlay)
+
+
+def test_leaves_markdown_without_a_house_pattern_unchanged(source_tree, out_dir, overlay):
+    run(source_tree, out_dir, overlay)
     original = (source_tree / "compiler-user-guide" / "docs" / "basic-usage.md").read_text()
     copied = (out_dir / "docs" / "compiler-user-guide" / "basic-usage.md").read_text()
     assert copied == original
 
 
-def test_does_not_carry_subproject_mathjax_duplicates(source_tree, out_dir):
-    run(source_tree, out_dir)
-    assert not (
-        out_dir / "docs" / "release-notes" / "javascripts" / "mathjax.js"
-    ).exists()
+def test_carries_no_mathjax(source_tree, out_dir, overlay):
+    run(source_tree, out_dir, overlay)
+    assert list((out_dir / "docs").rglob("mathjax.js")) == []
+    assert not (out_dir / "docs" / "javascripts").exists()
+    assert not (out_dir / "docs" / "release-notes" / "javascripts").exists()
 
 
-def test_keeps_one_canonical_mathjax_at_docs_javascripts(source_tree, out_dir):
-    run(source_tree, out_dir)
-    copies = list((out_dir / "docs").rglob("mathjax.js"))
-    assert copies == [out_dir / "docs" / "javascripts" / "mathjax.js"]
-    assert copies[0].read_text() == MATHJAX_JS
-
-
-def test_never_writes_to_the_source_tree(source_tree, out_dir):
+def test_never_writes_to_the_source_tree(source_tree, out_dir, overlay):
     before = tree_digest(source_tree)
-    run(source_tree, out_dir)
+    run(source_tree, out_dir, overlay)
     assert tree_digest(source_tree) == before
 
 
-def test_rerun_removes_output_files_whose_source_disappeared(source_tree, out_dir):
-    run(source_tree, out_dir)
+def test_rerun_removes_output_files_whose_source_disappeared(source_tree, out_dir, overlay):
+    run(source_tree, out_dir, overlay)
     removed = source_tree / "release-notes" / "docs" / "system-requirements.md"
     removed.unlink()
-    run(source_tree, out_dir)
+    run(source_tree, out_dir, overlay)
     assert not (out_dir / "docs" / "release-notes" / "system-requirements.md").exists()
 
 
-def test_rerun_removes_stray_files_planted_in_the_output(source_tree, out_dir):
-    run(source_tree, out_dir)
+def test_rerun_removes_stray_files_planted_in_the_output(source_tree, out_dir, overlay):
+    run(source_tree, out_dir, overlay)
     (out_dir / "junk.txt").write_text("stray\n")
     (out_dir / "docs" / "stray.md").write_text("# Stray\n")
-    run(source_tree, out_dir)
+    run(source_tree, out_dir, overlay)
     assert not (out_dir / "junk.txt").exists()
     assert not (out_dir / "docs" / "stray.md").exists()
 
 
 def test_raises_file_not_found_when_an_expected_subproject_is_missing(
-    source_tree, out_dir
+    source_tree, out_dir, overlay
 ):
     with pytest.raises(FileNotFoundError, match="object-reference"):
         convert.convert(
-            source_tree, out_dir, subprojects=SUB_NAMES + ("object-reference",)
+            source_tree,
+            out_dir,
+            subprojects=SUB_NAMES + ("object-reference",),
+            overlay=overlay,
         )
 
 
-def test_writes_nothing_outside_the_output_directory(source_tree, out_dir, tmp_path):
+def test_writes_nothing_outside_the_output_directory(source_tree, out_dir, overlay, tmp_path):
     repo_docs = tmp_path / "repo" / "docs" / "plans"
     repo_docs.mkdir(parents=True)
     (repo_docs / "plan.md").write_text("# Plan\n")
@@ -177,8 +214,90 @@ def test_writes_nothing_outside_the_output_directory(source_tree, out_dir, tmp_p
         }
 
     before = outside_digest()
-    run(source_tree, out_dir)
+    run(source_tree, out_dir, overlay)
     assert outside_digest() == before
+
+
+# --- content overlay ---------------------------------------------------
+
+
+def test_overlay_replacement_page_is_used_when_its_sidecar_matches(
+    source_tree, out_dir, overlay
+):
+    run(source_tree, out_dir, overlay)
+    assert (out_dir / "docs" / "index.md").read_text() == INDEX_OVERLAY_MD
+
+
+def test_stale_overlay_sidecar_aborts_before_anything_is_written(
+    source_tree, out_dir, overlay
+):
+    (source_tree / "docs" / "index.md").write_text("# Documentation\n\nEdited upstream.\n")
+    with pytest.raises(ValueError, match="index.md"):
+        run(source_tree, out_dir, overlay)
+    assert not out_dir.exists()
+
+
+def test_overlay_replacement_without_a_sidecar_is_refused(source_tree, out_dir, overlay):
+    (overlay / "index.md.source-sha256").unlink()
+    with pytest.raises(ValueError, match="sidecar"):
+        run(source_tree, out_dir, overlay)
+
+
+def test_overlay_sidecar_for_a_vanished_source_page_is_refused(source_tree, out_dir, overlay):
+    (source_tree / "docs" / "index.md").unlink()
+    with pytest.raises(ValueError, match="no longer exists"):
+        run(source_tree, out_dir, overlay)
+
+
+def test_source_path_for_maps_output_paths_back_to_the_monorepo(source_tree):
+    mounts = {"compiler-user-guide": "compiler-user-guide", "net-interface-guide": "dotnet-interface-guide"}
+    assert convert.source_path_for("index.md", source_tree, mounts) == (
+        source_tree / "docs" / "index.md"
+    )
+    assert convert.source_path_for(
+        "compiler-user-guide/basic-usage.md", source_tree, mounts
+    ) == (source_tree / "compiler-user-guide" / "docs" / "basic-usage.md")
+    assert convert.source_path_for(
+        "net-interface-guide/installation.md", source_tree, mounts
+    ) == (source_tree / "dotnet-interface-guide" / "docs" / "installation.md")
+
+
+# --- mount points ------------------------------------------------------
+
+
+def test_guide_alias_matches_the_live_site_geometry():
+    # mkdocs-monorepo-plugin mounts a guide at its site_name when that is a
+    # plain path token, otherwise at its slug. The live site serves the .NET
+    # guides at net-interface-guide/ and net-framework-interface-guide/.
+    assert convert.guide_alias("Language Reference Guide") == "language-reference-guide"
+    assert convert.guide_alias("UNIX User Guide") == "unix-user-guide"
+    assert convert.guide_alias(".NET Interface Guide") == "net-interface-guide"
+    assert convert.guide_alias(".NET Framework Interface Guide") == "net-framework-interface-guide"
+    assert convert.guide_alias("object-reference") == "object-reference"
+
+
+def test_mount_points_map_alias_to_directory_and_reject_collisions():
+    subs = {
+        "dotnet-interface-guide": {"site_name": ".NET Interface Guide"},
+        "release-notes": {"site_name": "Release Notes"},
+        "unnamed": {},
+    }
+    assert convert.mount_points(subs) == {
+        "net-interface-guide": "dotnet-interface-guide",
+        "release-notes": "release-notes",
+        "unnamed": "unnamed",
+    }
+    with pytest.raises(ValueError, match="both mount at"):
+        convert.mount_points({"a": {"site_name": "Same Name"}, "b": {"site_name": "same-name"}})
+
+
+def test_mounts_each_guide_at_its_alias(source_tree, out_dir, overlay):
+    run(source_tree, out_dir, overlay)
+    assert (out_dir / "docs" / "net-interface-guide" / "installation.md").is_file()
+    assert not (out_dir / "docs" / "dotnet-interface-guide").exists()
+    project = read_toml(out_dir)
+    dotnet = project["nav"][1]["Code Tooling"][0][".NET Interface"]
+    assert dotnet == ["net-interface-guide/index.md", {"Installation": "net-interface-guide/installation.md"}]
 
 
 # --- config merging ----------------------------------------------------
@@ -193,8 +312,8 @@ def merged(source_tree):
     return convert.merge_configs(root, subs)
 
 
-def plugin_names(plugins):
-    return [p if isinstance(p, str) else next(iter(p)) for p in plugins]
+def entry_names(entries):
+    return [e if isinstance(e, str) else next(iter(e)) for e in entries]
 
 
 def test_raises_value_error_when_nav_includes_an_unknown_subproject(source_tree):
@@ -202,7 +321,7 @@ def test_raises_value_error_when_nav_includes_an_unknown_subproject(source_tree)
     subs = {
         "release-notes": convert.load_yaml(source_tree / "release-notes" / "mkdocs.yml")
     }
-    with pytest.raises(ValueError, match="compiler-user-guide"):
+    with pytest.raises(ValueError, match="dotnet-interface-guide"):
         convert.merge_configs(root, subs)
 
 
@@ -232,22 +351,27 @@ def test_prefixes_nested_nav_sections_recursively(merged):
     }
 
 
+def test_prefixes_included_nav_with_the_mount_alias_not_the_directory(merged):
+    dotnet = merged["nav"][1]["Code Tooling"][0][".NET Interface"]
+    assert dotnet[0] == "net-interface-guide/index.md"
+
+
 def test_keeps_root_level_nav_pages_unprefixed(merged):
     about = merged["nav"][2]["About"]
     assert about == [{"Conventions": "conventions.md"}]
 
 
-def test_drops_monorepo_site_urls_and_caption_plugins(merged):
-    names = plugin_names(merged["plugins"])
-    assert "monorepo" not in names
-    assert "site-urls" not in names
-    assert "caption" not in names
-    assert {"privacy", "search", "macros", "minify"} <= set(names)
+def test_carries_only_the_source_values_the_template_needs(merged):
+    # theme, stylesheets, scripts, plugins and copyright are MkDocs house
+    # configuration; the Zensical template owns their replacements.
+    assert set(merged) == {"site_name", "repo_url", "nav", "markdown_extensions", "extra"}
+    assert merged["site_name"] == "Documentation"
+    assert merged["repo_url"] == "https://github.com/dyalog/documentation"
 
 
 def test_folds_markdown_extensions_into_a_superset_with_root_precedence(merged):
     extensions = merged["markdown_extensions"]
-    names = [e if isinstance(e, str) else next(iter(e)) for e in extensions]
+    names = entry_names(extensions)
     assert names.count("pymdownx.highlight") == 1
     assert "footnotes" in names
     assert "markdown_tables_extended" in names
@@ -260,55 +384,16 @@ def test_folds_markdown_extensions_into_a_superset_with_root_precedence(merged):
     }
 
 
-def test_folds_extra_with_root_precedence(merged):
-    assert merged["extra"]["version_maj"] == 21
-    assert merged["extra"]["version_majmin"] == "21.0"
-
-
-def test_wires_the_caption_extension_into_markdown_extensions(merged):
-    names = [
-        e if isinstance(e, str) else next(iter(e))
-        for e in merged["markdown_extensions"]
-    ]
+def test_drops_arithmatex_and_wires_the_caption_extension(merged):
+    names = entry_names(merged["markdown_extensions"])
+    assert "pymdownx.arithmatex" not in names
     assert "dyalog_caption" in names
 
 
-def test_takes_extra_css_from_the_root_alone(merged):
-    assert merged["extra_css"] == [
-        "documentation-assets/css/main.css",
-        "documentation-assets/css/extra.css",
-        "documentation-assets/css/admonition-ucmdhelp.css",
-    ]
-
-
-def test_consolidates_extra_javascript_to_single_mathjax_and_external_urls(merged):
-    assert merged["extra_javascript"] == [
-        "javascripts/mathjax.js",
-        "https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js",
-    ]
-
-
-def test_takes_site_name_copyright_and_theme_from_root(merged):
-    assert merged["site_name"] == "Documentation"
-    assert merged["copyright"].startswith("Copyright &copy; 1982-$CURRENT_YEAR")
-    assert (
-        merged["theme"]["logo"] == "documentation-assets/images/dyalog-logo_white.svg"
-    )
-    assert merged["theme"]["font"] == {"text": "Be Vietnam Pro"}
-
-
-def test_sets_site_url_to_the_production_canonical(merged):
-    # Versioned deploy needs site_url: Zensical prefixes it with the version
-    # (docs.dyalog.com/21.0/) only when it is set, and the source config has
-    # none. The canonical production host is docs.dyalog.com.
-    assert merged["site_url"] == "https://docs.dyalog.com/"
-
-
-def test_sets_theme_custom_dir_for_the_version_warning(merged):
-    # The outdated-version warning banner is a theme override; custom_dir points
-    # Zensical at it. A top-level overrides/ (not under docs/) keeps the template
-    # out of the published content. The selector itself is native.
-    assert merged["theme"]["custom_dir"] == "overrides"
+def test_folds_extra_with_root_precedence(merged):
+    assert merged["extra"]["version_maj"] == 21
+    assert merged["extra"]["version_majmin"] == "21.0"
+    assert merged["extra"]["version"] == {"provider": "mike"}
 
 
 # --- helpers -----------------------------------------------------------
@@ -338,56 +423,59 @@ def test_load_yaml_reads_quoted_include_entries_as_plain_strings(source_tree):
 # --- serialisation -----------------------------------------------------
 
 
-def test_writes_zensical_toml_under_project_with_merged_values(source_tree, out_dir):
-    run(source_tree, out_dir)
-    with open(out_dir / "zensical.toml", "rb") as f:
-        data = tomllib.load(f)
-    project = data["project"]
+def test_writes_zensical_toml_under_project_with_merged_values(source_tree, out_dir, overlay):
+    run(source_tree, out_dir, overlay)
+    project = read_toml(out_dir)
     assert project["site_name"] == "Documentation"
+    assert project["repo_url"] == "https://github.com/dyalog/documentation"
     assert project["extra"]["version_majmin"] == "21.0"
-    assert "navigation.instant" in project["theme"]["features"]
+    assert project["nav"][0]["Release Notes"][0]["v21.0 Release Notes"][0] == (
+        "release-notes/index.md"
+    )
     assert "markdown_tables_extended" in str(project["markdown_extensions"])
-
-
-def test_zensical_toml_plugins_are_exactly_the_supported_four(source_tree, out_dir):
-    run(source_tree, out_dir)
-    with open(out_dir / "zensical.toml", "rb") as f:
-        project = tomllib.load(f)["project"]
-    names = plugin_names(project["plugins"])
-    assert set(names) == {"privacy", "search", "macros", "minify"}
-
-
-def test_zensical_toml_includes_the_caption_extension(source_tree, out_dir):
-    run(source_tree, out_dir)
-    with open(out_dir / "zensical.toml", "rb") as f:
-        project = tomllib.load(f)["project"]
     assert "dyalog_caption" in str(project["markdown_extensions"])
+    assert "arithmatex" not in str(project["markdown_extensions"])
 
 
-def test_zensical_toml_carries_site_url(source_tree, out_dir):
-    run(source_tree, out_dir)
-    with open(out_dir / "zensical.toml", "rb") as f:
-        project = tomllib.load(f)["project"]
+def test_zensical_toml_takes_the_house_configuration_from_the_template(
+    source_tree, out_dir, overlay
+):
+    project = (run(source_tree, out_dir, overlay), read_toml(out_dir))[1]
+    assert entry_names(project["plugins"]) == ["search", "macros"]
+    assert project["extra_css"] == ["documentation-assetsz/css/dyalog.css"]
+    assert "extra_javascript" not in project
     assert project["site_url"] == "https://docs.dyalog.com/"
-
-
-def test_zensical_toml_sets_theme_custom_dir(source_tree, out_dir):
-    run(source_tree, out_dir)
-    with open(out_dir / "zensical.toml", "rb") as f:
-        project = tomllib.load(f)["project"]
     assert project["theme"]["custom_dir"] == "overrides"
+    assert project["theme"]["variant"] == "classic"
+    assert project["theme"]["font"] is False
+    assert "content.code.copy" in project["theme"]["features"]
+    assert "navigation.footer" not in project["theme"]["features"]
+    assert [p["scheme"] for p in project["theme"]["palette"]] == ["default", "slate"]
+    assert "Zensical" in project["copyright"]
 
 
-def test_zensical_toml_is_the_only_config_emitted(source_tree, out_dir):
-    run(source_tree, out_dir)
+def test_zensical_toml_keeps_the_template_comments(source_tree, out_dir, overlay):
+    run(source_tree, out_dir, overlay)
+    text = (out_dir / "zensical.toml").read_text()
+    assert "# House style" in text
+    assert "@@" not in text
+
+
+def test_render_refuses_a_template_missing_a_placeholder(merged):
+    with pytest.raises(ValueError, match="@@HEADER@@"):
+        convert.render_zensical_toml(merged, "[project]\n@@MARKDOWN_EXTENSIONS@@\n@@EXTRA_AND_NAV@@\n")
+
+
+def test_zensical_toml_is_the_only_config_emitted(source_tree, out_dir, overlay):
+    run(source_tree, out_dir, overlay)
     assert (out_dir / "zensical.toml").is_file()
     assert not (out_dir / "mkdocs.yml").exists()
 
 
-def test_two_runs_produce_byte_identical_output(source_tree, out_dir):
-    run(source_tree, out_dir)
+def test_two_runs_produce_byte_identical_output(source_tree, out_dir, overlay):
+    run(source_tree, out_dir, overlay)
     first = tree_digest(out_dir)
-    run(source_tree, out_dir)
+    run(source_tree, out_dir, overlay)
     assert tree_digest(out_dir) == first
 
 
