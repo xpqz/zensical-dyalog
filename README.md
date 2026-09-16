@@ -15,20 +15,25 @@ parity. The phased migration is described in
 
 ## Status
 
-Content and build config are generated from the monorepo by `tools/convert.py` and committed
-under `zensical/`. The build is stock Zensical plus one stylesheet
-(`zensical/docs/documentation-assetsz/`); the house classes the MkDocs stylesheet styled are
-rewritten into plain Markdown at conversion time (see `tools/transforms.py`), and
-`docs/asset-switch-issues.md` records the design.
+`zensical/` is the canonical, authored-in-place documentation source as of 16 September
+2026. It was generated from the monorepo by `tools/convert.py` and then edited directly: pages
+carry Diátaxis type tags (`Tutorial`, `How-to`, `Explanation`; reference is untagged), two
+top-level groups (Tutorials, How-to guides) hold hub pages and incoming material, and the front
+page signposts the four kinds of content. Changes made here are backported to
+`dyalog/documentation` later, not the other way round.
 
-## Regenerating from the monorepo
+The build is stock Zensical plus one stylesheet (`zensical/docs/documentation-assetsz/`); the
+house classes the MkDocs stylesheet styled were rewritten into plain Markdown at conversion time
+(see `tools/transforms.py`), and `docs/asset-switch-issues.md` records the design.
+
+## Regenerating from the monorepo (destructive; for backport comparison only)
 
 With a checkout of `dyalog/documentation` as a sibling directory named `documentation`:
 
 ```
 pip install -r tools/requirements-build.txt -r tools/requirements-dev.txt
 pip install -e tools/
-python tools/convert.py            # rewrites zensical/ (keeps the two asset directories)
+python tools/convert.py --regenerate   # rewrites zensical/ (keeps the two asset directories)
 python tools/check_flatten.py      # builds it and gates on known-issues.txt
 ```
 

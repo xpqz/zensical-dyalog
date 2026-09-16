@@ -574,4 +574,14 @@ def convert(
 
 
 if __name__ == "__main__":
+    import sys
+
+    # Since 2026-09-16 zensical/ is authored in place (tags, the Tutorials and
+    # How-to groups, the front page, page rewrites). Regenerating from the
+    # monorepo discards all of that, so it is no longer the default action.
+    if "--regenerate" not in sys.argv[1:]:
+        sys.exit(
+            "zensical/ is authored in place; regenerating from the monorepo would"
+            " discard the hand edits. Pass --regenerate to do it anyway."
+        )
     convert(SOURCE_ROOT, OUTPUT_ROOT)
