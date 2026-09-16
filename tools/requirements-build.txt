@@ -1,12 +1,14 @@
 # Build dependencies for the flattened Zensical project, owned by this repo so
 # the build does not depend on the source monorepo (archived at cutover).
-# Pins match the versions the flatten was validated against.
+# Pins match the versions the flatten was validated against. Zensical 0.0.62 is
+# the first release whose navigation.prune labels a pruned section by its own
+# title rather than by the title of its index page.
 #
 # The build also needs the caption extension, installed separately as an
 # editable package:  pip install -e tools/
 #
 # Zensical: the static site generator.
-zensical==0.0.48
+zensical==0.0.62
 
 # Python-Markdown extensions named in zensical.toml's markdown_extensions.
 # (admonition, attr_list, footnotes, md_in_html, toc are Python-Markdown

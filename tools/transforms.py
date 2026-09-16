@@ -14,6 +14,7 @@ Fenced code blocks are never touched: every transform walks the prose
 segments between fences only.
 """
 
+import html
 import posixpath
 import re
 
@@ -129,12 +130,14 @@ def normalise_titles(text, key_link=None):
     generations: the pre-July raw-HTML form the h1 rewrite turns into
     `# <span class="name">N</span> <span class="command">C</span> {: .heading}`,
     and today's `# <span>N</span> \\`C\\`{{key}}` / `# <span>N</span> <span>R</span>`.
-    Both become a plain `# N`, with the calling syntax C in an ```apl block
-    directly below and a classifier R (Property, Event 33, ...) as a plain
-    line, so the title reads cleanly in search results, the nav and screen
-    readers. Any other attr_list tokens (an explicit `#id`) are kept; the
-    `.heading` class is dropped. A nested command span inside the name becomes
-    inline code (`# \\`⎕NA\\` under UNIX`).
+    Both become `# N \\`C\\``: the name followed by the calling syntax C as
+    inline code, with C repeated in an ```apl block directly below (copyable,
+    and set in the APL face), or `# N` with a classifier R (Property, Event
+    33, ...) as a plain line. Any other attr_list tokens (an explicit `#id`)
+    are kept; the `.heading` class is dropped. A nested command span inside
+    the name becomes inline code (`# \\`⎕NA\\` under UNIX`). A multi-line
+    syntax (Bind's two forms) goes into the heading as raw `<code>` with
+    `<br>`, the only way to break a line inside heading code.
 
     The `{{key}}` macro (an icon link to the notation key, drawn white for the
     old title banner) is replaced by a text link to key_link, the relative path
@@ -172,6 +175,8 @@ def _normalise_title_line(line, key_link):
     name, command, right = parsed
 
     title = f"# {name}"
+    if command:
+        title += " " + _inline_command(command)
     if attrs:
         title += " {: " + " ".join(attrs) + "}"
     lines = [title]
@@ -249,6 +254,16 @@ def _name_text(node):
         if "command" in child.get("class", []):
             child.replace_with(NavigableString(f"`{child.get_text()}`"))
     return node.decode_contents().strip()
+
+
+def _inline_command(lines):
+    """The calling syntax as heading inline code: backticks for one line, raw
+    `<code>` with `<br>` for a multi-line signature (inline code cannot break
+    a line). APL never uses a backtick, so no escaping is needed in the
+    backtick form; the raw form escapes HTML specials."""
+    if len(lines) == 1:
+        return f"`{lines[0]}`"
+    return "<code>" + "<br>".join(html.escape(line, quote=False) for line in lines) + "</code>"
 
 
 def _command_text(node):

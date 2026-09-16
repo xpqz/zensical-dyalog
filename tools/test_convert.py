@@ -122,7 +122,7 @@ def test_rewrites_styled_title_with_syntax_block_and_key_link(source_tree, out_d
     run(source_tree, out_dir, overlay)
     page = (out_dir / "docs" / "compiler-user-guide" / "styled-title.md").read_text()
     assert page.startswith(
-        "# Comma Separated Values\n\n```apl\n{R}←{X} ⎕CSV Y\n```\n"
+        "# Comma Separated Values `{R}←{X} ⎕CSV Y`\n\n```apl\n{R}←{X} ⎕CSV Y\n```\n"
         "[Key to notation](../language-reference-guide/key-to-notation.md)\n\n"
     )
     assert "## Examples\n```apl\n" in page

@@ -39,7 +39,7 @@ def test_legacy_name_and_command_become_title_and_apl_block():
         ' <span class="command">R←\\{X\\} ⎕FCHK Y</span> {: .heading}\n\nBody.\n'
     )
     assert t.normalise_titles(text) == (
-        "# File Check and Repair\n\n```apl\nR←{X} ⎕FCHK Y\n```\n\nBody.\n"
+        "# File Check and Repair `R←{X} ⎕FCHK Y`\n\n```apl\nR←{X} ⎕FCHK Y\n```\n\nBody.\n"
     )
 
 
@@ -55,7 +55,7 @@ def test_legacy_name_only_becomes_plain_title():
 
 def test_legacy_keeps_other_attr_list_tokens_and_drops_heading_class():
     text = '# <span class="name">Negate</span> <span class="command">R←-Y</span> {: #negative .heading}\n'
-    assert t.normalise_titles(text).startswith("# Negate {: #negative}\n\n```apl\nR←-Y\n```")
+    assert t.normalise_titles(text).startswith("# Negate `R←-Y` {: #negative}\n\n```apl\nR←-Y\n```")
 
 
 def test_legacy_nested_command_in_name_becomes_inline_code():
@@ -77,7 +77,9 @@ def test_legacy_command_with_br_becomes_two_lines():
         '# <span class="name">Bind</span>'
         ' <span class="command">\\{R\\}←A∘fY<br/>\\{R\\}←(f∘B)Y</span> {: .heading}\n'
     )
-    assert t.normalise_titles(text) == "# Bind\n\n```apl\n{R}←A∘fY\n{R}←(f∘B)Y\n```\n"
+    assert t.normalise_titles(text) == (
+        "# Bind <code>{R}←A∘fY<br>{R}←(f∘B)Y</code>\n\n```apl\n{R}←A∘fY\n{R}←(f∘B)Y\n```\n"
+    )
 
 
 def test_legacy_command_that_is_a_classifier_becomes_a_plain_line():
@@ -87,7 +89,7 @@ def test_legacy_command_that_is_a_classifier_becomes_a_plain_line():
 
 def test_inserts_a_blank_line_when_text_follows_the_title_directly():
     text = '# <span class="name">Dot</span> <span class="command">.</span> {: .heading}\nDot can be used.\n'
-    assert t.normalise_titles(text) == "# Dot\n\n```apl\n.\n```\n\nDot can be used.\n"
+    assert t.normalise_titles(text) == "# Dot `.`\n\n```apl\n.\n```\n\nDot can be used.\n"
 
 
 # --- titles: current form ------------------------------------------------
@@ -96,19 +98,21 @@ def test_inserts_a_blank_line_when_text_follows_the_title_directly():
 def test_current_name_code_and_key_become_block_and_key_link():
     text = "# <span>Comma Separated Values</span> `{R}←{X} ⎕CSV Y`{{key}}\n\nBody.\n"
     assert t.normalise_titles(text, key_link=KEY) == (
-        "# Comma Separated Values\n\n```apl\n{R}←{X} ⎕CSV Y\n```\n"
+        "# Comma Separated Values `{R}←{X} ⎕CSV Y`\n\n```apl\n{R}←{X} ⎕CSV Y\n```\n"
         f"[Key to notation]({KEY})\n\nBody.\n"
     )
 
 
 def test_current_key_macro_is_dropped_without_a_link_target():
     text = "# <span>Zilde</span> `⍬`{{key}}\n"
-    assert t.normalise_titles(text) == "# Zilde\n\n```apl\n⍬\n```\n"
+    assert t.normalise_titles(text) == "# Zilde `⍬`\n\n```apl\n⍬\n```\n"
 
 
 def test_current_inline_code_is_literal_so_backslashes_survive():
     text = "# <span>Scan</span> `R←f\\[K]Y`{{key}}\n"
-    assert "R←f\\[K]Y\n" in t.normalise_titles(text)
+    out = t.normalise_titles(text)
+    assert out.startswith("# Scan `R←f\\[K]Y`\n")
+    assert "```apl\nR←f\\[K]Y\n```" in out
 
 
 def test_current_name_and_right_span_become_title_and_plain_line():
@@ -124,7 +128,8 @@ def test_current_classifier_in_code_becomes_a_plain_line():
 def test_current_code_element_with_br_becomes_two_lines():
     text = "# <span>Bind</span> <code>{R}←A∘fY<br>{R}←(f∘B)Y</code>{{key}}\n"
     assert t.normalise_titles(text, key_link=KEY) == (
-        f"# Bind\n\n```apl\n{{R}}←A∘fY\n{{R}}←(f∘B)Y\n```\n[Key to notation]({KEY})\n"
+        "# Bind <code>{R}←A∘fY<br>{R}←(f∘B)Y</code>\n\n```apl\n{R}←A∘fY\n{R}←(f∘B)Y\n```\n"
+        f"[Key to notation]({KEY})\n"
     )
 
 
@@ -134,6 +139,7 @@ def test_plain_headings_are_left_alone():
         "# Monadic `⎕CSV`\n",
         "# `⎕NA` under UNIX\n",
         "# Signals and `⎕TRAP, 4007⌶`\n",
+        "# Comma Separated Values `{R}←{X} ⎕CSV Y`\n",
         "## <span>Not a title</span>\n",
     ):
         assert t.normalise_titles(text) == text

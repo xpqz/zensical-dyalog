@@ -38,6 +38,10 @@ features = [
     "navigation.indexes",
     "navigation.instant",
     "navigation.path",
+    # Only the visible part of the ~2,000-item nav is rendered into each page
+    # (~130 KB instead of ~1 MB); collapsed sections become a link to their
+    # first page, expanded on arrival. Incompatible only with navigation.expand.
+    "navigation.prune",
     "navigation.sections",
     "navigation.tracking",
 ]

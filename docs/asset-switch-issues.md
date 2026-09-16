@@ -100,7 +100,10 @@ are uncommitted in the working tree.
   tools/zensical.toml.template, and the hand-reworked front page and the
   sliced toolbar PNGs are a content overlay in tools/content/. Against the
   July source the regenerated tree matches the tree described above except
-  where the port deliberately goes further: `<h1 class="example">` is
+  where the port deliberately goes further: the calling syntax is kept in
+  the h1 as inline code (`# Name \`syntax\``, decided 2026-09-16) as well as
+  in the ```apl block, with a `.md-typeset h1 code` rule in dyalog.css
+  dropping the code pill there; `<h1 class="example">` is
   demoted to `##` rather than kept as a second h1 (7 pages); a classifier in
   the command position (`Event 525`, `Method 838`) becomes a plain line, not
   an ```apl block (13 pages); the remaining `{ .shaded }` cells and
@@ -115,9 +118,12 @@ are uncommitted in the working tree.
 - 151 pages use adjacent input/output code blocks the old CSS merged; the
   default two-block rendering is accepted (honest structure, copy button per
   block). Revisit only if it reads badly.
-- requirements-build.txt pins zensical==0.0.48; validated here on 0.0.57.
-  `pip install -e tools/` fails on Python 3.10 (dyalog-caption wants ≥3.11);
-  build with `PYTHONPATH=tools`.
+- requirements-build.txt pins zensical==0.0.62 (was 0.0.48; validated here
+  on 0.0.57). The bump was forced by navigation.prune, enabled 2026-09-16:
+  0.0.48 labelled every pruned section with its index page's title ("About"
+  for most guides); 0.0.62 uses the section title. `pip install -e tools/`
+  fails on Python 3.10 (dyalog-caption wants ≥3.11); build with
+  `PYTHONPATH=tools`.
 - Versioned-deploy banner (overrides/main.html + mike provider) unverified
   locally.
 - Light-mode logo contrast (2.87:1) is the documented identity-over-WCAG

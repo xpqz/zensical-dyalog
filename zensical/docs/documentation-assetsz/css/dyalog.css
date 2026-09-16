@@ -123,3 +123,11 @@ pre > code.language-apl {
   display: block;
   line-height: 1.2;
 }
+
+/* The calling syntax sits in the h1 as inline code (and again, copyable, in
+   the apl block below). Drop the code pill there so it reads as part of the
+   title, as the old banner did; the APL face still applies via --md-code-font. */
+.md-typeset h1 code {
+  background: none;
+  padding: 0;
+}
