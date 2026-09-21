@@ -1,0 +1,85 @@
+{#-
+  First-party, cookie-less feedback transport.
+
+  Zensical renders the "Was this page helpful?" widget (theme partial
+  partials/feedback.html) whenever [project.extra.analytics.feedback] is
+  set, but ships it hidden and inert: the only transport the theme provides
+  is Google Analytics, which this project deliberately does not use.
+
+  Setting provider = "custom" makes the theme include this partial and call
+  __md_analytics() once the page is ready. We use that to unhide the widget
+  and post each rating ourselves. Two transports, chosen by
+  [project.extra.analytics].transport:
+
+    beacon     GET <property>?r=<rating>&p=<page>&n=<nonce>, as an Image.
+               The workhorse: no CORS, no cookies. <property> is
+               "/feedback.gif"; Apache logs the request and
+               tools/feedback_log.py reduces it to feedback.json.
+
+    collector  POST <property> with page/rating form fields, via sendBeacon
+               with a fetch fallback. Points at the local stub
+               (tools/feedback_stub.py) for live demos and testing.
+
+  A page is canonicalised by stripping any /<major>.<minor>/ version prefix.
+  Clicks are handled per submit button, so SubmitEvent.submitter is never
+  needed; the nonce stops caches swallowing repeat clicks.
+-#}
+<script id="__analytics">
+function __md_analytics() {
+  var endpoint = "{{ config.extra.analytics.property }}";
+  var transport = "{{ config.extra.analytics.transport | d('beacon') }}";
+
+  function page() {
+    return location.pathname.replace(/^\/\d+\.\d+\//, "/");
+  }
+
+  function send(rating) {
+    if (!endpoint) return;
+    if (transport === "collector") {
+      var body = new URLSearchParams({ page: page(), rating: rating });
+      try {
+        if (navigator.sendBeacon && navigator.sendBeacon(endpoint, body)) return;
+      } catch (e) {
+        /* fall through to fetch */
+      }
+      try {
+        fetch(endpoint, { method: "POST", body: body, keepalive: true });
+      } catch (e) {
+        /* nothing else we can do from here */
+      }
+      return;
+    }
+    var img = new Image();
+    img.src =
+      endpoint +
+      "?r=" + encodeURIComponent(rating) +
+      "&p=" + encodeURIComponent(page()) +
+      "&n=" + Date.now();
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof document$ === "undefined") return;
+    document$.subscribe(function () {
+      var feedback = document.forms.feedback;
+      if (typeof feedback === "undefined") return;
+      if (!feedback.dataset.mdFeedbackBound) {
+        feedback.dataset.mdFeedbackBound = "1";
+        var buttons = feedback.querySelectorAll("[type=submit]");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].addEventListener("click", function (ev) {
+            ev.preventDefault();
+            var rating = this.getAttribute("data-md-value");
+            send(rating);
+            feedback.firstElementChild.disabled = true;
+            var note = feedback.querySelector(
+              ".md-feedback__note [data-md-value='" + rating + "']"
+            );
+            if (note) note.hidden = false;
+          });
+        }
+      }
+      feedback.hidden = false;
+    });
+  });
+}
+</script>

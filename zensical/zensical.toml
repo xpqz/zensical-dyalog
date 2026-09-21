@@ -87,6 +87,44 @@ conga_version = 3.6
 conga_version_condensed = 36
 generator = false
 
+# First-party "Was this page helpful?" feedback. provider = "custom" selects
+# our own transport (overrides/partials/integrations/analytics/custom.html)
+# instead of the theme's Google Analytics default. Two transports:
+#
+#   beacon     production: GET /feedback.gif, which Apache logs like any
+#              other request; tools/feedback_log.py reduces the log to
+#              feedback.json, which the dashboard reads. No service, no
+#              cookies, first-party.
+#   collector  demo: POST to tools/feedback_stub.py, which serves
+#              tools/feedback_dashboard.html with a live view. Kept for local
+#              demos and testing.
+#
+# This cut is left on the demo collector; for production switch to the beacon
+# block beneath.
+[project.extra.analytics]
+provider = "custom"
+transport = "collector"
+property = "http://127.0.0.1:8765/feedback"
+
+# Production:
+# transport = "beacon"
+# property = "/feedback.gif"
+
+[project.extra.analytics.feedback]
+title = "Was this page helpful?"
+
+[[project.extra.analytics.feedback.ratings]]
+icon = "material/thumb-up-outline"
+name = "This page was helpful"
+data = 1
+note = "Thanks for your feedback!"
+
+[[project.extra.analytics.feedback.ratings]]
+icon = "material/thumb-down-outline"
+name = "This page could be improved"
+data = 0
+note = "Thanks for your feedback. If you can, tell us what was missing -- that is what turns a rating into a fix."
+
 [project.extra.version]
 provider = "mike"
 

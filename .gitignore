@@ -10,5 +10,11 @@ __pycache__/
 .pytest_cache/
 *.egg-info/
 
+# Local feedback captured by tools/feedback_stub.py
+tools/feedback.local.jsonl
+
+# Aggregate produced by tools/feedback_log.py
+feedback.json
+
 # OS
 .DS_Store
