@@ -5,14 +5,18 @@ search:
 
 # Comma Separated Values `{R}←{X} ⎕CSV Y`
 
-```apl
+```text
 {R}←{X} ⎕CSV Y
 ```
 [Key to notation](../key-to-notation.md)
 
 This function imports and exports Comma Separated Value (CSV) data. Monadic `⎕CSV` imports data from a CSV file or converts CSV text into an APL array; dyadic `⎕CSV` exports an APL array to a CSV file or converts it into CSV text. Separators, quoting, numeric formats and fixed-width layouts are controlled through the [variant operator](../primitive-operators/variant.md) `⍠`.
 
-The examples on this page use a file `sales.csv` containing:
+[Examples](#examples) · [Import specification](#import-monadic) · [Export specification](#export-dyadic) · [Further examples](#further-examples)
+
+## Examples
+
+Create `sales.csv` in the current working directory with the following contents. The examples use `⎕IO←1`; array results are shown with boxed display.
 
 ```text
 Product,Sales
@@ -21,15 +25,17 @@ Gimlets,205
 Dingbats,189
 ```
 
-## Examples
-
 ### Read a CSV file
 
 Name the file, say which columns are numeric, and say that the first record is a header:
 
 ```apl
-      data hdr←⎕CSV 'sales.csv' '' (1 2) 1
-      data
+⎕IO←1
+data hdr←⎕CSV 'sales.csv' '' (1 2) 1
+data
+```
+
+```text
 ┌────────┬────┐
 │Widgets │1912│
 ├────────┼────┤
@@ -37,18 +43,33 @@ Name the file, say which columns are numeric, and say that the first record is a
 ├────────┼────┤
 │Dingbats│189 │
 └────────┴────┘
-      hdr
+```
+
+```apl
+hdr
+```
+
+```text
 ┌───────┬─────┐
 │Product│Sales│
 └───────┴─────┘
-      +/data[;2]
+```
+
+```apl
++/data[;2]
+```
+
+```text
 2306
 ```
 
 The four elements of the right argument are the source (`'sales.csv'`), the file encoding (`''`: deduce it), the column types (`1 2`: character, numeric) and the header-row indicator (`1`: the first record is a header, returned separately). With the source alone, every field is returned as text and the header is just another row:
 
 ```apl
-      ⎕CSV 'sales.csv'
+⎕CSV 'sales.csv'
+```
+
+```text
 ┌────────┬─────┐
 │Product │Sales│
 ├────────┼─────┤
@@ -62,31 +83,24 @@ The four elements of the right argument are the source (`'sales.csv'`), the file
 
 ### Write a CSV file
 
-Give the data (and optionally the header) on the left and the file name on the right. The result, the number of bytes written, is [shy](../../programming-reference-guide/introduction/results.md#shy-results):
+Using `data` and `hdr` from the import above, give the data and header on the left and a new file name on the right:
 
 ```apl
-      ⎕←data hdr ⎕CSV 'sales-copy.csv'
-52
+bytes←data hdr ⎕CSV 'sales-copy.csv'
 ```
 
-An existing file is not overwritten unless you ask:
-
-```apl
-      data hdr ⎕CSV 'sales-copy.csv'
-FILE NAME ERROR: sales-copy.csv: Unable to create file ("File exists")
-      data hdr ⎕CSV'sales-copy.csv'
-               ∧
-      ⎕←data hdr (⎕CSV⍠'IfExists' 'Replace') 'sales-copy.csv'
-52
-```
+This creates `sales-copy.csv` with the same records as `sales.csv`. The [shy](../../programming-reference-guide/introduction/results.md#shy-results) result is the number of bytes written, which depends on the encoding and line endings. An existing file signals `FILE NAME ERROR`; see [Replace an existing file](#replace-an-existing-file) for deliberate replacement.
 
 ### Convert text without a file
 
 CSV data already in the workspace can be converted directly. A vector of lines must be marked as nested data with `'N'` (or enclosed), otherwise its items are taken to be the source, encoding and column types:
 
 ```apl
-      lines←'Product,Sales' 'Widgets,1912' 'Gimlets,205'
-      ⎕CSV lines 'N'
+lines←'Product,Sales' 'Widgets,1912' 'Gimlets,205'
+⎕CSV lines 'N'
+```
+
+```text
 ┌───────┬─────┐
 │Product│Sales│
 ├───────┼─────┤
@@ -94,224 +108,6 @@ CSV data already in the workspace can be converted directly. A vector of lines m
 ├───────┼─────┤
 │Gimlets│205  │
 └───────┴─────┘
-```
-
-A single character vector with embedded line endings must be marked as simple data with `'S'`, otherwise it is taken to be a file name:
-
-```apl
-      ⎕CSV ('Product,Sales',(⎕UCS 10),'Widgets,1912') 'S'
-┌───────┬─────┐
-│Product│Sales│
-├───────┼─────┤
-│Widgets│1912 │
-└───────┴─────┘
-```
-
-For export, an empty destination returns the CSV text as the result, as one character vector or, with `'N'`, as a vector of lines:
-
-```apl
-      data hdr ⎕CSV ''
-Product,Sales
-Widgets,1912
-Gimlets,205
-Dingbats,189
-      data hdr ⎕CSV '' 'N'
-┌─────────────┬────────────┬───────────┬────────────┐
-│Product,Sales│Widgets,1912│Gimlets,205│Dingbats,189│
-└─────────────┴────────────┴───────────┴────────────┘
-```
-
-### Numeric columns and bad data
-
-Fields are text unless a column type says otherwise. The type also decides what happens to empty or non-numeric fields. Consider `stock.csv`:
-
-```text
-Item,Qty,Price
-Bolt,10,0.25
-Nut,,0.10
-Washer,n/a,0.05
-```
-
-Type `2` is strict:
-
-```apl
-      ⎕CSV 'stock.csv' '' (1 2 2) 1
-DOMAIN ERROR: Non-numeric data in record 3, field 2 (⎕IO=1)
-      ⎕CSV'stock.csv' ''(1 2 2)1
-      ∧
-```
-
-Type `3` replaces anything that is not a number with the `Fill` value, `0` by default:
-
-```apl
-      (⎕CSV⍠'Fill' ¯1) 'stock.csv' '' (1 3 3) 1
-┌────────────────┬────────────────┐
-│┌──────┬──┬────┐│┌────┬───┬─────┐│
-││Bolt  │10│0.25│││Item│Qty│Price││
-│├──────┼──┼────┤│└────┴───┴─────┘│
-││Nut   │¯1│0.1 ││                │
-│├──────┼──┼────┤│                │
-││Washer│¯1│0.05││                │
-│└──────┴──┴────┘│                │
-└────────────────┴────────────────┘
-```
-
-Type `4` converts what it can and keeps the rest as text. As a scalar it applies to every column, which is the quickest way to load a file whose layout you do not know yet:
-
-```apl
-      ⎕CSV 'stock.csv' '' 4 1
-┌─────────────────┬────────────────┐
-│┌──────┬───┬────┐│┌────┬───┬─────┐│
-││Bolt  │10 │0.25│││Item│Qty│Price││
-│├──────┼───┼────┤│└────┴───┴─────┘│
-││Nut   │   │0.1 ││                │
-│├──────┼───┼────┤│                │
-││Washer│n/a│0.05││                │
-│└──────┴───┴────┘│                │
-└─────────────────┴────────────────┘
-```
-
-Type `5` tolerates empty fields (replaced by `Fill`) but not non-numeric text, and `0` skips a column altogether. The full list is under [Column Types](#columntypes) below.
-
-### Columns instead of rows
-
-`Invert` returns the data one column at a time: `2` gives each character column as a vector of vectors and each numeric column as a numeric vector, ready to assign to separate names:
-
-```apl
-      (product sales) hdr←(⎕CSV⍠'Invert' 2) 'sales.csv' '' (1 2) 1
-      sales
-1912 205 189
-      product
-┌───────┬───────┬────────┐
-│Widgets│Gimlets│Dingbats│
-└───────┴───────┴────────┘
-```
-
-`Invert` `1` differs only in returning character columns as character matrices.
-
-### Other separators and decimal marks
-
-Tab-separated files:
-
-```apl
-      (⎕CSV⍠'Separator' (⎕UCS 9)) 'sales.tsv' '' (1 2) 1
-┌──────────────┬───────────────┐
-│┌───────┬────┐│┌───────┬─────┐│
-││Widgets│1912│││Product│Sales││
-│├───────┼────┤│└───────┴─────┘│
-││Gimlets│205 ││               │
-│└───────┴────┘│               │
-└──────────────┴───────────────┘
-```
-
-Files written with a decimal comma use a different field separator too. Several options are given as a vector of name-value pairs:
-
-```text
-Produkt;Umsatz
-Widgets;1912,50
-Gimlets;205,00
-```
-
-```apl
-      (⎕CSV⍠('Separator' ';')('Decimal' ',')) 'umsatz.csv' '' (1 2) 1
-┌────────────────┬────────────────┐
-│┌───────┬──────┐│┌───────┬──────┐│
-││Widgets│1912.5│││Produkt│Umsatz││
-│├───────┼──────┤│└───────┴──────┘│
-││Gimlets│205   ││                │
-│└───────┴──────┘│                │
-└────────────────┴────────────────┘
-```
-
-The same options apply on export. `Thousands` names a thousands separator, `''` by default.
-
-### Quoted fields
-
-A field containing the separator, a quote or a line ending is quoted, and a quote inside a quoted field is doubled. `⎕CSV` reads such files without further options:
-
-```text
-Name,Note
-"Smith, John","She said ""hello"""
-"Jones, Ann","Two
-lines"
-```
-
-```apl
-      ⊃⎕CSV 'quoted.csv' '' ⍬ 1
-┌───────────┬────────────────┐
-│Smith, John│She said "hello"│
-├───────────┼────────────────┤
-│Jones, Ann │Two             │
-│           │lines           │
-└───────────┴────────────────┘
-```
-
-On export, quotes are added only where needed unless `ForceQuotes` says otherwise:
-
-```apl
-      X←2 2⍴'Smith, John' 'She said "hello"' 'Ann' ('Two',(⎕UCS 10),'lines')
-      X ⎕CSV ''
-"Smith, John","She said ""hello"""
-Ann,"Two
-lines"
-      X (⎕CSV⍠'ForceQuotes' 2) ''
-"Smith, John","She said ""hello"""
-"Ann","Two
-lines"
-```
-
-`QuoteChar`, `EscapeChar` and `DoubleQuote` change the quoting rules themselves; see [Metacharacters](#metacharacters).
-
-### Large files, a chunk at a time
-
-A tied native file is read from its current position, so with the `Records` option a file of any size can be processed a chunk at a time. Reading stops returning records at the end of the file:
-
-```apl
- total←CsvTotal file;tn;chunk
- tn←file ⎕NTIE 0
- total←0
- :While 0<≢chunk←(⎕CSV⍠'Records' 1000) tn '' (1 2)
-     total+←+/chunk[;2]
- :EndWhile
- ⎕NUNTIE tn
-```
-
-A header row, if present, is only in the first chunk, so give the header-row indicator on the first call only. A Byte Order Mark is likewise only seen on the first call; give the encoding explicitly if the file is not UTF-8.
-
-### Ragged records
-
-By default every record must have the same number of fields. With `Ragged`, short records are extended with empty fields and long ones truncated, to the number of columns implied by the column types (or by `Widths`):
-
-```apl
-      (⎕CSV⍠'Ragged' 1) ('a,1' 'b' 'c,3,x') 'N' (1 3)
-┌─┬─┐
-│a│1│
-├─┼─┤
-│b│0│
-├─┼─┤
-│c│3│
-└─┴─┘
-```
-
-### Fixed-width fields
-
-`Widths` gives the width in characters of each column; the separator is then ignored:
-
-```text
-Product Sales
-Widgets  1912
-Gimlets   205
-```
-
-```apl
-      (⎕CSV⍠'Widths' (8 5)) 'fixed.txt' '' (1 2) 1
-┌──────────────┬───────────────┐
-│┌───────┬────┐│┌───────┬─────┐│
-││Widgets│1912│││Product│Sales││
-│├───────┼────┤│└───────┴─────┘│
-││Gimlets│205 ││               │
-│└───────┴────┘│               │
-└──────────────┴───────────────┘
 ```
 
 ## Internal format
@@ -332,7 +128,7 @@ Fixed-width fields do not require these options and they are ignored if fixed-wi
 
 ## Import (monadic)
 
-```apl
+```text
 R←⎕CSV Y
 ```
 
@@ -455,7 +251,7 @@ In addition:
 
 ## Export (dyadic)
 
-```apl
+```text
 {R}←X ⎕CSV Y
 ```
 
@@ -534,6 +330,318 @@ Otherwise, `R` is the CSV data in the format specified in Y, and is not shy.
 - When fixed width fields are written, character data shorter than the specified width is padded with spaces to the right and character data longer than the specified width signals an error. Numeric data is converted to character data as far as possible so that it fits into the specified width. If this is not possible, an error is signalled.
 - Tab-separated fields can be exported by specifying `'Separator' (⎕UCS 9)`.
 - Fields containing a single embedded new line are supported. On export, line feed characters are mapped back to the defined line ending sequence.
+
+## Further examples
+
+These examples cover additional representations, options and file layouts. File-based examples specify the required contents; save each file in the current working directory before running its example.
+
+### Text representations
+
+A single character vector with embedded line endings must be marked as simple data with `'S'`, otherwise it is taken to be a file name:
+
+```apl
+⎕CSV ('Product,Sales',(⎕UCS 10),'Widgets,1912') 'S'
+```
+
+```text
+┌───────┬─────┐
+│Product│Sales│
+├───────┼─────┤
+│Widgets│1912 │
+└───────┴─────┘
+```
+
+Using `data` and `hdr` from [Read a CSV file](#read-a-csv-file), an empty destination returns the CSV text as the result, as one character vector or, with `'N'`, as a vector of lines:
+
+```apl
+data hdr ⎕CSV ''
+```
+
+```text
+Product,Sales
+Widgets,1912
+Gimlets,205
+Dingbats,189
+```
+
+```apl
+data hdr ⎕CSV '' 'N'
+```
+
+```text
+┌─────────────┬────────────┬───────────┬────────────┐
+│Product,Sales│Widgets,1912│Gimlets,205│Dingbats,189│
+└─────────────┴────────────┴───────────┴────────────┘
+```
+
+### Replace an existing file
+
+By default, exporting to an existing file signals `FILE NAME ERROR`. To replace `sales-copy.csv` deliberately, use `IfExists`:
+
+```apl
+bytes←data hdr (⎕CSV⍠'IfExists' 'Replace') 'sales-copy.csv'
+```
+
+This overwrites the file. It uses `data` and `hdr` from [Read a CSV file](#read-a-csv-file).
+
+### Numeric columns and bad data
+
+Fields are text unless a column type says otherwise. The type also decides what happens to empty or non-numeric fields. Consider `stock.csv`:
+
+```text
+Item,Qty,Price
+Bolt,10,0.25
+Nut,,0.10
+Washer,n/a,0.05
+```
+
+Type `2` is strict:
+
+```apl
+⎕CSV 'stock.csv' '' (1 2 2) 1
+```
+
+```text
+DOMAIN ERROR: Non-numeric data in record 3, field 2 (⎕IO=1)
+```
+
+Type `3` replaces anything that is not a number with the `Fill` value, `0` by default:
+
+```apl
+(⎕CSV⍠'Fill' ¯1) 'stock.csv' '' (1 3 3) 1
+```
+
+```text
+┌────────────────┬────────────────┐
+│┌──────┬──┬────┐│┌────┬───┬─────┐│
+││Bolt  │10│0.25│││Item│Qty│Price││
+│├──────┼──┼────┤│└────┴───┴─────┘│
+││Nut   │¯1│0.1 ││                │
+│├──────┼──┼────┤│                │
+││Washer│¯1│0.05││                │
+│└──────┴──┴────┘│                │
+└────────────────┴────────────────┘
+```
+
+Type `4` converts what it can and keeps the rest as text. As a scalar it applies to every column, which is the quickest way to load a file whose layout you do not know yet:
+
+```apl
+⎕CSV 'stock.csv' '' 4 1
+```
+
+```text
+┌─────────────────┬────────────────┐
+│┌──────┬───┬────┐│┌────┬───┬─────┐│
+││Bolt  │10 │0.25│││Item│Qty│Price││
+│├──────┼───┼────┤│└────┴───┴─────┘│
+││Nut   │   │0.1 ││                │
+│├──────┼───┼────┤│                │
+││Washer│n/a│0.05││                │
+│└──────┴───┴────┘│                │
+└─────────────────┴────────────────┘
+```
+
+Type `5` tolerates empty fields (replaced by `Fill`) but not non-numeric text, and `0` skips a column altogether. The full list is under [Column Types](#columntypes).
+
+### Columns instead of rows
+
+`Invert` returns the data one column at a time: `2` gives each character column as a vector of vectors and each numeric column as a numeric vector, ready to assign to separate names:
+
+```apl
+(product sales) hdr←(⎕CSV⍠'Invert' 2) 'sales.csv' '' (1 2) 1
+sales
+```
+
+```text
+1912 205 189
+```
+
+```apl
+product
+```
+
+```text
+┌───────┬───────┬────────┐
+│Widgets│Gimlets│Dingbats│
+└───────┴───────┴────────┘
+```
+
+`Invert` `1` differs only in returning character columns as character matrices.
+
+### Other separators and decimal marks
+
+Create `sales.tsv` with these records, using a tab between fields:
+
+```text
+Product	Sales
+Widgets	1912
+Gimlets	205
+```
+
+```apl
+(⎕CSV⍠'Separator' (⎕UCS 9)) 'sales.tsv' '' (1 2) 1
+```
+
+```text
+┌──────────────┬───────────────┐
+│┌───────┬────┐│┌───────┬─────┐│
+││Widgets│1912│││Product│Sales││
+│├───────┼────┤│└───────┴─────┘│
+││Gimlets│205 ││               │
+│└───────┴────┘│               │
+└──────────────┴───────────────┘
+```
+
+Files written with a decimal comma use a different field separator too. Save the following as `umsatz.csv`. Several options are given as a vector of name-value pairs:
+
+```text
+Produkt;Umsatz
+Widgets;1912,50
+Gimlets;205,00
+```
+
+```apl
+(⎕CSV⍠('Separator' ';')('Decimal' ',')) 'umsatz.csv' '' (1 2) 1
+```
+
+```text
+┌────────────────┬────────────────┐
+│┌───────┬──────┐│┌───────┬──────┐│
+││Widgets│1912.5│││Produkt│Umsatz││
+│├───────┼──────┤│└───────┴──────┘│
+││Gimlets│205   ││                │
+│└───────┴──────┘│                │
+└────────────────┴────────────────┘
+```
+
+The same options apply on export. `Thousands` names a thousands separator, `''` by default.
+
+### Quoted fields
+
+A field containing the separator, a quote or a line ending is quoted, and a quote inside a quoted field is doubled. `⎕CSV` reads such files without further options. Save this example as `quoted.csv`:
+
+```text
+Name,Note
+"Smith, John","She said ""hello"""
+"Jones, Ann","Two
+lines"
+```
+
+```apl
+⊃⎕CSV 'quoted.csv' '' ⍬ 1
+```
+
+```text
+┌───────────┬────────────────┐
+│Smith, John│She said "hello"│
+├───────────┼────────────────┤
+│Jones, Ann │Two             │
+│           │lines           │
+└───────────┴────────────────┘
+```
+
+On export, quotes are added only where needed unless `ForceQuotes` says otherwise:
+
+```apl
+X←2 2⍴'Smith, John' 'She said "hello"' 'Ann' ('Two',(⎕UCS 10),'lines')
+X ⎕CSV ''
+```
+
+```text
+"Smith, John","She said ""hello"""
+Ann,"Two
+lines"
+```
+
+```apl
+X (⎕CSV⍠'ForceQuotes' 2) ''
+```
+
+```text
+"Smith, John","She said ""hello"""
+"Ann","Two
+lines"
+```
+
+`QuoteChar`, `EscapeChar` and `DoubleQuote` change the quoting rules themselves; see [Metacharacters](#metacharacters).
+
+### Large files, a chunk at a time
+
+A tied native file is read from its current position, so the `Records` option lets a file be processed a chunk at a time. This function totals the second column of a UTF-8 file with the same layout as `sales.csv`: one header row, then a text column and a numeric column.
+
+Define the function in the editor:
+
+```apl
+∇ total←CsvTotal file;tn;chunk;header;error;⎕IO
+  ⎕IO←1
+  tn←file ⎕NTIE 0
+  :Trap 0
+      total←0
+      chunk header←(⎕CSV⍠'Records' 1000) tn 'UTF-8' (1 2) 1
+      :While 0<≢chunk
+          total+←+/chunk[;2]
+          chunk←(⎕CSV⍠'Records' 1000) tn 'UTF-8' (1 2)
+      :EndWhile
+  :Else
+      error←⎕DMX
+      ⎕NUNTIE tn
+      ⎕SIGNAL⊂('EN' error.EN)('Message' error.Message)
+  :EndTrap
+  ⎕NUNTIE tn
+∇
+```
+
+```apl
+CsvTotal 'sales.csv'
+```
+
+```text
+2306
+```
+
+The header-row indicator is supplied only on the first call. The encoding is supplied on every call because a Byte Order Mark is encountered only at the start of the file. The function releases the native-file tie on success and on a processing error.
+
+### Ragged records
+
+By default every record must have the same number of fields. With `Ragged`, short records are extended with empty fields and long ones truncated, to the number of columns implied by the column types (or by `Widths`):
+
+```apl
+(⎕CSV⍠'Ragged' 1) ('a,1' 'b' 'c,3,x') 'N' (1 3)
+```
+
+```text
+┌─┬─┐
+│a│1│
+├─┼─┤
+│b│0│
+├─┼─┤
+│c│3│
+└─┴─┘
+```
+
+### Fixed-width fields
+
+`Widths` gives the width in characters of each column; the separator is then ignored. Save the following as `fixed.txt`, preserving the spaces:
+
+```text
+Product Sales
+Widgets  1912
+Gimlets   205
+```
+
+```apl
+(⎕CSV⍠'Widths' (8 5)) 'fixed.txt' '' (1 2) 1
+```
+
+```text
+┌──────────────┬───────────────┐
+│┌───────┬────┐│┌───────┬─────┐│
+││Widgets│1912│││Product│Sales││
+│├───────┼────┤│└───────┴─────┘│
+││Gimlets│205 ││               │
+│└───────┴────┘│               │
+└──────────────┴───────────────┘
+```
 
 <!-- Hidden search keywords -->
 <div style="display: none;">
