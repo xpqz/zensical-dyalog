@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Documentation feedback</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font: 15px/1.5 system-ui, sans-serif; margin: 2rem auto; max-width: 70rem; padding: 0 1rem; }
+  h1 { font-size: 1.4rem; margin-bottom: .25rem; }
+  .meta { color: #888; margin-bottom: 1.25rem; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { text-align: left; padding: .35rem .6rem; border-bottom: 1px solid #8884; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .bar { display: inline-block; height: .9em; vertical-align: middle; border-radius: 2px; }
+  .up { background: #2e7d32; }
+  .down { background: #c62828; }
+  .empty { color: #888; font-style: italic; }
+  .error { color: #c62828; }
+</style>
+</head>
+<body>
+<h1>Documentation feedback</h1>
+<div class="meta" id="meta">loading...</div>
+<table>
+  <thead>
+    <tr><th>Page</th><th class="num">Up</th><th class="num">Down</th><th class="num">Helpful</th><th>Split</th></tr>
+  </thead>
+  <tbody id="rows"></tbody>
+</table>
+<script>
+// One dashboard, two data sources:
+//   demo        http://localhost:8765/                (reads the stub's /summary)
+//   production  feedback-dashboard.html?data=feedback.json
+// Override with ?data=<url>. Page links use ?preview=<base>.
+const params = new URLSearchParams(location.search);
+const DATA = params.get("data") || "summary";
+const PREVIEW = (params.get("preview") || "http://localhost:8000").replace(/\/+$/, "");
+
+async function load() {
+  const meta = document.getElementById("meta");
+  const rows = document.getElementById("rows");
+  let data;
+  try {
+    const res = await fetch(DATA, { cache: "no-store" });
+    if (!res.ok) throw new Error(res.status + " " + res.statusText);
+    data = await res.json();
+  } catch (err) {
+    meta.className = "meta error";
+    meta.textContent = "could not load " + DATA + ": " + err.message;
+    return;
+  }
+  meta.className = "meta";
+  rows.textContent = "";
+  const entries = Object.entries(data.pages || {}).map(function (entry) {
+    const page = entry[0], votes = entry[1];
+    const up = votes["1"] || 0, down = votes["0"] || 0, total = up + down;
+    return { page: page, up: up, down: down, total: total, pct: total ? Math.round(100 * up / total) : 0 };
+  }).sort(function (a, b) { return b.total - a.total || a.pct - b.pct; });
+  meta.textContent = (data.total || 0) + " rating" + (data.total === 1 ? "" : "s") +
+    " across " + entries.length + " page" + (entries.length === 1 ? "" : "s") +
+    " - " + DATA + " - updated " + new Date().toLocaleTimeString();
+  if (!entries.length) {
+    const tr = document.createElement("tr"), td = document.createElement("td");
+    td.colSpan = 5; td.className = "empty";
+    td.textContent = "No feedback yet. Click a thumb on a docs page.";
+    tr.appendChild(td); rows.appendChild(tr);
+    return;
+  }
+  for (const e of entries) {
+    const tr = document.createElement("tr");
+    const tdPage = document.createElement("td");
+    const a = document.createElement("a");
+    a.href = PREVIEW + e.page;
+    a.target = "_blank"; a.rel = "noopener"; a.textContent = e.page;
+    tdPage.appendChild(a); tr.appendChild(tdPage);
+    const tdUp = document.createElement("td");
+    tdUp.className = "num"; tdUp.textContent = e.up; tr.appendChild(tdUp);
+    const tdDown = document.createElement("td");
+    tdDown.className = "num"; tdDown.textContent = e.down; tr.appendChild(tdDown);
+    const tdPct = document.createElement("td");
+    tdPct.className = "num"; tdPct.textContent = e.pct + "%"; tr.appendChild(tdPct);
+    const tdBar = document.createElement("td");
+    const upPx = e.total ? Math.round(120 * e.up / e.total) : 0;
+    const downPx = e.total ? 120 - upPx : 0;
+    tdBar.innerHTML = '<span class="bar up" style="width:' + upPx + 'px"></span>' +
+                      '<span class="bar down" style="width:' + downPx + 'px"></span>';
+    tr.appendChild(tdBar); rows.appendChild(tr);
+  }
+}
+load();
+setInterval(load, 5000);
+</script>
+</body>
+</html>
